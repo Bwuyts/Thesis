@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <linux/kernel.h>
-// #include <linux/module.h>
+ #include <linux/module.h>
 // #include <linux/init.h>
 // #include <linux/moduleparam.h>
 // #include <linux/workqueue.h>
@@ -27,11 +27,11 @@ static inline unsigned int get_cyclecount (void)
 
 static inline void init_perfcounters (int32_t do_reset, int32_t enable_divider)
 {
-  /* enable user-mode access to the performance counter*/
-  asm ("mcr p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
-
-  /* disable counter overflow interrupts (just in case)*/
-  asm ("mcr p15, 0, %0, C9, C14, 2\n\t" :: "r"(0x8000000f));
+//   /* enable user-mode access to the performance counter*/
+//   asm ("mcr p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
+// 
+//   /* disable counter overflow interrupts (just in case)*/
+//   asm ("mcr p15, 0, %0, C9, C14, 2\n\t" :: "r"(0x8000000f));
   int32_t value = 1;
 
   // peform reset:  
@@ -62,6 +62,7 @@ const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76
 unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
 unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
+asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
   int i, j, k, l=100;
 
 //  srand(time(NULL));
