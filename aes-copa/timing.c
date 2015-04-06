@@ -126,43 +126,43 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
   int i, j, k, l=100;
 
-  srand(time(NULL));
+//  srand(time(NULL));
   for (i=0; i<16*BLOCKS*l; i++)
     in[i] = (unsigned char)rand();
 
   
-    unsigned int overhead = get_cyclecount();
-    overhead = get_cyclecount() - overhead;   
+//    unsigned int overhead = get_cyclecount();
+//    overhead = get_cyclecount() - overhead;   
   
 // #ifdef HIRES
   
   init_perfcounters(1,0);
-  uint32_t t0,t1;
+//  uint32_t t0,t1;
   
-  uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
+//  uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
   
-  printf("Cycles for calibrate: %d\n", overhead);
-
-  for (j=0;j<1000;j++) 
-      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
-
-
-  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
-    t0 = get_cyclecount();
-// #endif
-      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
-
-// #ifdef HIRES
-    t1 = get_cyclecount();
-    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
-  }
-// #endif
-  
-// #ifdef HIRES
-  printf("Cycles for YAES: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
-// #endif
-  
+//   printf("Cycles for calibrate: %d\n", overhead);
+// 
+//   for (j=0;j<1000;j++) 
+//       crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
+// 
+// 
+//   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+//     t0 = get_cyclecount();
+// // #endif
+//       crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
+// 
+// // #ifdef HIRES
+//     t1 = get_cyclecount();
+//     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+//   }
+// // #endif
+//   
+// // #ifdef HIRES
+//   printf("Cycles for YAES: %d\n", tMin);
+//   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
+// // #endif
+//   
 
   return 0;
 }
