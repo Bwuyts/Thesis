@@ -9,7 +9,7 @@
 // #include <linux/moduleparam.h>
 // #include <linux/workqueue.h>
 // #include <linux/time.h>
-#include <asm/mutex.h>
+// #include <asm/mutex.h>
 
 #include "encrypt.h"
 
