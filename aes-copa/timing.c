@@ -52,6 +52,7 @@ unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x5
 unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
   int i, j, k, l=100;
+  asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
 
 //  srand(time(NULL));
   for (i=0; i<16*BLOCKS*l; i++)
@@ -84,6 +85,6 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 //   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
 //   
 // 
-//   return 0;*/
+//   return 0;*/	
 }
 
