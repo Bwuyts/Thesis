@@ -36,13 +36,13 @@ static inline void init_perfcounters (int32_t do_reset, int32_t enable_divider)
   value |= 16;
 
   // program the performance-counter control-register:
-  asm volatile ("MCR p15, 0, %0, c9, c12, 0\t\n" :: "r"(value));  
+  asm volatile ("MRC p15, 0, %0, c9, c12, 0\t\n" :: "r"(value));  
 
   // enable all counters:  
-  asm volatile ("MCR p15, 0, %0, c9, c12, 1\t\n" :: "r"(0x8000000f));  
+  asm volatile ("MRC p15, 0, %0, c9, c12, 1\t\n" :: "r"(0x8000000f));  
 
   // clear overflows:
-  asm volatile ("MCR p15, 0, %0, c9, c12, 3\t\n" :: "r"(0x8000000f));
+  asm volatile ("MRC p15, 0, %0, c9, c12, 3\t\n" :: "r"(0x8000000f));
 }
 
 int main() {
@@ -52,7 +52,7 @@ unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x5
 unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
   int i, j, k, l=100;
-  asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
+  asm ("MRC p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
 
 //  srand(time(NULL));
   for (i=0; i<16*BLOCKS*l; i++)
