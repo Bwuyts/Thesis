@@ -136,7 +136,7 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
   
 // #ifdef HIRES
   
-  init_perfcounters(1,0);
+//  init_perfcounters(1,0);
 //  uint32_t t0,t1;
   
 //  uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
