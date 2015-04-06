@@ -4,8 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include <x86intrin.h>
-#include "aescopa.h"
+//#include <x86intrin.h>
+#include "encrypt.h"
 
 #define BLOCKS 7
 // #define HIRES
@@ -64,7 +64,7 @@
 // 
 // #define ALIGN __attribute__ ((aligned(32)))    
 // 
-// #define TIMER_SAMPLE_CNT (10000)
+ #define TIMER_SAMPLE_CNT (10000)
 // 
 // uint32_t calibrate()
 // {
@@ -144,13 +144,13 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
   printf("Cycles for calibrate: %d\n", overhead);
 
   for (j=0;j<1000;j++) 
-      crypto_aead_encrypt(out,tag,in,lengthM,0,0,0,nonce,key);
+      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
 
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = get_cyclecount();
 // #endif
-      crypto_aead_encrypt(out,tag,in,lengthM,0,0,0,nonce,key);
+      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
 
 // #ifdef HIRES
     t1 = get_cyclecount();
