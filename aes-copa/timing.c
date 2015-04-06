@@ -20,8 +20,11 @@ static inline unsigned int get_cyclecount (void)
 
 static inline void init_perfcounters (int32_t do_reset, int32_t enable_divider)
 {
-  // in general enable all counters (including cycle counter)
-    asm ("MRC p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
+  /* enable user-mode access to the performance counter*/
+  asm ("MCR p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
+
+  /* disable counter overflow interrupts (just in case)*/
+  asm ("MCR p15, 0, %0, C9, C14, 2\n\t" :: "r"(0x8000000f));
   int32_t value = 1;
 
   // peform reset:  
