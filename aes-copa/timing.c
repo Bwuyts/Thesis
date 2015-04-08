@@ -13,6 +13,7 @@
 #define PERF_DEF_OPTS (1 | 16)
 
 
+
  #define TIMER_SAMPLE_CNT (10000)
 static void
 enable_cpu_counters(void* data)
@@ -72,13 +73,13 @@ static void __exit fini(void)
 static inline uint32_t
 rdtsc32(void)
 {
-#if defined(__GNUC__) && defined(__ARM_ARCH_7A__)
+//#if defined(__GNUC__) && defined(__ARM_ARCH_7A__)
         uint32_t r = 0;
         asm volatile("mrc p15, 0, %0, c9, c13, 0" : "=r"(r) );
         return r;
-#else
-#error Unsupported architecture/compiler!
-#endif
+//#else
+//#error Unsupported architecture/compiler!
+//#endif
 }
 
 
