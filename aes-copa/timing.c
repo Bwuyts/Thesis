@@ -4,12 +4,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <linux/kernel.h>
- #include <linux/module.h>
-// #include <linux/init.h>
-// #include <linux/moduleparam.h>
-// #include <linux/workqueue.h>
-// #include <linux/time.h>
-// #include <asm/mutex.h>
+#include <linux/module.h>
+
 
 #include "encrypt.h"
 
