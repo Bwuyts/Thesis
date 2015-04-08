@@ -60,23 +60,16 @@ int main(){
   printchar(plain,lengthM,"plain");
   //encrypt(key,IV,adata, plain,cipher, tag, lengthA*8,lengthM*8);
   
-  crypto_aead_encrypt(cipher,tag,plain,lengthM-1,adata,lengthA,0,nonce,key);
-  printchar(cipher,lengthM+1,"cipher");
+  crypto_aead_encrypt(cipher,tag,plain,lengthM,adata,lengthA,0,nonce,key);
+  printchar(cipher,lengthM,"cipher");
   printchar(cipher+lengthM,16,"tag");
 
   //crypto_aead_decrypt(decrypted,cipher +lengthM ,cipher,lengthM,atest,lengthA,0,nonce,key);
   
-  succes = crypto_aead_decrypt(decrypted,0, 0, cipher,lengthM-1,   adata,lengthA,   nonce,key );
+  succes = crypto_aead_decrypt(decrypted,0, 0, cipher,lengthM,   adata,lengthA,   nonce,key );
   printf("succes = %i\n",succes);
   printchar(decrypted,lengthM,"decrypt");
   return 0;
-}
-
-
-
-static inline void ccnt_init (void)
-{
-    asm volatile ("mcr p15, 0, %0, c15, c12, 0" : : "r" (1));
 }
 
 
