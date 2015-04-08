@@ -26,14 +26,14 @@ enable_cpu_counters(void* data)
 }
  
 
-static int __init init(void)
+static int __init__ init(void)
 {
         on_each_cpu(enable_cpu_counters, NULL, 1);
         printk(KERN_INFO "[" DRVR_NAME "] initialized");
         return 0;
 }
 
-static void __exit fini(void)
+static void __exit__ fini(void)
 {
         on_each_cpu(disable_cpu_counters, NULL, 1);
         printk(KERN_INFO "[" DRVR_NAME "] unloaded");
