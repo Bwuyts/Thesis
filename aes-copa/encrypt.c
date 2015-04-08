@@ -39,25 +39,22 @@ typedef uint8_t block_t[16];
 
 static void xor_block(block_t dest, const block_t a, const block_t b)
 {
-	uint32_t* destp = (uint32_t*) dest;
-	uint32_t* ap = (uint32_t*) a;
-	uint32_t* bp = (uint32_t*) b;
-		destp[0] = ap[0] ^ bp[0];
-		destp[1] = ap[1] ^ bp[1];
-		destp[2] = ap[2] ^ bp[2];
-		destp[3] = ap[3] ^ bp[3];
-// 		dest[4] = a[4] ^ b[4];
-// 		dest[5] = a[5] ^ b[5];
-// 		dest[6] = a[6] ^ b[6];
-// 		dest[7] = a[7] ^ b[7];
-// 		dest[8] = a[8] ^ b[8];
-// 		dest[9] = a[9] ^ b[9];
-// 		dest[10] = a[10] ^ b[10];
-// 		dest[11] = a[11] ^ b[11];
-// 		dest[12] = a[12] ^ b[12];
-// 		dest[13] = a[13] ^ b[13];
-// 		dest[14] = a[14] ^ b[14];
-// 		dest[15] = a[15] ^ b[15];
+		dest[0] = a[0] ^ b[0];
+		dest[1] = a[1] ^ b[1];
+		dest[2] = a[2] ^ b[2];
+		dest[3] = a[3] ^ b[3];
+		dest[4] = a[4] ^ b[4];
+		dest[5] = a[5] ^ b[5];
+		dest[6] = a[6] ^ b[6];
+		dest[7] = a[7] ^ b[7];
+		dest[8] = a[8] ^ b[8];
+		dest[9] = a[9] ^ b[9];
+		dest[10] = a[10] ^ b[10];
+		dest[11] = a[11] ^ b[11];
+		dest[12] = a[12] ^ b[12];
+		dest[13] = a[13] ^ b[13];
+		dest[14] = a[14] ^ b[14];
+		dest[15] = a[15] ^ b[15];
 }
 
 static void copy_block(block_t dest, const block_t src)
