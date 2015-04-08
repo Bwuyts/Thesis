@@ -25,16 +25,14 @@ enable_cpu_counters(void* data)
 }
  
 
-static int __init
-init(void)
+static int __init init(void)
 {
         on_each_cpu(enable_cpu_counters, NULL, 1);
         printk(KERN_INFO "[" DRVR_NAME "] initialized");
         return 0;
 }
 
-static void __exit
-fini(void)
+static void __exit fini(void)
 {
         on_each_cpu(disable_cpu_counters, NULL, 1);
         printk(KERN_INFO "[" DRVR_NAME "] unloaded");
@@ -93,8 +91,8 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
   int i, j, k, l=100;
 
-  int initsucces = init()
-  printf("init succes:%i\n", initsucces);
+ // int initsucces = init();
+ // printf("init succes:%i\n", initsucces);
 //  srand(time(NULL));
   for (i=0; i<16*BLOCKS*l; i++)
     in[i] = (unsigned char)rand();
@@ -124,7 +122,7 @@ asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
   }
   printf("Cycles for YAES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
-  fini();
+//  fini();
 
   return 0;
 }
