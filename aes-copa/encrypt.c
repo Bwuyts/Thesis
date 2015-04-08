@@ -37,7 +37,7 @@ typedef uint8_t block_t[16];
  * Auxiliary routines: operations on 128-bit blocks, multiplications, AES
  */
 
-static void xor_block(block_t dest, const block_t a, const block_t b)
+static inline void xor_block(block_t dest, const block_t a, const block_t b)
 {
 	uint32_t* destp = (uint32_t*) dest;
 	uint32_t* ap = (uint32_t*) a;
@@ -60,29 +60,30 @@ static void xor_block(block_t dest, const block_t a, const block_t b)
 // 		dest[15] = a[15] ^ b[15];
 }
 
-static void copy_block(block_t dest, const block_t src)
+static inline void copy_block(block_t dest, const block_t src)
 {
-
-		dest[0] = src[0];
-		dest[1] = src[1];
-		dest[2] = src[2];
-		dest[3] = src[3];
-		dest[4] = src[4];
-		dest[5] = src[5];
-		dest[6] = src[6];
-		dest[7] = src[7];
-		dest[8] = src[8];
-		dest[9] = src[9];
-		dest[10] = src[10];
-		dest[11] = src[11];
-		dest[12] = src[12];
-		dest[13] = src[13];
-		dest[14] = src[14];
-		dest[15] = src[15];
+		uint32_t* destp = (uint32_t*) dest;
+		uint32_t* srcp = (uint32_t*) src;
+		destp[0] = srcp[0];
+		destp[1] = srcp[1];
+		destp[2] = srcp[2];
+		destp[3] = srcp[3];
+// 		dest[4] = src[4];
+// 		dest[5] = src[5];
+// 		dest[6] = src[6];
+// 		dest[7] = src[7];
+// 		dest[8] = src[8];
+// 		dest[9] = src[9];
+// 		dest[10] = src[10];
+// 		dest[11] = src[11];
+// 		dest[12] = src[12];
+// 		dest[13] = src[13];
+// 		dest[14] = src[14];
+// 		dest[15] = src[15];
 		
 }
 
-static void shl_block(block_t res, const block_t x)
+static inline void shl_block(block_t res, const block_t x)
 {
 	res[0] = (x[0] << 1) | (x[1] >> 7);
 	res[1] = (x[1] << 1) | (x[2] >> 7);
@@ -103,7 +104,7 @@ static void shl_block(block_t res, const block_t x)
 	res[15] = x[15] << 1;
 }
 
-static void gf128_mul2(block_t res, const block_t x)
+static inline void gf128_mul2(block_t res, const block_t x)
 {
 	int msb = x[0] & 0x80;
 	shl_block(res, x);
@@ -112,7 +113,7 @@ static void gf128_mul2(block_t res, const block_t x)
 	}
 }
 
-static void gf128_mul3(block_t res, const block_t x)
+static inline void gf128_mul3(block_t res, const block_t x)
 {
 	block_t x2;
 	int msb = x[0] & 0x80;
@@ -123,7 +124,7 @@ static void gf128_mul3(block_t res, const block_t x)
 	xor_block(res, x2, x);
 }
 
-static void gf128_mul7(block_t res, const block_t x)
+static inline void gf128_mul7(block_t res, const block_t x)
 {
 	block_t x2, x4;
 	int msb = x[0] & 0x80;
@@ -140,7 +141,7 @@ static void gf128_mul7(block_t res, const block_t x)
 	xor_block(res, x4, x);
 }
 
-void AES_ENCRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
 {
 	unsigned char buf[16];
 	unsigned char expkey[11*16];
@@ -150,7 +151,7 @@ void AES_ENCRYPT(unsigned char* out, const unsigned char* in, const unsigned cha
 	copy_block(out, buf);
 }
 
-void AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+void inline AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
 {
 	unsigned char buf[16];
 	unsigned char expkey[11*16];
@@ -164,7 +165,7 @@ void AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsigned cha
  * COPA's AD processing PMAC1'
  */
 
-void mac(unsigned char* out, 
+void inline mac(unsigned char* out, 
 		const unsigned char* in, unsigned long long len, 
 		const unsigned char* LL,
 		const unsigned char* k)
@@ -207,7 +208,7 @@ void mac(unsigned char* out,
  * block).
  */
 
-static void encrypt_tag_splitting(unsigned char* c, 
+static inline void encrypt_tag_splitting(unsigned char* c, 
 		const unsigned char* m, int mlen, 
 		const block_t V, const block_t LL, const unsigned char* k)
 {
@@ -253,7 +254,7 @@ static void encrypt_tag_splitting(unsigned char* c,
 	}
 }
 
-static int decrypt_tag_splitting(unsigned char* m, int mlen, 
+static inline int decrypt_tag_splitting(unsigned char* m, int mlen, 
 		const unsigned char* c, 
 		const block_t V, const block_t LL, const unsigned char* k)
 {
@@ -307,7 +308,7 @@ static int decrypt_tag_splitting(unsigned char* m, int mlen,
  * XLS + auxiliary routines for handling fractional last blocks
  */
 
-void rol(unsigned char* out, const unsigned char* in, unsigned int s)
+void inline rol(unsigned char* out, const unsigned char* in, unsigned int s)
 {
 	unsigned char firstbit = in[0] >> 7;
 	while (--s > 0) {
@@ -319,9 +320,9 @@ void rol(unsigned char* out, const unsigned char* in, unsigned int s)
 	*out = (*in << 1) | firstbit;
 }
 
-void mix(unsigned char* buf, unsigned int s)
+void inline mix(unsigned char* buf, unsigned int s)
 {
-	unsigned char ab[16];
+	unsigned char ab[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	unsigned int i;
 
 	for (i = 0; i < s; i++) {
@@ -335,13 +336,13 @@ void mix(unsigned char* buf, unsigned int s)
 	}
 }
 
-void invmix(unsigned char* buf, unsigned int s)
+void inline invmix(unsigned char* buf, unsigned int s)
 {
 	mix(buf, s); /* mix is an involution */
 }
 
 
-void xls(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
+void inline xls(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
 {
 	/*
 	 * Input is s+16 bytes buf[0]..buf[s+15] with 1 < s < 16
@@ -378,7 +379,7 @@ void xls(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned
 	xor_block(buf, buf, LL3);
 }
 
-void xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
+void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
 {
 	block_t LL, LL3;
 	gf128_mul7(LL, twod1); 
