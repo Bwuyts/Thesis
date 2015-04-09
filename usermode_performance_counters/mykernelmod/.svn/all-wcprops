@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod
+END
+modules.order
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/modules.order
+END
+mykernelmod.mod.c
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/mykernelmod.mod.c
+END
+mykernelmod.c
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/mykernelmod.c
+END
+Module.symvers
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/Module.symvers
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/Makefile
+END
+mykernelmod.ko
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/RuanDeClercq/!svn/ver/327/ATUM/code/mykernelmod/mykernelmod.ko
+END
