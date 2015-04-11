@@ -1,4 +1,4 @@
-obj-m += timing.o
+obj-m += time0.o
 KDIR = /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
 
