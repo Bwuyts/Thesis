@@ -6,7 +6,12 @@
 #include "armpmu_lib.h"
 /** -- Configuration stuff ------------------------------------------------- */
 
+#define BLOCKS 7
+#define PERF_DEF_OPTS (1 | 16)
 
+
+
+ #define TIMER_SAMPLE_CNT (10000)
 
 int main() {
 
