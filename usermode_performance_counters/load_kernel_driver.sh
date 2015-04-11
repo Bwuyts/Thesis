@@ -1,1 +1,1 @@
-insmod /usr/src/kernel/mykernelmod/mykernelmod.ko
+insmod /lib/modules/$(shell uname -r)/mykernelmod/mykernelmod.ko
