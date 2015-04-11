@@ -3,8 +3,8 @@
 #include <stdint.h> /* uint32_t */
 #include <stdlib.h>
 #include <time.h>
-#include <linux/kernel.h>
-#include <linux/module.h>
+// #include <linux/kernel.h>
+// #include <linux/module.h>
 
 
 #include "encrypt.h"
