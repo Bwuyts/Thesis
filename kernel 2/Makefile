@@ -13,22 +13,22 @@ obj-m := aprofile.o
 aprofile-objs := $(DRIVER_OBJS)
  
 default:
-        $(MAKE) -C $(KDIR) M=$$PWD
- 
+	$(MAKE) -C $(KDIR) M=$$PWD
+
 install:
-        @if test -f $(DEST)/$(TARGET).orig; then\
-                echo  "Backup of aprofile.ko already exists."; \
-        else \
-                echo  "Creating a backup of aprofile.ko."; \
-                mv -v $(DEST)/$(TARGET) $(DEST)/$(TARGET).orig; \
-        fi      
-        su -c "cp $(TARGET) $(DEST) && /sbin/depmod -a"
- 
+	@if test -f $(DEST)/$(TARGET).orig; then\
+		echo  "Backup of aprofile.ko already exists."; \
+	else \
+		echo  "Creating a backup of aprofile.ko."; \
+		mv -v $(DEST)/$(TARGET) $(DEST)/$(TARGET).orig; \
+	fi      
+	su -c "cp $(TARGET) $(DEST) && /sbin/depmod -a"
+
 revert:
-        @echo  "Reverting to the original aprofile.ko."
-        @mv -v $(DEST)/$(TARGET).orig $(DEST)/$(TARGET) 
- 
+	@echo  "Reverting to the original aprofile.ko."
+	@mv -v $(DEST)/$(TARGET).orig $(DEST)/$(TARGET) 
+
 clean:
-        rm -f *.o aprofile.ko .*.cmd .*.flags *.mod.c
- 
+	rm -f *.o aprofile.ko .*.cmd .*.flags *.mod.c
+	
 -include $(KDIR)/Rules.make
