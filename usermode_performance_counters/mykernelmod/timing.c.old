@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <string.h> /* memcpy() */
+#include <stdint.h> /* uint32_t */
+#include <stdlib.h>
+#include <time.h>
+#include <linux/kernel.h>
+#include <linux/module.h>
+#include <linux/smp.h>
+/** -- Configuration stuff ------------------------------------------------- */
+
+#define DRVR_NAME "enable_arm_pmu"
+
+#if !defined(__arm__)
+#error Module can only be compiled on ARM machines.
+/** -- Initialization & boilerplate ---------------------------------------- */
+
+#define PERF_DEF_OPTS (1 | 16)
+#define PERF_OPT_RESET_CYCLES (2 | 4)
+#define PERF_OPT_DIV64 (8)
+
+static void
+enable_cpu_counters(void* data)
+{
+        printk(KERN_INFO "[" DRVR_NAME "] enabling user-mode PMU access on CPU #%d",
+                smp_processor_id());
+
+        /* Enable user-mode access to counters. */
+        asm volatile("mcr p15, 0, %0, c9, c14, 0" :: "r"(1));
+        /* Program PMU and enable all counters */
+        asm volatile("mcr p15, 0, %0, c9, c12, 0" :: "r"(PERF_DEF_OPTS));
+        asm volatile("mcr p15, 0, %0, c9, c12, 1" :: "r"(0x8000000f));
+}
+
+static void
+disable_cpu_counters(void* data)
+{
+        printk(KERN_INFO "[" DRVR_NAME "] disabling user-mode PMU access on CPU #%d",
+                smp_processor_id());
+
+        /* Program PMU and disable all counters */
+        asm volatile("mcr p15, 0, %0, c9, c12, 0" :: "r"(0));
+        asm volatile("mcr p15, 0, %0, c9, c12, 2" :: "r"(0x8000000f));
+        /* Disable user-mode access to counters. */
+        asm volatile("mcr p15, 0, %0, c9, c14, 0" :: "r"(0));
+}
+
+static int __init
+init(void)
+{
+        on_each_cpu(enable_cpu_counters, NULL, 1);
+        printk(KERN_INFO "[" DRVR_NAME "] initialized");
+        return 0;
+}
+
+static void __exit
+fini(void)
+{
+        on_each_cpu(disable_cpu_counters, NULL, 1);
+        printk(KERN_INFO "[" DRVR_NAME "] unloaded");
+}
+
+MODULE_AUTHOR("Austin Seipp <aseipp@pobox.com>");
+MODULE_LICENSE("Dual MIT/GPL");
+MODULE_DESCRIPTION("Enables user-mode access to ARMv7 PMU counters");
+MODULE_VERSION("0:0.1-dev");
+module_init(init);
+module_exit(fini);
+
+
+#include "encrypt.h"
+
+#define BLOCKS 7
+#define PERF_DEF_OPTS (1 | 16)
+
+
+
+ #define TIMER_SAMPLE_CNT (10000)
+
+
+
+int main() {
+
+const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
+unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
+unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100];
+unsigned long long tag[16];
+
+  int i, j, k, l=100;
+
+ // int initsucces = init();
+ // printf("init succes:%i\n", initsucces);
+//  srand(time(NULL));
+  for (i=0; i<16*BLOCKS*l; i++){
+    in[i] = (unsigned char)rand();}
+
+ //  init_perfcounters(1,0);
+
+   uint32_t overhead = rdtsc32();
+   overhead = rdtsc32() - overhead;   
+  
+  
+ uint32_t t0,t1;
+  
+ uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  printf("Cycles for calibrate: %d\n", overhead);
+
+  for (j=0;j<1000;j++) 
+      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for YAES: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
+//  fini();
+
+  return 0;
+}
+
+
+
+module_init(init);
+module_exit(fini);
