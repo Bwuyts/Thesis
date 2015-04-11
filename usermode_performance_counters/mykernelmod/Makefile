@@ -1,5 +1,5 @@
-obj-m += mykernelmod.o
-KDIR = /usr/src/kernel
+obj-m += timing.o
+KDIR = /lib/modules/$(shell uname -r)/build
 PWD := $(shell pwd)
 
 all:
