@@ -1,4 +1,4 @@
-#include <stdio.h>
+// #include <stdio.h>
 #include <string.h> /* memcpy() */
 #include <stdint.h> /* uint32_t */
 #include <stdlib.h>
@@ -103,7 +103,7 @@ unsigned long long tag[16];
   
  uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
   
-  printf("Cycles for calibrate: %d\n", overhead);
+  printk("Cycles for calibrate: %d\n", overhead);
 
   for (j=0;j<1000;j++) 
       crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
@@ -116,8 +116,8 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for YAES: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
+  printk("Cycles for YAES: %d\n", tMin);
+  printk("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
 //  fini();
 
   return 0;
