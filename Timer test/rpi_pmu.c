@@ -9,7 +9,7 @@
 // Copyright (c) 2013 P.J. Drongowski
 //
  
-#include "../test_common/rpi_pmu.h"
+#include "rpi_pmu.h"
  
 //
 // Remember requested Performance Monitor events and the last counts
