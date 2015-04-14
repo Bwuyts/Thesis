@@ -11,9 +11,9 @@ int main(){
   start_counting(1, 1);
   stop_counting();
   get_counts(cycles, evt0, evt1);
-  printf("cycles: %ill\n",cycles);
-  printf("evt0: %ill\n",evt0);
-  printf("evt1: %ill\n",evt1);
+  printf("cycles: %lli\n",cycles);
+  printf("evt0: %lli\n",evt0);
+  printf("evt1: %lli\n",evt1);
   
 
   
