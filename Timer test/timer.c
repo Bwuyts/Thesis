@@ -1,5 +1,6 @@
 #include rpi_mcu.h
-
+#include <stdint.h>
+#include <stdio.h>
 
 
 
@@ -13,6 +14,7 @@ int main(){
   printf("cycles: %ill\n",cycles);
   printf("evt0: %ill\n",evt0);
   printf("evt1: %ill\n",evt1);
+  
 
   
 }
