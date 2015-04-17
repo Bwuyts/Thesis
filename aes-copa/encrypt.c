@@ -141,7 +141,7 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	xor_block(res, x4, x);
 }
 
-void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
 {
 	unsigned char buf[16];
 
@@ -166,7 +166,7 @@ void inline AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsig
 void inline mac(unsigned char* out, 
 		const unsigned char* in, unsigned long long len, 
 		const unsigned char* LL,
-		const unsigned char* expkey)
+		 unsigned char* expkey)
 {
 	block_t v = { 0 }, delta, block;
 	unsigned int i;
@@ -208,7 +208,7 @@ void inline mac(unsigned char* out,
 
 static inline void encrypt_tag_splitting(unsigned char* c, 
 		const unsigned char* m, int mlen, 
-		const block_t V, const block_t LL, const unsigned char* expkey)
+		const block_t V, const block_t LL,  unsigned char* expkey)
 {
 	block_t delta36, delta37, delta38, delta236, delta367;
 	block_t padmsg = { 0 }, block, S, C, T;
@@ -254,7 +254,7 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 
 static inline int decrypt_tag_splitting(unsigned char* m, int mlen, 
 		const unsigned char* c, 
-		const block_t V, const block_t LL, const unsigned char* k, const unsigned char* expkey)
+		const block_t V, const block_t LL, const unsigned char* k,  unsigned char* expkey)
 {
 	block_t delta36, delta37, delta38, delta236, delta367;
 	block_t block, S, M, T;
@@ -340,7 +340,7 @@ void inline invmix(unsigned char* buf, unsigned int s)
 }
 
 
-void inline xls(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* expkey)
+void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  unsigned char* expkey)
 {
 	/*
 	 * Input is s+16 bytes buf[0]..buf[s+15] with 1 < s < 16
@@ -430,7 +430,7 @@ int crypto_aead_encrypt(
 	unsigned long long remaining = mlen;
 	unsigned char expkey[11*16];
 
-	aesc_keyexp(key, expkey);
+	aesc_keyexp(k, expkey);
 	block_t V;
 	block_t lastblock;
 	block_t block, Lup, Ldown, twod1;
@@ -524,7 +524,7 @@ int crypto_aead_decrypt(
 	unsigned char buf[32]; /* for XLS: at most 15 + 16 bytes */
 		unsigned char expkey[11*16];
 
-	aesc_keyexp(key, expkey);
+	aesc_keyexp(k, expkey);
 	block_t V;
 	block_t lastblock;
 	block_t checksum = { 0 };
