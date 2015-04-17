@@ -11,9 +11,12 @@ int main(){
   int r;
   int result;
   time_start = rdtsc32();
-  for(i=0;i<10000,)
-  r =  = rand()%100;
+  for(i=0;i<10000;i++){
+  r =  rand()%100;
   result = result *r;
+	}
   time_stop = rdtsc32();
-  printf("cycles: %li\n",time_stop-time_start);  
+  printf("cycles: %i\n",time_stop-time_start);
+
+return 0;  
 }
