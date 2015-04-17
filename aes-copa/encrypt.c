@@ -375,7 +375,7 @@ void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  unsign
 	xor_block(buf, buf, LL3);
 }
 
-void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* expkey)
+void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  unsigned char* expkey)
 {
 	block_t LL, LL3;
 	gf128_mul7(LL, twod1); 
