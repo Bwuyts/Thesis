@@ -3,8 +3,7 @@
 #include <stdint.h> /* uint32_t */
 #include <stdlib.h>
 #include <time.h>
-//#include <linux/kernel.h>
-//#include <linux/module.h>
+#include "enable_arm_pmu2/armpmu_lib.h"
 
 
 #include "encrypt.h"
@@ -12,45 +11,6 @@
 #define BLOCKS 7
 
  #define TIMER_SAMPLE_CNT (10000)
-
-static inline unsigned int get_cyclecount (void)
-{
-  unsigned int value;
-  // Read CCNT Register
-  asm volatile ("mrc p15, 0, %0, c9, c13, 0\t\n": "=r"(value));  
-  return value;
-}
-
-static inline void init_perfcounters (int32_t do_reset, int32_t enable_divider)
-{
-//   /* enable user-mode access to the performance counter*/
-//   asm ("mcr p15, 0, %0, C9, C14, 0\n\t" :: "r"(1));
-// 
-//   /* disable counter overflow interrupts (just in case)*/
-//   asm ("mcr p15, 0, %0, C9, C14, 2\n\t" :: "r"(0x8000000f));
-  int32_t value = 1;
-
-  // peform reset:  
-  if (do_reset)
-  {
-    value |= 2;     // reset all counters to zero.
-    value |= 4;     // reset cycle counter to zero.
-  } 
-
-  if (enable_divider)
-    value |= 8;     // enable "by 64" divider for CCNT.
-
-  value |= 16;
-
-  // program the performance-counter control-register:
-  asm volatile ("mcr p15, 0, %0, c9, c12, 0\t\n" :: "r"(value));  
-
-  // enable all counters:  
-  asm volatile ("mcr p15, 0, %0, c9, c12, 1\t\n" :: "r"(0x8000000f));  
-
-  // clear overflows:
-  asm volatile ("mcr p15, 0, %0, c9, c12, 3\t\n" :: "r"(0x8000000f));
-}
 
 int main() {
 
@@ -67,8 +27,8 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
    init_perfcounters(1,0);
 
-   unsigned int overhead = get_cyclecount();
-   overhead = get_cyclecount() - overhead;   
+   uint32_t overhead = rdtsc32();
+   overhead = rdtsc32() - overhead;   
   
   
  uint32_t t0,t1;
@@ -82,16 +42,14 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
-    t0 = get_cyclecount();
+    t0 = rdtsc32();
       crypto_aead_encrypt(out,tag,in,16*BLOCKS*100,0,0,0,nonce,key);
 
-    t1 = get_cyclecount();
+    t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for YAES: %d\n", tMin);
+  printf("Cycles for AES-copa: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
-  
-
   return 0;
 }
 
