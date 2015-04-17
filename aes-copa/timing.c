@@ -45,7 +45,7 @@ unsigned long long tag[16];
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
   printf("Cycles for AES-copa: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(4096));
+  printf("Cycles per byte: %f\n", tMin/4096);
   return 0;
 }
 
