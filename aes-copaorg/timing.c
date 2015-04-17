@@ -5,11 +5,12 @@
 #include <time.h>
 #include "enable_arm_pmu2/armpmu_lib.h"
 
+
 #include "encrypt.h"
 
 #define BLOCKS 1
 
-#define TIMER_SAMPLE_CNT (10000)
+ #define TIMER_SAMPLE_CNT (10000)
 
 int main() {
 
@@ -38,14 +39,16 @@ unsigned long long tag[16];
   for (j=0;j<1000;j++) 
       crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
 
+
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
       crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
+
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
   printf("Cycles for AES-copa: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(4096));
+  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
   return 0;
 }
 
