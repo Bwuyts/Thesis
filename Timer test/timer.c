@@ -1,20 +1,19 @@
-#include "rpi_pmu.h"
+#include "armpmu_lib.h"
 #include <stdint.h>
 #include <stdio.h>
-
+#include <stdlib.h>
 
 
 int main(){
-  uint64_t* cycles;
-  uint64_t* evt0;
-  uint64_t* evt1;
-  start_counting(1, 1);
-  stop_counting();
-  get_counts(cycles, evt0, evt1);
-  printf("cycles: %lli\n",cycles);
-  printf("evt0: %lli\n",evt0);
-  printf("evt1: %lli\n",evt1);
-  
-
-  
+  uint32_t time_start;
+  uint32_t time_stop;
+  int i;
+  int r;
+  int result;
+  time_start = rdtsc32();
+  for(i=0;i<10000,)
+  r =  = rand()%100;
+  result = result *r;
+  time_stop = rdtsc32();
+  printf("cycles: %li\n",time_stop-time_start);  
 }
