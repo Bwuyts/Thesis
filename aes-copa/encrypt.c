@@ -149,7 +149,7 @@ void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned ch
 	copy_block(out, buf);
 }
 
-void inline AES_DECRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
+void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
 {
 	unsigned char buf[16];
 
