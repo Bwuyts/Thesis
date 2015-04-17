@@ -149,12 +149,10 @@ void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned ch
 	copy_block(out, buf);
 }
 
-void inline AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+void inline AES_DECRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
 {
 	unsigned char buf[16];
-	unsigned char expkey[11*16];
 
-	aesc_keyexp(key, expkey);
 	aesc_decrypt(in, buf, expkey);
 	copy_block(out, buf);
 }
@@ -254,7 +252,7 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 
 static inline int decrypt_tag_splitting(unsigned char* m, int mlen, 
 		const unsigned char* c, 
-		const block_t V, const block_t LL, const unsigned char* k,  unsigned char* expkey)
+		const block_t V, const block_t LL, unsigned char* expkey)
 {
 	block_t delta36, delta37, delta38, delta236, delta367;
 	block_t block, S, M, T;
@@ -272,11 +270,11 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
 
 	copy_block(block, c); /* copies from partial ciphertext + partial tag */
 	xor_block(block, block, delta236);
-	AES_DECRYPT(S, block, k);
+	AES_DECRYPT(S, block, expkey);
 
 	xor_block(block, V, S);
 	xor_block(block, block, delta36);
-	AES_DECRYPT(block, block, k);
+	AES_DECRYPT(block, block, expkey);
 
 	xor_block(M, block, delta37); /* block = M10*   */
 	/* compute tag */
@@ -377,7 +375,7 @@ void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  unsign
 	xor_block(buf, buf, LL3);
 }
 
-void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
+void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* expkey)
 {
 	block_t LL, LL3;
 	gf128_mul7(LL, twod1); 
@@ -386,7 +384,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, cons
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_DECRYPT(buf, buf, k);
+	AES_DECRYPT(buf, buf, expkey);
 	xor_block(buf, buf, LL3);
 
 	/* mix on last 2s bytes */
@@ -396,7 +394,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, cons
 
 	/* Ed,1 on first 16 bytes */
 	xor_block(buf, buf, LL);
-	AES_DECRYPT(buf, buf, k);
+	AES_DECRYPT(buf, buf, expkey);
 	xor_block(buf, buf, LL);
 
 	/* flip */
@@ -406,7 +404,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, cons
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_DECRYPT(buf, buf, k);
+	AES_DECRYPT(buf, buf, expkey);
 	xor_block(buf, buf, LL3);
 }
 
@@ -543,7 +541,7 @@ int crypto_aead_decrypt(
 	mac(V, macdata, adlen+16, LL, expkey);
 	free(macdata);
 	if (clen < 16) {
-		return decrypt_tag_splitting(m, clen, c, V, LL, k,expkey);
+		return decrypt_tag_splitting(m, clen, c, V, LL, expkey);
 	}
 
 	xor_block(lastblock, LL, V); /* lastblock = LL ^ V; */
@@ -556,11 +554,11 @@ int crypto_aead_decrypt(
 		block_t newlastblock;
 		xor_block(block, in, Ldown);
 
-		AES_DECRYPT(newlastblock, block, k);
+		AES_DECRYPT(newlastblock, block, expkey);
 		xor_block(block, newlastblock, lastblock);
 		copy_block(lastblock, newlastblock);
 
-		AES_DECRYPT(block, block, k);
+		AES_DECRYPT(block, block, expkey);
 		xor_block(out, block, Lup);
 		xor_block(checksum, checksum, out);
 
@@ -581,7 +579,7 @@ int crypto_aead_decrypt(
 ;
 		memcpy(buf, in, remaining+16);
 		in += remaining;
-		xlsinv(buf, remaining, twod1, k);
+		xlsinv(buf, remaining, twod1, expkey);
 
 		memcpy(out, buf, remaining); /* last partial plaintext */
 		T = buf + remaining;
