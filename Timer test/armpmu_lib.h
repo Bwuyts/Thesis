@@ -1,3 +1,4 @@
+#include <stdint.h>
 #ifndef ARMPMU_LIB_H
 #define ARMPMU_LIB_H
 
