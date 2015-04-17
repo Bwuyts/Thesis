@@ -11,7 +11,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "aes-core.h"
-#include "print.h"
 
 
 typedef uint8_t block_t[16];
