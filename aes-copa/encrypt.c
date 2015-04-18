@@ -451,6 +451,23 @@ int crypto_aead_encrypt(
 	gf128_mul3(Lup, LL); /* Lup = 3*LL delta0*/ 
 	gf128_mul2(Ldown, LL); /* Ldown = 2*LL  delta1*/
 	
+		xor_block(checksum, checksum, in);//calc sigma
+		
+		xor_block(block, in, Lup);//mi xor delta0
+		//AES_ENCRYPT(block, block, expkey);//E_k(mi xor delta0)
+		aesc_encrypt(block, block, expkey);
+		xor_block(block, block, lastblock);//E_k(mi xor delta0) XOR V[i-1]
+		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
+		//AES_ENCRYPT(block, block, expkey);//E_k(v[i])
+		aesc_encrypt(block, block, expkey);
+		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
+		gf128_mul2(Lup, Lup);//delta0*2
+		gf128_mul2(Ldown, Ldown);//delta1*2
+
+		
+		in += 16;
+		out += 16;
+		remaining -= 16;
 	while (remaining >= 16) { 
 		xor_block(checksum, checksum, in);//calc sigma
 		
@@ -464,9 +481,9 @@ int crypto_aead_encrypt(
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
 		gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
-		if (remaining < mlen) {
+		//if (remaining < mlen) {
 			gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
-		}
+		//}
 		
 		in += 16;
 		out += 16;
