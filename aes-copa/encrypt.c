@@ -436,9 +436,7 @@ int crypto_aead_encrypt(
 	block_t T;
 	block_t LL = { 0 };
 
-//	AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
-	aesc_encrypt(LL, LL, expkey);
-
+	AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
 	*clen = mlen + 16;
 
 	/* mac AD + nonce */
@@ -461,11 +459,10 @@ int crypto_aead_encrypt(
 		
 		xor_block(block, in, Lup);//mi xor delta0
 		//AES_ENCRYPT(block, block, expkey);//E_k(mi xor delta0)
+		aesc_encrypt(block, block, expkey);
 		xor_block(block, block, lastblock);//E_k(mi xor delta0) XOR V[i-1]
 		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
-		aesc_encrypt(block, block, expkey);
-
-//		AES_ENCRYPT(block, block, expkey);//E_k(v[i])
+		AES_ENCRYPT(block, block, expkey);//E_k(v[i])
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
 
 		gf128_mul2(Lup, Lup);//delta0*2
