@@ -226,7 +226,7 @@ void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t 
 	uint32_t* textP = (uint32_t*) text;
 	uint32_t* round_keyP = (uint32_t*) round_key;
 	for (i = 0; i < 4; ++i)
-		statep[i] = textp[i] ^ round_keyp[i];
+		stateP[i] = textP[i] ^ round_keyP[i];
 }
 
 void aes_addroundkey(uint8_t state[], const uint8_t round_key[])
