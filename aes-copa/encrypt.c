@@ -145,6 +145,7 @@ static inline void gf128_mul3(block_t res, const block_t x)
 static inline void gf128_mul7(block_t res, const block_t x)
 {
 	block_t x2, x4;
+	uint32_t x0, x1,x2,x3;
 	uint32_t* xp =(uint32_t*) x;
 	uint32_t* x2p =(uint32_t*) x2;
 	uint32_t* x4p =(uint32_t*) x4;
