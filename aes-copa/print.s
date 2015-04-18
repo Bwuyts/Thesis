@@ -1,4 +1,3 @@
-	.syntax unified
 	.arch armv7-a
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
@@ -12,15 +11,12 @@
 	.eabi_attribute 30, 2
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
-	.thumb
 	.file	"print.c"
 	.text
 .Ltext0:
 	.cfi_sections	.debug_frame
 	.align	2
 	.global	printchar
-	.thumb
-	.thumb_func
 	.type	printchar, %function
 printchar:
 .LFB24:
@@ -30,7 +26,7 @@ printchar:
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
 .LVL0:
-	push	{r3, r4, r5, r6, r7, lr}
+	stmfd	sp!, {r3, r4, r5, r6, r7, lr}
 .LCFI0:
 	.cfi_def_cfa_offset 24
 	.cfi_offset 3, -24
@@ -51,12 +47,12 @@ printchar:
 	.loc 2 104 0
 	ldr	r1, .L10
 .LVL1:
-	movs	r0, #1
+	mov	r0, #1
 .LVL2:
 .LBE11:
 .LBE10:
 	.loc 1 8 0
-	asrs	r5, r5, #1
+	mov	r5, r5, asr #1
 .LBB13:
 .LBB12:
 	.loc 2 104 0
@@ -67,8 +63,7 @@ printchar:
 	.loc 1 8 0
 	cmp	r5, #0
 	.loc 1 4 0
-	itt	gt
-	addgt	r5, r7, r5, lsl #1
+	addgt	r5, r7, r5, asl #1
 	movgt	r4, r7
 	.loc 1 8 0
 	ble	.L6
@@ -78,9 +73,9 @@ printchar:
 .LBB15:
 	.loc 2 104 0 discriminator 2
 	ldrb	r2, [r4, #0]	@ zero_extendqisi2
-	movs	r0, #1
+	mov	r0, #1
 	ldrb	r3, [r4, #1]	@ zero_extendqisi2
-	adds	r4, r4, #2
+	add	r4, r4, #2
 	ldr	r1, .L10+4
 	bl	__printf_chk
 .LVL5:
@@ -92,10 +87,10 @@ printchar:
 .LVL6:
 .L6:
 	.loc 1 13 0
-	lsrs	r3, r6, #31
-	adds	r0, r6, r3
+	mov	r3, r6, lsr #31
+	add	r0, r6, r3
 	and	r0, r0, #1
-	subs	r0, r0, r3
+	rsb	r0, r3, r0
 	cmp	r0, #1
 	beq	.L9
 .LVL7:
@@ -103,11 +98,11 @@ printchar:
 .LBB16:
 .LBB17:
 	.loc 2 104 0
-	movs	r0, #10
+	mov	r0, #10
 .LBE17:
 .LBE16:
 	.loc 1 17 0
-	pop	{r3, r4, r5, r6, r7, lr}
+	ldmfd	sp!, {r3, r4, r5, r6, r7, lr}
 .LBB19:
 .LBB18:
 	.loc 2 104 0
@@ -117,7 +112,7 @@ printchar:
 .LBE18:
 .LBE19:
 	.loc 1 14 0
-	adds	r6, r7, r6
+	add	r6, r7, r6
 .LVL9:
 .LBB20:
 .LBB21:

@@ -1,4 +1,3 @@
-	.syntax unified
 	.arch armv7-a
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
@@ -12,7 +11,6 @@
 	.eabi_attribute 30, 2
 	.eabi_attribute 34, 1
 	.eabi_attribute 18, 4
-	.thumb
 	.file	"main.c"
 	.text
 .Ltext0:
@@ -20,8 +18,6 @@
 	.section	.text.startup,"ax",%progbits
 	.align	2
 	.global	main
-	.thumb
-	.thumb_func
 	.type	main, %function
 main:
 .LFB46:
@@ -30,7 +26,7 @@ main:
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 0
 	@ frame_needed = 0, uses_anonymous_args = 0
-	push	{r4, r5, r6, r7, r8, r9, sl, fp, lr}
+	stmfd	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
 .LCFI0:
 	.cfi_def_cfa_offset 36
 	.cfi_offset 4, -36
@@ -54,20 +50,20 @@ main:
 	.cfi_def_cfa_offset 80
 	.loc 1 56 0
 	mov	r0, r8
-	movs	r1, #16
+	mov	r1, #16
 	movw	r2, #:lower16:.LC0
 	.loc 1 58 0
 	add	fp, r6, r1
 	.loc 1 56 0
 	movt	r2, #:upper16:.LC0
 	.loc 1 60 0
-	add	sl, r6, #44
+	add	r9, r6, #44
 	.loc 1 56 0
 	bl	printchar
 .LVL0:
 	.loc 1 57 0
 	mov	r0, r6
-	movs	r1, #16
+	mov	r1, #16
 	movw	r2, #:lower16:.LC1
 	movt	r2, #:upper16:.LC1
 	.loc 1 63 0
@@ -79,25 +75,25 @@ main:
 	movt	r7, #:upper16:cipher
 	.loc 1 58 0
 	mov	r0, fp
-	movs	r1, #26
+	mov	r1, #26
 	movw	r2, #:lower16:.LC2
 	movt	r2, #:upper16:.LC2
 	bl	printchar
 .LVL2:
 	.loc 1 60 0
-	mov	r0, sl
-	movs	r1, #26
+	mov	r0, r9
+	mov	r1, #26
 	movw	r2, #:lower16:.LC3
 	movt	r2, #:upper16:.LC3
 	.loc 1 63 0
-	movs	r4, #26
+	mov	r4, #26
 	.loc 1 60 0
 	bl	printchar
 .LVL3:
 	.loc 1 63 0
-	movs	r5, #0
-	mov	r9, #0
-	mov	r2, sl
+	mov	r5, #0
+	mov	sl, #0
+	mov	r2, r9
 	str	fp, [sp, #8]
 	mov	r0, r7
 	str	r6, [sp, #28]
@@ -106,35 +102,35 @@ main:
 	movt	r1, #:upper16:tag
 	strd	r4, [sp]
 	.loc 1 69 0
-	movw	sl, #:lower16:decrypted
+	movw	r9, #:lower16:decrypted
 	.loc 1 63 0
 	strd	r4, [sp, #16]
 	.loc 1 69 0
-	movt	sl, #:upper16:decrypted
+	movt	r9, #:upper16:decrypted
 	.loc 1 63 0
-	str	r9, [sp, #24]
+	str	sl, [sp, #24]
 	bl	crypto_aead_encrypt
 .LVL4:
 	.loc 1 64 0
 	mov	r0, r7
-	movs	r1, #26
+	mov	r1, #26
 	movw	r2, #:lower16:.LC4
 	movt	r2, #:upper16:.LC4
 	bl	printchar
 .LVL5:
 	.loc 1 65 0
 	add	r0, r7, #26
-	movs	r1, #16
+	mov	r1, #16
 	movw	r2, #:lower16:.LC5
 	movt	r2, #:upper16:.LC5
 	bl	printchar
 .LVL6:
 	.loc 1 69 0
 	mov	r3, r7
-	mov	r1, r9
-	mov	r2, r9
+	mov	r1, sl
+	mov	r2, sl
 	str	fp, [sp, #8]
-	mov	r0, sl
+	mov	r0, r9
 	str	r6, [sp, #24]
 	str	r8, [sp, #28]
 	strd	r4, [sp]
@@ -155,23 +151,23 @@ main:
 .LBB7:
 .LBB6:
 	.loc 2 104 0
-	movs	r0, #1
+	mov	r0, #1
 .LVL9:
 	bl	__printf_chk
 .LVL10:
 .LBE6:
 .LBE7:
 	.loc 1 71 0
-	mov	r0, sl
-	movs	r1, #26
+	mov	r0, r9
+	mov	r1, #26
 	movw	r2, #:lower16:.LC7
 	movt	r2, #:upper16:.LC7
 	bl	printchar
 .LVL11:
 	.loc 1 73 0
-	mov	r0, r9
+	mov	r0, sl
 	add	sp, sp, #44
-	pop	{r4, r5, r6, r7, r8, r9, sl, fp, pc}
+	ldmfd	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
 	.cfi_endproc
 .LFE46:
 	.size	main, .-main
@@ -855,7 +851,7 @@ plain:
 	.byte	0x1
 	.byte	0x50
 	.byte	0x2
-	.byte	0x7a
+	.byte	0x79
 	.sleb128 0
 	.byte	0
 	.uleb128 0x17
@@ -996,7 +992,7 @@ plain:
 	.byte	0x1
 	.byte	0x50
 	.byte	0x2
-	.byte	0x7a
+	.byte	0x79
 	.sleb128 0
 	.uleb128 0x16
 	.byte	0x2
@@ -1055,7 +1051,7 @@ plain:
 	.byte	0x1
 	.byte	0x50
 	.byte	0x2
-	.byte	0x7a
+	.byte	0x79
 	.sleb128 0
 	.byte	0
 	.byte	0
