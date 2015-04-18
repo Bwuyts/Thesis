@@ -36,6 +36,8 @@ typedef uint8_t block_t[16];
 /* 
  * Auxiliary routines: operations on 128-bit blocks, multiplications, AES
  */
+#define copy_block(d, s) memcpy(d, s, 16)
+
 
 static inline void xor_block(block_t dest, const block_t a, const block_t b)
 {
@@ -60,28 +62,28 @@ static inline void xor_block(block_t dest, const block_t a, const block_t b)
 // 		dest[15] = a[15] ^ b[15];
 }
 
-static inline void copy_block(block_t dest, const block_t src)
-{
-		uint32_t* destp = (uint32_t*) dest;
-		uint32_t* srcp = (uint32_t*) src;
-		destp[0] = srcp[0];
-		destp[1] = srcp[1];
-		destp[2] = srcp[2];
-		destp[3] = srcp[3];
-// 		dest[4] = src[4];
-// 		dest[5] = src[5];
-// 		dest[6] = src[6];
-// 		dest[7] = src[7];
-// 		dest[8] = src[8];
-// 		dest[9] = src[9];
-// 		dest[10] = src[10];
-// 		dest[11] = src[11];
-// 		dest[12] = src[12];
-// 		dest[13] = src[13];
-// 		dest[14] = src[14];
-// 		dest[15] = src[15];
-		
-}
+// static inline void copy_block(block_t dest, const block_t src)
+// {
+// 		uint32_t* destp = (uint32_t*) dest;
+// 		uint32_t* srcp = (uint32_t*) src;
+// 		destp[0] = srcp[0];
+// 		destp[1] = srcp[1];
+// 		destp[2] = srcp[2];
+// 		destp[3] = srcp[3];
+// // 		dest[4] = src[4];
+// // 		dest[5] = src[5];
+// // 		dest[6] = src[6];
+// // 		dest[7] = src[7];
+// // 		dest[8] = src[8];
+// // 		dest[9] = src[9];
+// // 		dest[10] = src[10];
+// // 		dest[11] = src[11];
+// // 		dest[12] = src[12];
+// // 		dest[13] = src[13];
+// // 		dest[14] = src[14];
+// // 		dest[15] = src[15];
+// 		
+// }
 
 static inline void shl_block(block_t res, const block_t x)
 {
