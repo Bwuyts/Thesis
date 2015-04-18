@@ -314,7 +314,7 @@ inline void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], cons
 	
 	for (i = 1; i < 10; ++i) {
 		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + i <<4);
+		aes_addroundkey(state, key_sched + (i <<4));
 	}
 	
 	aes_subbytes_shiftrows(state);
