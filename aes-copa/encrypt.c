@@ -143,10 +143,10 @@ static inline void gf128_mul7(block_t res, const block_t x)
 
 void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
 {
-	unsigned char buf[16];
+//	unsigned char buf[16];
 
-	aesc_encrypt(in, buf, expkey);
-	copy_block(out, buf);
+	aesc_encrypt(in, out, expkey);
+//	copy_block(out, buf);
 }
 
 void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
