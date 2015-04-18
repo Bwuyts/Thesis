@@ -221,39 +221,31 @@ void aesc_keyexp(const uint8_t key[], uint8_t key_sched[])
 
 void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[])
 {
-	//unsigned int i;
+	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
 	uint32_t* textP = (uint32_t*) text;
 	uint32_t* round_keyP = (uint32_t*) round_key;
-
-		stateP[0] = textP[0] ^ round_keyP[0];
-		stateP[1] = textP[1] ^ round_keyP[1];
-		stateP[2] = textP[2] ^ round_keyP[2];
-		stateP[3] = textP[3] ^ round_keyP[3];
+	for (i = 0; i < 4; ++i)
+		stateP[i] = textP[i] ^ round_keyP[i];
 }
 
 void aes_addroundkey(uint8_t state[], const uint8_t round_key[])
 {
-	//unsigned int i;
+	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
 	uint32_t* round_keyP = (uint32_t*) round_key;
-
-		stateP[0] ^= round_keyP[0];
-		stateP[1] ^= round_keyP[1];
-		stateP[2] ^= round_keyP[2];
-		stateP[3] ^= round_keyP[3];
+	for (i = 0; i < 4; ++i)
+		stateP[i] ^= round_keyP[i];
 }
 
 void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t round_key[])
 {
-	//unsigned int i;
+	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
 	uint32_t* textP = (uint32_t*) text;
 	uint32_t* round_keyP = (uint32_t*) round_key;
-		textP[0] = stateP[0] ^ round_keyP[0];
-		textP[1] = stateP[1] ^ round_keyP[1];
-		textP[2] = stateP[2] ^ round_keyP[2];
-		textP[3] = stateP[3] ^ round_keyP[3];
+	for (i = 0; i < 4; ++i)
+		textP[i] = stateP[i] ^ round_keyP[i];
 }
 
 void aes_subbytes_shiftrows(uint8_t state[])
