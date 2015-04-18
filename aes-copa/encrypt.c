@@ -150,10 +150,22 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	uint32_t* x4p =(uint32_t*) x4;
 	uint32_t* resp =(uint32_t*) res;
 	int msb = x[0] & 0x80;
-	shl_block(x2, x);
+	X0 = GETU32(x);
+	X1 = GETU32(x+4);
+	X2 = GETU32(x+8);
+	X3 = GETU32(x+12);
+	X0 = (X0<<1) | (X1>>31);
+	X1 = (X1<<1) | (X2>>31);
+	X2 = (X2<<1) | (X3>>31);
+	X3 = (X3<<1) ;
 	if (msb) {
-		x2[15] ^= 0x87;
+		X3 ^= 0x87;
 	}
+	PUTU32(x2, X0);
+	PUTU32(x2+4, X1);
+	PUTU32(x2+8, X2);
+	PUTU32(x2+12, X3);
+	
 	msb = x2[0] & 0x80;
 	shl_block(x4, x2);
 	if (msb) {
@@ -165,6 +177,7 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	resp[1] = x4p[1]^x2p[1]^xp[1];
 	resp[2] = x4p[2]^x2p[2]^xp[2];
 	resp[3] = x4p[3]^x2p[3]^xp[3];
+
 }
 
 /*
