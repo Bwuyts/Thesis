@@ -141,21 +141,21 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	xor_block(res, x4, x);
 }
 
-void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
-{
-//	unsigned char buf[16];
+// void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
+// {
+// //	unsigned char buf[16];
+// 
+// 	aesc_encrypt(in, out, expkey);
+// //	copy_block(out, buf);
+// }
 
-	aesc_encrypt(in, out, expkey);
-//	copy_block(out, buf);
-}
-
-void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
-{
-//	unsigned char buf[16];
-
-	aesc_decrypt(in, out, expkey);
-//	copy_block(out, buf);
-}
+// void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
+// {
+// //	unsigned char buf[16];
+// 
+// 	aesc_decrypt(in, out, expkey);
+// //	copy_block(out, buf);
+// }
 
 /*
  * COPA's AD processing PMAC1'
@@ -270,11 +270,11 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
 
 	copy_block(block, c); /* copies from partial ciphertext + partial tag */
 	xor_block(block, block, delta236);
-	AES_DECRYPT(S, block, expkey);
+	aesc_decrypt( block, S,expkey);
 
 	xor_block(block, V, S);
 	xor_block(block, block, delta36);
-	AES_DECRYPT(block, block, expkey);
+	aesc_decrypt(block, block, expkey);
 
 	xor_block(M, block, delta37); /* block = M10*   */
 	/* compute tag */
@@ -384,7 +384,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_DECRYPT(buf, buf, expkey);
+	aesc_decrypt(buf, buf, expkey);
 	xor_block(buf, buf, LL3);
 
 	/* mix on last 2s bytes */
@@ -394,7 +394,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 
 	/* Ed,1 on first 16 bytes */
 	xor_block(buf, buf, LL);
-	AES_DECRYPT(buf, buf, expkey);
+	aesc_decrypt(buf, buf, expkey);
 	xor_block(buf, buf, LL);
 
 	/* flip */
@@ -404,7 +404,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_DECRYPT(buf, buf, expkey);
+	aesc_decrypt(buf, buf, expkey);
 	xor_block(buf, buf, LL3);
 }
 
@@ -559,11 +559,11 @@ int crypto_aead_decrypt(
 		block_t newlastblock;
 		xor_block(block, in, Ldown);
 
-		AES_DECRYPT(newlastblock, block, expkey);
+		aesc_decrypt( block,newlastblock, expkey);
 		xor_block(block, newlastblock, lastblock);
 		copy_block(lastblock, newlastblock);
 
-		AES_DECRYPT(block, block, expkey);
+		aesc_decrypt(block, block, expkey);
 		xor_block(out, block, Lup);
 		xor_block(checksum, checksum, out);
 
