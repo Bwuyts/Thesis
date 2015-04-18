@@ -37,8 +37,8 @@ typedef uint8_t block_t[16];
  * Auxiliary routines: operations on 128-bit blocks, multiplications, AES
  */
 #define copy_block(d, s) memcpy(d, s, 16)
-#define GETU32(p) (((uint32_t)(p)[3]) ^ ((uint32_t)(p)[2] << 8) ^ ((uint32_t)(p)[1] << 16) ^ ((uint32_t)(p)[0] << 24))
-#define PUTU32(c, s) { (c)[3] = (uint8_t)(s); (c)[2] = (uint8_t)((s)>>8); (c)[1] = (uint8_t)((s)>>16); (c)[0] = (uint8_t)((s)>>24); }
+#define GETU32(p) (((uint32_t)(p)[3]) ^ ((uint32_t)(p)[2] << 8) ^ ((uint32_t)(p)[1] << 16) ^ ((uint32_t)(p)[0] << 24))//3 sh + 3 xor
+#define PUTU32(c, s) { (c)[3] = (uint8_t)(s); (c)[2] = (uint8_t)((s)>>8); (c)[1] = (uint8_t)((s)>>16); (c)[0] = (uint8_t)((s)>>24); } //3 sh
 
 
 static inline void xor_block(block_t dest, const block_t a, const block_t b)
@@ -89,7 +89,7 @@ static inline void xor_block(block_t dest, const block_t a, const block_t b)
 
 static inline void shl_block(block_t res, const block_t x)
 {
-  uint32_t x0, x1,x2,x3,res0,res1,res2,res3;
+  uint32_t x0, x1,x2,x3,res0,res1,res2,res3;//31 sh + 12 xor + 3 or
 	x0 = GETU32(x);
 	x1 = GETU32(x+4);
 	x2 = GETU32(x+8);
@@ -145,6 +145,10 @@ static inline void gf128_mul3(block_t res, const block_t x)
 static inline void gf128_mul7(block_t res, const block_t x)
 {
 	block_t x2, x4;
+	uint32_t* xp =(uint32_t*) x;
+	uint32_t* x2p =(uint32_t*) x2,
+	uint32_t* x4p =(uint32_t*) x4;
+	uint32_t* resp =(uint32_t*) res;
 	int msb = x[0] & 0x80;
 	shl_block(x2, x);
 	if (msb) {
@@ -155,25 +159,13 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	if (msb) {
 		x4[15] ^= 0x87;
 	}
-	xor_block(x4, x4, x2);
-	xor_block(res, x4, x);
+// 	xor_block(x4, x4, x2);
+// 	xor_block(res, x4, x);
+	resp[0] = x4[0]^x2[0]^x[0];
+	resp[1] = x4[1]^x2[1]^x[1];
+	resp[2] = x4[2]^x2[2]^x[2];
+	resp[3] = x4[3]^x2[3]^x[3];
 }
-
-// void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
-// {
-// //	unsigned char buf[16];
-// 
-// 	aesc_encrypt(in, out, expkey);
-// //	copy_block(out, buf);
-// }
-
-// void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
-// {
-// //	unsigned char buf[16];
-// 
-// 	aesc_decrypt(in, out, expkey);
-// //	copy_block(out, buf);
-// }
 
 /*
  * COPA's AD processing PMAC1'
