@@ -124,11 +124,33 @@ static inline void shl_block(block_t res, const block_t x)
 
 static inline void gf128_mul2(block_t res, const block_t x)
 {
+// 	int msb = x[0] & 0x80;
+// 	shl_block(res, x);
+// 	if (msb) {
+// 		res[15] ^= 0x87;
+// 	}
+// 		uint32_t X0, X1,X2,X3;
+// 	uint32_t res0,res1,res2,res3;
+// // 	uint32_t* xp =(uint32_t*) x;
+// // 	uint32_t* x2p =(uint32_t*) x2;
+// // 	uint32_t* x4p =(uint32_t*) x4;
+// // 	uint32_t* resp =(uint32_t*) res;
 	int msb = x[0] & 0x80;
-	shl_block(res, x);
+	X0 = GETU32(x);
+	X1 = GETU32(x+4);
+	X2 = GETU32(x+8);
+	X3 = GETU32(x+12);
+	res0 = (X0<<1) | (X1>>31);
+	res1 = (X1<<1) | (X2>>31);
+	res2 = (X2<<1) | (X3>>31);
+	res3 = (X3<<1) ;
 	if (msb) {
-		res[15] ^= 0x87;
+		res3 ^= 0x87;
 	}
+		PUTU32(res, res0);
+	PUTU32(res+4, res1);
+	PUTU32(res+8, res2);
+	PUTU32(res+12, res3);
 }
 
 static inline void gf128_mul3(block_t res, const block_t x)
