@@ -98,7 +98,10 @@ static inline void shl_block(block_t res, const block_t x)
 	res1 = (x1<<1) | (x2>>31);
 	res2 = (x2<<1) | (x3>>31);
 	res3 = (x3<<1) ;
-
+	PUTU32(res, res0);
+	PUTU32(res+4, res1);
+	PUTU32(res+8, res2);
+	PUTU32(res+12, res3);
 /*
 	res[0] = (x[0] << 1) | (x[1] >> 7);
 	res[1] = (x[1] << 1) | (x[2] >> 7);
