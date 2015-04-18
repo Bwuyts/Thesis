@@ -2,9 +2,7 @@
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
 	.fpu vfpv3-d16
-	.eabi_attribute 20, 1
-	.eabi_attribute 21, 1
-	.eabi_attribute 23, 3
+	.eabi_attribute 23, 1
 	.eabi_attribute 24, 1
 	.eabi_attribute 25, 1
 	.eabi_attribute 26, 2
@@ -9748,10 +9746,6 @@ __xtime9:
 	.section	.debug_line,"",%progbits
 .Ldebug_line0:
 	.section	.debug_str,"MS",%progbits,1
-.LASF47:
-	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
-	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -O3 -fomit-fram"
-	.ascii	"e-pointer -fstack-protector-strong\000"
 .LASF23:
 	.ascii	"aes_last_addroundkey\000"
 .LASF16:
@@ -9854,5 +9848,9 @@ __xtime9:
 	.ascii	"__len\000"
 .LASF37:
 	.ascii	"aesc_decrypt\000"
+.LASF47:
+	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
+	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -Ofast -fomit-f"
+	.ascii	"rame-pointer -fstack-protector-strong\000"
 	.ident	"GCC: (Ubuntu/Linaro 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",%progbits

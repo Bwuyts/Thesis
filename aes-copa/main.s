@@ -2,9 +2,7 @@
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
 	.fpu vfpv3-d16
-	.eabi_attribute 20, 1
-	.eabi_attribute 21, 1
-	.eabi_attribute 23, 3
+	.eabi_attribute 23, 1
 	.eabi_attribute 24, 1
 	.eabi_attribute 25, 1
 	.eabi_attribute 26, 2
@@ -1649,6 +1647,10 @@ plain:
 	.ascii	"_sbuf\000"
 .LASF3:
 	.ascii	"short unsigned int\000"
+.LASF60:
+	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
+	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -Ofast -fomit-f"
+	.ascii	"rame-pointer -fstack-protector-strong\000"
 .LASF58:
 	.ascii	"printchar\000"
 .LASF24:
@@ -1689,10 +1691,6 @@ plain:
 	.ascii	"nonce\000"
 .LASF14:
 	.ascii	"char\000"
-.LASF60:
-	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
-	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -O3 -fomit-fram"
-	.ascii	"e-pointer -fstack-protector-strong\000"
 .LASF46:
 	.ascii	"_next\000"
 .LASF12:

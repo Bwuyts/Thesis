@@ -2,9 +2,7 @@
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
 	.fpu vfpv3-d16
-	.eabi_attribute 20, 1
-	.eabi_attribute 21, 1
-	.eabi_attribute 23, 3
+	.eabi_attribute 23, 1
 	.eabi_attribute 24, 1
 	.eabi_attribute 25, 1
 	.eabi_attribute 26, 2
@@ -140898,10 +140896,6 @@ crypto_aead_decrypt:
 	.ascii	"_IO_buf_end\000"
 .LASF71:
 	.ascii	"X1_2\000"
-.LASF109:
-	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
-	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -O3 -fomit-fram"
-	.ascii	"e-pointer -fstack-protector-strong\000"
 .LASF75:
 	.ascii	"X1_4\000"
 .LASF23:
@@ -141030,6 +141024,10 @@ crypto_aead_decrypt:
 	.ascii	"xor_block\000"
 .LASF35:
 	.ascii	"_vtable_offset\000"
+.LASF109:
+	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
+	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -Ofast -fomit-f"
+	.ascii	"rame-pointer -fstack-protector-strong\000"
 .LASF70:
 	.ascii	"X0_2\000"
 .LASF74:
