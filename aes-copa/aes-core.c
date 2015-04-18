@@ -322,7 +322,7 @@ inline void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], cons
 		aes_subbyte_shiftrows_mixcols(state);
 		aes_addroundkey(state, key_sched + 64);
 		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 70);
+		aes_addroundkey(state, key_sched + 80);
 		aes_subbyte_shiftrows_mixcols(state);
 		aes_addroundkey(state, key_sched + 96);
 		aes_subbyte_shiftrows_mixcols(state);
