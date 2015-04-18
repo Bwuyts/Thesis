@@ -39,13 +39,16 @@ typedef uint8_t block_t[16];
 
 static inline void xor_block(block_t dest, const block_t a, const block_t b)
 {
+	int i;
 	uint32_t* destp = (uint32_t*) dest;
 	uint32_t* ap = (uint32_t*) a;
 	uint32_t* bp = (uint32_t*) b;
-		destp[0] = ap[0] ^ bp[0];
-		destp[1] = ap[1] ^ bp[1];
-		destp[2] = ap[2] ^ bp[2];
-		destp[3] = ap[3] ^ bp[3];
+	      for(i=0;i<4;i++)
+		  destp[i] = ap[i] ^ bp[i];
+// 		destp[0] = ap[0] ^ bp[0];
+// 		destp[1] = ap[1] ^ bp[1];
+// 		destp[2] = ap[2] ^ bp[2];
+// 		destp[3] = ap[3] ^ bp[3];
 // 		dest[4] = a[4] ^ b[4];
 // 		dest[5] = a[5] ^ b[5];
 // 		dest[6] = a[6] ^ b[6];
@@ -459,8 +462,7 @@ int crypto_aead_encrypt(
 		aesc_encrypt(block, block, expkey);
 		xor_block(block, block, lastblock);//E_k(mi xor delta0) XOR V[i-1]
 		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
-		//AES_ENCRYPT(block, block, expkey);//E_k(v[i])
-		aesc_encrypt(block, block, expkey);
+		aesc_encrypt(block, block, expkey);//E_k(v[i]
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
 		gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
