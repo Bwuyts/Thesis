@@ -141,13 +141,13 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	xor_block(res, x4, x);
 }
 
-// void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
-// {
-// //	unsigned char buf[16];
-// 
-// 	aesc_encrypt(in, out, expkey);
-// //	copy_block(out, buf);
-// }
+void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned char* expkey)
+{
+//	unsigned char buf[16];
+
+	aesc_encrypt(in, out, expkey);
+//	copy_block(out, buf);
+}
 
 void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
 {
@@ -186,7 +186,7 @@ void inline mac(unsigned char* out,
 		gf128_mul3(delta, delta);
 		xor_block(v, v, delta);
 		xor_block(v, v, in);
-		aesc_encrypt(out, v, expkey);
+		aesc_encrypt( v,out, expkey);
 	} else { /* last block partial */
 		gf128_mul3(delta, delta);
 		gf128_mul3(delta, delta);
@@ -195,7 +195,7 @@ void inline mac(unsigned char* out,
 			v[i] ^= in[i];
 		}
 		v[len] ^= 0x80; /* padding */
-		aesc_encrypt(out, v, expkey);
+		aesc_encrypt(v,out, expkey);
 	}
 }
 
@@ -231,7 +231,7 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 	xor_block(block, block, delta36);
 	xor_block(S, block, V);
 
-	aesc_encrypt(block, S, expkey);
+	aesc_encrypt(S,block, expkey);
 	xor_block(C, block, delta236);
 
 	/* tag */
@@ -270,11 +270,11 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
 
 	copy_block(block, c); /* copies from partial ciphertext + partial tag */
 	xor_block(block, block, delta236);
-	aesc_decrypt(S, block, expkey);
+	AES_DECRYPT(S, block, expkey);
 
 	xor_block(block, V, S);
 	xor_block(block, block, delta36);
-	aesc_decrypt(block, block, expkey);
+	AES_DECRYPT(block, block, expkey);
 
 	xor_block(M, block, delta37); /* block = M10*   */
 	/* compute tag */
@@ -394,7 +394,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 
 	/* Ed,1 on first 16 bytes */
 	xor_block(buf, buf, LL);
-	aesc_decrypt(buf, buf, expkey);
+	AES_DECRYPT(buf, buf, expkey);
 	xor_block(buf, buf, LL);
 
 	/* flip */
@@ -404,7 +404,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	aesc_decrypt(buf, buf, expkey);
+	AES_DECRYPT(buf, buf, expkey);
 	xor_block(buf, buf, LL3);
 }
 
@@ -559,11 +559,11 @@ int crypto_aead_decrypt(
 		block_t newlastblock;
 		xor_block(block, in, Ldown);
 
-		aesc_decrypt(newlastblock, block, expkey);
+		AES_DECRYPT(newlastblock, block, expkey);
 		xor_block(block, newlastblock, lastblock);
 		copy_block(lastblock, newlastblock);
 
-		aesc_decrypt(block, block, expkey);
+		AES_DECRYPT(block, block, expkey);
 		xor_block(out, block, Lup);
 		xor_block(checksum, checksum, out);
 
