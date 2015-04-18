@@ -308,29 +308,17 @@ inline void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], cons
 {
 	uint8_t state[16];
 	
+	unsigned int i;
+	
 	aes_first_addroundkey(state, plain_text, key_sched);
 	
+	for (i = 1; i < 10; ++i) {
 		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 16);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 32);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 48);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 64);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 80);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 96);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 112);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 128);
-		aes_subbyte_shiftrows_mixcols(state);
-		aes_addroundkey(state, key_sched + 144);	
+		aes_addroundkey(state, key_sched + i <<4);
+	}
 	
 	aes_subbytes_shiftrows(state);
-	aes_last_addroundkey(cipher_text, state, key_sched + 160);
+	aes_last_addroundkey(cipher_text, state, key_sched + 10 * 16);
 }
 
 inline void aes_isubbytes_ishiftrows(uint8_t state[])
