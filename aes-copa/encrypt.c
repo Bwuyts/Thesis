@@ -161,10 +161,10 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	}
 // 	xor_block(x4, x4, x2);
 // 	xor_block(res, x4, x);
-	resp[0] = xp4[0]^xp2[0]^xp[0];
-	resp[1] = xp4[1]^xp2[1]^xp[1];
-	resp[2] = xp4[2]^xp2[2]^xp[2];
-	resp[3] = xp4[3]^xp2[3]^xp[3];
+	resp[0] = x4p[0]^x2p[0]^xp[0];
+	resp[1] = x4p[1]^x2p[1]^xp[1];
+	resp[2] = x4p[2]^x2p[2]^xp[2];
+	resp[3] = x4p[3]^x2p[3]^xp[3];
 }
 
 /*
