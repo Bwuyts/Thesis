@@ -388,7 +388,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 	xor_block(buf, buf, LL3);
 
 	/* mix on last 2s bytes */
-	invmix(buf+16-s, s);
+	mix(buf+16-s, s);
 	/* flip  */
 	buf[16-s] ^= 0x80;
 
@@ -400,7 +400,7 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  uns
 	/* flip */
 	buf[16-s] ^= 0x80;
 	/* mix on last 2s bytes */
-	invmix(buf+16-s, s);
+	mix(buf+16-s, s);
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
