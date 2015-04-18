@@ -178,7 +178,7 @@ static const uint8_t __xtimee[] = {
 	0xd7, 0xd9, 0xcb, 0xc5, 0xef, 0xe1, 0xf3, 0xfd, 0xa7, 0xa9, 0xbb, 0xb5, 0x9f, 0x91, 0x83, 0x8d
 };
 
-#define block_copy(d, s) memcpy(d, s, 16 * sizeof(uint8_t))
+#define block_copy(d, s) memcpy(d, s, 16)
 
 inline void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[]);
 inline void aes_addroundkey(uint8_t state[], const uint8_t round_key[]);
