@@ -129,8 +129,8 @@ static inline void gf128_mul2(block_t res, const block_t x)
 // 	if (msb) {
 // 		res[15] ^= 0x87;
 // 	}
-// 		uint32_t X0, X1,X2,X3;
-// 	uint32_t res0,res1,res2,res3;
+	uint32_t X0, X1,X2,X3;
+	uint32_t res0,res1,res2,res3;
 // // 	uint32_t* xp =(uint32_t*) x;
 // // 	uint32_t* x2p =(uint32_t*) x2;
 // // 	uint32_t* x4p =(uint32_t*) x4;
