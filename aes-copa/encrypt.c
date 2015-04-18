@@ -141,7 +141,7 @@ static inline void gf128_mul3(block_t res, const block_t x)
 
 static inline void gf128_mul7(block_t res, const block_t x)
 {
-	block_t x2, x4;
+//	block_t x2, x4;
 	uint32_t X0, X1,X2,X3;
 	uint32_t X0_2, X1_2,X2_2,X3_2;
 	uint32_t X0_4, X1_4,X2_4,X3_4;
@@ -164,7 +164,7 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	}
 	
 	msb = X0_2 & 0x80000000;
-	shl_block(x4, x2);
+//	shl_block(x4, x2);
 	X0_4 = (X0_2<<1) | (X1_2>>31);
 	X1_4 = (X1_2<<1) | (X2_2>>31);
 	X2_4 = (X2_2<<1) | (X3_2>>31);
