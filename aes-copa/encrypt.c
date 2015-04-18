@@ -90,18 +90,18 @@ static inline void xor_block(block_t dest, const block_t a, const block_t b)
 static inline void shl_block(block_t res, const block_t x)
 {
   uint32_t x0, x1,x2,x3,res0,res1,res2,res3;
-  x0 = GETU32(x);
-  x1 = GETU32(x+16);
-  x2 = GETU32(x+32);
-  x3 = GETU32(x+48);
+	x0 = GETU32(x);
+	x1 = GETU32(x+4);
+	x2 = GETU32(x+8);
+	x3 = GETU32(x+12);
 	res0 = (x0<<1) | (x1>>31);
 	res1 = (x1<<1) | (x2>>31);
 	res2 = (x2<<1) | (x3>>31);
 	res3 = (x3<<1) ;
 	PUTU32(res, res0);
-	PUTU32(res+16, res1);
-	PUTU32(res+32, res2);
-	PUTU32(res+48, res3);
+	PUTU32(res+4, res1);
+	PUTU32(res+8, res2);
+	PUTU32(res+12, res3);
 /*
 	res[0] = (x[0] << 1) | (x[1] >> 7);
 	res[1] = (x[1] << 1) | (x[2] >> 7);
