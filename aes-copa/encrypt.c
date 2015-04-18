@@ -168,7 +168,7 @@ static inline void gf128_mul7(block_t res, const block_t x)
 	PUTU32(x2+8, X2_2);
 	PUTU32(x2+12, X3_2);
 	
-	msb = X0_2[0] & 0x80000000;
+	msb = X0_2 & 0x80000000;
 	shl_block(x4, x2);
 	if (msb) {
 		x4[15] ^= 0x87;
