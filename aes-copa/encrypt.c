@@ -450,6 +450,7 @@ int crypto_aead_encrypt(
 	copy_block(twod1, LL); /* 2^(d-1)*L where d is # of blocks. */
 	gf128_mul3(Lup, LL); /* Lup = 3*LL delta0*/ 
 	gf128_mul2(Ldown, LL); /* Ldown = 2*LL  delta1*/
+	if(remaining>=16){
 	xor_block(checksum, checksum, in);//calc sigma
 		
 	xor_block(block, in, Lup);//mi xor delta0
@@ -468,7 +469,7 @@ int crypto_aead_encrypt(
 		
 	in += 16;
 	out += 16;
-	remaining -= 16;
+	remaining -= 16;}
 	while (remaining >= 16) { 
 		xor_block(checksum, checksum, in);//calc sigma
 		
