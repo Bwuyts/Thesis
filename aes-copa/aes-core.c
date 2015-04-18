@@ -180,17 +180,17 @@ static const uint8_t __xtimee[] = {
 
 #define block_copy(d, s) memcpy(d, s, 16 * sizeof(uint8_t))
 
-void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[]);
-void aes_addroundkey(uint8_t state[], const uint8_t round_key[]);
-void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t round_key[]);
+inline void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[]);
+inline void aes_addroundkey(uint8_t state[], const uint8_t round_key[]);
+inline void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t round_key[]);
 
-void aes_subbytes_shiftrows(uint8_t state[]);
-void aes_subbyte_shiftrows_mixcols(uint8_t state[]);
+inline void aes_subbytes_shiftrows(uint8_t state[]);
+inline void aes_subbyte_shiftrows_mixcols(uint8_t state[]);
 
-void aes_isubbytes_ishiftrows(uint8_t state[]);
-void aes_isubbyte_ishiftrows_imixcols(uint8_t state[]);
+inline void aes_isubbytes_ishiftrows(uint8_t state[]);
+inline void aes_isubbyte_ishiftrows_imixcols(uint8_t state[]);
 
-void aesc_keyexp(const uint8_t key[], uint8_t key_sched[])
+inline void aesc_keyexp(const uint8_t key[], uint8_t key_sched[])
 {
 	uint8_t key_sched_0, key_sched_1, key_sched_2, key_sched_3, tmp;
 	
@@ -219,7 +219,7 @@ void aesc_keyexp(const uint8_t key[], uint8_t key_sched[])
 	}
 }
 
-void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[])
+inline void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t round_key[])
 {
 	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
@@ -229,7 +229,7 @@ void aes_first_addroundkey(uint8_t state[], const uint8_t text[], const uint8_t 
 		stateP[i] = textP[i] ^ round_keyP[i];
 }
 
-void aes_addroundkey(uint8_t state[], const uint8_t round_key[])
+inline void aes_addroundkey(uint8_t state[], const uint8_t round_key[])
 {
 	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
@@ -238,7 +238,7 @@ void aes_addroundkey(uint8_t state[], const uint8_t round_key[])
 		stateP[i] ^= round_keyP[i];
 }
 
-void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t round_key[])
+inline void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t round_key[])
 {
 	unsigned int i;
 	uint32_t* stateP = (uint32_t*) state;
@@ -248,7 +248,7 @@ void aes_last_addroundkey(uint8_t text[], const uint8_t state[], const uint8_t r
 		textP[i] = stateP[i] ^ round_keyP[i];
 }
 
-void aes_subbytes_shiftrows(uint8_t state[])
+inline void aes_subbytes_shiftrows(uint8_t state[])
 {
 	uint8_t tmp;
 	
@@ -277,7 +277,7 @@ void aes_subbytes_shiftrows(uint8_t state[])
 	state[7] = sbox(tmp);
 }
 
-void aes_subbyte_shiftrows_mixcols(uint8_t state[])
+inline void aes_subbyte_shiftrows_mixcols(uint8_t state[])
 {
 	uint8_t tmp[16];
 	
@@ -304,7 +304,7 @@ void aes_subbyte_shiftrows_mixcols(uint8_t state[])
 	state[15] = xtime3_sbox(tmp[12]) ^ sbox(tmp[1]) ^ sbox(tmp[6]) ^ xtime2_sbox(tmp[11]);
 }
 
-void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], const uint8_t key_sched[])
+inline void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], const uint8_t key_sched[])
 {
 	uint8_t state[16];
 	
@@ -321,7 +321,7 @@ void aesc_encrypt(const uint8_t plain_text[], uint8_t cipher_text[], const uint8
 	aes_last_addroundkey(cipher_text, state, key_sched + 10 * 16);
 }
 
-void aes_isubbytes_ishiftrows(uint8_t state[])
+inline void aes_isubbytes_ishiftrows(uint8_t state[])
 {
 	uint8_t tmp;
 	
@@ -350,7 +350,7 @@ void aes_isubbytes_ishiftrows(uint8_t state[])
 	state[15] = isbox(tmp);
 }
 
-void aes_isubbyte_ishiftrows_imixcols(uint8_t state[])
+inline void aes_isubbyte_ishiftrows_imixcols(uint8_t state[])
 {
 	uint8_t tmp[16];
 	
@@ -377,7 +377,7 @@ void aes_isubbyte_ishiftrows_imixcols(uint8_t state[])
 	state[11] = isbox(xtimeb(tmp[12]) ^ xtimed(tmp[13]) ^ xtime9(tmp[14]) ^ xtimee(tmp[15]));
 }
 
-void aesc_decrypt(const uint8_t cipher_text[], uint8_t plain_text[], const uint8_t key_sched[])
+inline void aesc_decrypt(const uint8_t cipher_text[], uint8_t plain_text[], const uint8_t key_sched[])
 {
 	uint8_t state[16];
 	

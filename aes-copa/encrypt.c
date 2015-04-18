@@ -151,10 +151,10 @@ void inline AES_ENCRYPT(unsigned char* out, const unsigned char* in, unsigned ch
 
 void inline AES_DECRYPT(unsigned char* out, unsigned char* in, unsigned char* expkey)
 {
-	unsigned char buf[16];
+//	unsigned char buf[16];
 
-	aesc_decrypt(in, buf, expkey);
-	copy_block(out, buf);
+	aesc_decrypt(in, out, expkey);
+//	copy_block(out, buf);
 }
 
 /*
@@ -532,7 +532,7 @@ int crypto_aead_decrypt(
 
 	AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
 
-	//*mlen = clen;
+	//*mlen = clen;copy_block
 
 	/* mac AD + nonce */
 	macdata = malloc(adlen + 16);
