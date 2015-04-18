@@ -436,7 +436,9 @@ int crypto_aead_encrypt(
 	block_t T;
 	block_t LL = { 0 };
 
-	AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
+	//AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
+	aesc_encrypt(LL, LL, expkey);
+
 	*clen = mlen + 16;
 
 	/* mac AD + nonce */
