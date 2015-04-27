@@ -787,7 +787,6 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[5] = rk[1] ^ rk[4];
 			rk[6] = rk[2] ^ rk[5];
 			rk[7] = rk[3] ^ rk[6];
-			if (++i == 10) {
 
 			rk += 4;
                         			temp  = rk[3];
