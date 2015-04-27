@@ -549,7 +549,7 @@ int crypto_aead_decrypt(
 		//unsigned char expkey[11*16];
         AES_KEY expkeyp;
         AES_KEY* expkey = &expkeyp;
-        AES_set_en  crypt_key(k,128,expkey);
+        AES_set_encrypt_key(k,128,expkey);
 
         AES_KEY expkeydp;
         AES_KEY* expkeyd = &expkeydp;
