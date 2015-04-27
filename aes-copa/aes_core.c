@@ -719,15 +719,6 @@ static const u32 rcon[] = {
 };
 
 
-void print_state(const unsigned char* state)
-{
-#ifdef _PRINT
-	int i;
-	for(i = 0; i < 16; i++)
-		printf("%02x", state[i]);
-	printf("\n");
-#endif
-}
 /**
  * Expand the cipher key into the encryption key schedule.
  */
