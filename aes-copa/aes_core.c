@@ -726,7 +726,6 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			AES_KEY *key) {
 
 	u32 *rk;
-   	int i = 0;
 	u32 temp;
 
 	if (!userKey || !key)
@@ -752,19 +751,18 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[6] = rk[2] ^ rk[5];
 			rk[7] = rk[3] ^ rk[6];
 
-			rk += 4;
-                        temp  = rk[3];
-			rk[4] = rk[0] ^
+			temp  = rk[7];
+			rk[8] = rk[4] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
 				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
 				(Te4[(temp >> 24)       ] & 0x000000ff) ^
 				rcon[1];
-			rk[5] = rk[1] ^ rk[4];
-			rk[6] = rk[2] ^ rk[5];
-			rk[7] = rk[3] ^ rk[6];
+			rk[9] = rk[5] ^ rk[8];
+			rk[10] = rk[6] ^ rk[9];
+			rk[11] = rk[7] ^ rk[10];
 
-			rk += 4;
+			rk += 8;
                         temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
@@ -789,7 +787,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -801,7 +799,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -813,7 +811,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -825,7 +823,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -837,7 +835,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -849,7 +847,7 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[7] = rk[3] ^ rk[6];
 
 			rk += 4;
-                        			temp  = rk[3];
+                        temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
@@ -859,8 +857,6 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[5] = rk[1] ^ rk[4];
 			rk[6] = rk[2] ^ rk[5];
 			rk[7] = rk[3] ^ rk[6];
-			//rk += 4;
-		
 	return 0;
 }
 
