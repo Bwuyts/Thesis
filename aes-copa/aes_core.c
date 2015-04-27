@@ -741,7 +741,6 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 	rk[1] = GETU32(userKey +  4);
 	rk[2] = GETU32(userKey +  8);
 	rk[3] = GETU32(userKey + 12);
-		for (;;) {
 			temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
@@ -756,7 +755,133 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 				return 0;
 			}
 			rk += 4;
-		}
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+                        			temp  = rk[3];
+			rk[4] = rk[0] ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				rcon[i];
+			rk[5] = rk[1] ^ rk[4];
+			rk[6] = rk[2] ^ rk[5];
+			rk[7] = rk[3] ^ rk[6];
+			if (++i == 10) {
+				return 0;
+			}
+			rk += 4;
+		
 	return 0;
 }
 
