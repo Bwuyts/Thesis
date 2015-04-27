@@ -2,7 +2,9 @@
 	.eabi_attribute 27, 3
 	.eabi_attribute 28, 1
 	.fpu vfpv3-d16
-	.eabi_attribute 23, 1
+	.eabi_attribute 20, 1
+	.eabi_attribute 21, 1
+	.eabi_attribute 23, 3
 	.eabi_attribute 24, 1
 	.eabi_attribute 25, 1
 	.eabi_attribute 26, 2
@@ -1283,8 +1285,10 @@ printchar:
 	.ascii	"_IO_buf_end\000"
 .LASF9:
 	.ascii	"__quad_t\000"
-.LASF31:
-	.ascii	"_old_offset\000"
+.LASF56:
+	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
+	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -O3 -fomit-fram"
+	.ascii	"e-pointer -fstack-protector-strong\000"
 .LASF54:
 	.ascii	"__printf_chk\000"
 .LASF57:
@@ -1341,6 +1345,8 @@ printchar:
 	.ascii	"_IO_marker\000"
 .LASF34:
 	.ascii	"_shortbuf\000"
+.LASF31:
+	.ascii	"_old_offset\000"
 .LASF19:
 	.ascii	"_IO_write_base\000"
 .LASF43:
@@ -1405,9 +1411,5 @@ printchar:
 	.ascii	"_IO_lock_t\000"
 .LASF50:
 	.ascii	"printLength\000"
-.LASF56:
-	.ascii	"GNU C 4.9.1 -marm -march=armv7-a -mfloat-abi=hard -"
-	.ascii	"mfpu=vfpv3-d16 -mtls-dialect=gnu -g -Ofast -fomit-f"
-	.ascii	"rame-pointer -fstack-protector-strong\000"
 	.ident	"GCC: (Ubuntu/Linaro 4.9.1-16ubuntu6) 4.9.1"
 	.section	.note.GNU-stack,"",%progbits
