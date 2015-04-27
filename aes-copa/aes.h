@@ -9,7 +9,7 @@
 //extern unsigned long aes_nonce[2];
 
 struct aes_key_struct {
-	unsigned int rd_key[40];
+	unsigned int rd_key[60];
 	int rounds;
 };
 
