@@ -66,9 +66,9 @@ int main(){
 
   //crypto_aead_decrypt(decrypted,cipher +lengthM ,cipher,lengthM,atest,lengthA,0,nonce,key);
   
-  succes = crypto_aead_decrypt(decrypted,0, 0, cipher,lengthM,   adata,lengthA,   nonce,key );
-  printf("succes = %i\n",succes);
-  printchar(decrypted,lengthM,"decrypt");
+ // succes = crypto_aead_decrypt(decrypted,0, 0, cipher,lengthM,   adata,lengthA,   nonce,key );
+  //printf("succes = %i\n",succes);
+  //printchar(decrypted,lengthM,"decrypt");
   return 0;
 }
 
