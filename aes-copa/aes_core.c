@@ -772,19 +772,19 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[14] = rk[10] ^ rk[13];
 			rk[15] = rk[11] ^ rk[14];
 
-			rk += 12;
-                        			temp  = rk[3];
-			rk[4] = rk[0] ^
+			//rk += 12;
+                        temp  = rk[15];
+			rk[16] = rk[12] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
 				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
 				(Te4[(temp >> 24)       ] & 0x000000ff) ^
 				rcon[3];
-			rk[5] = rk[1] ^ rk[4];
-			rk[6] = rk[2] ^ rk[5];
-			rk[7] = rk[3] ^ rk[6];
+			rk[17] = rk[13] ^ rk[16];
+			rk[18] = rk[14] ^ rk[17];
+			rk[19] = rk[15] ^ rk[18];
 
-			rk += 4;
+			rk += 16;
                         temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
