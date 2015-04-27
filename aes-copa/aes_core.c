@@ -737,13 +737,10 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 	rk = (u32*)key->rd_key;
 
         key->rounds = 10;
-
-
 	rk[0] = GETU32(userKey     );
 	rk[1] = GETU32(userKey +  4);
 	rk[2] = GETU32(userKey +  8);
 	rk[3] = GETU32(userKey + 12);
-	if (bits == 128) {
 		for (;;) {
 			temp  = rk[3];
 			rk[4] = rk[0] ^
@@ -760,11 +757,6 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			}
 			rk += 4;
 		}
-	}
-	rk[4] = GETU32(userKey + 16);
-	rk[5] = GETU32(userKey + 20);
-	rk[6] = GETU32(userKey + 24);
-	rk[7] = GETU32(userKey + 28);
 	return 0;
 }
 
