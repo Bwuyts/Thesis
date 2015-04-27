@@ -886,7 +886,7 @@ void AES_encrypt(const unsigned char *in, unsigned char *out,
    	t1 = Te0[s1 >> 24] ^ Te1[(s2 >> 16) & 0xff] ^ Te2[(s3 >>  8) & 0xff] ^ Te3[s0 & 0xff] ^ rk[37];
    	t2 = Te0[s2 >> 24] ^ Te1[(s3 >> 16) & 0xff] ^ Te2[(s0 >>  8) & 0xff] ^ Te3[s1 & 0xff] ^ rk[38];
    	t3 = Te0[s3 >> 24] ^ Te1[(s0 >> 16) & 0xff] ^ Te2[(s1 >>  8) & 0xff] ^ Te3[s2 & 0xff] ^ rk[39];
-    rk += key->rounds << 2;
+   // rk += key->rounds << 2;
  /* ?FULL_UNROLL */
     /*
 	 * apply last round and
@@ -897,28 +897,28 @@ void AES_encrypt(const unsigned char *in, unsigned char *out,
 		(Te4[(t1 >> 16) & 0xff] & 0x00ff0000) ^
 		(Te4[(t2 >>  8) & 0xff] & 0x0000ff00) ^
 		(Te4[(t3      ) & 0xff] & 0x000000ff) ^
-		rk[0];
+		rk[40];
 	PUTU32(out     , s0);
 	s1 =
 		(Te4[(t1 >> 24)       ] & 0xff000000) ^
 		(Te4[(t2 >> 16) & 0xff] & 0x00ff0000) ^
 		(Te4[(t3 >>  8) & 0xff] & 0x0000ff00) ^
 		(Te4[(t0      ) & 0xff] & 0x000000ff) ^
-		rk[1];
+		rk[41];
 	PUTU32(out +  4, s1);
 	s2 =
 		(Te4[(t2 >> 24)       ] & 0xff000000) ^
 		(Te4[(t3 >> 16) & 0xff] & 0x00ff0000) ^
 		(Te4[(t0 >>  8) & 0xff] & 0x0000ff00) ^
 		(Te4[(t1      ) & 0xff] & 0x000000ff) ^
-		rk[2];
+		rk[42];
 	PUTU32(out +  8, s2);
 	s3 =
 		(Te4[(t3 >> 24)       ] & 0xff000000) ^
 		(Te4[(t0 >> 16) & 0xff] & 0x00ff0000) ^
 		(Te4[(t1 >>  8) & 0xff] & 0x0000ff00) ^
 		(Te4[(t2      ) & 0xff] & 0x000000ff) ^
-		rk[3];
+		rk[43];
 	PUTU32(out + 12, s3);
 
 }
