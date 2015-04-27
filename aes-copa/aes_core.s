@@ -548,42 +548,42 @@ AES_encrypt:
 	.cfi_offset 14, -4
 	moveq	r3, #1
 	movne	r3, #0
-	.loc 1 848 0
+	.loc 1 840 0
 	cmp	r0, #0
 	orreq	r3, r3, #1
 	.loc 1 836 0
 	sub	sp, sp, #36
 	.cfi_def_cfa_offset 72
-	.loc 1 848 0
+	.loc 1 840 0
 	cmp	r3, #0
 	str	r1, [sp]
 	bne	.L24
 .LVL31:
 	ldr	r1, [r2]
 .LVL32:
-	.loc 1 975 0
+	.loc 1 905 0
 	movw	ip, #:lower16:.LANCHOR0
-	.loc 1 857 0
+	.loc 1 849 0
 	ldrb	r5, [r0, #2]	@ zero_extendqisi2
-	.loc 1 975 0
+	.loc 1 905 0
 	mov	r6, ip
-	.loc 1 857 0
+	.loc 1 849 0
 	ldrb	lr, [r0, #3]	@ zero_extendqisi2
-	.loc 1 975 0
+	.loc 1 905 0
 	movt	r6, #:upper16:.LANCHOR0
 	str	r6, [sp, #4]
-	.loc 1 863 0
+	.loc 1 854 0
 	movw	r3, #:lower16:.LANCHOR1
 	eor	lr, lr, r1
-	.loc 1 858 0
+	.loc 1 850 0
 	ldrb	r6, [r0, #6]	@ zero_extendqisi2
 	ldrb	r1, [r0, #7]	@ zero_extendqisi2
 	eor	lr, lr, r5, asl #8
 	ldr	r5, [r2, #4]
-	.loc 1 863 0
+	.loc 1 854 0
 	movt	r3, #:upper16:.LANCHOR1
 	ldr	r4, [r2, #12]
-	.loc 1 860 0
+	.loc 1 852 0
 	ldrb	r7, [r0, #14]	@ zero_extendqisi2
 	eor	r1, r1, r5
 	ldrb	ip, [r0, #15]	@ zero_extendqisi2
@@ -591,113 +591,113 @@ AES_encrypt:
 	ldr	r5, [r2, #8]
 	ldrb	r6, [r0, #13]	@ zero_extendqisi2
 	eor	ip, ip, r4
-	.loc 1 859 0
+	.loc 1 851 0
 	ldrb	r4, [r0, #11]	@ zero_extendqisi2
 	eor	ip, ip, r7, asl #8
 	ldrb	r8, [r0, #10]	@ zero_extendqisi2
-	.loc 1 857 0
+	.loc 1 849 0
 	ldrb	r7, [r0, #1]	@ zero_extendqisi2
 	eor	r4, r4, r5
-	.loc 1 858 0
+	.loc 1 850 0
 	ldrb	r5, [r0, #5]	@ zero_extendqisi2
 	eor	ip, ip, r6, asl #16
-	.loc 1 860 0
+	.loc 1 852 0
 	ldrb	r6, [r0, #12]	@ zero_extendqisi2
 	eor	r4, r4, r8, asl #8
 	eor	lr, lr, r7, asl #16
-	.loc 1 859 0
+	.loc 1 851 0
 	ldrb	r8, [r0, #9]	@ zero_extendqisi2
-	.loc 1 857 0
+	.loc 1 849 0
 	ldrb	r7, [r0]	@ zero_extendqisi2
 	eor	r1, r1, r5, asl #16
-	.loc 1 858 0
+	.loc 1 850 0
 	ldrb	r5, [r0, #4]	@ zero_extendqisi2
-	.loc 1 860 0
+	.loc 1 852 0
 	eor	ip, ip, r6, asl #24
-	.loc 1 859 0
+	.loc 1 851 0
 	ldrb	r0, [r0, #8]	@ zero_extendqisi2
 .LVL33:
 	eor	r4, r4, r8, asl #16
-	.loc 1 857 0
+	.loc 1 849 0
 	eor	lr, lr, r7, asl #24
 .LVL34:
-	.loc 1 864 0
+	.loc 1 855 0
 	ubfx	r9, ip, #8, #8
-	.loc 1 866 0
+	.loc 1 857 0
 	ubfx	r7, lr, #16, #8
 	str	r7, [sp, #8]
-	.loc 1 859 0
+	.loc 1 851 0
 	eor	r0, r4, r0, asl #24
-	.loc 1 863 0
+	.loc 1 854 0
 	uxtb	r7, ip
-	.loc 1 858 0
+	.loc 1 850 0
 	eor	r1, r1, r5, asl #24
 .LVL35:
-	.loc 1 864 0
+	.loc 1 855 0
 	add	r9, r3, r9, lsl #2
-	.loc 1 863 0
+	.loc 1 854 0
 	add	r7, r3, r7, lsl #2
 	ubfx	r6, r1, #16, #8
 	ubfx	r5, r0, #8, #8
-	.loc 1 864 0
+	.loc 1 855 0
 	ubfx	r10, r0, #16, #8
 	str	r9, [sp, #16]
-	.loc 1 865 0
+	.loc 1 856 0
 	mov	r9, r0, lsr #24
-	.loc 1 866 0
+	.loc 1 857 0
 	uxtb	r0, r0
 .LVL36:
-	.loc 1 863 0
+	.loc 1 854 0
 	mov	r8, lr, lsr #24
 	add	r6, r3, r6, lsl #2
 	add	r5, r3, r5, lsl #2
-	.loc 1 866 0
+	.loc 1 857 0
 	add	r0, r3, r0, lsl #2
 	str	r0, [sp, #24]
 	ldr	r0, [r7, #-2000]
-	.loc 1 864 0
+	.loc 1 855 0
 	mov	r4, r1, lsr #24
 .LVL37:
-	.loc 1 866 0
+	.loc 1 857 0
 	ldr	r7, [sp, #8]
-	.loc 1 864 0
+	.loc 1 855 0
 	uxtb	fp, lr
-	.loc 1 865 0
+	.loc 1 856 0
 	ubfx	lr, lr, #8, #8
 .LVL38:
 	str	lr, [sp, #20]
 	uxtb	lr, r1
 	ldr	r6, [r6, #-976]
-	.loc 1 863 0
+	.loc 1 854 0
 	add	r8, r3, r8, lsl #2
 	ldr	r5, [r5, #48]
-	.loc 1 864 0
+	.loc 1 855 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 866 0
+	.loc 1 857 0
 	add	r7, r3, r7, lsl #2
 	str	r7, [sp, #28]
-	.loc 1 865 0
+	.loc 1 856 0
 	add	r7, r3, lr, lsl #2
 	ubfx	lr, ip, #16, #8
 	ldr	r8, [r8, #-3024]
 	add	r9, r3, r9, lsl #2
-	.loc 1 864 0
+	.loc 1 855 0
 	add	fp, r3, fp, lsl #2
 	str	r6, [sp, #8]
-	.loc 1 865 0
+	.loc 1 856 0
 	add	r6, r3, lr, lsl #2
-	.loc 1 863 0
+	.loc 1 854 0
 	str	r5, [sp, #12]
 	eor	r0, r0, r8
 	ldr	r5, [r4, #-3024]
-	.loc 1 866 0
+	.loc 1 857 0
 	mov	ip, ip, lsr #24
 .LVL39:
-	.loc 1 864 0
+	.loc 1 855 0
 	ldr	lr, [sp, #16]
 	add	r10, r3, r10, lsl #2
 	ldr	r8, [r2, #16]
-	.loc 1 866 0
+	.loc 1 857 0
 	add	ip, r3, ip, lsl #2
 	ldr	r7, [r7, #-2000]
 	ubfx	r1, r1, #8, #8
@@ -706,10 +706,10 @@ AES_encrypt:
 	eor	r0, r0, r8
 	ldr	fp, [fp, #-2000]
 	add	r1, r3, r1, lsl #2
-	.loc 1 864 0
+	.loc 1 855 0
 	ldr	r4, [lr, #48]
 	eor	r9, r9, r7
-	.loc 1 865 0
+	.loc 1 856 0
 	ldr	lr, [sp, #20]
 	eor	r5, r5, fp
 	ldr	r7, [r2, #24]
@@ -731,66 +731,66 @@ AES_encrypt:
 	ldr	r8, [r7, #-976]
 	eor	fp, fp, ip
 	ldr	r7, [r2, #28]
-	.loc 1 866 0
+	.loc 1 857 0
 	ldr	r10, [r1, #48]
-	.loc 1 864 0
+	.loc 1 855 0
 	eor	r1, r5, r4
 	eor	fp, fp, r7
-	.loc 1 865 0
+	.loc 1 856 0
 	eor	r4, r9, r6
-	.loc 1 863 0
+	.loc 1 854 0
 	ldr	r7, [sp, #12]
 	eor	lr, fp, r8
-	.loc 1 870 0
+	.loc 1 861 0
 	uxtb	r5, r1
-	.loc 1 866 0
+	.loc 1 857 0
 	eor	lr, lr, r10
-	.loc 1 863 0
+	.loc 1 854 0
 	eor	r0, r0, r7
 .LVL41:
-	.loc 1 870 0
+	.loc 1 861 0
 	mov	fp, r4, lsr #24
 	add	r5, r3, r5, lsl #2
-	.loc 1 871 0
+	.loc 1 862 0
 	uxtb	r7, r4
-	.loc 1 870 0
+	.loc 1 861 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 868 0
+	.loc 1 859 0
 	mov	r10, r0, lsr #24
-	.loc 1 869 0
+	.loc 1 860 0
 	mov	r6, r1, lsr #24
-	.loc 1 868 0
+	.loc 1 859 0
 	uxtb	r9, lr
-	.loc 1 871 0
+	.loc 1 862 0
 	mov	r8, lr, lsr #24
-	.loc 1 869 0
+	.loc 1 860 0
 	uxtb	ip, r0
-	.loc 1 870 0
+	.loc 1 861 0
 	str	fp, [sp, #12]
-	.loc 1 868 0
+	.loc 1 859 0
 	ubfx	fp, r1, #16, #8
 	ldr	r5, [r5, #-2000]
-	.loc 1 869 0
+	.loc 1 860 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 868 0
+	.loc 1 859 0
 	add	fp, r3, fp, lsl #2
 	add	r10, r3, r10, lsl #2
 	add	r9, r3, r9, lsl #2
-	.loc 1 871 0
+	.loc 1 862 0
 	add	r8, r3, r8, lsl #2
 	add	r7, r3, r7, lsl #2
-	.loc 1 869 0
+	.loc 1 860 0
 	add	r6, r3, r6, lsl #2
-	.loc 1 868 0
+	.loc 1 859 0
 	str	fp, [sp, #8]
-	.loc 1 871 0
+	.loc 1 862 0
 	ubfx	fp, r0, #16, #8
-	.loc 1 870 0
+	.loc 1 861 0
 	ubfx	r0, r0, #8, #8
 .LVL42:
 	ldr	r9, [r9, #-2000]
 	ldr	r7, [r7, #-2000]
-	.loc 1 871 0
+	.loc 1 862 0
 	ubfx	r1, r1, #8, #8
 .LVL43:
 	ldr	r10, [r10, #-3024]
@@ -801,20 +801,20 @@ AES_encrypt:
 	eor	r10, r10, r9
 	str	r5, [sp, #16]
 .LVL44:
-	.loc 1 869 0
+	.loc 1 860 0
 	ubfx	r9, r4, #16, #8
 	ldr	r5, [ip, #-2000]
-	.loc 1 870 0
+	.loc 1 861 0
 	add	ip, r3, r0, lsl #2
 	str	ip, [sp, #20]
-	.loc 1 869 0
+	.loc 1 860 0
 	add	r9, r3, r9, lsl #2
 	ldr	r0, [sp, #12]
 	eor	r8, r8, r7
 	eor	r6, r6, r5
 	ldr	r5, [r9, #-976]
 	ldr	r9, [sp, #16]
-	.loc 1 868 0
+	.loc 1 859 0
 	ubfx	r4, r4, #8, #8
 .LVL45:
 	ldr	ip, [r0, #-3024]
@@ -822,19 +822,19 @@ AES_encrypt:
 	add	r4, r3, r4, lsl #2
 	eor	ip, ip, r9
 	ldr	fp, [fp, #-976]
-	.loc 1 871 0
+	.loc 1 862 0
 	ldr	r1, [r1, #48]
 	ldr	r7, [r0, #-976]
-	.loc 1 870 0
+	.loc 1 861 0
 	ubfx	r0, lr, #16, #8
-	.loc 1 869 0
+	.loc 1 860 0
 	ubfx	lr, lr, #8, #8
 .LVL46:
-	.loc 1 868 0
+	.loc 1 859 0
 	ldr	r4, [r4, #48]
-	.loc 1 870 0
+	.loc 1 861 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 869 0
+	.loc 1 860 0
 	add	lr, r3, lr, lsl #2
 	ldr	r9, [r0, #-976]
 	ldr	r0, [r2, #32]
@@ -845,219 +845,219 @@ AES_encrypt:
 	eor	r8, r8, r0
 	ldr	r0, [r2, #36]
 	eor	fp, fp, r8
-	.loc 1 868 0
+	.loc 1 859 0
 	eor	r10, r10, r4
 .LVL47:
 	eor	r6, r6, r0
-	.loc 1 870 0
+	.loc 1 861 0
 	ldr	r0, [sp, #20]
 	eor	r6, r6, r5
-	.loc 1 871 0
+	.loc 1 862 0
 	eor	r1, r1, fp
-	.loc 1 870 0
+	.loc 1 861 0
 	ldr	r7, [r0, #48]
-	.loc 1 873 0
+	.loc 1 864 0
 	uxtb	r5, r1
 	ldr	r0, [r2, #40]
 	add	r5, r3, r5, lsl #2
 	eor	ip, ip, r0
-	.loc 1 869 0
+	.loc 1 860 0
 	eor	r0, r6, lr
 .LVL48:
 	eor	ip, ip, r9
-	.loc 1 873 0
+	.loc 1 864 0
 	ubfx	r4, r0, #16, #8
-	.loc 1 870 0
+	.loc 1 861 0
 	eor	ip, ip, r7
 .LVL49:
-	.loc 1 874 0
+	.loc 1 865 0
 	mov	lr, r0, lsr #24
-	.loc 1 873 0
+	.loc 1 864 0
 	ubfx	fp, ip, #8, #8
-	.loc 1 876 0
+	.loc 1 867 0
 	mov	r7, r1, lsr #24
-	.loc 1 873 0
+	.loc 1 864 0
 	mov	r6, r10, lsr #24
-	.loc 1 876 0
+	.loc 1 867 0
 	str	r7, [sp, #8]
-	.loc 1 873 0
+	.loc 1 864 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 874 0
+	.loc 1 865 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 876 0
+	.loc 1 867 0
 	uxtb	r8, ip
-	.loc 1 874 0
+	.loc 1 865 0
 	str	lr, [sp, #16]
-	.loc 1 875 0
+	.loc 1 866 0
 	mov	r7, ip, lsr #24
-	.loc 1 876 0
+	.loc 1 867 0
 	ldr	lr, [sp, #8]
-	.loc 1 873 0
+	.loc 1 864 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 874 0
+	.loc 1 865 0
 	ubfx	ip, ip, #16, #8
 .LVL50:
 	uxtb	r9, r10
-	.loc 1 873 0
+	.loc 1 864 0
 	add	r6, r3, r6, lsl #2
-	.loc 1 874 0
+	.loc 1 865 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 873 0
+	.loc 1 864 0
 	ldr	fp, [fp, #48]
-	.loc 1 874 0
+	.loc 1 865 0
 	str	ip, [sp, #20]
 	add	r9, r3, r9, lsl #2
 	ldr	ip, [r5, #-2000]
-	.loc 1 876 0
+	.loc 1 867 0
 	add	lr, r3, lr, lsl #2
 	ldr	r5, [r4, #-976]
-	.loc 1 875 0
+	.loc 1 866 0
 	add	r7, r3, r7, lsl #2
 	ldr	r4, [sp, #16]
-	.loc 1 876 0
+	.loc 1 867 0
 	add	r8, r3, r8, lsl #2
-	.loc 1 875 0
+	.loc 1 866 0
 	str	r7, [sp, #24]
 .LVL51:
 	uxtb	r7, r0
 	ldr	r6, [r6, #-3024]
-	.loc 1 876 0
+	.loc 1 867 0
 	ubfx	r0, r0, #8, #8
 .LVL52:
 	str	r5, [sp, #8]
-	.loc 1 875 0
+	.loc 1 866 0
 	add	r7, r3, r7, lsl #2
 	ldr	r5, [r4, #-3024]
-	.loc 1 876 0
+	.loc 1 867 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 873 0
+	.loc 1 864 0
 	str	fp, [sp, #12]
 	eor	r6, r6, ip
-	.loc 1 876 0
+	.loc 1 867 0
 	str	r0, [sp, #28]
 .LVL53:
-	.loc 1 875 0
+	.loc 1 866 0
 	ubfx	r0, r1, #16, #8
 	ldr	ip, [r2, #48]
-	.loc 1 874 0
+	.loc 1 865 0
 	ubfx	r1, r1, #8, #8
 .LVL54:
 	ldr	r4, [r9, #-2000]
-	.loc 1 875 0
+	.loc 1 866 0
 	add	r0, r3, r0, lsl #2
 	ldr	r9, [lr, #-3024]
 	eor	r6, r6, ip
 	ldr	lr, [sp, #24]
-	.loc 1 876 0
+	.loc 1 867 0
 	ubfx	ip, r10, #16, #8
 	eor	r4, r4, r5
 	ldr	r8, [r8, #-2000]
 	ldr	r7, [r7, #-2000]
-	.loc 1 875 0
+	.loc 1 866 0
 	ubfx	r10, r10, #8, #8
 .LVL55:
 	ldr	fp, [lr, #-3024]
 	eor	r9, r9, r8
 	ldr	lr, [sp, #20]
-	.loc 1 874 0
+	.loc 1 865 0
 	add	r1, r3, r1, lsl #2
 	ldr	r8, [sp, #8]
 	eor	r7, r7, fp
-	.loc 1 875 0
+	.loc 1 866 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 873 0
+	.loc 1 864 0
 	ldr	fp, [sp, #12]
 	ldr	r5, [lr, #-976]
-	.loc 1 876 0
+	.loc 1 867 0
 	add	lr, r3, ip, lsl #2
 	ldr	ip, [r0, #-976]
 	eor	r6, r6, r8
 	ldr	r0, [lr, #-976]
-	.loc 1 873 0
+	.loc 1 864 0
 	eor	fp, r6, fp
 .LVL56:
 	ldr	lr, [r2, #52]
 	ldr	r8, [r2, #60]
 	eor	r4, r4, lr
 	ldr	lr, [r2, #56]
-	.loc 1 874 0
+	.loc 1 865 0
 	ldr	r6, [r1, #48]
 	eor	r9, r9, r8
 	eor	r7, r7, lr
-	.loc 1 876 0
+	.loc 1 867 0
 	ldr	lr, [sp, #28]
-	.loc 1 875 0
+	.loc 1 866 0
 	ldr	r1, [r10, #48]
 	eor	r0, r0, r9
 	eor	r5, r5, r4
-	.loc 1 879 0
+	.loc 1 870 0
 	str	fp, [sp, #8]
-	.loc 1 876 0
+	.loc 1 867 0
 	ldr	r10, [lr, #48]
 	eor	lr, r7, ip
-	.loc 1 874 0
+	.loc 1 865 0
 	eor	r5, r5, r6
 .LVL57:
-	.loc 1 875 0
+	.loc 1 866 0
 	eor	lr, lr, r1
 .LVL58:
-	.loc 1 876 0
+	.loc 1 867 0
 	eor	r0, r0, r10
 .LVL59:
-	.loc 1 878 0
+	.loc 1 869 0
 	mov	r10, fp, lsr #24
 	ubfx	fp, r5, #16, #8
 .LVL60:
-	.loc 1 880 0
+	.loc 1 871 0
 	mov	r4, lr, lsr #24
-	.loc 1 881 0
+	.loc 1 872 0
 	mov	r7, r0, lsr #24
-	.loc 1 878 0
+	.loc 1 869 0
 	uxtb	r1, r0
-	.loc 1 880 0
+	.loc 1 871 0
 	uxtb	r8, r5
-	.loc 1 878 0
+	.loc 1 869 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 881 0
+	.loc 1 872 0
 	add	r7, r3, r7, lsl #2
-	.loc 1 878 0
+	.loc 1 869 0
 	str	fp, [sp, #12]
-	.loc 1 879 0
+	.loc 1 870 0
 	ldrb	ip, [sp, #8]	@ zero_extendqisi2
-	.loc 1 881 0
+	.loc 1 872 0
 	uxtb	r6, lr
-	.loc 1 879 0
+	.loc 1 870 0
 	ubfx	fp, lr, #16, #8
-	.loc 1 878 0
+	.loc 1 869 0
 	ubfx	lr, lr, #8, #8
 .LVL61:
-	.loc 1 879 0
+	.loc 1 870 0
 	mov	r9, r5, lsr #24
-	.loc 1 878 0
+	.loc 1 869 0
 	add	r10, r3, r10, lsl #2
 	add	r1, r3, r1, lsl #2
-	.loc 1 880 0
+	.loc 1 871 0
 	add	r4, r3, r4, lsl #2
 	add	r8, r3, r8, lsl #2
-	.loc 1 878 0
+	.loc 1 869 0
 	add	lr, r3, lr, lsl #2
 	str	lr, [sp, #16]
-	.loc 1 881 0
+	.loc 1 872 0
 	add	r6, r3, r6, lsl #2
 	ldr	lr, [r7, #-3024]
-	.loc 1 879 0
+	.loc 1 870 0
 	add	r9, r3, r9, lsl #2
 	ldr	r7, [sp, #12]
 	add	ip, r3, ip, lsl #2
 	ldr	r10, [r10, #-3024]
-	.loc 1 881 0
+	.loc 1 872 0
 	ubfx	r5, r5, #8, #8
 .LVL62:
 	ldr	r8, [r8, #-2000]
-	.loc 1 879 0
+	.loc 1 870 0
 	add	fp, r3, fp, lsl #2
 	ldr	r1, [r1, #-2000]
-	.loc 1 881 0
+	.loc 1 872 0
 	add	r5, r3, r5, lsl #2
 	ldr	r4, [r4, #-3024]
 	ldr	ip, [ip, #-2000]
@@ -1068,139 +1068,139 @@ AES_encrypt:
 	str	r5, [sp, #20]
 	eor	r9, r9, ip
 	ldr	r5, [r6, #-2000]
-	.loc 1 880 0
+	.loc 1 871 0
 	ubfx	ip, r0, #16, #8
 	ldr	r6, [r7, #-976]
 	eor	r1, r1, r10
-	.loc 1 881 0
+	.loc 1 872 0
 	ldr	r8, [sp, #8]
 	eor	r5, r5, lr
 	ldr	r10, [r2, #72]
-	.loc 1 880 0
+	.loc 1 871 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 881 0
+	.loc 1 872 0
 	ubfx	r7, r8, #16, #8
-	.loc 1 880 0
+	.loc 1 871 0
 	ubfx	r8, r8, #8, #8
 	eor	r4, r4, r10
 	eor	r1, r1, r6
 	add	lr, r3, r8, lsl #2
 	ldr	r8, [ip, #-976]
-	.loc 1 878 0
+	.loc 1 869 0
 	ldr	r6, [sp, #16]
-	.loc 1 881 0
+	.loc 1 872 0
 	add	r7, r3, r7, lsl #2
-	.loc 1 880 0
+	.loc 1 871 0
 	ldr	r10, [lr, #48]
 	eor	r4, r4, r8
-	.loc 1 881 0
+	.loc 1 872 0
 	ldr	lr, [sp, #20]
-	.loc 1 879 0
+	.loc 1 870 0
 	ubfx	r0, r0, #8, #8
 .LVL63:
 	ldr	r7, [r7, #-976]
-	.loc 1 880 0
+	.loc 1 871 0
 	eor	r4, r4, r10
-	.loc 1 878 0
+	.loc 1 869 0
 	ldr	r6, [r6, #48]
-	.loc 1 879 0
+	.loc 1 870 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 881 0
+	.loc 1 872 0
 	ldr	r8, [lr, #48]
 	ldr	lr, [r2, #76]
-	.loc 1 878 0
+	.loc 1 869 0
 	eor	r1, r1, r6
 .LVL64:
 	ldr	ip, [r2, #68]
 	eor	lr, r5, lr
 	ldr	fp, [fp, #-976]
 	eor	lr, lr, r7
-	.loc 1 879 0
+	.loc 1 870 0
 	ldr	r0, [r0, #48]
-	.loc 1 881 0
+	.loc 1 872 0
 	eor	lr, lr, r8
 	eor	r9, r9, ip
 	eor	ip, r9, fp
-	.loc 1 883 0
+	.loc 1 874 0
 	mov	r10, r1, lsr #24
 	uxtb	r5, lr
-	.loc 1 885 0
+	.loc 1 876 0
 	mov	fp, r4, lsr #24
-	.loc 1 879 0
+	.loc 1 870 0
 	eor	ip, ip, r0
 .LVL65:
-	.loc 1 886 0
+	.loc 1 877 0
 	uxtb	r9, r4
 	mov	r0, lr, lsr #24
-	.loc 1 885 0
+	.loc 1 876 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 883 0
+	.loc 1 874 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 885 0
+	.loc 1 876 0
 	str	fp, [sp, #12]
-	.loc 1 883 0
+	.loc 1 874 0
 	add	r5, r3, r5, lsl #2
 	ubfx	fp, ip, #16, #8
-	.loc 1 884 0
+	.loc 1 875 0
 	mov	r8, ip, lsr #24
-	.loc 1 885 0
+	.loc 1 876 0
 	uxtb	r7, ip
-	.loc 1 886 0
+	.loc 1 877 0
 	add	r0, r3, r0, lsl #2
 	add	r9, r3, r9, lsl #2
 	ubfx	ip, ip, #8, #8
 .LVL66:
 	ldr	r10, [r10, #-3024]
-	.loc 1 883 0
+	.loc 1 874 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 884 0
+	.loc 1 875 0
 	uxtb	r6, r1
-	.loc 1 883 0
+	.loc 1 874 0
 	str	fp, [sp, #8]
 .LVL67:
-	.loc 1 886 0
+	.loc 1 877 0
 	ubfx	fp, r1, #16, #8
 	ldr	r5, [r5, #-2000]
-	.loc 1 885 0
+	.loc 1 876 0
 	ubfx	r1, r1, #8, #8
 .LVL68:
 	ldr	r9, [r9, #-2000]
-	.loc 1 886 0
+	.loc 1 877 0
 	add	ip, r3, ip, lsl #2
 	ldr	r0, [r0, #-3024]
-	.loc 1 885 0
+	.loc 1 876 0
 	add	r1, r3, r1, lsl #2
-	.loc 1 886 0
+	.loc 1 877 0
 	str	ip, [sp, #20]
-	.loc 1 884 0
+	.loc 1 875 0
 	add	r8, r3, r8, lsl #2
 	ldr	ip, [sp, #12]
-	.loc 1 885 0
+	.loc 1 876 0
 	add	r7, r3, r7, lsl #2
-	.loc 1 884 0
+	.loc 1 875 0
 	add	r6, r3, r6, lsl #2
-	.loc 1 885 0
+	.loc 1 876 0
 	str	r1, [sp, #16]
 	eor	r5, r5, r10
 	ubfx	r1, lr, #16, #8
-	.loc 1 884 0
+	.loc 1 875 0
 	ubfx	r10, r4, #16, #8
 	eor	r0, r0, r9
 	ldr	r9, [sp, #8]
-	.loc 1 885 0
+	.loc 1 876 0
 	add	r1, r3, r1, lsl #2
 	ldr	r6, [r6, #-2000]
-	.loc 1 884 0
+	.loc 1 875 0
 	add	r10, r3, r10, lsl #2
 	ldr	ip, [ip, #-3024]
-	.loc 1 886 0
+	.loc 1 877 0
 	add	fp, r3, fp, lsl #2
 	ldr	r8, [r8, #-3024]
-	.loc 1 883 0
+	.loc 1 874 0
 	ubfx	r4, r4, #8, #8
 .LVL69:
 	ldr	r7, [r7, #-2000]
-	.loc 1 884 0
+	.loc 1 875 0
 	ubfx	lr, lr, #8, #8
 .LVL70:
 	ldr	r9, [r9, #-976]
@@ -1208,135 +1208,135 @@ AES_encrypt:
 	ldr	fp, [fp, #-976]
 	eor	r7, r7, ip
 	ldr	r6, [r10, #-976]
-	.loc 1 883 0
+	.loc 1 874 0
 	add	r4, r3, r4, lsl #2
 	ldr	ip, [r2, #80]
-	.loc 1 884 0
+	.loc 1 875 0
 	add	lr, r3, lr, lsl #2
 	ldr	r10, [r1, #-976]
 	ldr	r1, [r2, #92]
 	eor	r5, r5, ip
 	eor	r5, r5, r9
-	.loc 1 885 0
+	.loc 1 876 0
 	ldr	r9, [sp, #16]
 	eor	r0, r0, r1
 	ldr	ip, [r2, #88]
 	eor	fp, fp, r0
-	.loc 1 886 0
+	.loc 1 877 0
 	ldr	r0, [sp, #20]
 	ldr	r1, [r2, #84]
 	eor	r7, r7, ip
-	.loc 1 883 0
+	.loc 1 874 0
 	ldr	r4, [r4, #48]
 	eor	r7, r7, r10
-	.loc 1 886 0
+	.loc 1 877 0
 	ldr	r0, [r0, #48]
 	eor	r8, r8, r1
-	.loc 1 883 0
+	.loc 1 874 0
 	eor	r4, r5, r4
 .LVL71:
-	.loc 1 885 0
+	.loc 1 876 0
 	ldr	r9, [r9, #48]
-	.loc 1 886 0
+	.loc 1 877 0
 	eor	r0, r0, fp
-	.loc 1 884 0
+	.loc 1 875 0
 	ldr	lr, [lr, #48]
 	eor	r8, r8, r6
-	.loc 1 885 0
+	.loc 1 876 0
 	eor	ip, r7, r9
-	.loc 1 884 0
+	.loc 1 875 0
 	eor	r1, r8, lr
 .LVL72:
-	.loc 1 888 0
+	.loc 1 879 0
 	uxtb	fp, r0
 	mov	lr, r4, lsr #24
-	.loc 1 889 0
+	.loc 1 880 0
 	str	r4, [sp, #8]
 	ldrb	r7, [sp, #8]	@ zero_extendqisi2
-	.loc 1 890 0
+	.loc 1 881 0
 	mov	r4, ip, lsr #24
 .LVL73:
-	.loc 1 888 0
+	.loc 1 879 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 889 0
+	.loc 1 880 0
 	mov	r8, r1, lsr #24
 	ubfx	r5, r0, #8, #8
-	.loc 1 888 0
+	.loc 1 879 0
 	add	fp, r3, fp, lsl #2
 	ubfx	r10, r1, #16, #8
-	.loc 1 889 0
+	.loc 1 880 0
 	add	r8, r3, r8, lsl #2
 	add	r7, r3, r7, lsl #2
 	add	r5, r3, r5, lsl #2
 	ldr	fp, [fp, #-2000]
-	.loc 1 888 0
+	.loc 1 879 0
 	ubfx	r9, ip, #8, #8
-	.loc 1 889 0
+	.loc 1 880 0
 	str	r5, [sp, #12]
 	ubfx	r6, ip, #16, #8
-	.loc 1 890 0
+	.loc 1 881 0
 	add	r5, r3, r4, lsl #2
-	.loc 1 891 0
+	.loc 1 882 0
 	uxtb	ip, ip
 .LVL74:
-	.loc 1 890 0
+	.loc 1 881 0
 	str	r5, [sp, #16]
 	uxtb	r4, r1
 	ldr	r5, [lr, #-3024]
-	.loc 1 891 0
+	.loc 1 882 0
 	ubfx	r1, r1, #8, #8
 .LVL75:
 	mov	lr, r0, lsr #24
-	.loc 1 890 0
+	.loc 1 881 0
 	ubfx	r0, r0, #16, #8
 .LVL76:
-	.loc 1 888 0
+	.loc 1 879 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 891 0
+	.loc 1 882 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 890 0
+	.loc 1 881 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 891 0
+	.loc 1 882 0
 	str	ip, [sp, #24]
-	.loc 1 888 0
+	.loc 1 879 0
 	add	r9, r3, r9, lsl #2
 	ldr	ip, [r2, #96]
-	.loc 1 890 0
+	.loc 1 881 0
 	str	r0, [sp, #20]
 	eor	r5, r5, fp
 	ldr	r0, [r8, #-3024]
-	.loc 1 891 0
+	.loc 1 882 0
 	add	r8, r3, r1, lsl #2
 	ldr	fp, [sp, #8]
-	.loc 1 890 0
+	.loc 1 881 0
 	add	r4, r3, r4, lsl #2
 	ldr	r1, [r7, #-2000]
 	eor	r5, r5, ip
 	ldr	r10, [r10, #-976]
-	.loc 1 891 0
+	.loc 1 882 0
 	ubfx	ip, fp, #16, #8
 	str	r8, [sp, #28]
 	eor	r0, r0, r1
 	ldr	r8, [sp, #16]
-	.loc 1 890 0
+	.loc 1 881 0
 	ubfx	r1, fp, #8, #8
-	.loc 1 888 0
+	.loc 1 879 0
 	ldr	r9, [r9, #48]
 	eor	r5, r5, r10
-	.loc 1 889 0
+	.loc 1 880 0
 	add	r6, r3, r6, lsl #2
 	ldr	fp, [r4, #-2000]
-	.loc 1 890 0
+	.loc 1 881 0
 	add	r10, r3, r1, lsl #2
-	.loc 1 891 0
+	.loc 1 882 0
 	add	r4, r3, ip, lsl #2
 	ldr	r1, [r2, #100]
-	.loc 1 888 0
+	.loc 1 879 0
 	eor	ip, r5, r9
 .LVL77:
-	.loc 1 889 0
+	.loc 1 880 0
 	ldr	r7, [sp, #12]
-	.loc 1 891 0
+	.loc 1 882 0
 	add	lr, r3, lr, lsl #2
 	ldr	r8, [r8, #-3024]
 	eor	r0, r0, r1
@@ -1344,7 +1344,7 @@ AES_encrypt:
 	ldr	r6, [r6, #-976]
 	eor	r8, r8, fp
 	ldr	fp, [r2, #104]
-	.loc 1 889 0
+	.loc 1 880 0
 	ldr	r7, [r7, #48]
 	ldr	r5, [r5, #-2000]
 	eor	r8, r8, fp
@@ -1356,73 +1356,73 @@ AES_encrypt:
 	ldr	fp, [r2, #108]
 	eor	r5, r5, r9
 	ldr	r4, [r4, #-976]
-	.loc 1 894 0
+	.loc 1 885 0
 	mov	r7, lr, lsr #24
 	ldr	r0, [r0, #-976]
 	eor	r5, r5, fp
-	.loc 1 891 0
+	.loc 1 882 0
 	ldr	fp, [sp, #28]
 	eor	r5, r5, r4
 	eor	r8, r8, r0
-	.loc 1 890 0
+	.loc 1 881 0
 	ldr	r0, [r10, #48]
-	.loc 1 894 0
+	.loc 1 885 0
 	add	r7, r3, r7, lsl #2
-	.loc 1 893 0
+	.loc 1 884 0
 	mov	r10, ip, lsr #24
-	.loc 1 891 0
+	.loc 1 882 0
 	ldr	r6, [fp, #48]
-	.loc 1 890 0
+	.loc 1 881 0
 	eor	r0, r0, r8
 .LVL79:
-	.loc 1 893 0
+	.loc 1 884 0
 	add	r10, r3, r10, lsl #2
 	ldr	r7, [r7, #-3024]
-	.loc 1 891 0
+	.loc 1 882 0
 	eor	r1, r5, r6
 .LVL80:
-	.loc 1 895 0
+	.loc 1 886 0
 	mov	fp, r0, lsr #24
-	.loc 1 896 0
+	.loc 1 887 0
 	uxtb	r8, r0
-	.loc 1 894 0
+	.loc 1 885 0
 	uxtb	r5, ip
-	.loc 1 896 0
+	.loc 1 887 0
 	mov	r9, r1, lsr #24
-	.loc 1 895 0
+	.loc 1 886 0
 	add	fp, r3, fp, lsl #2
 	str	fp, [sp, #12]
-	.loc 1 893 0
+	.loc 1 884 0
 	ubfx	fp, lr, #16, #8
-	.loc 1 894 0
+	.loc 1 885 0
 	add	r5, r3, r5, lsl #2
-	.loc 1 893 0
+	.loc 1 884 0
 	uxtb	r4, r1
-	.loc 1 895 0
+	.loc 1 886 0
 	uxtb	r6, lr
-	.loc 1 896 0
+	.loc 1 887 0
 	add	r9, r3, r9, lsl #2
 	add	r8, r3, r8, lsl #2
 	ubfx	lr, lr, #8, #8
 .LVL81:
-	.loc 1 893 0
+	.loc 1 884 0
 	add	fp, r3, fp, lsl #2
 	str	fp, [sp, #8]
 .LVL82:
-	.loc 1 896 0
+	.loc 1 887 0
 	ubfx	fp, ip, #16, #8
-	.loc 1 895 0
+	.loc 1 886 0
 	ubfx	ip, ip, #8, #8
 .LVL83:
 	ldr	r8, [r8, #-2000]
-	.loc 1 896 0
+	.loc 1 887 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 893 0
+	.loc 1 884 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 896 0
+	.loc 1 887 0
 	str	lr, [sp, #20]
 	ldr	r9, [r9, #-3024]
-	.loc 1 895 0
+	.loc 1 886 0
 	add	r6, r3, r6, lsl #2
 	ldr	lr, [r5, #-2000]
 	add	r5, r3, ip, lsl #2
@@ -1433,18 +1433,18 @@ AES_encrypt:
 	ldr	r10, [r10, #-3024]
 	ubfx	lr, r1, #16, #8
 	ldr	r4, [r4, #-2000]
-	.loc 1 896 0
+	.loc 1 887 0
 	add	fp, r3, fp, lsl #2
 	ldr	r8, [sp, #8]
-	.loc 1 895 0
+	.loc 1 886 0
 	add	lr, r3, lr, lsl #2
 	ldr	ip, [r5, #-3024]
 	eor	r4, r4, r10
 	ldr	r6, [r6, #-2000]
-	.loc 1 894 0
+	.loc 1 885 0
 	ubfx	r5, r0, #16, #8
 	ldr	r10, [r2, #112]
-	.loc 1 893 0
+	.loc 1 884 0
 	ubfx	r0, r0, #8, #8
 .LVL84:
 	ldr	r8, [r8, #-976]
@@ -1453,95 +1453,95 @@ AES_encrypt:
 	ldr	ip, [lr, #-976]
 	ldr	lr, [r2, #124]
 	eor	r4, r4, r8
-	.loc 1 896 0
+	.loc 1 887 0
 	ldr	r8, [sp, #20]
-	.loc 1 894 0
+	.loc 1 885 0
 	add	r5, r3, r5, lsl #2
 	eor	r9, r9, lr
-	.loc 1 893 0
+	.loc 1 884 0
 	add	r0, r3, r0, lsl #2
 	ldr	lr, [r2, #116]
-	.loc 1 894 0
+	.loc 1 885 0
 	ubfx	r1, r1, #8, #8
 .LVL85:
 	ldr	r5, [r5, #-976]
-	.loc 1 893 0
+	.loc 1 884 0
 	ldr	r0, [r0, #48]
 	eor	r7, r7, lr
 	ldr	fp, [fp, #-976]
-	.loc 1 894 0
+	.loc 1 885 0
 	add	r1, r3, r1, lsl #2
-	.loc 1 896 0
+	.loc 1 887 0
 	ldr	r8, [r8, #48]
 	eor	r7, r7, r5
-	.loc 1 895 0
+	.loc 1 886 0
 	ldr	lr, [sp, #16]
 	eor	fp, fp, r9
-	.loc 1 894 0
+	.loc 1 885 0
 	ldr	r9, [r1, #48]
-	.loc 1 896 0
+	.loc 1 887 0
 	eor	r8, r8, fp
-	.loc 1 893 0
+	.loc 1 884 0
 	eor	r4, r4, r0
 .LVL86:
-	.loc 1 895 0
+	.loc 1 886 0
 	ldr	r10, [lr, #48]
-	.loc 1 894 0
+	.loc 1 885 0
 	eor	r7, r7, r9
 .LVL87:
 	ldr	lr, [r2, #120]
-	.loc 1 898 0
+	.loc 1 889 0
 	ubfx	r9, r7, #16, #8
-	.loc 1 899 0
+	.loc 1 890 0
 	mov	r5, r7, lsr #24
-	.loc 1 898 0
+	.loc 1 889 0
 	mov	r0, r4, lsr #24
 	eor	r6, r6, lr
 	add	r9, r3, r9, lsl #2
 	eor	r6, r6, ip
-	.loc 1 899 0
+	.loc 1 890 0
 	add	r5, r3, r5, lsl #2
-	.loc 1 895 0
+	.loc 1 886 0
 	eor	r1, r6, r10
 .LVL88:
-	.loc 1 898 0
+	.loc 1 889 0
 	uxtb	r10, r8
 	ubfx	r6, r1, #8, #8
-	.loc 1 901 0
+	.loc 1 892 0
 	mov	lr, r8, lsr #24
 	uxtb	ip, r1
-	.loc 1 898 0
+	.loc 1 889 0
 	add	r0, r3, r0, lsl #2
 	add	r6, r3, r6, lsl #2
 	add	r10, r3, r10, lsl #2
-	.loc 1 901 0
+	.loc 1 892 0
 	add	ip, r3, ip, lsl #2
 	str	ip, [sp, #24]
-	.loc 1 898 0
+	.loc 1 889 0
 	ldr	r6, [r6, #48]
-	.loc 1 901 0
+	.loc 1 892 0
 	add	lr, r3, lr, lsl #2
 	ldr	r9, [r9, #-976]
-	.loc 1 900 0
+	.loc 1 891 0
 	mov	fp, r1, lsr #24
 	ldr	r10, [r10, #-2000]
 	uxtb	ip, r7
-	.loc 1 898 0
+	.loc 1 889 0
 	str	r6, [sp, #12]
-	.loc 1 900 0
+	.loc 1 891 0
 	add	fp, r3, fp, lsl #2
 	ldr	r6, [r5, #-3024]
 	add	ip, r3, ip, lsl #2
 	ldr	r5, [sp, #24]
-	.loc 1 901 0
+	.loc 1 892 0
 	ubfx	r7, r7, #8, #8
 .LVL89:
 	ldr	r0, [r0, #-3024]
-	.loc 1 899 0
+	.loc 1 890 0
 	ubfx	r1, r1, #16, #8
 .LVL90:
 	ldr	lr, [lr, #-3024]
-	.loc 1 901 0
+	.loc 1 892 0
 	add	r7, r3, r7, lsl #2
 	ldr	r5, [r5, #-2000]
 	eor	r0, r0, r10
@@ -1550,37 +1550,37 @@ AES_encrypt:
 	ldr	r10, [r2, #128]
 	eor	lr, lr, r5
 	str	r6, [sp, #16]
-	.loc 1 899 0
+	.loc 1 890 0
 	uxtb	r6, r4
 	ldr	r5, [sp, #8]
-	.loc 1 900 0
+	.loc 1 891 0
 	ubfx	r4, r4, #8, #8
 .LVL91:
 	eor	r0, r0, r10
-	.loc 1 899 0
+	.loc 1 890 0
 	add	r6, r3, r6, lsl #2
-	.loc 1 900 0
+	.loc 1 891 0
 	add	r4, r3, r4, lsl #2
 	eor	r0, r0, r5
-	.loc 1 898 0
+	.loc 1 889 0
 	ldr	r5, [sp, #12]
-	.loc 1 901 0
+	.loc 1 892 0
 	add	r9, r3, r9, lsl #2
 	ldr	r10, [fp, #-3024]
-	.loc 1 900 0
+	.loc 1 891 0
 	ubfx	fp, r8, #16, #8
-	.loc 1 898 0
+	.loc 1 889 0
 	eor	r0, r0, r5
 .LVL92:
 	ldr	r6, [r6, #-2000]
-	.loc 1 900 0
+	.loc 1 891 0
 	ldr	r5, [r4, #48]
-	.loc 1 899 0
+	.loc 1 890 0
 	add	r1, r3, r1, lsl #2
 	ldr	r4, [sp, #16]
-	.loc 1 900 0
+	.loc 1 891 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 899 0
+	.loc 1 890 0
 	str	r1, [sp, #20]
 	ubfx	r8, r8, #8, #8
 .LVL93:
@@ -1594,7 +1594,7 @@ AES_encrypt:
 	eor	lr, lr, ip
 	ldr	r10, [r2, #136]
 	eor	ip, lr, r9
-	.loc 1 901 0
+	.loc 1 892 0
 	ldr	r7, [r7, #48]
 	ldr	fp, [fp, #-976]
 	eor	r1, r1, r10
@@ -1603,40 +1603,40 @@ AES_encrypt:
 	ldr	r9, [r4, #-976]
 	eor	r1, r1, fp
 	eor	r6, r6, lr
-	.loc 1 899 0
+	.loc 1 890 0
 	ldr	lr, [r8, #48]
-	.loc 1 900 0
+	.loc 1 891 0
 	eor	r4, r1, r5
 	eor	r9, r9, r6
-	.loc 1 903 0
+	.loc 1 894 0
 	mov	r7, r0, lsr #24
 	uxtb	r1, ip
-	.loc 1 899 0
+	.loc 1 890 0
 	eor	lr, lr, r9
 .LVL94:
-	.loc 1 906 0
+	.loc 1 897 0
 	mov	r6, ip, lsr #24
 	uxtb	r5, r4
-	.loc 1 903 0
+	.loc 1 894 0
 	add	r7, r3, r7, lsl #2
 	add	r1, r3, r1, lsl #2
 	ubfx	r8, lr, #16, #8
 	ldr	r7, [r7, #-3024]
-	.loc 1 906 0
+	.loc 1 897 0
 	add	r6, r3, r6, lsl #2
-	.loc 1 903 0
+	.loc 1 894 0
 	add	r8, r3, r8, lsl #2
-	.loc 1 906 0
+	.loc 1 897 0
 	add	r5, r3, r5, lsl #2
-	.loc 1 903 0
+	.loc 1 894 0
 	str	r8, [sp, #8]
-	.loc 1 904 0
+	.loc 1 895 0
 	ubfx	r8, r4, #16, #8
 	ldr	r1, [r1, #-2000]
-	.loc 1 903 0
+	.loc 1 894 0
 	ubfx	fp, r4, #8, #8
 	ldr	r6, [r6, #-3024]
-	.loc 1 904 0
+	.loc 1 895 0
 	add	r8, r3, r8, lsl #2
 	mov	r10, lr, lsr #24
 	str	r8, [sp, #12]
@@ -1644,46 +1644,46 @@ AES_encrypt:
 	ldr	r8, [r2, #144]
 	ldr	r5, [r5, #-2000]
 	eor	r1, r1, r7
-	.loc 1 905 0
+	.loc 1 896 0
 	mov	r4, r4, lsr #24
 .LVL95:
 	ldr	r7, [sp, #8]
-	.loc 1 904 0
+	.loc 1 895 0
 	add	r10, r3, r10, lsl #2
 	add	r9, r3, r9, lsl #2
-	.loc 1 905 0
+	.loc 1 896 0
 	add	r4, r3, r4, lsl #2
 	eor	r1, r1, r8
 	str	r4, [sp, #16]
 	uxtb	r8, lr
-	.loc 1 904 0
+	.loc 1 895 0
 	ubfx	r4, ip, #8, #8
 	eor	r5, r5, r6
-	.loc 1 905 0
+	.loc 1 896 0
 	ubfx	ip, ip, #16, #8
 .LVL96:
 	ubfx	r6, r0, #8, #8
-	.loc 1 906 0
+	.loc 1 897 0
 	ubfx	lr, lr, #8, #8
 .LVL97:
 	ubfx	r0, r0, #16, #8
 .LVL98:
 	ldr	r7, [r7, #-976]
-	.loc 1 905 0
+	.loc 1 896 0
 	add	ip, r3, ip, lsl #2
 	add	r8, r3, r8, lsl #2
-	.loc 1 906 0
+	.loc 1 897 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 903 0
+	.loc 1 894 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 906 0
+	.loc 1 897 0
 	str	lr, [sp, #20]
-	.loc 1 904 0
+	.loc 1 895 0
 	add	r4, r3, r4, lsl #2
 	ldr	lr, [r10, #-3024]
-	.loc 1 906 0
+	.loc 1 897 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 905 0
+	.loc 1 896 0
 	add	r10, r3, r6, lsl #2
 	ldr	r3, [r9, #-2000]
 	eor	r1, r1, r7
@@ -1700,9 +1700,9 @@ AES_encrypt:
 	ldr	r10, [r2, #148]
 	ldr	r7, [r7, #-3024]
 	eor	lr, lr, r10
-	.loc 1 906 0
+	.loc 1 897 0
 	ldr	r10, [sp, #20]
-	.loc 1 903 0
+	.loc 1 894 0
 	ldr	fp, [fp, #48]
 	eor	r7, r7, r3
 	ldr	r0, [r0, #-976]
@@ -1710,95 +1710,95 @@ AES_encrypt:
 	ldr	r3, [r2, #152]
 	eor	r1, r1, fp
 .LVL99:
-	.loc 1 906 0
+	.loc 1 897 0
 	ldr	r10, [r10, #48]
 	eor	r5, r5, r0
 	eor	r7, r7, r3
 	ldr	r3, [sp, #8]
 	eor	r10, r10, r5
-	.loc 1 975 0
+	.loc 1 905 0
 	ldr	ip, [sp, #4]
-	.loc 1 904 0
+	.loc 1 895 0
 	ldr	r4, [r4, #48]
 	eor	r7, r7, r3
-	.loc 1 975 0
-	mov	fp, r1, lsr #24
 	.loc 1 905 0
+	mov	fp, r1, lsr #24
+	.loc 1 896 0
 	eor	r8, r8, r7
-	.loc 1 907 0
+	.loc 1 898 0
 	ldr	r3, [r2, #240]
-	.loc 1 978 0
+	.loc 1 908 0
 	uxtb	r5, r10
 	ldr	r7, [sp, #4]
-	.loc 1 904 0
+	.loc 1 895 0
 	eor	lr, lr, r4
 .LVL100:
-	.loc 1 975 0
+	.loc 1 905 0
 	add	fp, ip, fp, lsl #2
-	.loc 1 985 0
+	.loc 1 915 0
 	uxtb	r6, r1
-	.loc 1 976 0
+	.loc 1 906 0
 	ubfx	r4, lr, #16, #8
-	.loc 1 978 0
+	.loc 1 908 0
 	add	r5, r7, r5, lsl #2
-	.loc 1 985 0
+	.loc 1 915 0
 	add	r6, ip, r6, lsl #2
-	.loc 1 975 0
+	.loc 1 905 0
 	ldr	r0, [fp, #40]
-	.loc 1 977 0
+	.loc 1 907 0
 	ubfx	ip, r8, #8, #8
-	.loc 1 978 0
+	.loc 1 908 0
 	ldrb	r5, [r5, #40]	@ zero_extendqisi2
-	.loc 1 976 0
+	.loc 1 906 0
 	add	r4, r7, r4, lsl #2
 	ldr	r9, [r2, r3, asl #4]
-	.loc 1 977 0
+	.loc 1 907 0
 	mov	fp, r7
 	add	ip, r7, ip, lsl #2
-	.loc 1 975 0
+	.loc 1 905 0
 	and	r0, r0, #-16777216
-	.loc 1 982 0
+	.loc 1 912 0
 	mov	r7, lr, lsr #24
-	.loc 1 976 0
+	.loc 1 906 0
 	ldr	r4, [r4, #40]
 	eor	r0, r0, r5
-	.loc 1 982 0
+	.loc 1 912 0
 	add	r7, fp, r7, lsl #2
-	.loc 1 977 0
+	.loc 1 907 0
 	ldr	ip, [ip, #40]
 	eor	r0, r0, r9
-	.loc 1 984 0
+	.loc 1 914 0
 	ubfx	r5, r10, #8, #8
-	.loc 1 982 0
+	.loc 1 912 0
 	mov	r9, fp
-	.loc 1 983 0
+	.loc 1 913 0
 	ubfx	fp, r8, #16, #8
-	.loc 1 976 0
+	.loc 1 906 0
 	and	r4, r4, #16711680
-	.loc 1 907 0
+	.loc 1 898 0
 	add	r2, r2, r3, lsl #4
 .LVL101:
-	.loc 1 983 0
+	.loc 1 913 0
 	add	fp, r9, fp, lsl #2
-	.loc 1 982 0
+	.loc 1 912 0
 	ldr	r3, [r7, #40]
-	.loc 1 984 0
+	.loc 1 914 0
 	add	r5, r9, r5, lsl #2
 	eor	r0, r0, r4
-	.loc 1 980 0
+	.loc 1 910 0
 	ldr	r9, [sp]
-	.loc 1 977 0
+	.loc 1 907 0
 	and	ip, ip, #65280
-	.loc 1 974 0
+	.loc 1 904 0
 	eor	r0, r0, ip
 .LVL102:
-	.loc 1 985 0
+	.loc 1 915 0
 	ldrb	ip, [r6, #40]	@ zero_extendqisi2
-	.loc 1 982 0
+	.loc 1 912 0
 	and	r3, r3, #-16777216
-	.loc 1 992 0
+	.loc 1 922 0
 	uxtb	r7, lr
-	.loc 1 980 0
+	.loc 1 910 0
 	strb	r0, [r9, #3]
 	mov	r6, r0, lsr #8
 	mov	r4, r0, lsr #16
@@ -1807,47 +1807,47 @@ AES_encrypt:
 	eor	r3, r3, ip
 	mov	r0, r0, lsr #24
 .LVL103:
-	.loc 1 989 0
+	.loc 1 919 0
 	ldr	ip, [sp, #4]
-	.loc 1 980 0
+	.loc 1 910 0
 	strb	r0, [r9]
-	.loc 1 989 0
+	.loc 1 919 0
 	mov	r4, r8, lsr #24
 	ldr	r6, [r2, #4]
-	.loc 1 992 0
+	.loc 1 922 0
 	add	r7, ip, r7, lsl #2
-	.loc 1 983 0
+	.loc 1 913 0
 	ldr	r0, [fp, #40]
-	.loc 1 989 0
+	.loc 1 919 0
 	add	r4, ip, r4, lsl #2
-	.loc 1 984 0
+	.loc 1 914 0
 	ldr	r9, [r5, #40]
 	eor	r6, r6, r3
-	.loc 1 990 0
+	.loc 1 920 0
 	ubfx	r5, r10, #16, #8
-	.loc 1 983 0
+	.loc 1 913 0
 	and	r0, r0, #16711680
-	.loc 1 987 0
+	.loc 1 917 0
 	ldr	fp, [sp]
 	eor	r0, r0, r6
-	.loc 1 984 0
+	.loc 1 914 0
 	and	r3, r9, #65280
-	.loc 1 992 0
+	.loc 1 922 0
 	mov	r9, ip
-	.loc 1 991 0
+	.loc 1 921 0
 	ubfx	ip, r1, #8, #8
-	.loc 1 981 0
+	.loc 1 911 0
 	eor	r3, r3, r0
 .LVL104:
-	.loc 1 989 0
+	.loc 1 919 0
 	ldr	r6, [r4, #40]
-	.loc 1 990 0
+	.loc 1 920 0
 	add	r5, r9, r5, lsl #2
-	.loc 1 992 0
+	.loc 1 922 0
 	ldrb	r4, [r7, #40]	@ zero_extendqisi2
-	.loc 1 991 0
+	.loc 1 921 0
 	add	ip, r9, ip, lsl #2
-	.loc 1 987 0
+	.loc 1 917 0
 	strb	r3, [fp, #7]
 	mov	r7, r3, lsr #8
 	mov	r0, r3, lsr #16
@@ -1855,56 +1855,56 @@ AES_encrypt:
 	strb	r0, [fp, #5]
 	mov	r3, r3, lsr #24
 .LVL105:
-	.loc 1 989 0
+	.loc 1 919 0
 	and	r6, r6, #-16777216
-	.loc 1 987 0
+	.loc 1 917 0
 	strb	r3, [fp, #4]
-	.loc 1 996 0
+	.loc 1 926 0
 	mov	r10, r10, lsr #24
 .LVL106:
 	ldr	r7, [r2, #8]
-	.loc 1 990 0
+	.loc 1 920 0
 	ldr	r3, [r5, #40]
 	eor	r0, r6, r4
-	.loc 1 999 0
+	.loc 1 929 0
 	uxtb	r8, r8
 .LVL107:
-	.loc 1 991 0
+	.loc 1 921 0
 	ldr	r6, [ip, #40]
-	.loc 1 990 0
+	.loc 1 920 0
 	and	r3, r3, #16711680
-	.loc 1 997 0
+	.loc 1 927 0
 	ubfx	r1, r1, #16, #8
 .LVL108:
 	eor	r0, r0, r7
-	.loc 1 996 0
+	.loc 1 926 0
 	add	r10, r9, r10, lsl #2
-	.loc 1 994 0
+	.loc 1 924 0
 	ldr	r5, [sp]
 	eor	r0, r0, r3
-	.loc 1 999 0
+	.loc 1 929 0
 	add	r8, r9, r8, lsl #2
-	.loc 1 998 0
+	.loc 1 928 0
 	ubfx	lr, lr, #8, #8
 .LVL109:
-	.loc 1 991 0
+	.loc 1 921 0
 	and	r6, r6, #65280
-	.loc 1 996 0
+	.loc 1 926 0
 	ldr	r3, [r10, #40]
-	.loc 1 988 0
+	.loc 1 918 0
 	eor	r0, r0, r6
 .LVL110:
-	.loc 1 997 0
+	.loc 1 927 0
 	add	fp, r9, r1, lsl #2
-	.loc 1 999 0
+	.loc 1 929 0
 	ldrb	ip, [r8, #40]	@ zero_extendqisi2
-	.loc 1 998 0
+	.loc 1 928 0
 	add	lr, r9, lr, lsl #2
-	.loc 1 994 0
+	.loc 1 924 0
 	mov	r1, r0, lsr #16
-	.loc 1 996 0
+	.loc 1 926 0
 	and	r3, r3, #-16777216
-	.loc 1 994 0
+	.loc 1 924 0
 	strb	r0, [r5, #11]
 	mov	r4, r0, lsr #8
 	strb	r1, [r5, #9]
@@ -1914,21 +1914,21 @@ AES_encrypt:
 	eor	r1, r3, ip
 	strb	r0, [r5, #8]
 	ldr	r0, [r2, #12]
-	.loc 1 997 0
+	.loc 1 927 0
 	ldr	r2, [fp, #40]
 .LVL112:
-	.loc 1 998 0
+	.loc 1 928 0
 	ldr	r3, [lr, #40]
 	eor	r1, r1, r0
-	.loc 1 997 0
+	.loc 1 927 0
 	and	r2, r2, #16711680
 	eor	r2, r2, r1
-	.loc 1 998 0
+	.loc 1 928 0
 	and	r3, r3, #65280
-	.loc 1 995 0
+	.loc 1 925 0
 	eor	r3, r3, r2
 .LVL113:
-	.loc 1 1001 0
+	.loc 1 931 0
 	strb	r3, [r5, #15]
 	mov	r1, r3, lsr #8
 	mov	r2, r3, lsr #16
@@ -1939,7 +1939,7 @@ AES_encrypt:
 	strb	r3, [r5, #12]
 .LVL115:
 .L24:
-	.loc 1 1007 0
+	.loc 1 933 0
 	add	sp, sp, #36
 	.cfi_def_cfa_offset 36
 .LVL116:
@@ -1953,7 +1953,7 @@ AES_encrypt:
 	.type	AES_decrypt, %function
 AES_decrypt:
 .LFB28:
-	.loc 1 1014 0
+	.loc 1 940 0
 	.cfi_startproc
 	@ args = 0, pretend = 0, frame = 40
 	@ frame_needed = 0, uses_anonymous_args = 0
@@ -1973,197 +1973,197 @@ AES_decrypt:
 	.cfi_offset 14, -4
 	moveq	r3, #1
 	movne	r3, #0
-	.loc 1 1022 0
+	.loc 1 946 0
 	cmp	r0, #0
 	orreq	r3, r3, #1
-	.loc 1 1014 0
+	.loc 1 940 0
 	sub	sp, sp, #44
 	.cfi_def_cfa_offset 80
-	.loc 1 1022 0
+	.loc 1 946 0
 	cmp	r3, #0
 	str	r1, [sp, #4]
 	bne	.L27
 .LVL118:
-	.loc 1 1035 0
+	.loc 1 958 0
 	movw	lr, #:lower16:.LANCHOR1
 	ldr	ip, [r2]
-	.loc 1 1029 0
+	.loc 1 953 0
 	ldrb	r1, [r0, #3]	@ zero_extendqisi2
 .LVL119:
-	.loc 1 1035 0
+	.loc 1 958 0
 	mov	r5, lr
-	.loc 1 1029 0
+	.loc 1 953 0
 	ldrb	lr, [r0, #2]	@ zero_extendqisi2
 	mov	r8, r2
-	.loc 1 1030 0
+	.loc 1 954 0
 	ldrb	r6, [r0, #6]	@ zero_extendqisi2
 	eor	r1, r1, ip
 	ldrb	r4, [r0, #7]	@ zero_extendqisi2
-	.loc 1 1035 0
+	.loc 1 958 0
 	movt	r5, #:upper16:.LANCHOR1
 	ldr	ip, [r2, #4]
 	eor	r1, r1, lr, asl #8
 	mov	r2, r5
 .LVL120:
-	.loc 1 1032 0
+	.loc 1 956 0
 	ldrb	lr, [r0, #15]	@ zero_extendqisi2
 	ldr	r5, [r8, #12]
 	eor	r4, r4, ip
 	ldrb	r7, [r0, #14]	@ zero_extendqisi2
 	eor	r4, r4, r6, asl #8
-	.loc 1 1031 0
+	.loc 1 955 0
 	ldrb	ip, [r0, #11]	@ zero_extendqisi2
 	eor	lr, lr, r5
 	ldrb	r6, [r0, #10]	@ zero_extendqisi2
-	.loc 1 1035 0
+	.loc 1 958 0
 	movw	r3, #:lower16:.LANCHOR0
 	ldr	r5, [r8, #8]
 	eor	lr, lr, r7, asl #8
 	str	r8, [sp]
 	movt	r3, #:upper16:.LANCHOR0
-	.loc 1 1029 0
+	.loc 1 953 0
 	ldrb	r8, [r0, #1]	@ zero_extendqisi2
 .LVL121:
 	eor	ip, ip, r5
-	.loc 1 1032 0
+	.loc 1 956 0
 	ldrb	r7, [r0, #13]	@ zero_extendqisi2
 	eor	ip, ip, r6, asl #8
-	.loc 1 1030 0
+	.loc 1 954 0
 	ldrb	r5, [r0, #5]	@ zero_extendqisi2
-	.loc 1 1031 0
+	.loc 1 955 0
 	ldrb	r6, [r0, #9]	@ zero_extendqisi2
 	eor	r1, r1, r8, asl #16
 	eor	lr, lr, r7, asl #16
-	.loc 1 1029 0
+	.loc 1 953 0
 	ldrb	r8, [r0]	@ zero_extendqisi2
-	.loc 1 1032 0
+	.loc 1 956 0
 	ldrb	r7, [r0, #12]	@ zero_extendqisi2
 	eor	r4, r4, r5, asl #16
 	eor	ip, ip, r6, asl #16
-	.loc 1 1030 0
+	.loc 1 954 0
 	ldrb	r5, [r0, #4]	@ zero_extendqisi2
-	.loc 1 1031 0
+	.loc 1 955 0
 	ldrb	r6, [r0, #8]	@ zero_extendqisi2
-	.loc 1 1029 0
+	.loc 1 953 0
 	eor	r1, r1, r8, asl #24
 .LVL122:
-	.loc 1 1032 0
+	.loc 1 956 0
 	eor	lr, lr, r7, asl #24
-	.loc 1 1030 0
+	.loc 1 954 0
 	eor	r0, r4, r5, asl #24
 .LVL123:
-	.loc 1 1036 0
+	.loc 1 959 0
 	ubfx	r4, r1, #16, #8
-	.loc 1 1031 0
+	.loc 1 955 0
 	eor	ip, ip, r6, asl #24
 .LVL124:
-	.loc 1 1036 0
+	.loc 1 959 0
 	str	r4, [sp, #8]
 	ubfx	r4, lr, #8, #8
 	str	r4, [sp, #12]
-	.loc 1 1037 0
+	.loc 1 960 0
 	uxtb	r5, lr
-	.loc 1 1035 0
+	.loc 1 958 0
 	ubfx	r9, lr, #16, #8
-	.loc 1 1038 0
+	.loc 1 961 0
 	mov	lr, lr, lsr #24
 .LVL125:
 	str	lr, [sp, #20]
-	.loc 1 1036 0
+	.loc 1 959 0
 	ldr	lr, [sp, #12]
-	.loc 1 1037 0
+	.loc 1 960 0
 	mov	r4, ip, lsr #24
 	str	r5, [sp, #16]
-	.loc 1 1035 0
+	.loc 1 958 0
 	mov	fp, r1, lsr #24
-	.loc 1 1036 0
+	.loc 1 959 0
 	ldr	r5, [sp, #8]
-	.loc 1 1035 0
+	.loc 1 958 0
 	uxtb	r10, r0
-	.loc 1 1036 0
+	.loc 1 959 0
 	add	lr, r2, lr, lsl #2
 	str	lr, [sp, #8]
-	.loc 1 1037 0
+	.loc 1 960 0
 	add	lr, r3, r4, lsl #2
 	ldr	r4, [sp, #16]
 	str	lr, [sp, #12]
-	.loc 1 1035 0
+	.loc 1 958 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 1038 0
+	.loc 1 961 0
 	ldr	lr, [sp, #20]
-	.loc 1 1035 0
+	.loc 1 958 0
 	ubfx	r8, ip, #8, #8
-	.loc 1 1036 0
+	.loc 1 959 0
 	uxtb	r6, ip
-	.loc 1 1038 0
+	.loc 1 961 0
 	ubfx	ip, ip, #16, #8
 .LVL126:
-	.loc 1 1037 0
+	.loc 1 960 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 1035 0
+	.loc 1 958 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1037 0
+	.loc 1 960 0
 	str	r4, [sp, #16]
-	.loc 1 1038 0
+	.loc 1 961 0
 	add	r4, r3, lr, lsl #2
 	str	r4, [sp, #20]
-	.loc 1 1035 0
+	.loc 1 958 0
 	add	r9, r3, r9, lsl #2
 	ldr	r4, [fp, #2088]
-	.loc 1 1038 0
+	.loc 1 961 0
 	add	fp, r3, ip, lsl #2
 	ldr	ip, [sp]
-	.loc 1 1035 0
+	.loc 1 958 0
 	add	r8, r2, r8, lsl #2
 	ldr	r10, [r10, #1064]
-	.loc 1 1036 0
+	.loc 1 959 0
 	mov	r7, r0, lsr #24
 .LVL127:
 	ldr	r9, [r9, #3112]
-	.loc 1 1037 0
+	.loc 1 960 0
 	ubfx	lr, r0, #16, #8
 	ldr	ip, [ip, #16]
 	eor	r4, r4, r10
-	.loc 1 1035 0
+	.loc 1 958 0
 	ldr	r8, [r8, #-4048]
-	.loc 1 1036 0
+	.loc 1 959 0
 	add	r7, r3, r7, lsl #2
 	eor	r4, r4, ip
 	ldr	ip, [sp, #12]
 	eor	r4, r4, r9
 	add	r6, r3, r6, lsl #2
-	.loc 1 1038 0
+	.loc 1 961 0
 	str	fp, [sp, #24]
-	.loc 1 1037 0
+	.loc 1 960 0
 	add	fp, r3, lr, lsl #2
 	ldr	r10, [ip, #2088]
-	.loc 1 1038 0
+	.loc 1 961 0
 	uxtb	lr, r1
 	ldr	ip, [sp, #16]
-	.loc 1 1036 0
+	.loc 1 959 0
 	add	r5, r3, r5, lsl #2
 	ldr	r6, [r6, #1064]
-	.loc 1 1038 0
+	.loc 1 961 0
 	add	lr, r3, lr, lsl #2
 	ldr	r7, [r7, #2088]
 	ubfx	r0, r0, #8, #8
 .LVL128:
 	ldr	r9, [ip, #1064]
-	.loc 1 1035 0
+	.loc 1 958 0
 	eor	ip, r4, r8
 .LVL129:
 	ldr	r4, [sp]
 	eor	r7, r7, r6
 	eor	r10, r10, r9
-	.loc 1 1037 0
+	.loc 1 960 0
 	ubfx	r1, r1, #8, #8
 .LVL130:
-	.loc 1 1036 0
+	.loc 1 959 0
 	ldr	r6, [sp, #8]
-	.loc 1 1038 0
+	.loc 1 961 0
 	add	r0, r2, r0, lsl #2
 	ldr	r8, [r4, #20]
-	.loc 1 1037 0
+	.loc 1 960 0
 	add	r1, r2, r1, lsl #2
 	ldr	r9, [r4, #24]
 	eor	r7, r7, r8
@@ -2173,128 +2173,128 @@ AES_decrypt:
 	ldr	fp, [lr, #1064]
 	eor	r10, r10, r4
 	ldr	lr, [sp]
-	.loc 1 1040 0
+	.loc 1 963 0
 	mov	r9, ip, lsr #24
 	ldr	r5, [r5, #3112]
 	ldr	r4, [sp, #24]
 	add	r9, r3, r9, lsl #2
 	ldr	r8, [r8, #2088]
 	eor	r7, r7, r5
-	.loc 1 1036 0
+	.loc 1 959 0
 	ldr	r6, [r6, #-4048]
-	.loc 1 1038 0
+	.loc 1 961 0
 	ldr	r5, [r0, #-4048]
 	eor	r8, r8, fp
 	ldr	lr, [lr, #28]
-	.loc 1 1043 0
+	.loc 1 966 0
 	uxtb	fp, ip
-	.loc 1 1037 0
+	.loc 1 960 0
 	ldr	r0, [r1, #-4048]
 	ldr	r4, [r4, #3112]
 	eor	r8, r8, lr
 	eor	r0, r0, r10
-	.loc 1 1036 0
+	.loc 1 959 0
 	eor	lr, r7, r6
 .LVL131:
 	eor	r8, r8, r4
-	.loc 1 1043 0
+	.loc 1 966 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 1038 0
+	.loc 1 961 0
 	eor	r1, r8, r5
 .LVL132:
-	.loc 1 1042 0
+	.loc 1 965 0
 	mov	r10, r0, lsr #24
-	.loc 1 1040 0
+	.loc 1 963 0
 	uxtb	r8, lr
-	.loc 1 1043 0
+	.loc 1 966 0
 	str	fp, [sp, #12]
-	.loc 1 1042 0
+	.loc 1 965 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1041 0
+	.loc 1 964 0
 	ubfx	fp, ip, #16, #8
-	.loc 1 1040 0
+	.loc 1 963 0
 	add	r8, r3, r8, lsl #2
-	.loc 1 1042 0
+	.loc 1 965 0
 	str	r10, [sp, #24]
-	.loc 1 1040 0
+	.loc 1 963 0
 	ubfx	r10, r1, #16, #8
-	.loc 1 1041 0
+	.loc 1 964 0
 	uxtb	r6, r0
-	.loc 1 1043 0
+	.loc 1 966 0
 	mov	r5, r1, lsr #24
-	.loc 1 1042 0
+	.loc 1 965 0
 	uxtb	r4, r1
-	.loc 1 1041 0
+	.loc 1 964 0
 	ubfx	r1, r1, #8, #8
 .LVL133:
 	str	r1, [sp, #20]
 .LVL134:
 	ldr	r1, [r9, #2088]
-	.loc 1 1040 0
+	.loc 1 963 0
 	add	r9, r3, r10, lsl #2
 	ldr	r8, [r8, #1064]
-	.loc 1 1041 0
+	.loc 1 964 0
 	mov	r7, lr, lsr #24
-	.loc 1 1040 0
+	.loc 1 963 0
 	str	r9, [sp, #8]
-	.loc 1 1041 0
+	.loc 1 964 0
 	add	r9, r3, fp, lsl #2
 	str	r9, [sp, #16]
-	.loc 1 1043 0
+	.loc 1 966 0
 	ubfx	r9, r0, #16, #8
-	.loc 1 1040 0
+	.loc 1 963 0
 	ubfx	r0, r0, #8, #8
 .LVL135:
-	.loc 1 1041 0
+	.loc 1 964 0
 	add	r7, r3, r7, lsl #2
 	add	r6, r3, r6, lsl #2
-	.loc 1 1042 0
+	.loc 1 965 0
 	ubfx	ip, ip, #8, #8
 .LVL136:
-	.loc 1 1040 0
+	.loc 1 963 0
 	add	r10, r2, r0, lsl #2
-	.loc 1 1041 0
+	.loc 1 964 0
 	ldr	r0, [sp, #20]
 	eor	r1, r1, r8
 	ldr	r6, [r6, #1064]
-	.loc 1 1043 0
+	.loc 1 966 0
 	add	fp, r3, r9, lsl #2
-	.loc 1 1042 0
+	.loc 1 965 0
 	add	ip, r2, ip, lsl #2
-	.loc 1 1041 0
+	.loc 1 964 0
 	add	r0, r2, r0, lsl #2
 	str	r0, [sp, #20]
 	ldr	r0, [sp]
-	.loc 1 1043 0
+	.loc 1 966 0
 	add	r5, r3, r5, lsl #2
 	ldr	r9, [sp, #12]
-	.loc 1 1042 0
+	.loc 1 965 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 1040 0
+	.loc 1 963 0
 	str	r10, [sp, #12]
 	ldr	r8, [r0, #32]
 	ldr	r0, [sp, #8]
 	ldr	r10, [sp, #24]
 	eor	r1, r1, r8
-	.loc 1 1042 0
+	.loc 1 965 0
 	str	ip, [sp, #24]
 	ubfx	ip, lr, #16, #8
 	ldr	r7, [r7, #2088]
-	.loc 1 1043 0
+	.loc 1 966 0
 	ubfx	lr, lr, #8, #8
 .LVL137:
-	.loc 1 1042 0
+	.loc 1 965 0
 	add	ip, r3, ip, lsl #2
 	ldr	r9, [r9, #1064]
 	eor	r7, r7, r6
 	ldr	r6, [r0, #3112]
 	ldr	r0, [sp]
-	.loc 1 1043 0
+	.loc 1 966 0
 	add	lr, r2, lr, lsl #2
 	ldr	r8, [ip, #3112]
 	eor	r1, r1, r6
 	ldr	r10, [r10, #2088]
-	.loc 1 1040 0
+	.loc 1 963 0
 	ldr	ip, [sp, #12]
 	ldr	r5, [r5, #2088]
 	ldr	r4, [r4, #1064]
@@ -2305,135 +2305,135 @@ AES_decrypt:
 	ldr	r10, [r0, #36]
 	eor	r5, r5, r6
 	ldr	r6, [ip, #-4048]
-	.loc 1 1042 0
+	.loc 1 965 0
 	ldr	ip, [sp, #24]
 	eor	r7, r7, r10
 	ldr	r10, [r0, #40]
-	.loc 1 1040 0
+	.loc 1 963 0
 	eor	r1, r1, r6
-	.loc 1 1041 0
+	.loc 1 964 0
 	ldr	r0, [sp, #20]
 	ldr	r9, [r9, #3112]
 	eor	r4, r4, r10
 	ldr	fp, [fp, #3112]
 	eor	r4, r4, r8
-	.loc 1 1042 0
+	.loc 1 965 0
 	ldr	ip, [ip, #-4048]
 	eor	r7, r7, r9
-	.loc 1 1041 0
+	.loc 1 964 0
 	ldr	r9, [r0, #-4048]
 	eor	r5, r5, fp
-	.loc 1 1043 0
+	.loc 1 966 0
 	ldr	r0, [lr, #-4048]
 .LVL138:
-	.loc 1 1042 0
+	.loc 1 965 0
 	eor	ip, ip, r4
-	.loc 1 1041 0
+	.loc 1 964 0
 	eor	r6, r7, r9
 .LVL139:
-	.loc 1 1045 0
+	.loc 1 968 0
 	ubfx	r8, ip, #8, #8
-	.loc 1 1043 0
+	.loc 1 966 0
 	eor	r0, r0, r5
 .LVL140:
-	.loc 1 1046 0
+	.loc 1 969 0
 	uxtb	lr, ip
-	.loc 1 1045 0
+	.loc 1 968 0
 	uxtb	r10, r6
 	ubfx	r9, r0, #16, #8
-	.loc 1 1047 0
+	.loc 1 970 0
 	uxtb	r4, r0
 	str	r4, [sp, #8]
-	.loc 1 1046 0
+	.loc 1 969 0
 	add	lr, r3, lr, lsl #2
 	str	lr, [sp, #12]
-	.loc 1 1047 0
+	.loc 1 970 0
 	ldr	lr, [sp, #8]
-	.loc 1 1048 0
+	.loc 1 971 0
 	uxtb	r4, r1
-	.loc 1 1045 0
+	.loc 1 968 0
 	mov	fp, r1, lsr #24
-	.loc 1 1048 0
+	.loc 1 971 0
 	str	r4, [sp, #16]
-	.loc 1 1045 0
+	.loc 1 968 0
 	add	r10, r3, r10, lsl #2
 	add	r9, r3, r9, lsl #2
-	.loc 1 1047 0
+	.loc 1 970 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 1048 0
+	.loc 1 971 0
 	mov	r5, r0, lsr #24
-	.loc 1 1047 0
+	.loc 1 970 0
 	str	lr, [sp, #24]
 	mov	r4, ip, lsr #24
-	.loc 1 1048 0
+	.loc 1 971 0
 	ldr	lr, [sp, #16]
-	.loc 1 1045 0
+	.loc 1 968 0
 	add	r8, r2, r8, lsl #2
-	.loc 1 1046 0
+	.loc 1 969 0
 	ubfx	r0, r0, #8, #8
 .LVL141:
-	.loc 1 1045 0
+	.loc 1 968 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 1048 0
+	.loc 1 971 0
 	ubfx	ip, ip, #16, #8
 .LVL142:
-	.loc 1 1047 0
+	.loc 1 970 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 1045 0
+	.loc 1 968 0
 	ldr	r8, [r8, #-4048]
-	.loc 1 1048 0
+	.loc 1 971 0
 	add	lr, r3, lr, lsl #2
-	.loc 1 1047 0
+	.loc 1 970 0
 	str	r4, [sp, #20]
-	.loc 1 1048 0
+	.loc 1 971 0
 	add	ip, r3, ip, lsl #2
 	ldr	r4, [r10, #1064]
-	.loc 1 1046 0
+	.loc 1 969 0
 	mov	r7, r6, lsr #24
 	ldr	r10, [r9, #3112]
 	add	r9, r2, r0, lsl #2
 	ldr	r0, [sp]
-	.loc 1 1048 0
+	.loc 1 971 0
 	add	r5, r3, r5, lsl #2
 	str	lr, [sp, #32]
-	.loc 1 1046 0
+	.loc 1 969 0
 	add	r7, r3, r7, lsl #2
 	ldr	lr, [fp, #2088]
-	.loc 1 1048 0
+	.loc 1 971 0
 	str	ip, [sp, #36]
-	.loc 1 1046 0
+	.loc 1 969 0
 	ubfx	ip, r1, #16, #8
-	.loc 1 1047 0
+	.loc 1 970 0
 	ubfx	r1, r1, #8, #8
 .LVL143:
-	.loc 1 1045 0
+	.loc 1 968 0
 	str	r8, [sp, #8]
 	eor	lr, lr, r4
 	ldr	r4, [r0, #48]
-	.loc 1 1047 0
+	.loc 1 970 0
 	add	r8, r2, r1, lsl #2
-	.loc 1 1048 0
+	.loc 1 971 0
 	ubfx	r0, r6, #8, #8
-	.loc 1 1047 0
+	.loc 1 970 0
 	str	r8, [sp, #28]
 	ubfx	r8, r6, #16, #8
 	ldr	r6, [sp, #12]
 .LVL144:
-	.loc 1 1046 0
+	.loc 1 969 0
 	add	ip, r3, ip, lsl #2
 	str	r9, [sp, #16]
 	eor	lr, lr, r4
 	ldr	r4, [ip, #3112]
 	eor	lr, lr, r10
 	ldr	r1, [r6, #1064]
-	.loc 1 1047 0
+	.loc 1 970 0
 	add	r8, r3, r8, lsl #2
 	ldr	r6, [r5, #2088]
 	ldr	r5, [sp, #24]
 	ldr	ip, [sp, #36]
 	ldr	r7, [r7, #2088]
 	ldr	r9, [r5, #1064]
-	.loc 1 1048 0
+	.loc 1 971 0
 	add	r5, r2, r0, lsl #2
 	ldr	r0, [sp, #32]
 	eor	r7, r7, r1
@@ -2447,101 +2447,101 @@ AES_decrypt:
 	ldr	r1, [r0, #52]
 	mov	r10, r0
 	ldr	fp, [r0, #60]
-	.loc 1 1045 0
+	.loc 1 968 0
 	ldr	r0, [sp, #8]
 	eor	r7, r7, r1
 	eor	r6, r6, fp
-	.loc 1 1048 0
+	.loc 1 971 0
 	ldr	r5, [r5, #-4048]
-	.loc 1 1045 0
+	.loc 1 968 0
 	eor	r0, lr, r0
 .LVL145:
 	ldr	lr, [r10, #56]
-	.loc 1 1046 0
+	.loc 1 969 0
 	ldr	r10, [sp, #16]
 	eor	ip, ip, r6
 	eor	r9, r9, lr
-	.loc 1 1047 0
+	.loc 1 970 0
 	ldr	lr, [sp, #28]
 	ldr	r8, [r8, #3112]
-	.loc 1 1048 0
+	.loc 1 971 0
 	eor	ip, ip, r5
-	.loc 1 1046 0
+	.loc 1 969 0
 	ldr	fp, [r10, #-4048]
 	eor	r7, r7, r4
-	.loc 1 1047 0
+	.loc 1 970 0
 	ldr	r10, [lr, #-4048]
 	eor	r9, r9, r8
-	.loc 1 1046 0
+	.loc 1 969 0
 	eor	r1, r7, fp
 .LVL146:
-	.loc 1 1052 0
+	.loc 1 975 0
 	uxtb	fp, ip
-	.loc 1 1047 0
+	.loc 1 970 0
 	eor	lr, r9, r10
 .LVL147:
-	.loc 1 1053 0
+	.loc 1 976 0
 	mov	r10, ip, lsr #24
 	uxtb	r9, r0
-	.loc 1 1052 0
+	.loc 1 975 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 1053 0
+	.loc 1 976 0
 	add	r10, r3, r10, lsl #2
 	str	r10, [sp, #20]
 	add	r9, r3, r9, lsl #2
 	ubfx	r10, lr, #16, #8
 	str	r9, [sp, #24]
-	.loc 1 1050 0
+	.loc 1 973 0
 	ubfx	r9, ip, #16, #8
 	mov	r8, r0, lsr #24
 	uxtb	r7, r1
 	add	r9, r3, r9, lsl #2
 	str	r9, [sp, #8]
-	.loc 1 1053 0
+	.loc 1 976 0
 	add	r9, r3, r10, lsl #2
 	str	r9, [sp, #28]
-	.loc 1 1051 0
+	.loc 1 974 0
 	ubfx	r9, r0, #16, #8
-	.loc 1 1052 0
+	.loc 1 975 0
 	ubfx	r0, r0, #8, #8
 .LVL148:
-	.loc 1 1051 0
+	.loc 1 974 0
 	uxtb	r5, lr
-	.loc 1 1052 0
+	.loc 1 975 0
 	mov	r4, lr, lsr #24
-	.loc 1 1051 0
+	.loc 1 974 0
 	add	r10, r3, r9, lsl #2
 	ldr	r9, [fp, #1064]
-	.loc 1 1052 0
+	.loc 1 975 0
 	add	fp, r2, r0, lsl #2
 	ldr	r0, [sp, #8]
-	.loc 1 1051 0
+	.loc 1 974 0
 	ubfx	ip, ip, #8, #8
 .LVL149:
-	.loc 1 1050 0
+	.loc 1 973 0
 	ubfx	lr, lr, #8, #8
 .LVL150:
-	.loc 1 1051 0
+	.loc 1 974 0
 	mov	r6, r1, lsr #24
-	.loc 1 1050 0
+	.loc 1 973 0
 	add	r8, r3, r8, lsl #2
 	add	r7, r3, r7, lsl #2
 	add	lr, r2, lr, lsl #2
-	.loc 1 1051 0
+	.loc 1 974 0
 	str	r10, [sp, #16]
 	add	r6, r3, r6, lsl #2
 	ldr	r10, [sp, #20]
 	add	r5, r3, r5, lsl #2
-	.loc 1 1050 0
+	.loc 1 973 0
 	str	lr, [sp, #12]
-	.loc 1 1051 0
+	.loc 1 974 0
 	add	lr, r2, ip, lsl #2
 	ldr	ip, [sp, #24]
-	.loc 1 1052 0
+	.loc 1 975 0
 	add	r4, r3, r4, lsl #2
-	.loc 1 1051 0
+	.loc 1 974 0
 	str	lr, [sp, #20]
-	.loc 1 1052 0
+	.loc 1 975 0
 	str	fp, [sp, #24]
 	ldr	lr, [sp]
 	ldr	fp, [r0, #3112]
@@ -2562,18 +2562,18 @@ AES_decrypt:
 	eor	r8, r8, fp
 	eor	r10, r10, ip
 	ldr	ip, [sp, #16]
-	.loc 1 1053 0
+	.loc 1 976 0
 	ubfx	r1, r1, #8, #8
 .LVL151:
-	.loc 1 1050 0
+	.loc 1 973 0
 	ldr	r7, [sp, #12]
 	str	r0, [sp, #8]
-	.loc 1 1052 0
+	.loc 1 975 0
 	add	r0, r3, lr, lsl #2
 	ldr	lr, [sp]
 	eor	r4, r4, r9
 	ldr	ip, [ip, #3112]
-	.loc 1 1053 0
+	.loc 1 976 0
 	add	r9, r2, r1, lsl #2
 	ldr	r0, [r0, #3112]
 	ldr	r6, [lr, #68]
@@ -2582,127 +2582,127 @@ AES_decrypt:
 	eor	r6, r6, r5
 	ldr	fp, [fp, #76]
 	eor	r6, r6, ip
-	.loc 1 1052 0
+	.loc 1 975 0
 	ldr	ip, [sp, #24]
 	eor	r4, r4, lr
-	.loc 1 1050 0
+	.loc 1 973 0
 	ldr	r1, [r7, #-4048]
 	eor	r0, r0, r4
-	.loc 1 1051 0
+	.loc 1 974 0
 	ldr	lr, [sp, #20]
-	.loc 1 1052 0
+	.loc 1 975 0
 	ldr	r5, [ip, #-4048]
 	eor	r10, r10, fp
 	ldr	ip, [sp, #8]
-	.loc 1 1050 0
+	.loc 1 973 0
 	eor	r1, r1, r8
 .LVL152:
-	.loc 1 1052 0
+	.loc 1 975 0
 	eor	r0, r0, r5
-	.loc 1 1053 0
+	.loc 1 976 0
 	ldr	fp, [r9, #-4048]
 	eor	r10, r10, ip
-	.loc 1 1051 0
+	.loc 1 974 0
 	ldr	r7, [lr, #-4048]
-	.loc 1 1053 0
+	.loc 1 976 0
 	eor	ip, r10, fp
-	.loc 1 1057 0
+	.loc 1 980 0
 	mov	r10, r0, lsr #24
-	.loc 1 1058 0
+	.loc 1 981 0
 	uxtb	fp, r1
-	.loc 1 1051 0
+	.loc 1 974 0
 	eor	lr, r6, r7
 .LVL153:
-	.loc 1 1057 0
+	.loc 1 980 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1058 0
+	.loc 1 981 0
 	mov	r5, ip, lsr #24
-	.loc 1 1057 0
+	.loc 1 980 0
 	str	r10, [sp, #24]
-	.loc 1 1055 0
+	.loc 1 978 0
 	ubfx	r10, ip, #16, #8
-	.loc 1 1058 0
+	.loc 1 981 0
 	add	r5, r3, r5, lsl #2
 	add	fp, r3, fp, lsl #2
-	.loc 1 1055 0
+	.loc 1 978 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1056 0
+	.loc 1 979 0
 	uxtb	r6, r0
-	.loc 1 1057 0
+	.loc 1 980 0
 	uxtb	r4, ip
-	.loc 1 1055 0
+	.loc 1 978 0
 	str	r10, [sp, #8]
-	.loc 1 1056 0
+	.loc 1 979 0
 	ubfx	ip, ip, #8, #8
 .LVL154:
-	.loc 1 1058 0
+	.loc 1 981 0
 	ubfx	r10, r0, #16, #8
-	.loc 1 1056 0
+	.loc 1 979 0
 	str	ip, [sp, #20]
-	.loc 1 1055 0
+	.loc 1 978 0
 	ubfx	r0, r0, #8, #8
 .LVL155:
-	.loc 1 1056 0
+	.loc 1 979 0
 	ubfx	ip, r1, #16, #8
-	.loc 1 1055 0
+	.loc 1 978 0
 	mov	r9, r1, lsr #24
 	uxtb	r8, lr
-	.loc 1 1056 0
+	.loc 1 979 0
 	mov	r7, lr, lsr #24
 	add	ip, r3, ip, lsl #2
-	.loc 1 1055 0
+	.loc 1 978 0
 	add	r0, r2, r0, lsl #2
-	.loc 1 1056 0
+	.loc 1 979 0
 	str	ip, [sp, #16]
-	.loc 1 1055 0
+	.loc 1 978 0
 	add	r9, r3, r9, lsl #2
 	ldr	ip, [r5, #2088]
 	add	r8, r3, r8, lsl #2
 	ldr	r5, [fp, #1064]
-	.loc 1 1056 0
+	.loc 1 979 0
 	add	r7, r3, r7, lsl #2
 	ldr	fp, [sp, #20]
 	add	r6, r3, r6, lsl #2
-	.loc 1 1055 0
+	.loc 1 978 0
 	str	r0, [sp, #12]
-	.loc 1 1057 0
+	.loc 1 980 0
 	add	r4, r3, r4, lsl #2
 	ldr	r0, [sp, #24]
 	ubfx	r1, r1, #8, #8
 .LVL156:
 	ldr	r8, [r8, #1064]
-	.loc 1 1056 0
+	.loc 1 979 0
 	add	fp, r2, fp, lsl #2
 	ldr	r6, [r6, #1064]
-	.loc 1 1057 0
+	.loc 1 980 0
 	add	r1, r2, r1, lsl #2
 	ldr	r0, [r0, #2088]
 	eor	ip, ip, r5
 	ldr	r9, [r9, #2088]
-	.loc 1 1058 0
+	.loc 1 981 0
 	add	r10, r3, r10, lsl #2
 	ldr	r7, [r7, #2088]
 	ldr	r4, [r4, #1064]
 	eor	r9, r9, r8
-	.loc 1 1056 0
+	.loc 1 979 0
 	str	fp, [sp, #20]
 	eor	r7, r7, r6
-	.loc 1 1057 0
+	.loc 1 980 0
 	str	r1, [sp, #24]
 	eor	r4, r4, r0
 	ldr	r1, [sp]
 	ubfx	r6, lr, #16, #8
 	ldr	fp, [sp, #8]
-	.loc 1 1058 0
+	.loc 1 981 0
 	ubfx	lr, lr, #8, #8
 .LVL157:
-	.loc 1 1057 0
+	.loc 1 980 0
 	add	r6, r3, r6, lsl #2
 	ldr	r10, [r10, #3112]
 	ldr	r8, [r1, #80]
 	mov	r0, r1
 	ldr	fp, [fp, #3112]
-	.loc 1 1058 0
+	.loc 1 981 0
 	add	lr, r2, lr, lsl #2
 	eor	r9, r9, r8
 	ldr	r1, [r1, #84]
@@ -2712,125 +2712,125 @@ AES_decrypt:
 	eor	r7, r7, r1
 	ldr	r8, [r6, #3112]
 	eor	ip, ip, r0
-	.loc 1 1055 0
+	.loc 1 978 0
 	ldr	r0, [sp, #12]
 	ldr	r9, [r9, #88]
 	eor	ip, ip, r10
-	.loc 1 1058 0
+	.loc 1 981 0
 	ldr	lr, [lr, #-4048]
-	.loc 1 1055 0
+	.loc 1 978 0
 	ldr	r1, [r0, #-4048]
 	eor	r4, r4, r9
-	.loc 1 1056 0
+	.loc 1 979 0
 	ldr	r0, [sp, #20]
-	.loc 1 1058 0
+	.loc 1 981 0
 	eor	ip, ip, lr
 	ldr	r5, [sp, #16]
-	.loc 1 1055 0
+	.loc 1 978 0
 	eor	r1, r1, fp
 .LVL158:
 	eor	r4, r4, r8
-	.loc 1 1061 0
+	.loc 1 984 0
 	ubfx	lr, r1, #16, #8
-	.loc 1 1056 0
+	.loc 1 979 0
 	ldr	r6, [r0, #-4048]
-	.loc 1 1060 0
+	.loc 1 983 0
 	mov	fp, r1, lsr #24
-	.loc 1 1057 0
+	.loc 1 980 0
 	ldr	r0, [sp, #24]
-	.loc 1 1061 0
+	.loc 1 984 0
 	add	lr, r3, lr, lsl #2
 	ldr	r5, [r5, #3112]
-	.loc 1 1060 0
+	.loc 1 983 0
 	add	fp, r3, fp, lsl #2
-	.loc 1 1061 0
+	.loc 1 984 0
 	str	lr, [sp, #12]
-	.loc 1 1057 0
+	.loc 1 980 0
 	ldr	r9, [r0, #-4048]
 	eor	r7, r7, r5
-	.loc 1 1056 0
+	.loc 1 979 0
 	eor	r5, r7, r6
 .LVL159:
-	.loc 1 1057 0
+	.loc 1 980 0
 	eor	r0, r4, r9
 .LVL160:
-	.loc 1 1061 0
+	.loc 1 984 0
 	ubfx	r4, ip, #8, #8
 	str	r4, [sp, #8]
-	.loc 1 1060 0
+	.loc 1 983 0
 	ubfx	r8, r0, #8, #8
-	.loc 1 1061 0
+	.loc 1 984 0
 	ldr	lr, [sp, #8]
-	.loc 1 1062 0
+	.loc 1 985 0
 	mov	r4, r0, lsr #24
 	str	r4, [sp, #16]
 	uxtb	r4, ip
 	str	r4, [sp, #20]
-	.loc 1 1060 0
+	.loc 1 983 0
 	add	r8, r2, r8, lsl #2
-	.loc 1 1061 0
+	.loc 1 984 0
 	add	r4, r2, lr, lsl #2
-	.loc 1 1062 0
+	.loc 1 985 0
 	ldr	lr, [sp, #16]
-	.loc 1 1060 0
+	.loc 1 983 0
 	uxtb	r10, r5
 	ubfx	r9, ip, #16, #8
-	.loc 1 1063 0
+	.loc 1 986 0
 	mov	ip, ip, lsr #24
 .LVL161:
-	.loc 1 1060 0
+	.loc 1 983 0
 	ldr	r8, [r8, #-4048]
-	.loc 1 1062 0
+	.loc 1 985 0
 	add	lr, r3, lr, lsl #2
 	str	lr, [sp, #16]
 	ldr	lr, [sp, #20]
-	.loc 1 1060 0
+	.loc 1 983 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1063 0
+	.loc 1 986 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 1061 0
+	.loc 1 984 0
 	uxtb	r6, r0
-	.loc 1 1060 0
+	.loc 1 983 0
 	add	r9, r3, r9, lsl #2
-	.loc 1 1063 0
+	.loc 1 986 0
 	ubfx	r0, r0, #16, #8
 .LVL162:
 	str	ip, [sp, #28]
 	uxtb	ip, r1
-	.loc 1 1062 0
+	.loc 1 985 0
 	add	lr, r3, lr, lsl #2
 	ldr	r9, [r9, #3112]
 	str	lr, [sp, #20]
-	.loc 1 1061 0
+	.loc 1 984 0
 	mov	r7, r5, lsr #24
 	ldr	lr, [fp, #2088]
-	.loc 1 1063 0
+	.loc 1 986 0
 	add	fp, r3, ip, lsl #2
 	ldr	ip, [r10, #1064]
 	add	r10, r3, r0, lsl #2
 	str	r10, [sp, #32]
-	.loc 1 1062 0
+	.loc 1 985 0
 	ubfx	r1, r1, #8, #8
 .LVL163:
-	.loc 1 1060 0
+	.loc 1 983 0
 	str	r8, [sp, #8]
 	eor	lr, lr, ip
 	ldr	r0, [sp]
-	.loc 1 1061 0
+	.loc 1 984 0
 	add	r7, r3, r7, lsl #2
 	add	r6, r3, r6, lsl #2
-	.loc 1 1062 0
+	.loc 1 985 0
 	add	r8, r2, r1, lsl #2
 	ldr	r7, [r7, #2088]
 	ldr	ip, [r0, #96]
-	.loc 1 1063 0
+	.loc 1 986 0
 	ubfx	r0, r5, #8, #8
 	ldr	r6, [r6, #1064]
 	add	r10, r2, r0, lsl #2
 	ldr	r0, [sp, #16]
 	eor	lr, lr, ip
 	eor	r6, r6, r7
-	.loc 1 1062 0
+	.loc 1 985 0
 	str	r8, [sp, #24]
 	ubfx	r8, r5, #16, #8
 	ldr	r1, [r0, #2088]
@@ -2844,7 +2844,7 @@ AES_decrypt:
 	ldr	lr, [sp]
 	eor	r1, r1, r7
 	ldr	r5, [r5, #3112]
-	.loc 1 1061 0
+	.loc 1 984 0
 	ldr	r4, [r4, #-4048]
 	ldr	ip, [lr, #100]
 	ldr	r7, [lr, #104]
@@ -2859,96 +2859,96 @@ AES_decrypt:
 	eor	r7, r7, r1
 	ldr	r5, [ip, #3112]
 	eor	ip, r9, fp
-	.loc 1 1063 0
+	.loc 1 986 0
 	ldr	r8, [r10, #-4048]
-	.loc 1 1061 0
+	.loc 1 984 0
 	eor	r1, r6, r4
 	ldr	lr, [lr, #108]
 	eor	ip, ip, lr
-	.loc 1 1060 0
+	.loc 1 983 0
 	ldr	lr, [sp, #8]
 	eor	ip, ip, r5
-	.loc 1 1062 0
+	.loc 1 985 0
 	ldr	r5, [sp, #24]
-	.loc 1 1060 0
+	.loc 1 983 0
 	eor	r0, r0, lr
 .LVL165:
-	.loc 1 1063 0
+	.loc 1 986 0
 	eor	ip, ip, r8
-	.loc 1 1065 0
+	.loc 1 988 0
 	uxtb	r8, r1
-	.loc 1 1062 0
+	.loc 1 985 0
 	ldr	r5, [r5, #-4048]
-	.loc 1 1065 0
+	.loc 1 988 0
 	mov	r9, r0, lsr #24
-	.loc 1 1068 0
+	.loc 1 991 0
 	mov	r4, ip, lsr #24
 	uxtb	fp, r0
-	.loc 1 1062 0
+	.loc 1 985 0
 	eor	lr, r7, r5
 .LVL166:
-	.loc 1 1066 0
+	.loc 1 989 0
 	mov	r7, r1, lsr #24
-	.loc 1 1068 0
+	.loc 1 991 0
 	add	r4, r3, r4, lsl #2
 	add	fp, r3, fp, lsl #2
-	.loc 1 1067 0
+	.loc 1 990 0
 	mov	r10, lr, lsr #24
 	uxtb	r5, ip
-	.loc 1 1065 0
+	.loc 1 988 0
 	add	r9, r3, r9, lsl #2
 	add	r8, r3, r8, lsl #2
-	.loc 1 1067 0
+	.loc 1 990 0
 	add	r10, r3, r10, lsl #2
 	str	r10, [sp, #16]
-	.loc 1 1065 0
+	.loc 1 988 0
 	ubfx	r10, ip, #16, #8
-	.loc 1 1066 0
+	.loc 1 989 0
 	add	r7, r3, r7, lsl #2
-	.loc 1 1068 0
+	.loc 1 991 0
 	str	fp, [sp, #24]
-	.loc 1 1066 0
+	.loc 1 989 0
 	ubfx	ip, ip, #8, #8
 .LVL167:
-	.loc 1 1065 0
+	.loc 1 988 0
 	add	r10, r3, r10, lsl #2
-	.loc 1 1066 0
+	.loc 1 989 0
 	ubfx	fp, r0, #16, #8
-	.loc 1 1065 0
+	.loc 1 988 0
 	str	r10, [sp, #8]
-	.loc 1 1067 0
+	.loc 1 990 0
 	ubfx	r0, r0, #8, #8
 .LVL168:
 	ubfx	r10, r1, #16, #8
 	ldr	r8, [r8, #1064]
-	.loc 1 1066 0
+	.loc 1 989 0
 	add	fp, r3, fp, lsl #2
 	add	ip, r2, ip, lsl #2
 	uxtb	r6, lr
 	ldr	r9, [r9, #2088]
 	str	fp, [sp, #12]
-	.loc 1 1067 0
+	.loc 1 990 0
 	add	fp, r3, r10, lsl #2
 	ldr	r7, [r7, #2088]
-	.loc 1 1066 0
+	.loc 1 989 0
 	add	r6, r3, r6, lsl #2
 	ldr	r10, [sp, #16]
-	.loc 1 1067 0
+	.loc 1 990 0
 	add	r5, r3, r5, lsl #2
-	.loc 1 1066 0
+	.loc 1 989 0
 	str	ip, [sp, #16]
 	eor	r9, r9, r8
 	ldr	ip, [r4, #2088]
-	.loc 1 1067 0
+	.loc 1 990 0
 	add	r4, r2, r0, lsl #2
 	ldr	r0, [sp, #24]
-	.loc 1 1068 0
+	.loc 1 991 0
 	ubfx	r1, r1, #8, #8
 .LVL169:
-	.loc 1 1067 0
+	.loc 1 990 0
 	str	r4, [sp, #20]
 	ldr	r6, [r6, #1064]
-	.loc 1 1068 0
+	.loc 1 991 0
 	add	r1, r2, r1, lsl #2
 	ldr	r4, [r0, #1064]
 	ldr	r0, [sp, #8]
@@ -2957,16 +2957,16 @@ AES_decrypt:
 	eor	r4, r4, ip
 	ldr	r10, [r10, #2088]
 	ldr	r6, [r0, #3112]
-	.loc 1 1065 0
+	.loc 1 988 0
 	ubfx	r0, lr, #8, #8
-	.loc 1 1068 0
+	.loc 1 991 0
 	ubfx	lr, lr, #16, #8
 .LVL170:
 	eor	r8, r10, r5
-	.loc 1 1065 0
+	.loc 1 988 0
 	add	r0, r2, r0, lsl #2
 	ldr	r5, [sp, #12]
-	.loc 1 1068 0
+	.loc 1 991 0
 	add	r10, r3, lr, lsl #2
 	ldr	lr, [sp]
 	ldr	r1, [r1, #-4048]
@@ -2974,7 +2974,7 @@ AES_decrypt:
 	ldr	lr, [lr, #112]
 	ldr	r5, [r5, #3112]
 	eor	r9, r9, lr
-	.loc 1 1065 0
+	.loc 1 988 0
 	ldr	lr, [r0, #-4048]
 	ldr	r0, [sp]
 	eor	r9, r9, r6
@@ -2983,258 +2983,258 @@ AES_decrypt:
 	eor	r0, r9, lr
 .LVL171:
 	ldr	r9, [sp]
-	.loc 1 1066 0
+	.loc 1 989 0
 	ldr	lr, [sp, #16]
 	eor	r7, r7, ip
 	eor	r7, r7, r5
 	ldr	ip, [r9, #124]
 	ldr	r6, [lr, #-4048]
 	eor	r4, r4, ip
-	.loc 1 1067 0
+	.loc 1 990 0
 	ldr	lr, [sp, #20]
 	ldr	r9, [r9, #120]
 	eor	r4, r4, r10
-	.loc 1 1068 0
+	.loc 1 991 0
 	eor	r4, r4, r1
-	.loc 1 1066 0
+	.loc 1 989 0
 	eor	ip, r7, r6
 .LVL172:
 	eor	r8, r8, r9
-	.loc 1 1070 0
+	.loc 1 993 0
 	ubfx	r6, r4, #16, #8
-	.loc 1 1067 0
+	.loc 1 990 0
 	ldr	r9, [lr, #-4048]
 	eor	r8, r8, fp
-	.loc 1 1070 0
+	.loc 1 993 0
 	add	r6, r3, r6, lsl #2
 	mov	r1, r0, lsr #24
-	.loc 1 1067 0
+	.loc 1 990 0
 	eor	lr, r8, r9
 .LVL173:
-	.loc 1 1070 0
+	.loc 1 993 0
 	uxtb	r7, ip
 	ubfx	r5, lr, #8, #8
 	ldr	r6, [r6, #3112]
-	.loc 1 1071 0
+	.loc 1 994 0
 	uxtb	r10, lr
-	.loc 1 1070 0
+	.loc 1 993 0
 	add	r1, r3, r1, lsl #2
 	add	r7, r3, r7, lsl #2
 	add	r5, r2, r5, lsl #2
-	.loc 1 1071 0
+	.loc 1 994 0
 	mov	fp, ip, lsr #24
-	.loc 1 1072 0
+	.loc 1 995 0
 	mov	r8, lr, lsr #24
-	.loc 1 1073 0
+	.loc 1 996 0
 	ubfx	lr, lr, #16, #8
 .LVL174:
-	.loc 1 1071 0
+	.loc 1 994 0
 	add	r10, r3, r10, lsl #2
 	ldr	r7, [r7, #1064]
 	add	fp, r3, fp, lsl #2
 	str	r10, [sp, #16]
-	.loc 1 1073 0
+	.loc 1 996 0
 	add	lr, r3, lr, lsl #2
 	ldr	r1, [r1, #2088]
-	.loc 1 1072 0
+	.loc 1 995 0
 	uxtb	r9, r4
 	str	r6, [sp, #8]
 	add	r8, r3, r8, lsl #2
-	.loc 1 1070 0
+	.loc 1 993 0
 	ldr	r5, [r5, #-4048]
-	.loc 1 1072 0
+	.loc 1 995 0
 	add	r9, r3, r9, lsl #2
-	.loc 1 1073 0
+	.loc 1 996 0
 	str	lr, [sp, #24]
 	eor	r1, r1, r7
 	ldr	lr, [sp, #16]
-	.loc 1 1071 0
+	.loc 1 994 0
 	ubfx	r6, r4, #8, #8
-	.loc 1 1070 0
+	.loc 1 993 0
 	str	r5, [sp, #12]
-	.loc 1 1073 0
+	.loc 1 996 0
 	mov	r4, r4, lsr #24
 .LVL175:
 	ldr	r5, [fp, #2088]
-	.loc 1 1071 0
+	.loc 1 994 0
 	ubfx	r10, r0, #16, #8
 	ldr	fp, [sp]
-	.loc 1 1073 0
+	.loc 1 996 0
 	add	r4, r3, r4, lsl #2
 	ldr	r7, [lr, #1064]
-	.loc 1 1071 0
+	.loc 1 994 0
 	add	r10, r3, r10, lsl #2
 	ldr	r9, [r9, #1064]
 	add	r6, r2, r6, lsl #2
 	ldr	lr, [r8, #2088]
 	eor	r5, r5, r7
 	ldr	r7, [fp, #128]
-	.loc 1 1072 0
+	.loc 1 995 0
 	ubfx	r8, ip, #16, #8
 	eor	lr, lr, r9
 	ldr	r9, [sp, #8]
 	eor	r1, r1, r7
 	ldr	r7, [fp, #132]
-	.loc 1 1073 0
+	.loc 1 996 0
 	str	r4, [sp, #20]
 	eor	r1, r1, r9
 	eor	r5, r5, r7
 	ldr	r9, [sp, #20]
 	ldr	r7, [sp]
 	uxtb	r4, r0
-	.loc 1 1072 0
+	.loc 1 995 0
 	ubfx	r0, r0, #8, #8
 .LVL176:
 	add	r8, r3, r8, lsl #2
 	ldr	fp, [r9, #2088]
-	.loc 1 1073 0
+	.loc 1 996 0
 	add	r4, r3, r4, lsl #2
 	ldr	r9, [r7, #136]
-	.loc 1 1072 0
+	.loc 1 995 0
 	add	r0, r2, r0, lsl #2
-	.loc 1 1070 0
+	.loc 1 993 0
 	ldr	r7, [sp, #12]
-	.loc 1 1073 0
+	.loc 1 996 0
 	ubfx	ip, ip, #8, #8
 .LVL177:
 	ldr	r10, [r10, #3112]
 	eor	lr, lr, r9
-	.loc 1 1070 0
+	.loc 1 993 0
 	eor	r1, r1, r7
 .LVL178:
 	ldr	r7, [sp]
-	.loc 1 1071 0
+	.loc 1 994 0
 	ldr	r6, [r6, #-4048]
 	eor	r10, r10, r5
 	ldr	r5, [r8, #3112]
-	.loc 1 1073 0
+	.loc 1 996 0
 	add	ip, r2, ip, lsl #2
 	ldr	r8, [r7, #140]
-	.loc 1 1071 0
+	.loc 1 994 0
 	eor	r7, r10, r6
 .LVL179:
-	.loc 1 1072 0
+	.loc 1 995 0
 	ldr	r0, [r0, #-4048]
 	eor	lr, lr, r5
 	ldr	r4, [r4, #1064]
-	.loc 1 1075 0
+	.loc 1 998 0
 	mov	r6, r1, lsr #24
-	.loc 1 1072 0
+	.loc 1 995 0
 	eor	r0, r0, lr
 .LVL180:
-	.loc 1 1075 0
+	.loc 1 998 0
 	uxtb	lr, r7
 	eor	fp, fp, r4
 	ldr	r4, [sp, #24]
 	add	lr, r3, lr, lsl #2
 	str	lr, [sp, #8]
-	.loc 1 1076 0
+	.loc 1 999 0
 	ubfx	lr, r1, #16, #8
 	str	lr, [sp, #16]
 	ldr	lr, [sp, #8]
 	mov	r5, r7, lsr #24
 	ldr	r10, [r4, #3112]
-	.loc 1 1075 0
+	.loc 1 998 0
 	add	r6, r3, r6, lsl #2
 	eor	r8, r8, fp
-	.loc 1 1073 0
+	.loc 1 996 0
 	ldr	ip, [ip, #-4048]
 	eor	r8, r8, r10
 	ldr	r6, [r6, #2088]
-	.loc 1 1076 0
+	.loc 1 999 0
 	add	r5, r3, r5, lsl #2
 	ldr	lr, [lr, #1064]
-	.loc 1 1073 0
+	.loc 1 996 0
 	eor	ip, ip, r8
 .LVL181:
-	.loc 1 1075 0
+	.loc 1 998 0
 	ubfx	r10, r0, #8, #8
 	ldr	r5, [r5, #2088]
 	ubfx	fp, ip, #16, #8
 	eor	lr, lr, r6
 	ldr	r6, [sp]
 	add	fp, r3, fp, lsl #2
-	.loc 1 1076 0
+	.loc 1 999 0
 	uxtb	r4, r0
 	str	r5, [sp, #12]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	uxtb	r8, r1
-	.loc 1 1076 0
+	.loc 1 999 0
 	ldr	r5, [sp, #16]
-	.loc 1 1075 0
+	.loc 1 998 0
 	add	r10, r2, r10, lsl #2
 	ldr	r6, [r6, #144]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	add	r8, r3, r8, lsl #2
 	ldr	fp, [fp, #3112]
-	.loc 1 1076 0
+	.loc 1 999 0
 	add	r4, r3, r4, lsl #2
 	eor	lr, lr, r6
-	.loc 1 1078 0
+	.loc 1 1001 0
 	str	r8, [sp, #24]
 	eor	lr, lr, fp
-	.loc 1 1076 0
+	.loc 1 999 0
 	add	r8, r3, r5, lsl #2
 	ldr	fp, [sp]
 	ubfx	r5, ip, #8, #8
-	.loc 1 1075 0
+	.loc 1 998 0
 	ldr	r6, [r10, #-4048]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	mov	r9, ip, lsr #24
-	.loc 1 1076 0
+	.loc 1 999 0
 	add	r5, r2, r5, lsl #2
 	ldr	r4, [r4, #1064]
 	str	r5, [sp, #20]
-	.loc 1 1077 0
+	.loc 1 1000 0
 	uxtb	ip, ip
 .LVL182:
 	ldr	r5, [sp, #12]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	add	r9, r3, r9, lsl #2
 	ldr	fp, [fp, #148]
-	.loc 1 1077 0
+	.loc 1 1000 0
 	add	ip, r3, ip, lsl #2
-	.loc 1 1075 0
+	.loc 1 998 0
 	str	r6, [sp, #8]
 	eor	r4, r4, r5
 	eor	r4, r4, fp
 	ldr	fp, [sp, #8]
-	.loc 1 1076 0
+	.loc 1 999 0
 	str	r8, [sp, #16]
-	.loc 1 1077 0
+	.loc 1 1000 0
 	ubfx	r6, r7, #16, #8
 	mov	r8, r0, lsr #24
-	.loc 1 1078 0
+	.loc 1 1001 0
 	ubfx	r5, r7, #8, #8
 	ubfx	r0, r0, #16, #8
 .LVL183:
 	ldr	r7, [sp, #24]
 .LVL184:
-	.loc 1 1075 0
+	.loc 1 998 0
 	eor	lr, lr, fp
 .LVL185:
 	ldr	r10, [sp, #16]
 	ldr	fp, [sp]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	add	r0, r3, r0, lsl #2
-	.loc 1 1077 0
+	.loc 1 1000 0
 	add	r8, r3, r8, lsl #2
 	add	r3, r3, r6, lsl #2
-	.loc 1 1076 0
+	.loc 1 999 0
 	ldr	r6, [sp, #20]
-	.loc 1 1077 0
+	.loc 1 1000 0
 	ubfx	r1, r1, #8, #8
 .LVL186:
 	ldr	r9, [r9, #2088]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	add	r5, r2, r5, lsl #2
 	ldr	r7, [r7, #1064]
-	.loc 1 1077 0
+	.loc 1 1000 0
 	add	r1, r2, r1, lsl #2
 	ldr	r10, [r10, #3112]
 	ldr	fp, [fp, #156]
 	eor	r7, r7, r9
-	.loc 1 1076 0
+	.loc 1 999 0
 	ldr	r6, [r6, #-4048]
 	eor	r4, r4, r10
 	eor	r7, r7, fp
@@ -3243,87 +3243,87 @@ AES_decrypt:
 .LVL187:
 	ldr	r6, [r0, #3112]
 	ldr	r8, [r8, #2088]
-	.loc 1 1147 0
+	.loc 1 1009 0
 	mov	r0, lr, lsr #24
 	ldr	ip, [ip, #1064]
 	eor	r7, r7, r6
 	ldr	r6, [fp, #152]
 	add	r0, r2, r0, lsl #2
-	.loc 1 1078 0
+	.loc 1 1001 0
 	ldr	r5, [r5, #-4048]
 	eor	ip, ip, r8
 	ldr	r3, [r3, #3112]
 	eor	ip, ip, r6
-	.loc 1 1077 0
+	.loc 1 1000 0
 	ldr	r1, [r1, #-4048]
-	.loc 1 1078 0
+	.loc 1 1001 0
 	eor	r7, r7, r5
 	eor	r3, r3, ip
-	.loc 1 1150 0
+	.loc 1 1012 0
 	uxtb	r6, r4
-	.loc 1 1077 0
+	.loc 1 1000 0
 	eor	r1, r1, r3
 .LVL188:
-	.loc 1 1148 0
+	.loc 1 1010 0
 	ubfx	r10, r7, #16, #8
-	.loc 1 1079 0
+	.loc 1 1002 0
 	ldr	r9, [fp, #240]
-	.loc 1 1150 0
+	.loc 1 1012 0
 	add	r6, r2, r6, lsl #2
-	.loc 1 1149 0
+	.loc 1 1011 0
 	ubfx	ip, r1, #8, #8
-	.loc 1 1147 0
+	.loc 1 1009 0
 	ldr	r0, [r0, #1072]
-	.loc 1 1148 0
+	.loc 1 1010 0
 	add	r10, r2, r10, lsl #2
-	.loc 1 1150 0
+	.loc 1 1012 0
 	ldrb	r6, [r6, #1072]	@ zero_extendqisi2
-	.loc 1 1149 0
+	.loc 1 1011 0
 	add	ip, r2, ip, lsl #2
 	ldr	r3, [fp, r9, asl #4]
-	.loc 1 1148 0
+	.loc 1 1010 0
 	ldr	r10, [r10, #1072]
-	.loc 1 1147 0
+	.loc 1 1009 0
 	and	r0, r0, #-16777216
-	.loc 1 1154 0
+	.loc 1 1016 0
 	mov	r8, r4, lsr #24
 	eor	r5, r0, r6
-	.loc 1 1149 0
+	.loc 1 1011 0
 	ldr	ip, [ip, #1072]
-	.loc 1 1157 0
+	.loc 1 1019 0
 	uxtb	r6, r1
 	eor	r0, r5, r3
-	.loc 1 1154 0
+	.loc 1 1016 0
 	add	r8, r2, r8, lsl #2
-	.loc 1 1148 0
+	.loc 1 1010 0
 	and	r3, r10, #16711680
-	.loc 1 1155 0
+	.loc 1 1017 0
 	ubfx	r5, lr, #16, #8
-	.loc 1 1157 0
+	.loc 1 1019 0
 	mov	r10, r2
 	eor	r3, r3, r0
 	add	r6, r2, r6, lsl #2
-	.loc 1 1149 0
+	.loc 1 1011 0
 	and	r0, ip, #65280
-	.loc 1 1079 0
+	.loc 1 1002 0
 	add	r2, fp, r9, lsl #4
 .LVL189:
-	.loc 1 1156 0
+	.loc 1 1018 0
 	ubfx	ip, r7, #8, #8
-	.loc 1 1152 0
+	.loc 1 1014 0
 	ldr	fp, [sp, #4]
-	.loc 1 1146 0
+	.loc 1 1008 0
 	eor	r0, r0, r3
 .LVL190:
-	.loc 1 1154 0
+	.loc 1 1016 0
 	ldr	r9, [r8, #1072]
-	.loc 1 1155 0
+	.loc 1 1017 0
 	add	r5, r10, r5, lsl #2
-	.loc 1 1157 0
+	.loc 1 1019 0
 	ldrb	r6, [r6, #1072]	@ zero_extendqisi2
-	.loc 1 1156 0
+	.loc 1 1018 0
 	add	ip, r10, ip, lsl #2
-	.loc 1 1152 0
+	.loc 1 1014 0
 	strb	r0, [fp, #3]
 	mov	r8, r0, lsr #8
 	mov	r3, r0, lsr #16
@@ -3331,46 +3331,46 @@ AES_decrypt:
 	strb	r3, [fp, #1]
 	mov	r0, r0, lsr #24
 .LVL191:
-	.loc 1 1155 0
+	.loc 1 1017 0
 	ldr	r5, [r5, #1072]
-	.loc 1 1154 0
+	.loc 1 1016 0
 	and	r9, r9, #-16777216
-	.loc 1 1152 0
+	.loc 1 1014 0
 	strb	r0, [fp]
-	.loc 1 1161 0
+	.loc 1 1023 0
 	mov	r8, r1, lsr #24
 	ldr	r3, [r2, #4]
 	eor	r0, r9, r6
-	.loc 1 1156 0
+	.loc 1 1018 0
 	ldr	r6, [ip, #1072]
-	.loc 1 1164 0
+	.loc 1 1026 0
 	uxtb	ip, r7
 	eor	r0, r0, r3
-	.loc 1 1161 0
+	.loc 1 1023 0
 	add	r8, r10, r8, lsl #2
-	.loc 1 1155 0
+	.loc 1 1017 0
 	and	r3, r5, #16711680
-	.loc 1 1162 0
+	.loc 1 1024 0
 	ubfx	r5, r4, #16, #8
 	eor	r0, r0, r3
-	.loc 1 1164 0
+	.loc 1 1026 0
 	add	ip, r10, ip, lsl #2
-	.loc 1 1156 0
+	.loc 1 1018 0
 	and	r3, r6, #65280
-	.loc 1 1163 0
+	.loc 1 1025 0
 	ubfx	r6, lr, #8, #8
-	.loc 1 1153 0
+	.loc 1 1015 0
 	eor	r3, r3, r0
 .LVL192:
-	.loc 1 1162 0
+	.loc 1 1024 0
 	add	r5, r10, r5, lsl #2
-	.loc 1 1161 0
+	.loc 1 1023 0
 	ldr	r0, [r8, #1072]
-	.loc 1 1163 0
+	.loc 1 1025 0
 	add	r6, r10, r6, lsl #2
-	.loc 1 1164 0
+	.loc 1 1026 0
 	ldrb	r8, [ip, #1072]	@ zero_extendqisi2
-	.loc 1 1159 0
+	.loc 1 1021 0
 	mov	r9, r3, lsr #8
 	strb	r3, [fp, #7]
 	mov	ip, r3, lsr #16
@@ -3378,50 +3378,50 @@ AES_decrypt:
 	mov	r3, r3, lsr #24
 .LVL193:
 	strb	ip, [fp, #5]
-	.loc 1 1161 0
+	.loc 1 1023 0
 	and	r0, r0, #-16777216
-	.loc 1 1159 0
+	.loc 1 1021 0
 	strb	r3, [fp, #4]
-	.loc 1 1168 0
+	.loc 1 1030 0
 	mov	r7, r7, lsr #24
 .LVL194:
 	ldr	ip, [r2, #8]
 	eor	r0, r0, r8
-	.loc 1 1162 0
+	.loc 1 1024 0
 	ldr	r5, [r5, #1072]
-	.loc 1 1171 0
+	.loc 1 1033 0
 	uxtb	lr, lr
 .LVL195:
-	.loc 1 1163 0
+	.loc 1 1025 0
 	ldr	r3, [r6, #1072]
-	.loc 1 1169 0
+	.loc 1 1031 0
 	ubfx	r1, r1, #16, #8
 .LVL196:
 	eor	r0, r0, ip
-	.loc 1 1162 0
+	.loc 1 1024 0
 	and	r5, r5, #16711680
-	.loc 1 1168 0
+	.loc 1 1030 0
 	add	r7, r10, r7, lsl #2
 	eor	r0, r0, r5
-	.loc 1 1163 0
+	.loc 1 1025 0
 	and	r3, r3, #65280
-	.loc 1 1171 0
+	.loc 1 1033 0
 	add	lr, r10, lr, lsl #2
-	.loc 1 1170 0
+	.loc 1 1032 0
 	ubfx	r4, r4, #8, #8
 .LVL197:
-	.loc 1 1160 0
+	.loc 1 1022 0
 	eor	r0, r0, r3
 .LVL198:
-	.loc 1 1169 0
+	.loc 1 1031 0
 	add	r5, r10, r1, lsl #2
-	.loc 1 1168 0
+	.loc 1 1030 0
 	ldr	r1, [r7, #1072]
-	.loc 1 1171 0
+	.loc 1 1033 0
 	ldrb	ip, [lr, #1072]	@ zero_extendqisi2
-	.loc 1 1170 0
+	.loc 1 1032 0
 	add	r4, r10, r4, lsl #2
-	.loc 1 1166 0
+	.loc 1 1028 0
 	strb	r0, [fp, #11]
 	mov	r3, r0, lsr #16
 	mov	lr, r0, lsr #8
@@ -3429,27 +3429,27 @@ AES_decrypt:
 	strb	lr, [fp, #10]
 	mov	r0, r0, lsr #24
 .LVL199:
-	.loc 1 1168 0
+	.loc 1 1030 0
 	and	r1, r1, #-16777216
-	.loc 1 1166 0
+	.loc 1 1028 0
 	strb	r0, [fp, #8]
 	ldr	r0, [r2, #12]
 	eor	r1, r1, ip
-	.loc 1 1169 0
+	.loc 1 1031 0
 	ldr	r2, [r5, #1072]
 .LVL200:
-	.loc 1 1170 0
+	.loc 1 1032 0
 	ldr	r3, [r4, #1072]
 	eor	r1, r1, r0
-	.loc 1 1169 0
+	.loc 1 1031 0
 	and	r2, r2, #16711680
 	eor	r2, r2, r1
-	.loc 1 1170 0
+	.loc 1 1032 0
 	and	r3, r3, #65280
-	.loc 1 1167 0
+	.loc 1 1029 0
 	eor	r3, r3, r2
 .LVL201:
-	.loc 1 1173 0
+	.loc 1 1035 0
 	strb	r3, [fp, #15]
 	mov	r1, r3, lsr #8
 	mov	r2, r3, lsr #16
@@ -3460,7 +3460,7 @@ AES_decrypt:
 	strb	r3, [fp, #12]
 .LVL203:
 .L27:
-	.loc 1 1174 0
+	.loc 1 1036 0
 	add	sp, sp, #44
 	.cfi_def_cfa_offset 36
 	@ sp needed
@@ -6634,55 +6634,55 @@ Td4:
 	.uleb128 0x14
 	.ascii	"rk\000"
 	.byte	0x1
-	.2byte	0x34a
+	.2byte	0x345
 	.4byte	0x537
 	.4byte	.LLST17
 	.uleb128 0x14
 	.ascii	"s0\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST18
 	.uleb128 0x14
 	.ascii	"s1\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST19
 	.uleb128 0x14
 	.ascii	"s2\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST20
 	.uleb128 0x14
 	.ascii	"s3\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST21
 	.uleb128 0x14
 	.ascii	"t0\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST22
 	.uleb128 0x14
 	.ascii	"t1\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST23
 	.uleb128 0x14
 	.ascii	"t2\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST24
 	.uleb128 0x14
 	.ascii	"t3\000"
 	.byte	0x1
-	.2byte	0x34b
+	.2byte	0x346
 	.4byte	0x2d7
 	.4byte	.LLST25
 	.byte	0
@@ -6702,7 +6702,7 @@ Td4:
 	.uleb128 0xe
 	.4byte	.LASF62
 	.byte	0x1
-	.2byte	0x3f5
+	.2byte	0x3ab
 	.4byte	.LFB28
 	.4byte	.LFE28-.LFB28
 	.uleb128 0x1
@@ -6711,73 +6711,73 @@ Td4:
 	.uleb128 0x13
 	.ascii	"in\000"
 	.byte	0x1
-	.2byte	0x3f5
+	.2byte	0x3ab
 	.4byte	0x311
 	.4byte	.LLST26
 	.uleb128 0x13
 	.ascii	"out\000"
 	.byte	0x1
-	.2byte	0x3f5
+	.2byte	0x3ab
 	.4byte	0x526
 	.4byte	.LLST27
 	.uleb128 0x13
 	.ascii	"key\000"
 	.byte	0x1
-	.2byte	0x3f6
+	.2byte	0x3ac
 	.4byte	0x52c
 	.4byte	.LLST28
 	.uleb128 0x14
 	.ascii	"rk\000"
 	.byte	0x1
-	.2byte	0x3f8
+	.2byte	0x3ae
 	.4byte	0x537
 	.4byte	.LLST29
 	.uleb128 0x14
 	.ascii	"s0\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST30
 	.uleb128 0x14
 	.ascii	"s1\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST31
 	.uleb128 0x14
 	.ascii	"s2\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST32
 	.uleb128 0x14
 	.ascii	"s3\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST33
 	.uleb128 0x14
 	.ascii	"t0\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST34
 	.uleb128 0x14
 	.ascii	"t1\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST35
 	.uleb128 0x14
 	.ascii	"t2\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST36
 	.uleb128 0x14
 	.ascii	"t3\000"
 	.byte	0x1
-	.2byte	0x3f9
+	.2byte	0x3af
 	.4byte	0x2d7
 	.4byte	.LLST37
 	.byte	0
