@@ -784,31 +784,30 @@ int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 			rk[18] = rk[14] ^ rk[17];
 			rk[19] = rk[15] ^ rk[18];
 
-			rk += 16;
-                        temp  = rk[3];
-			rk[4] = rk[0] ^
+			//rk += 16;
+                        temp  = rk[19];
+			rk[20] = rk[16] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
 				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
 				(Te4[(temp >> 24)       ] & 0x000000ff) ^
 				rcon[4];
-			rk[5] = rk[1] ^ rk[4];
-			rk[6] = rk[2] ^ rk[5];
-			rk[7] = rk[3] ^ rk[6];
+			rk[21] = rk[17] ^ rk[20];
+			rk[22] = rk[18] ^ rk[21];
+			rk[23] = rk[19] ^ rk[22];
 
-			rk += 4;
-                        temp  = rk[3];
-			rk[4] = rk[0] ^
+			temp  = rk[23];
+			rk[24] = rk[20] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
 				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
 				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
 				(Te4[(temp >> 24)       ] & 0x000000ff) ^
 				rcon[5];
-			rk[5] = rk[1] ^ rk[4];
-			rk[6] = rk[2] ^ rk[5];
-			rk[7] = rk[3] ^ rk[6];
+			rk[25] = rk[21] ^ rk[24];
+			rk[26] = rk[22] ^ rk[25];
+			rk[27] = rk[23] ^ rk[26];
 
-			rk += 4;
+			rk += 24;
                         temp  = rk[3];
 			rk[4] = rk[0] ^
 				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
