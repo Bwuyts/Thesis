@@ -6,7 +6,7 @@
 #include "enable_arm_pmu2/armpmu_lib.h"
 
 
-#include "encrypt.h"
+#include "aes.h"
 
 #define BLOCKS 1
 
@@ -15,10 +15,10 @@
 int main() {
 
 const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
-unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
-unsigned char in[4096], out[4096];
+unsigned char in[4096], out[4096], outd[4096];
 unsigned long long tag[16];
-
+ unsigned char* inp = in;
+ unsigned char* outp = out;
 //asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
   int i, j, k, l=100;
 
@@ -27,27 +27,72 @@ unsigned long long tag[16];
     in[i] = (unsigned char)rand();
 
    uint32_t overhead = rdtsc32();
-   overhead = rdtsc32() - overhead;   
+   overhead = rdtsc32() - overhead; 
   
-  
- uint32_t t0,t1;
-  
- uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
-  
-  printf("Cycles for calibrate: %d\n", overhead);
+   printf("Cycles for calibrate: %d\n", overhead);
 
-  for (j=0;j<1000;j++) 
-      crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
+  
+   uint32_t t0,t1;
+        /* big number to start */
+    uint32_t tMin = 0xFFFFFFFF;   
+  
+        AES_KEY expkeyp;
+        AES_KEY* expkey = &expkeyp;
+        AES_KEY expkeydp;
+        AES_KEY* expkeyd = &expkeydp;
+    for (k=0;k < 1000;k++) {
+        
+        AES_set_encrypt_key(key,128,expkey);
+        
+    for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+            t0 = rdtsc32();
+            AES_set_encrypt_key(key,128,expkey);
+            t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  
+    printf("Cycles for AESencryption key expansion: %d\n", tMin);
 
+       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+            t0 = rdtsc32();
+            AES_set_decrypt_key(key,128,expkey);
+            t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }     
+  
+  printf("Cycles for AES decryption key expansion: %d\n", tMin);
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
-
+    for(i=0;i<256;i= i + 16){
+        AES_encrypt(inp, outp,expkey);
+        inp = inp+16;
+        outp = outp + 16;
+    }
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  inp = in;
+  outp = out;
+  printf("Cycles for AES encryption: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
+  
+    for (j=0;j<1000;j++) 
+        AES_encrypt(in, out,expkey);
+        AES_decrypt( out,decrypted,expkeyd);
+  
+      for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+    for(i=0;i<256;i= i + 16){
+        AES_decrypt(inp, outp,expkeyd);
+        inp = inp+16;
+        outp = outp + 16;
+    }
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+    
+      printf("Cycles for AES decryption: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
   return 0;
 }
