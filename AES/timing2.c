@@ -184,9 +184,13 @@ unsigned char out[16];
      
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
+                      printf("GF2: %d\n", t0);
+
                 for(i=0;i<1000000000;i++)
                     gf128_mul2(out, key);
                 t1 = rdtsc32();
+                      printf("GF2: %d\n", t1);
+
         if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
     
