@@ -16,7 +16,6 @@ int main() {
 
 const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
 unsigned char in[4096], out[4096], outd[4096];
-unsigned long long tag[16];
  unsigned char* inp = in;
  unsigned char* outp = out;
 //asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
