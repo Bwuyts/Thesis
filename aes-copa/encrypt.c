@@ -451,7 +451,7 @@ int crypto_aead_encrypt(
             AES_KEY expkeyp;
           AES_KEY* expkey = &expkeyp;
 
-	//unsigned char* macdata;
+	unsigned char* macdata;
 	const unsigned char* in = m;
 	unsigned char* out = c;
 	unsigned long long remaining = mlen;
@@ -471,11 +471,11 @@ int crypto_aead_encrypt(
 	*clen = mlen + 16;
 
 	/* mac AD + nonce */
-// 	macdata = malloc(adlen + 16);
-// 	memcpy(macdata, ad, adlen);
-// 	memcpy(macdata+adlen, npub, 16);
-// 	mac(V, macdata, adlen+16, LL, expkey);
-	//free(macdata);
+	macdata = malloc(adlen + 16);
+	memcpy(macdata, ad, adlen);
+	memcpy(macdata+adlen, npub, 16);
+	mac(V, macdata, adlen+16, LL, expkey);
+	free(macdata);
 	if (mlen < 16) {
 		encrypt_tag_splitting(c, m, mlen, V, LL, expkey);
 		return 0;
@@ -496,7 +496,7 @@ int crypto_aead_encrypt(
 		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
 		AES_encrypt(block, block, expkey);//E_k(v[i]
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
-		gf128_mul2(Lup, Lup);//delta0*2
+		//gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
                 gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
 		
