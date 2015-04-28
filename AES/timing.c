@@ -79,6 +79,13 @@ unsigned char in[4096], out[4096], outd[4096];
         outp = out;
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
+          t0 = rdtsc32();
+          AES_encrypt(inp, outp,expkey);
+          t1 = rdtsc32();
+            
+    printf("Cycles for AES encryption: %d\n", t1-t0);
+
+  
   inp = in;
   outp = out;
   printf("Cycles for AES encryption: %d\n", tMin);
