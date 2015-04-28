@@ -7768,7 +7768,7 @@ crypto_aead_encrypt:
 .LFB73:
 	.loc 1 446 0
 	.cfi_startproc
-	@ args = 36, pretend = 0, frame = 632
+	@ args = 36, pretend = 0, frame = 568
 	@ frame_needed = 0, uses_anonymous_args = 0
 .LVL536:
 	stmfd	sp!, {r4, r5, r6, r7, r8, r9, r10, fp, lr}
@@ -7782,19 +7782,19 @@ crypto_aead_encrypt:
 	.cfi_offset 10, -12
 	.cfi_offset 11, -8
 	.cfi_offset 14, -4
-	sub	sp, sp, #644
-	.cfi_def_cfa_offset 680
+	sub	sp, sp, #580
+	.cfi_def_cfa_offset 616
 	.loc 1 446 0
 	movw	r3, #:lower16:__stack_chk_guard
 	mov	r9, r1
-	ldr	ip, [sp, #712]
+	ldr	ip, [sp, #648]
 	movt	r3, #:upper16:__stack_chk_guard
-	add	r1, sp, #696
+	add	r1, sp, #632
 .LVL537:
 	str	r3, [sp, #180]
 	ldr	r3, [r3]
 	.loc 1 465 0
-	add	r5, sp, #460
+	add	r5, sp, #396
 	.loc 1 446 0
 	ldrd	r6, [r1]
 	.loc 1 455 0
@@ -7811,13 +7811,13 @@ crypto_aead_encrypt:
 	add	r2, sp, #184
 .LVL540:
 	.loc 1 446 0
-	ldr	r8, [sp, #708]
+	ldr	r8, [sp, #644]
 	.loc 1 460 0
 	mov	r4, #0
 	.loc 1 446 0
-	str	r3, [sp, #636]
+	str	r3, [sp, #572]
 .LVL541:
-	ldr	r10, [sp, #688]
+	ldr	r10, [sp, #624]
 	.loc 1 455 0
 	bl	AES_set_encrypt_key
 .LVL542:
@@ -7827,20 +7827,20 @@ crypto_aead_encrypt:
 .LVL543:
 	mov	r0, r5
 	.loc 1 460 0
-	str	r4, [sp, #444]
-	str	r4, [sp, #448]
-	str	r4, [sp, #452]
-	str	r4, [sp, #456]
+	str	r4, [sp, #380]
+	str	r4, [sp, #384]
+	str	r4, [sp, #388]
+	str	r4, [sp, #392]
 	.loc 1 462 0
-	str	r4, [sp, #460]
-	str	r4, [sp, #464]
-	str	r4, [sp, #468]
-	str	r4, [sp, #472]
+	str	r4, [sp, #396]
+	str	r4, [sp, #400]
+	str	r4, [sp, #404]
+	str	r4, [sp, #408]
 	.loc 1 465 0
 	bl	AES_encrypt
 .LVL544:
 	.loc 1 467 0
-	add	r3, sp, #680
+	add	r3, sp, #616
 .LVL545:
 	.loc 1 470 0
 	add	r0, r6, #16
@@ -7911,7 +7911,7 @@ crypto_aead_encrypt:
 .LBE1341:
 	.loc 1 473 0
 	str	r0, [sp, #4]
-	add	r0, sp, #428
+	add	r0, sp, #364
 .LVL554:
 	str	r5, [sp]
 .LBB1342:
@@ -7932,7 +7932,7 @@ crypto_aead_encrypt:
 	bl	free
 .LVL557:
 	.loc 1 475 0
-	add	r3, sp, #680
+	add	r3, sp, #616
 	ldrd	r2, [r3]
 	cmp	r3, #0
 	cmpeq	r2, #15
@@ -7943,58 +7943,58 @@ crypto_aead_encrypt:
 .LBB1345:
 .LBB1346:
 	.loc 1 94 0
-	ldrb	r0, [sp, #461]	@ zero_extendqisi2
-	ldrb	r6, [sp, #462]	@ zero_extendqisi2
+	ldrb	r0, [sp, #397]	@ zero_extendqisi2
+	ldrb	r6, [sp, #398]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r2, [sp, #465]	@ zero_extendqisi2
-	ldrb	lr, [sp, #466]	@ zero_extendqisi2
+	ldrb	r2, [sp, #401]	@ zero_extendqisi2
+	ldrb	lr, [sp, #402]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	r0, r0, asl #16
 	orr	r0, r0, r6, asl #8
 	.loc 1 96 0
-	ldrb	r1, [sp, #469]	@ zero_extendqisi2
+	ldrb	r1, [sp, #405]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r6, [sp, #463]	@ zero_extendqisi2
+	ldrb	r6, [sp, #399]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r2, r2, asl #16
 	.loc 1 96 0
-	ldrb	ip, [sp, #470]	@ zero_extendqisi2
+	ldrb	ip, [sp, #406]	@ zero_extendqisi2
 	orr	r2, r2, lr, asl #8
 .LBE1346:
 .LBE1345:
 	.loc 1 138 0
-	ldrb	r9, [sp, #460]	@ zero_extendqisi2
+	ldrb	r9, [sp, #396]	@ zero_extendqisi2
 .LVL559:
 .LBB1364:
 .LBB1347:
 	.loc 1 94 0
 	eor	r6, r6, r0
 	.loc 1 95 0
-	ldrb	lr, [sp, #467]	@ zero_extendqisi2
+	ldrb	lr, [sp, #403]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r1, r1, asl #16
 	.loc 1 95 0
-	ldrb	r0, [sp, #464]	@ zero_extendqisi2
+	ldrb	r0, [sp, #400]	@ zero_extendqisi2
 	orr	r1, r1, ip, asl #8
 	.loc 1 97 0
-	ldrb	r3, [sp, #473]	@ zero_extendqisi2
+	ldrb	r3, [sp, #409]	@ zero_extendqisi2
 	.loc 1 94 0
 	orr	r6, r6, r9, asl #24
 	.loc 1 97 0
-	ldrb	r7, [sp, #474]	@ zero_extendqisi2
+	ldrb	r7, [sp, #410]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r2, r2, lr
 	.loc 1 96 0
-	ldrb	ip, [sp, #471]	@ zero_extendqisi2
+	ldrb	ip, [sp, #407]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	lr, r2, r0, asl #24
 	.loc 1 96 0
-	ldrb	r4, [sp, #468]	@ zero_extendqisi2
+	ldrb	r4, [sp, #404]	@ zero_extendqisi2
 	.loc 1 97 0
 	mov	r3, r3, asl #16
 	orr	r3, r3, r7, asl #8
-	ldrb	r10, [sp, #472]	@ zero_extendqisi2
-	ldrb	r7, [sp, #475]	@ zero_extendqisi2
+	ldrb	r10, [sp, #408]	@ zero_extendqisi2
+	ldrb	r7, [sp, #411]	@ zero_extendqisi2
 	.loc 1 96 0
 	eor	r1, r1, ip
 	.loc 1 98 0
@@ -8021,7 +8021,7 @@ crypto_aead_encrypt:
 .LBB1423:
 .LBB1424:
 	.loc 1 51 0
-	ldr	r9, [sp, #464]
+	ldr	r9, [sp, #400]
 .LBE1424:
 .LBE1423:
 .LBB1435:
@@ -8069,7 +8069,7 @@ crypto_aead_encrypt:
 .LBB1441:
 .LBB1425:
 	.loc 1 50 0
-	ldr	r6, [sp, #460]
+	ldr	r6, [sp, #396]
 .LBE1425:
 .LBE1441:
 .LBB1442:
@@ -8085,7 +8085,7 @@ crypto_aead_encrypt:
 .LBB1443:
 .LBB1426:
 	.loc 1 50 0
-	ldr	lr, [sp, #428]
+	ldr	lr, [sp, #364]
 .LBE1426:
 .LBE1443:
 .LBB1444:
@@ -8105,7 +8105,7 @@ crypto_aead_encrypt:
 .LBB1445:
 .LBB1427:
 	.loc 1 51 0
-	ldr	r10, [sp, #432]
+	ldr	r10, [sp, #368]
 	.loc 1 50 0
 	eor	lr, r6, lr
 .LBE1427:
@@ -8143,7 +8143,7 @@ crypto_aead_encrypt:
 .LBB1449:
 .LBB1429:
 	.loc 1 52 0
-	ldr	lr, [sp, #468]
+	ldr	lr, [sp, #404]
 .LVL563:
 .LBE1429:
 .LBE1449:
@@ -8163,9 +8163,9 @@ crypto_aead_encrypt:
 	str	r10, [sp, #40]
 .LVL564:
 	.loc 1 52 0
-	ldr	fp, [sp, #436]
+	ldr	fp, [sp, #372]
 	.loc 1 53 0
-	ldr	r10, [sp, #472]
+	ldr	r10, [sp, #408]
 .LVL565:
 .LBE1430:
 .LBE1451:
@@ -8184,7 +8184,7 @@ crypto_aead_encrypt:
 	.loc 1 52 0
 	eor	fp, lr, fp
 	.loc 1 53 0
-	ldr	r8, [sp, #440]
+	ldr	r8, [sp, #376]
 .LBE1431:
 .LBE1453:
 .LBB1454:
@@ -8192,7 +8192,7 @@ crypto_aead_encrypt:
 .LBB1375:
 .LBB1358:
 	.loc 1 102 0
-	strb	ip, [sp, #607]
+	strb	ip, [sp, #543]
 .LBE1358:
 .LBE1375:
 .LBE1409:
@@ -8200,7 +8200,7 @@ crypto_aead_encrypt:
 .LBB1455:
 .LBB1438:
 	.loc 2 51 0
-	add	ip, sp, #588
+	add	ip, sp, #524
 .LBE1438:
 .LBE1455:
 .LBB1456:
@@ -8261,28 +8261,28 @@ crypto_aead_encrypt:
 	.loc 1 102 0
 	ldrb	r3, [sp, #56]	@ zero_extendqisi2
 .LVL569:
-	strb	r2, [sp, #605]
+	strb	r2, [sp, #541]
 	.loc 1 103 0
 	ubfx	r2, r4, #16, #8
 	str	r1, [sp, #72]
 	.loc 1 102 0
-	strb	r3, [sp, #606]
+	strb	r3, [sp, #542]
 	.loc 1 103 0
 	ubfx	r3, r4, #8, #8
-	strb	r1, [sp, #608]
+	strb	r1, [sp, #544]
 	.loc 1 104 0
 	ubfx	r4, r5, #16, #8
 	mov	r1, r5, lsr #24
 	.loc 1 103 0
 	str	r3, [sp, #80]
-	strb	r3, [sp, #610]
+	strb	r3, [sp, #546]
 	.loc 1 104 0
 	ubfx	r3, r5, #8, #8
 	.loc 1 105 0
 	uxtb	r5, r7
 	.loc 1 104 0
 	str	r0, [sp, #68]
-	strb	r0, [sp, #615]
+	strb	r0, [sp, #551]
 .LBE1361:
 .LBE1378:
 	.loc 1 141 0
@@ -8290,7 +8290,7 @@ crypto_aead_encrypt:
 .LBB1379:
 .LBB1362:
 	.loc 1 105 0
-	strb	r5, [sp, #619]
+	strb	r5, [sp, #555]
 .LBE1362:
 .LBE1379:
 	.loc 1 141 0
@@ -8301,34 +8301,34 @@ crypto_aead_encrypt:
 	str	fp, [sp, #88]
 	str	r2, [sp, #76]
 	.loc 1 102 0
-	strb	r9, [sp, #604]
+	strb	r9, [sp, #540]
 	.loc 1 103 0
-	strb	fp, [sp, #611]
+	strb	fp, [sp, #547]
 	.loc 1 105 0
 	ubfx	fp, r7, #16, #8
 	.loc 1 104 0
 	str	r3, [sp, #92]
 	.loc 1 103 0
-	strb	r2, [sp, #609]
+	strb	r2, [sp, #545]
 	.loc 1 105 0
 	mov	r2, r7, lsr #24
 	.loc 1 104 0
-	strb	r3, [sp, #614]
+	strb	r3, [sp, #550]
 	.loc 1 105 0
 	ubfx	r3, r7, #8, #8
 	.loc 1 104 0
-	strb	r4, [sp, #613]
+	strb	r4, [sp, #549]
 	.loc 1 105 0
-	strb	r3, [sp, #618]
-	strb	fp, [sp, #617]
+	strb	r3, [sp, #554]
+	strb	fp, [sp, #553]
 	.loc 1 104 0
-	strb	r1, [sp, #612]
+	strb	r1, [sp, #548]
 	.loc 1 105 0
-	strb	r2, [sp, #616]
+	strb	r2, [sp, #552]
 .LBE1363:
 .LBE1380:
 	.loc 1 141 0
-	strneb	r0, [sp, #619]
+	strneb	r0, [sp, #555]
 .LVL570:
 .LBE1412:
 .LBE1462:
@@ -8352,7 +8352,7 @@ crypto_aead_encrypt:
 .LBB1381:
 .LBB1382:
 	.loc 1 50 0
-	ldr	r0, [sp, #604]
+	ldr	r0, [sp, #540]
 .LBE1382:
 .LBE1381:
 .LBE1413:
@@ -8374,9 +8374,9 @@ crypto_aead_encrypt:
 	.loc 1 50 0
 	eor	r0, r0, r6
 	.loc 1 52 0
-	ldr	r6, [sp, #612]
+	ldr	r6, [sp, #548]
 	.loc 1 51 0
-	ldr	r7, [sp, #608]
+	ldr	r7, [sp, #544]
 	.loc 1 52 0
 	eor	lr, lr, r6
 .LBE1383:
@@ -8389,7 +8389,7 @@ crypto_aead_encrypt:
 .LBB1468:
 	.loc 1 102 0
 	ldrb	r6, [sp, #84]	@ zero_extendqisi2
-	strb	ip, [sp, #575]
+	strb	ip, [sp, #511]
 .LBE1468:
 .LBE1475:
 .LBE1482:
@@ -8409,7 +8409,7 @@ crypto_aead_encrypt:
 .LBB1476:
 .LBB1469:
 	.loc 1 102 0
-	strb	r6, [sp, #573]
+	strb	r6, [sp, #509]
 	ldrb	r6, [sp, #148]	@ zero_extendqisi2
 .LBE1469:
 .LBE1476:
@@ -8430,7 +8430,7 @@ crypto_aead_encrypt:
 .LBB1477:
 .LBB1470:
 	.loc 1 105 0
-	strb	r5, [sp, #587]
+	strb	r5, [sp, #523]
 .LBE1470:
 .LBE1477:
 	.loc 1 131 0
@@ -8442,7 +8442,7 @@ crypto_aead_encrypt:
 .LBB1395:
 .LBB1386:
 	.loc 1 53 0
-	ldr	r7, [sp, #616]
+	ldr	r7, [sp, #552]
 .LBE1386:
 .LBE1395:
 .LBE1417:
@@ -8452,7 +8452,7 @@ crypto_aead_encrypt:
 .LBB1478:
 .LBB1471:
 	.loc 1 102 0
-	strb	r6, [sp, #572]
+	strb	r6, [sp, #508]
 	.loc 1 103 0
 	ldrb	r6, [sp, #88]	@ zero_extendqisi2
 .LBE1471:
@@ -8474,24 +8474,24 @@ crypto_aead_encrypt:
 .LBB1479:
 .LBB1472:
 	.loc 1 102 0
-	strb	r8, [sp, #574]
+	strb	r8, [sp, #510]
 	.loc 1 104 0
-	strb	r4, [sp, #581]
+	strb	r4, [sp, #517]
 	.loc 1 103 0
-	strb	r6, [sp, #579]
+	strb	r6, [sp, #515]
 	ldrb	r6, [sp, #80]	@ zero_extendqisi2
 	.loc 1 105 0
-	strb	r3, [sp, #586]
-	strb	fp, [sp, #585]
+	strb	r3, [sp, #522]
+	strb	fp, [sp, #521]
 	.loc 1 103 0
-	strb	r6, [sp, #578]
+	strb	r6, [sp, #514]
 	ldrb	r6, [sp, #76]	@ zero_extendqisi2
 	.loc 1 104 0
-	strb	r1, [sp, #580]
+	strb	r1, [sp, #516]
 	.loc 1 105 0
-	strb	r2, [sp, #584]
+	strb	r2, [sp, #520]
 	.loc 1 103 0
-	strb	r6, [sp, #577]
+	strb	r6, [sp, #513]
 	ldrb	r6, [sp, #72]	@ zero_extendqisi2
 .LBE1472:
 .LBE1479:
@@ -8502,7 +8502,7 @@ crypto_aead_encrypt:
 .LBB1397:
 .LBB1388:
 	.loc 1 50 0
-	str	r0, [sp, #556]
+	str	r0, [sp, #492]
 .LBE1388:
 .LBE1397:
 .LBE1419:
@@ -8512,12 +8512,12 @@ crypto_aead_encrypt:
 .LBB1480:
 .LBB1473:
 	.loc 1 103 0
-	strb	r6, [sp, #576]
+	strb	r6, [sp, #512]
 	.loc 1 104 0
 	ldrb	r6, [sp, #68]	@ zero_extendqisi2
-	strb	r6, [sp, #583]
+	strb	r6, [sp, #519]
 	ldrb	r6, [sp, #92]	@ zero_extendqisi2
-	strb	r6, [sp, #582]
+	strb	r6, [sp, #518]
 .LBE1473:
 .LBE1480:
 .LBE1487:
@@ -8527,7 +8527,7 @@ crypto_aead_encrypt:
 .LBB1398:
 .LBB1389:
 	.loc 1 51 0
-	str	ip, [sp, #560]
+	str	ip, [sp, #496]
 .LBE1389:
 .LBE1398:
 .LBE1420:
@@ -8535,15 +8535,15 @@ crypto_aead_encrypt:
 .LBB1504:
 .LBB1488:
 	.loc 1 131 0
-	strneb	r5, [sp, #587]
+	strneb	r5, [sp, #523]
 	.loc 1 130 0
 	str	r5, [sp, #140]
-	ldrb	r5, [sp, #559]	@ zero_extendqisi2
+	ldrb	r5, [sp, #495]	@ zero_extendqisi2
 .LBE1488:
 .LBE1504:
 	.loc 1 485 0
 	str	r3, [sp, #128]
-	ldrb	r3, [sp, #560]	@ zero_extendqisi2
+	ldrb	r3, [sp, #496]	@ zero_extendqisi2
 	str	r5, [sp, #32]
 	ldr	r5, [sp, #176]
 	str	r3, [sp, #64]
@@ -8553,65 +8553,65 @@ crypto_aead_encrypt:
 	ldr	r3, [sp, #92]
 	add	r5, r5, #16
 	str	r5, [sp, #28]
-	ldrb	r5, [sp, #558]	@ zero_extendqisi2
+	ldrb	r5, [sp, #494]	@ zero_extendqisi2
 	str	r3, [sp, #116]
 	ldr	r3, [sp, #68]
 	str	r5, [sp, #36]
-	add	r5, sp, #680
+	add	r5, sp, #616
 .LBB1505:
 .LBB1421:
 .LBB1399:
 .LBB1390:
 	.loc 1 52 0
-	str	lr, [sp, #564]
+	str	lr, [sp, #500]
 .LBE1390:
 .LBE1399:
 .LBE1421:
 .LBE1505:
 	.loc 1 485 0
 	ldrd	r6, [r5]
-	ldrb	r5, [sp, #557]	@ zero_extendqisi2
+	ldrb	r5, [sp, #493]	@ zero_extendqisi2
 	str	fp, [sp, #132]
 	strd	r6, [sp, #16]
 	mov	r7, r5
-	ldrb	r5, [sp, #563]	@ zero_extendqisi2
+	ldrb	r5, [sp, #499]	@ zero_extendqisi2
 	str	r4, [sp, #120]
 .LBB1506:
 .LBB1422:
 .LBB1400:
 .LBB1391:
 	.loc 1 53 0
-	str	r10, [sp, #568]
+	str	r10, [sp, #504]
 .LVL572:
 	str	r5, [sp, #60]
-	ldrb	r9, [sp, #556]	@ zero_extendqisi2
+	ldrb	r9, [sp, #492]	@ zero_extendqisi2
 .LBE1391:
 .LBE1400:
 .LBE1422:
 .LBE1506:
 	.loc 1 485 0
 	str	r2, [sp, #136]
-	ldrb	r8, [sp, #562]	@ zero_extendqisi2
-	ldrb	r5, [sp, #561]	@ zero_extendqisi2
+	ldrb	r8, [sp, #498]	@ zero_extendqisi2
+	ldrb	r5, [sp, #497]	@ zero_extendqisi2
 	str	r1, [sp, #124]
-	ldrb	fp, [sp, #567]	@ zero_extendqisi2
-	ldrb	r6, [sp, #566]	@ zero_extendqisi2
+	ldrb	fp, [sp, #503]	@ zero_extendqisi2
+	ldrb	r6, [sp, #502]	@ zero_extendqisi2
 .LVL573:
-	ldrb	r4, [sp, #565]	@ zero_extendqisi2
+	ldrb	r4, [sp, #501]	@ zero_extendqisi2
 	str	r3, [sp, #112]
-	ldrb	r3, [sp, #564]	@ zero_extendqisi2
+	ldrb	r3, [sp, #500]	@ zero_extendqisi2
 	str	r3, [sp, #68]
 	ldr	r3, [sp, #72]
 	str	r3, [sp, #108]
-	ldrb	r3, [sp, #570]	@ zero_extendqisi2
+	ldrb	r3, [sp, #506]	@ zero_extendqisi2
 	str	r3, [sp, #72]
 	ldr	r3, [sp, #76]
 	str	r3, [sp, #104]
-	ldrb	r3, [sp, #569]	@ zero_extendqisi2
+	ldrb	r3, [sp, #505]	@ zero_extendqisi2
 	str	r3, [sp, #76]
 	ldr	r3, [sp, #80]
 	str	r3, [sp, #100]
-	ldrb	r3, [sp, #568]	@ zero_extendqisi2
+	ldrb	r3, [sp, #504]	@ zero_extendqisi2
 	str	r3, [sp, #80]
 	ldr	r3, [sp, #88]
 	str	r3, [sp, #96]
@@ -8644,7 +8644,7 @@ crypto_aead_encrypt:
 	str	r1, [sp, #28]
 	bls	.L589
 	str	r3, [sp, #136]
-	add	r0, sp, #556
+	add	r0, sp, #492
 .LVL577:
 	ldr	r3, [sp, #104]
 	str	r6, [sp, #132]
@@ -8686,13 +8686,13 @@ crypto_aead_encrypt:
 	str	r3, [sp, #60]
 	ldr	r3, [sp, #152]
 	ldr	r9, [sp, #156]
-	ldr	r10, [sp, #568]
+	ldr	r10, [sp, #504]
 	mov	r7, r3
 	ldr	r3, [sp, #148]
 	str	r3, [sp, #36]
 	ldr	r3, [sp, #144]
 	str	r3, [sp, #32]
-	ldrb	r3, [sp, #587]	@ zero_extendqisi2
+	ldrb	r3, [sp, #523]	@ zero_extendqisi2
 	str	r3, [sp, #140]
 .LVL580:
 .L590:
@@ -8703,7 +8703,7 @@ crypto_aead_encrypt:
 .LBE1508:
 .LBE1507:
 	.loc 1 490 0
-	add	r1, sp, #540
+	add	r1, sp, #476
 	add	r2, sp, #184
 .LVL581:
 .LBB1516:
@@ -8740,14 +8740,14 @@ crypto_aead_encrypt:
 .LBB1568:
 	.loc 1 50 0
 	eor	r0, r0, r3
-	str	r0, [sp, #540]
+	str	r0, [sp, #476]
 .LBE1568:
 .LBE1567:
 .LBB1573:
 .LBB1510:
-	ldr	r0, [sp, #444]
+	ldr	r0, [sp, #380]
 	eor	r3, r3, r0
-	str	r3, [sp, #444]
+	str	r3, [sp, #380]
 	.loc 1 51 0
 	ldr	r3, [sp, #8]
 .LBE1510:
@@ -8763,17 +8763,17 @@ crypto_aead_encrypt:
 .LBB1575:
 .LBB1569:
 	eor	ip, ip, r3
-	str	ip, [sp, #544]
+	str	ip, [sp, #480]
 .LBE1569:
 .LBE1575:
 .LBB1576:
 .LBB1512:
-	ldr	ip, [sp, #448]
+	ldr	ip, [sp, #384]
 	eor	r3, r3, ip
-	str	r3, [sp, #448]
+	str	r3, [sp, #384]
 	.loc 1 52 0
 	ldr	r3, [sp, #8]
-	ldr	ip, [sp, #452]
+	ldr	ip, [sp, #388]
 	ldr	r3, [r3, #-8]
 .LBE1512:
 .LBE1576:
@@ -8788,16 +8788,16 @@ crypto_aead_encrypt:
 	.loc 1 53 0
 	ldr	r3, [sp, #8]
 	.loc 1 52 0
-	str	ip, [sp, #452]
+	str	ip, [sp, #388]
 	.loc 1 53 0
-	ldr	ip, [sp, #456]
+	ldr	ip, [sp, #392]
 	ldr	r3, [r3, #-4]
 .LBE1513:
 .LBE1578:
 .LBB1579:
 .LBB1571:
 	.loc 1 52 0
-	str	lr, [sp, #548]
+	str	lr, [sp, #484]
 	.loc 1 53 0
 	eor	r10, r10, r3
 .LBE1571:
@@ -8809,12 +8809,12 @@ crypto_aead_encrypt:
 .LBE1580:
 .LBB1581:
 .LBB1572:
-	str	r10, [sp, #552]
+	str	r10, [sp, #488]
 .LBE1572:
 .LBE1581:
 .LBB1582:
 .LBB1515:
-	str	r3, [sp, #456]
+	str	r3, [sp, #392]
 .LVL582:
 .LBE1515:
 .LBE1582:
@@ -8824,11 +8824,11 @@ crypto_aead_encrypt:
 .LBB1583:
 .LBB1584:
 	.loc 1 50 0
-	ldr	r0, [sp, #540]
+	ldr	r0, [sp, #476]
 .LBE1584:
 .LBE1583:
 	.loc 1 493 0
-	add	r1, sp, #540
+	add	r1, sp, #476
 .LVL584:
 .LBB1588:
 .LBB1585:
@@ -8842,12 +8842,12 @@ crypto_aead_encrypt:
 .LBB1589:
 .LBB1586:
 	.loc 1 51 0
-	ldr	lr, [sp, #544]
+	ldr	lr, [sp, #480]
 	.loc 1 50 0
 	eor	r10, r10, r0
 	str	r10, [sp, #44]
 .LVL586:
-	str	r10, [sp, #540]
+	str	r10, [sp, #476]
 .LBE1586:
 .LBE1589:
 	.loc 1 493 0
@@ -8857,11 +8857,11 @@ crypto_aead_encrypt:
 	.loc 1 51 0
 	ldr	r10, [sp, #40]
 	.loc 1 52 0
-	ldr	ip, [sp, #548]
+	ldr	ip, [sp, #484]
 	.loc 1 51 0
 	eor	r10, r10, lr
 	.loc 1 53 0
-	ldr	r3, [sp, #552]
+	ldr	r3, [sp, #488]
 	.loc 1 51 0
 	str	r10, [sp, #40]
 .LVL587:
@@ -8869,7 +8869,7 @@ crypto_aead_encrypt:
 	.loc 1 52 0
 	ldr	r10, [sp, #48]
 	.loc 1 51 0
-	str	lr, [sp, #544]
+	str	lr, [sp, #480]
 	.loc 1 53 0
 	ldr	lr, [sp, #52]
 	.loc 1 52 0
@@ -8879,11 +8879,11 @@ crypto_aead_encrypt:
 	.loc 1 53 0
 	eor	lr, lr, r3
 	.loc 1 52 0
-	str	r10, [sp, #548]
+	str	r10, [sp, #484]
 	.loc 1 53 0
 	str	lr, [sp, #52]
 .LVL589:
-	str	lr, [sp, #552]
+	str	lr, [sp, #488]
 .LVL590:
 .LBE1587:
 .LBE1590:
@@ -8899,7 +8899,7 @@ crypto_aead_encrypt:
 	.loc 1 94 0
 	mov	r1, r7, asl #16
 	.loc 1 97 0
-	ldrb	r2, [sp, #571]	@ zero_extendqisi2
+	ldrb	r2, [sp, #507]	@ zero_extendqisi2
 .LBE1521:
 .LBE1536:
 	.loc 1 130 0
@@ -8916,13 +8916,13 @@ crypto_aead_encrypt:
 .LBB1592:
 .LBB1593:
 	.loc 1 51 0
-	ldr	lr, [sp, #544]
+	ldr	lr, [sp, #480]
 	.loc 1 52 0
-	ldr	r4, [sp, #580]
+	ldr	r4, [sp, #516]
 	orr	r1, r1, r3, asl #8
 	ldr	r3, [sp, #72]
 	.loc 1 50 0
-	ldr	ip, [sp, #572]
+	ldr	ip, [sp, #508]
 	orr	r2, r2, r3, asl #8
 .LBE1593:
 .LBE1592:
@@ -8973,7 +8973,7 @@ crypto_aead_encrypt:
 	.loc 1 100 0
 	mov	r3, r6, asl #1
 	.loc 1 102 0
-	strb	r10, [sp, #557]
+	strb	r10, [sp, #493]
 	.loc 1 103 0
 	ldrb	r10, [sp, #32]	@ zero_extendqisi2
 	.loc 1 100 0
@@ -8990,7 +8990,7 @@ crypto_aead_encrypt:
 .LBB1606:
 .LBB1594:
 	.loc 1 50 0
-	ldr	r1, [sp, #540]
+	ldr	r1, [sp, #476]
 .LBE1594:
 .LBE1606:
 .LBB1607:
@@ -9006,7 +9006,7 @@ crypto_aead_encrypt:
 .LBB1608:
 .LBB1595:
 	.loc 1 52 0
-	ldr	r5, [sp, #548]
+	ldr	r5, [sp, #484]
 .LBE1595:
 .LBE1608:
 .LBB1609:
@@ -9040,7 +9040,7 @@ crypto_aead_encrypt:
 	.loc 1 52 0
 	eor	r1, r4, r5
 	.loc 1 51 0
-	ldr	r0, [sp, #576]
+	ldr	r0, [sp, #512]
 .LBE1597:
 .LBE1612:
 .LBB1613:
@@ -9049,11 +9049,11 @@ crypto_aead_encrypt:
 .LBB1527:
 	.loc 1 102 0
 	str	r9, [sp, #156]
-	strb	r6, [sp, #559]
+	strb	r6, [sp, #495]
 	.loc 1 103 0
 	ubfx	r6, fp, #16, #8
 	.loc 1 102 0
-	strb	r8, [sp, #558]
+	strb	r8, [sp, #494]
 	.loc 1 103 0
 	mov	r8, fp, lsr #24
 	str	r6, [sp, #160]
@@ -9076,11 +9076,11 @@ crypto_aead_encrypt:
 .LBB1543:
 .LBB1528:
 	.loc 1 102 0
-	strb	r9, [sp, #556]
+	strb	r9, [sp, #492]
 	.loc 1 104 0
 	ubfx	r9, r3, #8, #8
 	.loc 1 103 0
-	strb	r10, [sp, #563]
+	strb	r10, [sp, #499]
 	.loc 1 104 0
 	ubfx	r10, r3, #16, #8
 	str	r9, [sp, #164]
@@ -9090,22 +9090,22 @@ crypto_aead_encrypt:
 	.loc 1 105 0
 	uxtb	r3, r2
 	.loc 1 103 0
-	strb	r7, [sp, #562]
-	strb	r6, [sp, #561]
+	strb	r7, [sp, #498]
+	strb	r6, [sp, #497]
 	.loc 1 105 0
 	ubfx	r6, r2, #8, #8
 	.loc 1 103 0
-	strb	r8, [sp, #560]
+	strb	r8, [sp, #496]
 	.loc 1 105 0
 	ubfx	r8, r2, #16, #8
 	.loc 1 104 0
-	strb	r9, [sp, #566]
+	strb	r9, [sp, #502]
 	.loc 1 105 0
 	mov	r9, r2, lsr #24
 	.loc 1 104 0
 	ldrb	r2, [sp, #36]	@ zero_extendqisi2
 	.loc 1 105 0
-	strb	r3, [sp, #571]
+	strb	r3, [sp, #507]
 .LBE1528:
 .LBE1543:
 	.loc 1 131 0
@@ -9115,7 +9115,7 @@ crypto_aead_encrypt:
 .LBB1616:
 .LBB1599:
 	.loc 1 53 0
-	ldr	lr, [sp, #584]
+	ldr	lr, [sp, #520]
 .LBE1599:
 .LBE1616:
 .LBB1617:
@@ -9123,7 +9123,7 @@ crypto_aead_encrypt:
 .LBB1544:
 .LBB1529:
 	.loc 1 104 0
-	strb	r2, [sp, #564]
+	strb	r2, [sp, #500]
 .LBE1529:
 .LBE1544:
 	.loc 1 131 0
@@ -9133,13 +9133,13 @@ crypto_aead_encrypt:
 .LBB1618:
 .LBB1600:
 	.loc 1 53 0
-	ldr	r2, [sp, #552]
+	ldr	r2, [sp, #488]
 .LBE1600:
 .LBE1618:
 .LBB1619:
 .LBB1559:
 	.loc 1 131 0
-	strneb	r3, [sp, #571]
+	strneb	r3, [sp, #507]
 .LBE1559:
 .LBE1619:
 .LBB1620:
@@ -9247,7 +9247,7 @@ crypto_aead_encrypt:
 .LBB1547:
 .LBB1532:
 	.loc 1 105 0
-	strb	r6, [sp, #570]
+	strb	r6, [sp, #506]
 	orr	lr, lr, r3, asl #8
 .LBE1532:
 .LBE1547:
@@ -9271,7 +9271,7 @@ crypto_aead_encrypt:
 .LBB1548:
 .LBB1533:
 	.loc 1 105 0
-	strb	r8, [sp, #569]
+	strb	r8, [sp, #505]
 .LBE1533:
 .LBE1548:
 .LBE1563:
@@ -9291,12 +9291,12 @@ crypto_aead_encrypt:
 .LBB1549:
 .LBB1534:
 	.loc 1 105 0
-	strb	r9, [sp, #568]
+	strb	r9, [sp, #504]
 	orr	r3, r3, r2, asl #8
 	ldr	r2, [sp, #88]
 	.loc 1 104 0
-	strb	fp, [sp, #567]
-	strb	r10, [sp, #565]
+	strb	fp, [sp, #503]
+	strb	r10, [sp, #501]
 	orr	r0, r0, r2, asl #8
 .LBE1534:
 .LBE1549:
@@ -9375,7 +9375,7 @@ crypto_aead_encrypt:
 	.loc 1 104 0
 	ubfx	r4, r2, #16, #8
 	.loc 1 102 0
-	strb	ip, [sp, #575]
+	strb	ip, [sp, #511]
 	ubfx	ip, r0, #16, #8
 	mov	r0, r0, lsr #24
 .LVL603:
@@ -9386,27 +9386,27 @@ crypto_aead_encrypt:
 	.loc 1 105 0
 	ubfx	r5, r3, #8, #8
 	.loc 1 102 0
-	strb	ip, [sp, #573]
+	strb	ip, [sp, #509]
 	.loc 1 103 0
 	uxtb	ip, r1
 	.loc 1 102 0
-	strb	r0, [sp, #572]
+	strb	r0, [sp, #508]
 	.loc 1 103 0
 	ubfx	r0, r1, #8, #8
 	str	ip, [sp, #88]
 	.loc 1 105 0
 	ubfx	r6, r3, #16, #8
 	.loc 1 103 0
-	strb	ip, [sp, #579]
+	strb	ip, [sp, #515]
 	ubfx	ip, r1, #16, #8
 	mov	r1, r1, lsr #24
 .LVL606:
 	str	r1, [sp, #100]
 .LVL607:
-	strb	r1, [sp, #576]
+	strb	r1, [sp, #512]
 	.loc 1 105 0
 	uxtb	r1, r3
-	strb	r1, [sp, #587]
+	strb	r1, [sp, #523]
 .LBE1632:
 .LBE1645:
 	.loc 1 131 0
@@ -9422,21 +9422,21 @@ crypto_aead_encrypt:
 .LBE1646:
 	.loc 1 131 0
 	mvnne	r1, r1
-	strneb	r1, [sp, #587]
+	strneb	r1, [sp, #523]
 .LBE1657:
 .LBE1676:
 	.loc 1 497 0
-	add	r1, sp, #680
+	add	r1, sp, #616
 .LBB1677:
 .LBB1658:
 .LBB1647:
 .LBB1634:
 	.loc 1 103 0
-	strb	r0, [sp, #578]
+	strb	r0, [sp, #514]
 	.loc 1 104 0
 	uxtb	r0, r2
 	str	r0, [sp, #104]
-	strb	r0, [sp, #583]
+	strb	r0, [sp, #519]
 .LBE1634:
 .LBE1647:
 .LBE1658:
@@ -9460,7 +9460,7 @@ crypto_aead_encrypt:
 .LBB1649:
 .LBB1636:
 	.loc 1 102 0
-	strb	lr, [sp, #574]
+	strb	lr, [sp, #510]
 .LBE1636:
 .LBE1649:
 .LBE1660:
@@ -9479,15 +9479,15 @@ crypto_aead_encrypt:
 	mov	r2, r2, lsr #24
 .LVL609:
 	.loc 1 103 0
-	strb	ip, [sp, #577]
+	strb	ip, [sp, #513]
 	.loc 1 104 0
-	strb	lr, [sp, #582]
-	strb	r4, [sp, #581]
-	strb	r2, [sp, #580]
+	strb	lr, [sp, #518]
+	strb	r4, [sp, #517]
+	strb	r2, [sp, #516]
 	.loc 1 105 0
-	strb	r5, [sp, #586]
-	strb	r6, [sp, #585]
-	strb	r3, [sp, #584]
+	strb	r5, [sp, #522]
+	strb	r6, [sp, #521]
+	strb	r3, [sp, #520]
 .LBE1637:
 .LBE1650:
 .LBE1661:
@@ -9500,51 +9500,51 @@ crypto_aead_encrypt:
 .LBB1683:
 .LBB1684:
 	.loc 1 95 0
-	ldrb	r1, [sp, #594]	@ zero_extendqisi2
-	ldrb	r9, [sp, #593]	@ zero_extendqisi2
+	ldrb	r1, [sp, #530]	@ zero_extendqisi2
+	ldrb	r9, [sp, #529]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	ip, [sp, #597]	@ zero_extendqisi2
+	ldrb	ip, [sp, #533]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r8, [sp, #589]	@ zero_extendqisi2
+	ldrb	r8, [sp, #525]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r7, r1
 	.loc 1 96 0
-	ldrb	r10, [sp, #598]	@ zero_extendqisi2
+	ldrb	r10, [sp, #534]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r9, r9, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #590]	@ zero_extendqisi2
+	ldrb	r1, [sp, #526]	@ zero_extendqisi2
 	orr	r9, r9, r7, asl #8
 	.loc 1 96 0
 	mov	ip, ip, asl #16
 	.loc 1 95 0
-	ldrb	r7, [sp, #595]	@ zero_extendqisi2
+	ldrb	r7, [sp, #531]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	r0, r8, asl #16
 	orr	ip, ip, r10, asl #8
 	.loc 1 97 0
-	ldrb	r10, [sp, #601]	@ zero_extendqisi2
+	ldrb	r10, [sp, #537]	@ zero_extendqisi2
 	orr	r8, r0, r1, asl #8
 	.loc 1 95 0
 	eor	r9, r9, r7
-	ldrb	r0, [sp, #592]	@ zero_extendqisi2
+	ldrb	r0, [sp, #528]	@ zero_extendqisi2
 	.loc 1 97 0
-	ldrb	r7, [sp, #602]	@ zero_extendqisi2
+	ldrb	r7, [sp, #538]	@ zero_extendqisi2
 	mov	r10, r10, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #591]	@ zero_extendqisi2
+	ldrb	r1, [sp, #527]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r9, r9, r0, asl #24
 .LBE1684:
 .LBE1683:
 	.loc 1 128 0
-	ldrb	r0, [sp, #588]	@ zero_extendqisi2
+	ldrb	r0, [sp, #524]	@ zero_extendqisi2
 .LVL611:
 	orr	r10, r10, r7, asl #8
 .LBB1689:
 .LBB1685:
 	.loc 1 96 0
-	ldrb	r7, [sp, #599]	@ zero_extendqisi2
+	ldrb	r7, [sp, #535]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	r1, r1, r8
 .LBE1685:
@@ -9558,16 +9558,16 @@ crypto_aead_encrypt:
 	.loc 1 94 0
 	orr	r1, r1, r0, asl #24
 	.loc 1 97 0
-	ldrb	r0, [sp, #603]	@ zero_extendqisi2
+	ldrb	r0, [sp, #539]	@ zero_extendqisi2
 .LVL612:
 	.loc 1 99 0
 	mov	r8, r9, asl #1
 	.loc 1 96 0
 	mov	r7, ip
-	ldrb	ip, [sp, #596]	@ zero_extendqisi2
+	ldrb	ip, [sp, #532]	@ zero_extendqisi2
 	.loc 1 97 0
 	eor	r0, r0, r10
-	ldrb	r10, [sp, #600]	@ zero_extendqisi2
+	ldrb	r10, [sp, #536]	@ zero_extendqisi2
 	.loc 1 98 0
 	mov	r1, r1, asl #1
 	.loc 1 96 0
@@ -9579,7 +9579,7 @@ crypto_aead_encrypt:
 	orr	r10, r0, r10, asl #24
 .LVL614:
 	.loc 1 102 0
-	strb	r1, [sp, #591]
+	strb	r1, [sp, #527]
 .LVL615:
 	.loc 1 99 0
 	orr	r8, r8, ip, lsr #31
@@ -9595,22 +9595,22 @@ crypto_aead_encrypt:
 	.loc 1 102 0
 	mov	r9, r1, lsr #8
 .LVL620:
-	strb	r9, [sp, #590]
+	strb	r9, [sp, #526]
 	mov	r9, r1, lsr #16
 	mov	r1, r1, lsr #24
 .LVL621:
-	strb	r1, [sp, #588]
+	strb	r1, [sp, #524]
 .LVL622:
 	.loc 1 103 0
 	mov	r1, r8, lsr #16
-	strb	r1, [sp, #593]
+	strb	r1, [sp, #529]
 .LVL623:
 	.loc 1 104 0
 	mov	r1, ip, lsr #8
-	strb	r1, [sp, #598]
+	strb	r1, [sp, #534]
 	.loc 1 105 0
 	uxtb	r1, r10
-	strb	r1, [sp, #603]
+	strb	r1, [sp, #539]
 .LBE1686:
 .LBE1690:
 	.loc 1 131 0
@@ -9620,13 +9620,13 @@ crypto_aead_encrypt:
 	.loc 1 103 0
 	mov	r0, r8, lsr #8
 .LVL624:
-	strb	r8, [sp, #595]
+	strb	r8, [sp, #531]
 	.loc 1 104 0
-	strb	ip, [sp, #599]
+	strb	ip, [sp, #535]
 	.loc 1 103 0
 	mov	r8, r8, lsr #24
 .LVL625:
-	strb	r0, [sp, #594]
+	strb	r0, [sp, #530]
 .LBE1687:
 .LBE1691:
 	.loc 1 131 0
@@ -9636,32 +9636,32 @@ crypto_aead_encrypt:
 	.loc 1 104 0
 	mov	r0, ip, lsr #16
 	.loc 1 102 0
-	strb	r9, [sp, #589]
+	strb	r9, [sp, #525]
 	.loc 1 104 0
 	mov	ip, ip, lsr #24
 .LVL626:
-	strb	r0, [sp, #597]
-	strb	ip, [sp, #596]
+	strb	r0, [sp, #533]
+	strb	ip, [sp, #532]
 .LVL627:
 	.loc 1 105 0
 	mov	r0, r10, lsr #8
 	mov	ip, r10, lsr #16
 	.loc 1 103 0
-	strb	r8, [sp, #592]
+	strb	r8, [sp, #528]
 	.loc 1 105 0
 	mov	r10, r10, lsr #24
 .LVL628:
-	strb	r0, [sp, #602]
-	strb	ip, [sp, #601]
-	strb	r10, [sp, #600]
+	strb	r0, [sp, #538]
+	strb	ip, [sp, #537]
+	strb	r10, [sp, #536]
 .LBE1688:
 .LBE1692:
 	.loc 1 131 0
-	strneb	r1, [sp, #603]
+	strneb	r1, [sp, #539]
 	b	.L587
 .LVL629:
 .L589:
-	add	r3, sp, #680
+	add	r3, sp, #616
 .LBE1682:
 .LBE1681:
 .LBB1693:
@@ -9669,47 +9669,47 @@ crypto_aead_encrypt:
 .LBB1695:
 .LBB1696:
 	.loc 1 95 0
-	ldrb	ip, [sp, #593]	@ zero_extendqisi2
+	ldrb	ip, [sp, #529]	@ zero_extendqisi2
 .LVL630:
-	ldrb	r5, [sp, #594]	@ zero_extendqisi2
+	ldrb	r5, [sp, #530]	@ zero_extendqisi2
 	ldrd	r0, [r3]
 .LVL631:
 	ldrd	r2, [r3]
 	mov	ip, ip, asl #16
 	.loc 1 94 0
-	ldrb	lr, [sp, #589]	@ zero_extendqisi2
+	ldrb	lr, [sp, #525]	@ zero_extendqisi2
 	mov	r3, #0
 	and	r2, r2, #15
 	strd	r2, [sp, #8]
 .LVL632:
-	ldrb	r3, [sp, #590]	@ zero_extendqisi2
+	ldrb	r3, [sp, #526]	@ zero_extendqisi2
 	orr	ip, ip, r5, asl #8
 	.loc 1 95 0
-	ldrb	r7, [sp, #592]	@ zero_extendqisi2
+	ldrb	r7, [sp, #528]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	lr, lr, asl #16
 	.loc 1 95 0
-	ldrb	r5, [sp, #595]	@ zero_extendqisi2
+	ldrb	r5, [sp, #531]	@ zero_extendqisi2
 	subs	r0, r0, #16
 	.loc 1 94 0
-	ldrb	r4, [sp, #591]	@ zero_extendqisi2
+	ldrb	r4, [sp, #527]	@ zero_extendqisi2
 	orr	lr, lr, r3, asl #8
 	.loc 1 96 0
-	ldrb	r2, [sp, #597]	@ zero_extendqisi2
+	ldrb	r2, [sp, #533]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r3, ip, r5
 	.loc 1 96 0
-	ldrb	r6, [sp, #598]	@ zero_extendqisi2
+	ldrb	r6, [sp, #534]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r5, r3, r7, asl #24
 	.loc 1 97 0
-	ldrb	ip, [sp, #601]	@ zero_extendqisi2
+	ldrb	ip, [sp, #537]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	r3, lr, r4
 .LBE1696:
 .LBE1695:
 	.loc 1 138 0
-	ldrb	r4, [sp, #588]	@ zero_extendqisi2
+	ldrb	r4, [sp, #524]	@ zero_extendqisi2
 .LVL633:
 .LBB1701:
 .LBB1697:
@@ -9719,7 +9719,7 @@ crypto_aead_encrypt:
 	sbc	r1, r1, #0
 	.loc 1 97 0
 	mov	r2, ip, asl #16
-	ldrb	ip, [sp, #602]	@ zero_extendqisi2
+	ldrb	ip, [sp, #538]	@ zero_extendqisi2
 .LBE1697:
 .LBE1701:
 	.loc 1 140 0
@@ -9736,9 +9736,9 @@ crypto_aead_encrypt:
 	.loc 1 98 0
 	mov	r3, r4, asl #1
 	.loc 1 96 0
-	ldrb	r2, [sp, #599]	@ zero_extendqisi2
+	ldrb	r2, [sp, #535]	@ zero_extendqisi2
 	orr	fp, fp, r1, asl #28
-	ldrb	r4, [sp, #596]	@ zero_extendqisi2
+	ldrb	r4, [sp, #532]	@ zero_extendqisi2
 	.loc 1 98 0
 	orr	r3, r3, r5, lsr #31
 	.loc 1 96 0
@@ -9752,20 +9752,20 @@ crypto_aead_encrypt:
 	orr	r2, r2, r4, asl #24
 .LVL636:
 	.loc 1 97 0
-	ldrb	r4, [sp, #603]	@ zero_extendqisi2
+	ldrb	r4, [sp, #539]	@ zero_extendqisi2
 	.loc 1 102 0
-	strb	r3, [sp, #607]
+	strb	r3, [sp, #543]
 	mov	r8, fp, asl #4
 	.loc 1 97 0
 	eor	ip, ip, r4
-	ldrb	r4, [sp, #600]	@ zero_extendqisi2
+	ldrb	r4, [sp, #536]	@ zero_extendqisi2
 	.loc 1 99 0
 	orr	lr, lr, r2, lsr #31
 	.loc 1 100 0
 	mov	r2, r2, asl #1
 .LVL637:
 	.loc 1 102 0
-	strb	r5, [sp, #606]
+	strb	r5, [sp, #542]
 	mov	r5, r3, lsr #16
 	.loc 1 97 0
 	orr	ip, ip, r4, asl #24
@@ -9773,7 +9773,7 @@ crypto_aead_encrypt:
 	.loc 1 102 0
 	mov	r3, r3, lsr #24
 .LVL639:
-	strb	r3, [sp, #604]
+	strb	r3, [sp, #540]
 	.loc 1 103 0
 	mov	r3, lr, lsr #8
 	.loc 1 100 0
@@ -9783,36 +9783,36 @@ crypto_aead_encrypt:
 	mov	ip, ip, asl #1
 .LVL641:
 	.loc 1 103 0
-	strb	r3, [sp, #610]
+	strb	r3, [sp, #546]
 	mov	r3, lr, lsr #16
-	strb	r3, [sp, #609]
+	strb	r3, [sp, #545]
 	.loc 1 104 0
 	mov	r3, r2, lsr #8
-	strb	r3, [sp, #614]
+	strb	r3, [sp, #550]
 	mov	r3, r2, lsr #16
-	strb	r3, [sp, #613]
+	strb	r3, [sp, #549]
 	.loc 1 105 0
 	uxtb	r3, ip
 	add	r1, r1, r8
 	.loc 1 102 0
-	strb	r5, [sp, #605]
+	strb	r5, [sp, #541]
 	.loc 1 103 0
-	strb	lr, [sp, #611]
+	strb	lr, [sp, #547]
 	mov	lr, lr, lsr #24
 .LVL642:
 	.loc 1 104 0
-	strb	r2, [sp, #615]
+	strb	r2, [sp, #551]
 	mov	r2, r2, lsr #24
 .LVL643:
 	.loc 1 103 0
-	strb	lr, [sp, #608]
+	strb	lr, [sp, #544]
 	str	r1, [sp, #16]
 .LVL644:
 	.loc 1 104 0
-	strb	r2, [sp, #612]
+	strb	r2, [sp, #548]
 	.loc 1 105 0
 	mov	r2, ip, lsr #8
-	strb	r3, [sp, #619]
+	strb	r3, [sp, #555]
 .LVL645:
 .LBE1698:
 .LBE1702:
@@ -9821,19 +9821,19 @@ crypto_aead_encrypt:
 .LBB1703:
 .LBB1704:
 	.loc 1 51 0
-	ldr	lr, [sp, #592]
+	ldr	lr, [sp, #528]
 .LBE1704:
 .LBE1703:
 	.loc 1 141 0
 	mvnne	r3, r3
-	strneb	r3, [sp, #619]
+	strneb	r3, [sp, #555]
 .LBB1711:
 .LBB1705:
 	.loc 1 51 0
-	ldr	r3, [sp, #608]
+	ldr	r3, [sp, #544]
 	ldr	r1, [sp, #172]
 	.loc 1 52 0
-	ldr	r0, [sp, #612]
+	ldr	r0, [sp, #548]
 	.loc 1 51 0
 	eor	lr, lr, r3
 .LBE1705:
@@ -9841,14 +9841,14 @@ crypto_aead_encrypt:
 .LBB1712:
 .LBB1699:
 	.loc 1 105 0
-	strb	r2, [sp, #618]
+	strb	r2, [sp, #554]
 	mov	r2, ip, lsr #16
 .LBE1699:
 .LBE1712:
 .LBB1713:
 .LBB1706:
 	.loc 1 52 0
-	ldr	r5, [sp, #596]
+	ldr	r5, [sp, #532]
 .LBE1706:
 .LBE1713:
 .LBB1714:
@@ -9856,9 +9856,9 @@ crypto_aead_encrypt:
 	.loc 1 105 0
 	mov	ip, ip, lsr #24
 .LVL646:
-	strb	r2, [sp, #617]
+	strb	r2, [sp, #553]
 	add	r8, r1, r8
-	strb	ip, [sp, #616]
+	strb	ip, [sp, #552]
 .LBE1700:
 .LBE1714:
 .LBE1694:
@@ -9878,11 +9878,11 @@ crypto_aead_encrypt:
 .LBB1715:
 .LBB1707:
 	.loc 1 53 0
-	ldr	r3, [sp, #616]
+	ldr	r3, [sp, #552]
 	.loc 1 52 0
 	eor	r5, r5, r0
 	.loc 1 53 0
-	ldr	ip, [sp, #600]
+	ldr	ip, [sp, #536]
 .LBE1707:
 .LBE1715:
 .LBE1719:
@@ -9902,7 +9902,7 @@ crypto_aead_encrypt:
 .LBB1716:
 .LBB1708:
 	.loc 1 50 0
-	ldr	r2, [sp, #604]
+	ldr	r2, [sp, #540]
 .LBE1708:
 .LBE1716:
 .LBE1720:
@@ -9922,7 +9922,7 @@ crypto_aead_encrypt:
 .LBB1717:
 .LBB1709:
 	.loc 1 50 0
-	ldr	r4, [sp, #588]
+	ldr	r4, [sp, #524]
 .LVL647:
 	.loc 1 53 0
 	eor	ip, ip, r3
@@ -10024,32 +10024,32 @@ crypto_aead_encrypt:
 	mov	r1, r1, asl #1
 .LVL657:
 	.loc 1 102 0
-	strb	r2, [sp, #607]
+	strb	r2, [sp, #543]
 	mov	r0, r2, lsr #8
 .LVL658:
 	mov	r7, r2, lsr #16
 .LVL659:
 	.loc 1 104 0
-	strb	r3, [sp, #615]
+	strb	r3, [sp, #551]
 	.loc 1 102 0
 	mov	r2, r2, lsr #24
 .LVL660:
-	strb	r2, [sp, #604]
+	strb	r2, [sp, #540]
 	.loc 1 103 0
 	mov	r2, r6, lsr #8
-	strb	r2, [sp, #610]
+	strb	r2, [sp, #546]
 	mov	r2, r6, lsr #16
-	strb	r2, [sp, #609]
+	strb	r2, [sp, #545]
 	.loc 1 104 0
 	mov	r2, r3, lsr #8
-	strb	r2, [sp, #614]
+	strb	r2, [sp, #550]
 	mov	r2, r3, lsr #16
 	mov	r3, r3, lsr #24
 .LVL661:
-	strb	r3, [sp, #612]
+	strb	r3, [sp, #548]
 	.loc 1 105 0
 	uxtb	r3, r1
-	strb	r3, [sp, #619]
+	strb	r3, [sp, #555]
 .LBE1732:
 .LBE1743:
 	.loc 1 141 0
@@ -10057,26 +10057,26 @@ crypto_aead_encrypt:
 .LBB1744:
 .LBB1733:
 	.loc 1 102 0
-	strb	r0, [sp, #606]
-	strb	r7, [sp, #605]
+	strb	r0, [sp, #542]
+	strb	r7, [sp, #541]
 .LBE1733:
 .LBE1744:
 	.loc 1 141 0
 	mvnne	r3, r3
-	strneb	r3, [sp, #619]
+	strneb	r3, [sp, #555]
 .LBB1745:
 .LBB1746:
 	.loc 1 50 0
-	ldr	r3, [sp, #604]
+	ldr	r3, [sp, #540]
 .LBE1746:
 .LBE1745:
 .LBB1755:
 .LBB1734:
 	.loc 1 103 0
-	strb	r6, [sp, #611]
+	strb	r6, [sp, #547]
 	mov	r6, r6, lsr #24
 .LVL662:
-	strb	r6, [sp, #608]
+	strb	r6, [sp, #544]
 .LBE1734:
 .LBE1755:
 .LBB1756:
@@ -10089,7 +10089,7 @@ crypto_aead_encrypt:
 .LBB1757:
 .LBB1735:
 	.loc 1 104 0
-	strb	r2, [sp, #613]
+	strb	r2, [sp, #549]
 	.loc 1 105 0
 	mov	r2, r1, lsr #8
 .LBE1735:
@@ -10099,7 +10099,7 @@ crypto_aead_encrypt:
 .LBB1786:
 .LBB1787:
 	.loc 1 50 0
-	ldr	r3, [sp, #444]
+	ldr	r3, [sp, #380]
 .LBE1787:
 .LBE1786:
 .LBB1795:
@@ -10107,9 +10107,9 @@ crypto_aead_encrypt:
 .LBB1758:
 .LBB1736:
 	.loc 1 105 0
-	strb	r2, [sp, #618]
+	strb	r2, [sp, #554]
 	mov	r2, r1, lsr #16
-	strb	r2, [sp, #617]
+	strb	r2, [sp, #553]
 	mov	r1, r1, lsr #24
 .LVL664:
 .LBE1736:
@@ -10117,19 +10117,19 @@ crypto_aead_encrypt:
 .LBB1759:
 .LBB1748:
 	.loc 1 51 0
-	ldr	r2, [sp, #608]
+	ldr	r2, [sp, #544]
 .LBE1748:
 .LBE1759:
 .LBB1760:
 .LBB1737:
 	.loc 1 105 0
-	strb	r1, [sp, #616]
+	strb	r1, [sp, #552]
 .LBE1737:
 .LBE1760:
 .LBE1771:
 .LBE1795:
 	.loc 1 509 0
-	add	r1, sp, #444
+	add	r1, sp, #380
 .LVL665:
 .LBB1796:
 .LBB1772:
@@ -10139,9 +10139,9 @@ crypto_aead_encrypt:
 	eor	lr, lr, r2
 .LVL666:
 	.loc 1 52 0
-	ldr	r2, [sp, #612]
+	ldr	r2, [sp, #548]
 	.loc 1 50 0
-	str	r4, [sp, #460]
+	str	r4, [sp, #396]
 .LBE1749:
 .LBE1761:
 .LBE1772:
@@ -10156,7 +10156,7 @@ crypto_aead_encrypt:
 .LBB1762:
 .LBB1750:
 	.loc 1 53 0
-	ldr	r3, [sp, #616]
+	ldr	r3, [sp, #552]
 	.loc 1 52 0
 	eor	r5, r5, r2
 .LVL667:
@@ -10167,7 +10167,7 @@ crypto_aead_encrypt:
 .LBB1799:
 .LBB1789:
 	.loc 1 51 0
-	ldr	r2, [sp, #448]
+	ldr	r2, [sp, #384]
 .LBE1789:
 .LBE1799:
 	.loc 1 509 0
@@ -10186,14 +10186,14 @@ crypto_aead_encrypt:
 .LBB1801:
 .LBB1790:
 	.loc 1 52 0
-	ldr	r3, [sp, #452]
+	ldr	r3, [sp, #388]
 .LBE1790:
 .LBE1801:
 .LBB1802:
 .LBB1775:
 .LBB1764:
 .LBB1752:
-	str	r5, [sp, #468]
+	str	r5, [sp, #404]
 .LBE1752:
 .LBE1764:
 .LBE1775:
@@ -10202,7 +10202,7 @@ crypto_aead_encrypt:
 .LBB1791:
 	eor	r5, r5, r3
 	.loc 1 53 0
-	ldr	r3, [sp, #456]
+	ldr	r3, [sp, #392]
 .LBE1791:
 .LBE1803:
 .LBB1804:
@@ -10210,7 +10210,7 @@ crypto_aead_encrypt:
 .LBB1765:
 .LBB1753:
 	.loc 1 51 0
-	str	lr, [sp, #464]
+	str	lr, [sp, #400]
 .LBE1753:
 .LBE1765:
 .LBE1776:
@@ -10228,11 +10228,11 @@ crypto_aead_encrypt:
 	.loc 1 53 0
 	eor	r3, r3, ip
 	.loc 1 50 0
-	str	r4, [sp, #444]
+	str	r4, [sp, #380]
 	.loc 1 51 0
-	str	lr, [sp, #448]
+	str	lr, [sp, #384]
 	.loc 1 52 0
-	str	r5, [sp, #452]
+	str	r5, [sp, #388]
 .LBE1793:
 .LBE1806:
 .LBB1807:
@@ -10240,7 +10240,7 @@ crypto_aead_encrypt:
 .LBB1766:
 .LBB1754:
 	.loc 1 53 0
-	str	ip, [sp, #472]
+	str	ip, [sp, #408]
 .LVL670:
 .LBE1754:
 .LBE1766:
@@ -10248,7 +10248,7 @@ crypto_aead_encrypt:
 .LBE1807:
 .LBB1808:
 .LBB1794:
-	str	r3, [sp, #456]
+	str	r3, [sp, #392]
 .LBE1794:
 .LBE1808:
 	.loc 1 509 0
@@ -10257,11 +10257,11 @@ crypto_aead_encrypt:
 .LBB1809:
 .LBB1810:
 	.loc 1 50 0
-	ldr	r3, [sp, #444]
+	ldr	r3, [sp, #380]
 .LBE1810:
 .LBE1809:
 	.loc 1 513 0
-	add	r1, sp, #444
+	add	r1, sp, #380
 .LVL672:
 .LBB1814:
 .LBB1811:
@@ -10275,7 +10275,7 @@ crypto_aead_encrypt:
 .LBB1815:
 .LBB1812:
 	.loc 1 51 0
-	ldr	ip, [sp, #448]
+	ldr	ip, [sp, #384]
 .LBE1812:
 .LBE1815:
 	.loc 1 513 0
@@ -10284,27 +10284,27 @@ crypto_aead_encrypt:
 .LBB1813:
 	.loc 1 50 0
 	eor	r3, r3, r4
-	str	r3, [sp, #444]
+	str	r3, [sp, #380]
 	.loc 1 51 0
 	ldr	r3, [sp, #40]
 	.loc 1 52 0
-	ldr	lr, [sp, #452]
+	ldr	lr, [sp, #388]
 	.loc 1 53 0
-	ldr	r4, [sp, #456]
+	ldr	r4, [sp, #392]
 	.loc 1 51 0
 	eor	r3, r3, ip
 	.loc 1 52 0
 	ldr	ip, [sp, #48]
 	.loc 1 51 0
-	str	r3, [sp, #448]
+	str	r3, [sp, #384]
 	.loc 1 53 0
 	ldr	r3, [sp, #52]
 	.loc 1 52 0
 	eor	ip, ip, lr
-	str	ip, [sp, #452]
+	str	ip, [sp, #388]
 	.loc 1 53 0
 	eor	r4, r4, r3
-	str	r4, [sp, #456]
+	str	r4, [sp, #392]
 .LBE1813:
 .LBE1816:
 	.loc 1 513 0
@@ -10313,55 +10313,55 @@ crypto_aead_encrypt:
 .LBB1817:
 .LBB1818:
 	.loc 1 158 0
-	ldrb	r1, [sp, #589]	@ zero_extendqisi2
-	ldrb	ip, [sp, #590]	@ zero_extendqisi2
+	ldrb	r1, [sp, #525]	@ zero_extendqisi2
+	ldrb	ip, [sp, #526]	@ zero_extendqisi2
 	.loc 1 160 0
-	ldrb	r3, [sp, #597]	@ zero_extendqisi2
-	ldrb	r0, [sp, #598]	@ zero_extendqisi2
+	ldrb	r3, [sp, #533]	@ zero_extendqisi2
+	ldrb	r0, [sp, #534]	@ zero_extendqisi2
 	.loc 1 158 0
 	mov	r1, r1, asl #16
 	.loc 1 161 0
-	ldrb	lr, [sp, #601]	@ zero_extendqisi2
+	ldrb	lr, [sp, #537]	@ zero_extendqisi2
 	orr	r1, r1, ip, asl #8
 	.loc 1 159 0
-	ldrb	r2, [sp, #593]	@ zero_extendqisi2
+	ldrb	r2, [sp, #529]	@ zero_extendqisi2
 	.loc 1 160 0
 	mov	r3, r3, asl #16
 	.loc 1 159 0
-	ldrb	r4, [sp, #594]	@ zero_extendqisi2
+	ldrb	r4, [sp, #530]	@ zero_extendqisi2
 	orr	r3, r3, r0, asl #8
 	.loc 1 161 0
-	ldrb	ip, [sp, #602]	@ zero_extendqisi2
+	ldrb	ip, [sp, #538]	@ zero_extendqisi2
 	mov	r0, lr, asl #16
 	.loc 1 159 0
 	mov	r2, r2, asl #16
 	.loc 1 158 0
-	ldrb	r6, [sp, #591]	@ zero_extendqisi2
+	ldrb	r6, [sp, #527]	@ zero_extendqisi2
 	orr	r2, r2, r4, asl #8
 	.loc 1 159 0
-	ldrb	r4, [sp, #595]	@ zero_extendqisi2
+	ldrb	r4, [sp, #531]	@ zero_extendqisi2
 	orr	lr, r0, ip, asl #8
 	.loc 1 160 0
-	ldrb	r0, [sp, #599]	@ zero_extendqisi2
+	ldrb	r0, [sp, #535]	@ zero_extendqisi2
 	.loc 1 157 0
-	ldrb	r5, [sp, #588]	@ zero_extendqisi2
+	ldrb	r5, [sp, #524]	@ zero_extendqisi2
 .LVL675:
 	.loc 1 158 0
 	eor	r1, r1, r6
 	.loc 1 160 0
-	ldrb	ip, [sp, #596]	@ zero_extendqisi2
+	ldrb	ip, [sp, #532]	@ zero_extendqisi2
 	.loc 1 159 0
 	eor	r2, r2, r4
-	ldrb	r6, [sp, #592]	@ zero_extendqisi2
+	ldrb	r6, [sp, #528]	@ zero_extendqisi2
 	.loc 1 160 0
 	eor	r3, r3, r0
 	.loc 1 161 0
-	ldrb	r4, [sp, #603]	@ zero_extendqisi2
+	ldrb	r4, [sp, #539]	@ zero_extendqisi2
 	.loc 1 158 0
 	orr	r1, r1, r5, asl #24
 .LVL676:
 	.loc 1 161 0
-	ldrb	r0, [sp, #600]	@ zero_extendqisi2
+	ldrb	r0, [sp, #536]	@ zero_extendqisi2
 	.loc 1 160 0
 	orr	r3, r3, ip, asl #24
 	.loc 1 161 0
@@ -10444,43 +10444,43 @@ crypto_aead_encrypt:
 .LBB1819:
 	.loc 1 183 0
 	mov	r0, r1, lsr #8
-	strb	r1, [sp, #463]
+	strb	r1, [sp, #399]
 	mov	lr, r1, lsr #16
 .LVL695:
-	strb	r0, [sp, #462]
+	strb	r0, [sp, #398]
 	mov	r1, r1, lsr #24
 .LVL696:
-	strb	lr, [sp, #461]
-	strb	r1, [sp, #460]
+	strb	lr, [sp, #397]
+	strb	r1, [sp, #396]
 	.loc 1 184 0
 	mov	ip, r2, lsr #8
 .LVL697:
 	.loc 1 185 0
 	mov	r1, r3, lsr #8
 	.loc 1 184 0
-	strb	r2, [sp, #467]
+	strb	r2, [sp, #403]
 	.loc 1 185 0
-	strb	r3, [sp, #471]
+	strb	r3, [sp, #407]
 	.loc 1 184 0
 	mov	r0, r2, lsr #16
 	.loc 1 186 0
-	strb	r10, [sp, #475]
+	strb	r10, [sp, #411]
 	.loc 1 184 0
 	mov	r2, r2, lsr #24
 .LVL698:
-	strb	ip, [sp, #466]
+	strb	ip, [sp, #402]
 	.loc 1 185 0
 	mov	ip, r3, lsr #16
 	.loc 1 184 0
-	strb	r2, [sp, #464]
+	strb	r2, [sp, #400]
 	.loc 1 185 0
 	mov	r3, r3, lsr #24
 .LVL699:
 	.loc 1 186 0
 	mov	r2, r10, lsr #8
 	.loc 1 185 0
-	strb	r3, [sp, #468]
-	strb	r1, [sp, #470]
+	strb	r3, [sp, #404]
+	strb	r1, [sp, #406]
 .LBE1819:
 .LBE1821:
 	.loc 1 516 0
@@ -10490,43 +10490,43 @@ crypto_aead_encrypt:
 .LBB1820:
 	.loc 1 186 0
 	mov	r1, r10, lsr #16
-	strb	r2, [sp, #474]
+	strb	r2, [sp, #410]
 	.loc 1 184 0
-	strb	r0, [sp, #465]
+	strb	r0, [sp, #401]
 	.loc 1 186 0
 	mov	r10, r10, lsr #24
 .LVL701:
 	.loc 1 185 0
-	strb	ip, [sp, #469]
+	strb	ip, [sp, #405]
 	.loc 1 186 0
-	strb	r1, [sp, #473]
-	strb	r10, [sp, #472]
+	strb	r1, [sp, #409]
+	strb	r10, [sp, #408]
 .LVL702:
 .LBE1820:
 .LBE1822:
 .LBB1823:
 .LBB1824:
 	.loc 1 50 0
-	ldr	r7, [sp, #460]
+	ldr	r7, [sp, #396]
 .LVL703:
-	ldr	r2, [sp, #444]
+	ldr	r2, [sp, #380]
 	.loc 1 51 0
-	ldr	r3, [sp, #448]
-	ldr	r6, [sp, #464]
+	ldr	r3, [sp, #384]
+	ldr	r6, [sp, #400]
 .LVL704:
 	.loc 1 50 0
 	eor	r7, r7, r2
 .LVL705:
 	.loc 1 52 0
-	ldr	r5, [sp, #468]
+	ldr	r5, [sp, #404]
 .LVL706:
-	ldr	r2, [sp, #452]
+	ldr	r2, [sp, #388]
 	.loc 1 51 0
 	eor	r6, r6, r3
 .LVL707:
 	.loc 1 53 0
-	ldr	r4, [sp, #472]
-	ldr	r3, [sp, #456]
+	ldr	r4, [sp, #408]
+	ldr	r3, [sp, #392]
 	.loc 1 52 0
 	eor	r5, r5, r2
 .LVL708:
@@ -10545,7 +10545,7 @@ crypto_aead_encrypt:
 	ldrd	r10, [sp, #8]
 	mov	r3, #32
 	ldr	r1, [sp, #16]
-	add	r0, sp, #604
+	add	r0, sp, #540
 .LVL711:
 	mov	r2, r10
 	bl	__memcpy_chk
@@ -10553,14 +10553,14 @@ crypto_aead_encrypt:
 .LBE1827:
 .LBE1826:
 	.loc 1 523 0
-	add	r3, sp, #604
+	add	r3, sp, #540
 .LVL713:
 	add	ip, r3, r10
 .LVL714:
 	.loc 1 524 0
-	add	r2, sp, #588
+	add	r2, sp, #524
 .LVL715:
-	add	r0, sp, #604
+	add	r0, sp, #540
 	mov	r1, r10
 	add	r3, sp, #184
 .LVL716:
@@ -10579,7 +10579,7 @@ crypto_aead_encrypt:
 .LBB1830:
 .LBB1831:
 	.loc 2 51 0
-	add	r1, sp, #604
+	add	r1, sp, #540
 .LVL718:
 	add	r2, r10, #16
 .LVL719:
@@ -10593,11 +10593,11 @@ crypto_aead_encrypt:
 	.loc 1 530 0
 	ldr	r3, [sp, #180]
 	mov	r0, #0
-	ldr	r2, [sp, #636]
+	ldr	r2, [sp, #572]
 	ldr	r3, [r3]
 	cmp	r2, r3
 	bne	.L635
-	add	sp, sp, #644
+	add	sp, sp, #580
 	.cfi_remember_state
 	.cfi_def_cfa_offset 36
 	@ sp needed
@@ -10624,29 +10624,29 @@ crypto_aead_encrypt:
 .LBB1837:
 	ldmia	r5, {r0, r1, r2, r3}
 .LVL723:
-	add	lr, sp, #476
+	add	lr, sp, #412
 	mov	ip, #6
 .LBE1837:
 .LBE1836:
 	.loc 1 241 0
-	str	r4, [sp, #540]
-	str	r4, [sp, #544]
-	str	r4, [sp, #548]
+	str	r4, [sp, #476]
+	str	r4, [sp, #480]
+	str	r4, [sp, #484]
 .LBB1839:
 .LBB1838:
 	.loc 2 51 0
 	stmia	lr, {r0, r1, r2, r3}
 	mov	r7, r0
-	ldr	r3, [sp, #484]
-	ldr	r8, [sp, #480]
+	ldr	r3, [sp, #420]
+	ldr	r8, [sp, #416]
 .LVL724:
-	ldr	r6, [sp, #488]
+	ldr	r6, [sp, #424]
 .LBE1838:
 .LBE1839:
 	.loc 1 241 0
 	mov	r5, r3
 .LVL725:
-	str	r4, [sp, #552]
+	str	r4, [sp, #488]
 .LVL726:
 .L572:
 .LBB1840:
@@ -10654,48 +10654,48 @@ crypto_aead_encrypt:
 .LBB1842:
 .LBB1843:
 	.loc 1 95 0
-	ldrb	r4, [sp, #481]	@ zero_extendqisi2
-	ldrb	r10, [sp, #482]	@ zero_extendqisi2
+	ldrb	r4, [sp, #417]	@ zero_extendqisi2
+	ldrb	r10, [sp, #418]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	r3, [sp, #485]	@ zero_extendqisi2
+	ldrb	r3, [sp, #421]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r4, r4, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #477]	@ zero_extendqisi2
+	ldrb	r1, [sp, #413]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	r2, [sp, #486]	@ zero_extendqisi2
+	ldrb	r2, [sp, #422]	@ zero_extendqisi2
 	orr	r10, r4, r10, asl #8
 	.loc 1 97 0
-	ldrb	r4, [sp, #489]	@ zero_extendqisi2
+	ldrb	r4, [sp, #425]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r3, r3, asl #16
 	.loc 1 94 0
-	ldrb	lr, [sp, #478]	@ zero_extendqisi2
+	ldrb	lr, [sp, #414]	@ zero_extendqisi2
 	mov	r1, r1, asl #16
 	.loc 1 95 0
-	ldrb	r9, [sp, #483]	@ zero_extendqisi2
+	ldrb	r9, [sp, #419]	@ zero_extendqisi2
 	orr	r2, r3, r2, asl #8
-	ldrb	r0, [sp, #480]	@ zero_extendqisi2
+	ldrb	r0, [sp, #416]	@ zero_extendqisi2
 	.loc 1 97 0
 	mov	r3, r4, asl #16
-	ldrb	fp, [sp, #490]	@ zero_extendqisi2
+	ldrb	fp, [sp, #426]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r10, r10, r9
 	orr	r1, r1, lr, asl #8
 	.loc 1 94 0
-	ldrb	lr, [sp, #479]	@ zero_extendqisi2
+	ldrb	lr, [sp, #415]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r9, r10, r0, asl #24
 .LBE1843:
 .LBE1842:
 	.loc 1 138 0
-	ldrb	r0, [sp, #476]	@ zero_extendqisi2
+	ldrb	r0, [sp, #412]	@ zero_extendqisi2
 .LVL727:
 	orr	r4, r3, fp, asl #8
 .LBB1850:
 .LBB1844:
 	.loc 1 96 0
-	ldrb	r3, [sp, #487]	@ zero_extendqisi2
+	ldrb	r3, [sp, #423]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	lr, lr, r1
 .LBE1844:
@@ -10707,15 +10707,15 @@ crypto_aead_encrypt:
 	.loc 1 96 0
 	eor	r2, r2, r3
 	.loc 1 97 0
-	ldrb	r3, [sp, #491]	@ zero_extendqisi2
+	ldrb	r3, [sp, #427]	@ zero_extendqisi2
 	.loc 1 94 0
 	orr	r0, lr, r0, asl #24
 .LVL728:
 	.loc 1 96 0
-	ldrb	lr, [sp, #484]	@ zero_extendqisi2
+	ldrb	lr, [sp, #420]	@ zero_extendqisi2
 	.loc 1 97 0
 	eor	r3, r3, r4
-	ldrb	r4, [sp, #488]	@ zero_extendqisi2
+	ldrb	r4, [sp, #424]	@ zero_extendqisi2
 	.loc 1 99 0
 	mov	r1, r9, asl #1
 	.loc 1 98 0
@@ -10729,7 +10729,7 @@ crypto_aead_encrypt:
 	orr	r3, r3, r4, asl #24
 .LVL730:
 	.loc 1 102 0
-	strb	r0, [sp, #607]
+	strb	r0, [sp, #543]
 	.loc 1 99 0
 	orr	r1, r1, r2, lsr #31
 .LVL731:
@@ -10745,26 +10745,26 @@ crypto_aead_encrypt:
 	mov	lr, r0, lsr #8
 .LVL735:
 	.loc 1 103 0
-	strb	r1, [sp, #611]
+	strb	r1, [sp, #547]
 	.loc 1 102 0
-	strb	lr, [sp, #606]
+	strb	lr, [sp, #542]
 	mov	lr, r0, lsr #16
 	mov	r0, r0, lsr #24
 .LVL736:
-	strb	lr, [sp, #605]
-	strb	r0, [sp, #604]
+	strb	lr, [sp, #541]
+	strb	r0, [sp, #540]
 	.loc 1 103 0
 	mov	lr, r1, lsr #8
 	mov	r0, r1, lsr #16
 	mov	r1, r1, lsr #24
 .LVL737:
-	strb	r1, [sp, #608]
+	strb	r1, [sp, #544]
 	.loc 1 104 0
 	mov	r1, r2, lsr #16
-	strb	r1, [sp, #613]
+	strb	r1, [sp, #549]
 	.loc 1 105 0
 	uxtb	r1, r3
-	strb	r1, [sp, #619]
+	strb	r1, [sp, #555]
 .LBE1845:
 .LBE1851:
 	.loc 1 141 0
@@ -10772,7 +10772,7 @@ crypto_aead_encrypt:
 .LBB1852:
 .LBB1846:
 	.loc 1 104 0
-	strb	r2, [sp, #615]
+	strb	r2, [sp, #551]
 .LBE1846:
 .LBE1852:
 	.loc 1 141 0
@@ -10780,31 +10780,31 @@ crypto_aead_encrypt:
 .LBB1853:
 .LBB1847:
 	.loc 1 103 0
-	strb	r0, [sp, #609]
+	strb	r0, [sp, #545]
 .LBE1847:
 .LBE1853:
 	.loc 1 141 0
-	strneb	r1, [sp, #619]
+	strneb	r1, [sp, #555]
 .LBB1854:
 .LBB1848:
 	.loc 1 104 0
 	mov	r0, r2, lsr #8
 	.loc 1 103 0
-	strb	lr, [sp, #610]
+	strb	lr, [sp, #546]
 	.loc 1 104 0
 	mov	r2, r2, lsr #24
 .LVL738:
-	strb	r0, [sp, #614]
+	strb	r0, [sp, #550]
 	.loc 1 105 0
 	mov	r0, r3, lsr #8
 	.loc 1 104 0
-	strb	r2, [sp, #612]
+	strb	r2, [sp, #548]
 	.loc 1 105 0
 	mov	r2, r3, lsr #16
-	strb	r0, [sp, #618]
+	strb	r0, [sp, #554]
 	mov	r3, r3, lsr #24
 .LVL739:
-	strb	r2, [sp, #617]
+	strb	r2, [sp, #553]
 .LBE1848:
 .LBE1854:
 .LBE1841:
@@ -10816,37 +10816,37 @@ crypto_aead_encrypt:
 .LBB1855:
 .LBB1849:
 	.loc 1 105 0
-	strb	r3, [sp, #616]
+	strb	r3, [sp, #552]
 .LBE1849:
 .LBE1855:
 .LBB1856:
 .LBB1857:
 	.loc 1 50 0
-	ldr	r3, [sp, #604]
+	ldr	r3, [sp, #540]
 	.loc 1 51 0
-	ldr	r1, [sp, #608]
+	ldr	r1, [sp, #544]
 	.loc 1 50 0
 	eor	r7, r7, r3
 	.loc 1 52 0
-	ldr	r2, [sp, #612]
+	ldr	r2, [sp, #548]
 	.loc 1 53 0
-	ldr	r3, [sp, #616]
+	ldr	r3, [sp, #552]
 	.loc 1 51 0
 	eor	r8, r8, r1
 	.loc 1 52 0
 	eor	r5, r5, r2
 	.loc 1 50 0
-	str	r7, [sp, #476]
+	str	r7, [sp, #412]
 .LVL740:
 	.loc 1 53 0
 	eor	r6, r6, r3
 	.loc 1 51 0
-	str	r8, [sp, #480]
+	str	r8, [sp, #416]
 	.loc 1 52 0
-	str	r5, [sp, #484]
+	str	r5, [sp, #420]
 .LVL741:
 	.loc 1 53 0
-	str	r6, [sp, #488]
+	str	r6, [sp, #424]
 .LVL742:
 .LBE1857:
 .LBE1856:
@@ -10860,60 +10860,60 @@ crypto_aead_encrypt:
 .LBB1862:
 .LBB1863:
 	.loc 1 94 0
-	ldrb	lr, [sp, #477]	@ zero_extendqisi2
+	ldrb	lr, [sp, #413]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	r3, [sp, #485]	@ zero_extendqisi2
+	ldrb	r3, [sp, #421]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r4, [sp, #478]	@ zero_extendqisi2
+	ldrb	r4, [sp, #414]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r0, [sp, #481]	@ zero_extendqisi2
+	ldrb	r0, [sp, #417]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	lr, lr, asl #16
 	.loc 1 96 0
-	ldrb	r1, [sp, #486]	@ zero_extendqisi2
+	ldrb	r1, [sp, #422]	@ zero_extendqisi2
 	mov	r3, r3, asl #16
 	.loc 1 95 0
-	ldrb	ip, [sp, #482]	@ zero_extendqisi2
+	ldrb	ip, [sp, #418]	@ zero_extendqisi2
 	orr	lr, lr, r4, asl #8
 	.loc 1 97 0
-	ldrb	r2, [sp, #489]	@ zero_extendqisi2
+	ldrb	r2, [sp, #425]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r0, r0, asl #16
 	.loc 1 97 0
-	ldrb	r4, [sp, #490]	@ zero_extendqisi2
+	ldrb	r4, [sp, #426]	@ zero_extendqisi2
 	orr	r1, r3, r1, asl #8
 	.loc 1 94 0
-	ldrb	r9, [sp, #479]	@ zero_extendqisi2
+	ldrb	r9, [sp, #415]	@ zero_extendqisi2
 .LVL744:
 	orr	r0, r0, ip, asl #8
 .LBE1863:
 .LBE1862:
 	.loc 1 138 0
-	ldrb	r3, [sp, #476]	@ zero_extendqisi2
+	ldrb	r3, [sp, #412]	@ zero_extendqisi2
 .LBB1876:
 .LBB1864:
 	.loc 1 97 0
 	mov	r2, r2, asl #16
 	.loc 1 95 0
-	ldrb	ip, [sp, #483]	@ zero_extendqisi2
+	ldrb	ip, [sp, #419]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	lr, lr, r9
 	orr	r2, r2, r4, asl #8
 	.loc 1 96 0
-	ldrb	r4, [sp, #487]	@ zero_extendqisi2
+	ldrb	r4, [sp, #423]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r0, r0, ip
 	.loc 1 94 0
 	orr	ip, lr, r3, asl #24
 	.loc 1 95 0
-	ldrb	r10, [sp, #480]	@ zero_extendqisi2
+	ldrb	r10, [sp, #416]	@ zero_extendqisi2
 	.loc 1 96 0
 	eor	r1, r1, r4
-	ldrb	r9, [sp, #484]	@ zero_extendqisi2
+	ldrb	r9, [sp, #420]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	lr, ip
 	.loc 1 97 0
-	ldrb	r4, [sp, #488]	@ zero_extendqisi2
+	ldrb	r4, [sp, #424]	@ zero_extendqisi2
 	.loc 1 98 0
 	mov	lr, lr, asl #1
 	.loc 1 94 0
@@ -10921,7 +10921,7 @@ crypto_aead_encrypt:
 	.loc 1 95 0
 	orr	r0, r0, r10, asl #24
 	.loc 1 97 0
-	ldrb	ip, [sp, #491]	@ zero_extendqisi2
+	ldrb	ip, [sp, #427]	@ zero_extendqisi2
 	.loc 1 96 0
 	orr	r1, r1, r9, asl #24
 	.loc 1 95 0
@@ -10989,36 +10989,36 @@ crypto_aead_encrypt:
 .LVL754:
 	.loc 1 102 0
 	str	r3, [sp, #56]
-	strb	r3, [sp, #607]
+	strb	r3, [sp, #543]
 	ubfx	r3, lr, #16, #8
-	strb	r2, [sp, #606]
+	strb	r2, [sp, #542]
 	mov	r2, lr, lsr #24
 	str	r3, [sp, #64]
 	str	r2, [sp, #68]
-	strb	r3, [sp, #605]
+	strb	r3, [sp, #541]
 	.loc 1 103 0
 	uxtb	r3, r0
 	.loc 1 102 0
-	strb	r2, [sp, #604]
+	strb	r2, [sp, #540]
 	.loc 1 103 0
 	ubfx	r2, r0, #8, #8
 	str	r3, [sp, #72]
 	str	r2, [sp, #76]
-	strb	r3, [sp, #611]
+	strb	r3, [sp, #547]
 	ubfx	r3, r0, #16, #8
 	str	r3, [sp, #80]
 .LVL755:
-	strb	r3, [sp, #609]
+	strb	r3, [sp, #545]
 	.loc 1 104 0
 	uxtb	r3, r1
-	strb	r3, [sp, #615]
+	strb	r3, [sp, #551]
 	str	r3, [sp, #88]
 	ubfx	r3, r1, #16, #8
-	strb	r3, [sp, #613]
+	strb	r3, [sp, #549]
 	str	r3, [sp, #96]
 	.loc 1 105 0
 	uxtb	r3, r4
-	strb	r3, [sp, #619]
+	strb	r3, [sp, #555]
 	str	r3, [sp, #104]
 .LBE1867:
 .LBE1879:
@@ -11027,7 +11027,7 @@ crypto_aead_encrypt:
 .LBB1880:
 .LBB1868:
 	.loc 1 103 0
-	strb	r2, [sp, #610]
+	strb	r2, [sp, #546]
 	mov	r2, r0, lsr #24
 .LBE1868:
 .LBE1880:
@@ -11036,15 +11036,15 @@ crypto_aead_encrypt:
 .LBB1881:
 .LBB1869:
 	.loc 1 103 0
-	strb	r2, [sp, #608]
+	strb	r2, [sp, #544]
 .LBE1869:
 .LBE1881:
 	.loc 1 141 0
-	strneb	r3, [sp, #619]
+	strneb	r3, [sp, #555]
 .LBB1882:
 .LBB1883:
 	.loc 1 50 0
-	ldr	r3, [sp, #604]
+	ldr	r3, [sp, #540]
 .LBE1883:
 .LBE1882:
 .LBB1899:
@@ -11058,16 +11058,16 @@ crypto_aead_encrypt:
 .LBB1900:
 .LBB1884:
 	.loc 1 51 0
-	ldr	r10, [sp, #608]
+	ldr	r10, [sp, #544]
 .LBE1884:
 .LBE1900:
 .LBB1901:
 .LBB1871:
 	.loc 1 104 0
-	strb	r2, [sp, #614]
+	strb	r2, [sp, #550]
 	str	r2, [sp, #92]
 	mov	r2, r1, lsr #24
-	strb	r2, [sp, #612]
+	strb	r2, [sp, #548]
 .LBE1871:
 .LBE1901:
 .LBB1902:
@@ -11079,13 +11079,13 @@ crypto_aead_encrypt:
 .LBB1903:
 .LBB1872:
 	.loc 1 105 0
-	strb	ip, [sp, #617]
+	strb	ip, [sp, #553]
 .LBE1872:
 .LBE1903:
 .LBB1904:
 .LBB1886:
 	.loc 1 52 0
-	ldr	r9, [sp, #612]
+	ldr	r9, [sp, #548]
 .LBE1886:
 .LBE1904:
 .LBB1905:
@@ -11108,7 +11108,7 @@ crypto_aead_encrypt:
 	str	r2, [sp, #100]
 	.loc 1 105 0
 	ubfx	r2, r4, #8, #8
-	strb	r2, [sp, #618]
+	strb	r2, [sp, #554]
 .LBE1874:
 .LBE1907:
 .LBB1908:
@@ -11122,7 +11122,7 @@ crypto_aead_encrypt:
 	.loc 1 105 0
 	str	r2, [sp, #108]
 	mov	r2, r4, lsr #24
-	strb	r2, [sp, #616]
+	strb	r2, [sp, #552]
 	str	r2, [sp, #116]
 .LBE1875:
 .LBE1909:
@@ -11176,7 +11176,7 @@ crypto_aead_encrypt:
 .LBB1911:
 .LBB1890:
 	.loc 1 53 0
-	ldr	fp, [sp, #616]
+	ldr	fp, [sp, #552]
 .LBE1890:
 .LBE1911:
 .LBE1920:
@@ -11281,7 +11281,7 @@ crypto_aead_encrypt:
 	.loc 1 100 0
 	mov	r2, r2, asl #1
 	.loc 1 102 0
-	strb	r3, [sp, #607]
+	strb	r3, [sp, #543]
 	.loc 1 100 0
 	orr	r2, r2, ip, lsr #31
 	.loc 1 101 0
@@ -11295,7 +11295,7 @@ crypto_aead_encrypt:
 .LBB1915:
 .LBB1894:
 	.loc 1 51 0
-	str	r10, [sp, #496]
+	str	r10, [sp, #432]
 .LBE1894:
 .LBE1915:
 .LBE1924:
@@ -11307,29 +11307,29 @@ crypto_aead_encrypt:
 	.loc 1 102 0
 	mov	r10, r3, lsr #8
 	.loc 1 103 0
-	strb	r9, [sp, #611]
+	strb	r9, [sp, #547]
 	.loc 1 102 0
-	strb	r10, [sp, #606]
+	strb	r10, [sp, #542]
 	mov	r10, r3, lsr #16
 	mov	r3, r3, lsr #24
-	strb	r3, [sp, #604]
+	strb	r3, [sp, #540]
 	.loc 1 103 0
 	mov	r3, r9, lsr #8
-	strb	r3, [sp, #610]
+	strb	r3, [sp, #546]
 	mov	r3, r9, lsr #16
 	mov	r9, r9, lsr #24
-	strb	r9, [sp, #608]
+	strb	r9, [sp, #544]
 	.loc 1 104 0
 	mov	r9, r2, lsr #8
-	strb	r9, [sp, #614]
+	strb	r9, [sp, #550]
 	.loc 1 105 0
 	uxtb	r9, ip
 	.loc 1 103 0
-	strb	r3, [sp, #609]
+	strb	r3, [sp, #545]
 	.loc 1 104 0
 	mov	r3, r2, lsr #16
 	.loc 1 105 0
-	strb	r9, [sp, #619]
+	strb	r9, [sp, #555]
 .LBE1938:
 .LBE1948:
 	.loc 1 141 0
@@ -11337,10 +11337,10 @@ crypto_aead_encrypt:
 .LBB1949:
 .LBB1939:
 	.loc 1 104 0
-	strb	r3, [sp, #613]
+	strb	r3, [sp, #549]
 	.loc 1 105 0
 	mov	r3, ip, lsr #8
-	strb	r3, [sp, #618]
+	strb	r3, [sp, #554]
 .LBE1939:
 .LBE1949:
 	.loc 1 141 0
@@ -11356,7 +11356,7 @@ crypto_aead_encrypt:
 .LBB2022:
 .LBB1968:
 	.loc 1 141 0
-	strneb	r9, [sp, #619]
+	strneb	r9, [sp, #555]
 .LBE1968:
 .LBE2022:
 .LBB2023:
@@ -11376,7 +11376,7 @@ crypto_aead_encrypt:
 .LBB1916:
 .LBB1895:
 	.loc 1 50 0
-	str	r5, [sp, #492]
+	str	r5, [sp, #428]
 .LBE1895:
 .LBE1916:
 .LBE1925:
@@ -11403,7 +11403,7 @@ crypto_aead_encrypt:
 .LBB2001:
 .LBB1991:
 	.loc 1 102 0
-	strb	r3, [sp, #511]
+	strb	r3, [sp, #447]
 .LBE1991:
 .LBE2001:
 .LBE2012:
@@ -11428,7 +11428,7 @@ crypto_aead_encrypt:
 .LBB1969:
 .LBB1950:
 .LBB1940:
-	strb	r10, [sp, #605]
+	strb	r10, [sp, #541]
 .LBE1940:
 .LBE1950:
 .LBE1969:
@@ -11438,7 +11438,7 @@ crypto_aead_encrypt:
 .LBB1918:
 .LBB1897:
 	.loc 1 52 0
-	str	r5, [sp, #500]
+	str	r5, [sp, #436]
 .LBE1897:
 .LBE1918:
 .LBE1927:
@@ -11448,7 +11448,7 @@ crypto_aead_encrypt:
 .LBB2003:
 .LBB1993:
 	.loc 1 102 0
-	strb	r3, [sp, #510]
+	strb	r3, [sp, #446]
 	ldrb	r3, [sp, #64]	@ zero_extendqisi2
 .LBE1993:
 .LBE2003:
@@ -11459,7 +11459,7 @@ crypto_aead_encrypt:
 .LBB1951:
 .LBB1941:
 	.loc 1 104 0
-	strb	r2, [sp, #615]
+	strb	r2, [sp, #551]
 	mov	r2, r2, lsr #24
 .LBE1941:
 .LBE1951:
@@ -11470,7 +11470,7 @@ crypto_aead_encrypt:
 .LBB1919:
 .LBB1898:
 	.loc 1 53 0
-	str	fp, [sp, #504]
+	str	fp, [sp, #440]
 .LVL757:
 .LBE1898:
 .LBE1919:
@@ -11481,7 +11481,7 @@ crypto_aead_encrypt:
 .LBB2004:
 .LBB1994:
 	.loc 1 102 0
-	strb	r3, [sp, #509]
+	strb	r3, [sp, #445]
 	ldrb	r3, [sp, #68]	@ zero_extendqisi2
 .LBE1994:
 .LBE2004:
@@ -11492,13 +11492,13 @@ crypto_aead_encrypt:
 .LBB1952:
 .LBB1942:
 	.loc 1 104 0
-	strb	r2, [sp, #612]
+	strb	r2, [sp, #548]
 	.loc 1 105 0
 	mov	r2, ip, lsr #16
 	mov	ip, ip, lsr #24
 .LVL758:
-	strb	r2, [sp, #617]
-	strb	ip, [sp, #616]
+	strb	r2, [sp, #553]
+	strb	ip, [sp, #552]
 .LBE1942:
 .LBE1952:
 .LBE1971:
@@ -11514,7 +11514,7 @@ crypto_aead_encrypt:
 .LBB2005:
 .LBB1995:
 	.loc 1 102 0
-	strb	r3, [sp, #508]
+	strb	r3, [sp, #444]
 .LBE1995:
 .LBE2005:
 .LBE2016:
@@ -11536,22 +11536,22 @@ crypto_aead_encrypt:
 	ldr	r5, [sp, #40]
 .LVL759:
 	.loc 1 103 0
-	strb	r3, [sp, #515]
+	strb	r3, [sp, #451]
 	ldrb	r3, [sp, #76]	@ zero_extendqisi2
 	.loc 1 105 0
-	strb	r2, [sp, #522]
+	strb	r2, [sp, #458]
 	ldrb	r2, [sp, #112]	@ zero_extendqisi2
 	.loc 1 103 0
-	strb	r3, [sp, #514]
+	strb	r3, [sp, #450]
 	ldrb	r3, [sp, #80]	@ zero_extendqisi2
 	.loc 1 105 0
-	strb	r2, [sp, #521]
+	strb	r2, [sp, #457]
 	ldrb	r2, [sp, #116]	@ zero_extendqisi2
 	.loc 1 103 0
-	strb	r3, [sp, #513]
+	strb	r3, [sp, #449]
 	ldrb	r3, [sp, #84]	@ zero_extendqisi2
 	.loc 1 105 0
-	strb	r2, [sp, #520]
+	strb	r2, [sp, #456]
 .LBE1996:
 .LBE2006:
 .LBE2017:
@@ -11561,7 +11561,7 @@ crypto_aead_encrypt:
 .LBB1953:
 .LBB1954:
 	.loc 1 50 0
-	ldr	r2, [sp, #604]
+	ldr	r2, [sp, #540]
 .LBE1954:
 .LBE1953:
 .LBE1972:
@@ -11571,7 +11571,7 @@ crypto_aead_encrypt:
 .LBB2007:
 .LBB1997:
 	.loc 1 103 0
-	strb	r3, [sp, #512]
+	strb	r3, [sp, #448]
 	.loc 1 104 0
 	ldrb	r3, [sp, #88]	@ zero_extendqisi2
 .LBE1997:
@@ -11585,7 +11585,7 @@ crypto_aead_encrypt:
 	.loc 1 50 0
 	str	r2, [sp, #36]
 	.loc 1 52 0
-	ldr	r2, [sp, #612]
+	ldr	r2, [sp, #548]
 .LBE1955:
 .LBE1959:
 .LBE1973:
@@ -11595,7 +11595,7 @@ crypto_aead_encrypt:
 .LBB2008:
 .LBB1998:
 	.loc 1 104 0
-	strb	r3, [sp, #519]
+	strb	r3, [sp, #455]
 	ldrb	r3, [sp, #92]	@ zero_extendqisi2
 .LBE1998:
 .LBE2008:
@@ -11608,7 +11608,7 @@ crypto_aead_encrypt:
 	.loc 1 52 0
 	str	r2, [sp, #56]
 	.loc 1 53 0
-	ldr	r2, [sp, #616]
+	ldr	r2, [sp, #552]
 .LBE1956:
 .LBE1960:
 .LBE1974:
@@ -11618,7 +11618,7 @@ crypto_aead_encrypt:
 .LBB2009:
 .LBB1999:
 	.loc 1 104 0
-	strb	r3, [sp, #518]
+	strb	r3, [sp, #454]
 	ldrb	r3, [sp, #96]	@ zero_extendqisi2
 .LBE1999:
 .LBE2009:
@@ -11646,7 +11646,7 @@ crypto_aead_encrypt:
 .LBB1962:
 .LBB1958:
 	.loc 1 51 0
-	ldr	r10, [sp, #608]
+	ldr	r10, [sp, #544]
 .LBE1958:
 .LBE1962:
 .LBE1976:
@@ -11662,18 +11662,18 @@ crypto_aead_encrypt:
 .LBB2010:
 .LBB2000:
 	.loc 1 104 0
-	strb	r3, [sp, #517]
+	strb	r3, [sp, #453]
 	ldrb	r3, [sp, #100]	@ zero_extendqisi2
-	strb	r3, [sp, #516]
+	strb	r3, [sp, #452]
 	.loc 1 105 0
 	ldr	r3, [sp, #104]
-	strb	r3, [sp, #523]
+	strb	r3, [sp, #459]
 .LBE2000:
 .LBE2010:
 	.loc 1 131 0
 	eorne	r3, r3, #120
 	mvnne	r3, r3
-	strneb	r3, [sp, #523]
+	strneb	r3, [sp, #459]
 .LVL761:
 .LBE2021:
 .LBE2060:
@@ -11701,7 +11701,7 @@ crypto_aead_encrypt:
 .LBE2032:
 .LBE2061:
 	.loc 1 252 0
-	ldr	r3, [sp, #680]
+	ldr	r3, [sp, #616]
 .LVL768:
 	eor	r1, r1, r5
 .LVL769:
@@ -11733,67 +11733,67 @@ crypto_aead_encrypt:
 	.loc 1 184 0
 	mov	r3, r0, lsr #8
 	.loc 1 183 0
-	strb	lr, [sp, #527]
+	strb	lr, [sp, #463]
 	mov	lr, lr, lsr #24
 .LVL776:
 	.loc 1 184 0
-	strb	r0, [sp, #531]
+	strb	r0, [sp, #467]
 	.loc 1 185 0
-	strb	r1, [sp, #535]
+	strb	r1, [sp, #471]
 	.loc 1 186 0
-	strb	r4, [sp, #539]
+	strb	r4, [sp, #475]
 	.loc 1 183 0
-	strb	ip, [sp, #526]
+	strb	ip, [sp, #462]
 	.loc 1 185 0
 	mov	ip, r1, lsr #16
 	.loc 1 183 0
-	strb	r2, [sp, #525]
+	strb	r2, [sp, #461]
 	.loc 1 184 0
 	mov	r2, r0, lsr #16
-	strb	r3, [sp, #530]
+	strb	r3, [sp, #466]
 	mov	r0, r0, lsr #24
 .LVL777:
 	.loc 1 185 0
 	mov	r3, r1, lsr #8
 	.loc 1 184 0
-	strb	r2, [sp, #529]
+	strb	r2, [sp, #465]
 	.loc 1 185 0
 	mov	r1, r1, lsr #24
 .LVL778:
 	.loc 1 186 0
 	mov	r2, r4, lsr #16
 	.loc 1 185 0
-	strb	r3, [sp, #534]
+	strb	r3, [sp, #470]
 	.loc 1 186 0
 	mov	r3, r4, lsr #8
 	.loc 1 183 0
-	strb	lr, [sp, #524]
+	strb	lr, [sp, #460]
 	.loc 1 186 0
 	mov	r4, r4, lsr #24
 .LVL779:
 	.loc 1 184 0
-	strb	r0, [sp, #528]
+	strb	r0, [sp, #464]
 	.loc 1 185 0
-	strb	ip, [sp, #533]
-	strb	r1, [sp, #532]
+	strb	ip, [sp, #469]
+	strb	r1, [sp, #468]
 	.loc 1 186 0
-	strb	r3, [sp, #538]
-	strb	r2, [sp, #537]
-	strb	r4, [sp, #536]
+	strb	r3, [sp, #474]
+	strb	r2, [sp, #473]
+	strb	r4, [sp, #472]
 .LVL780:
 .LBE2034:
 .LBE2063:
 	.loc 1 252 0
 	beq	.L580
 	ldr	r1, [sp, #176]
-	add	r0, sp, #540
-	ldr	r2, [sp, #680]
+	add	r0, sp, #476
+	ldr	r2, [sp, #616]
 	bl	memcpy
 .LVL781:
 .L580:
 	.loc 1 255 0
-	ldr	r2, [sp, #680]
-	add	r3, sp, #640
+	ldr	r2, [sp, #616]
+	add	r3, sp, #576
 	mvn	r1, #127
 .LBB2064:
 .LBB2065:
@@ -11812,12 +11812,12 @@ crypto_aead_encrypt:
 	strb	r1, [r3, #-100]
 .LVL784:
 	.loc 1 259 0
-	add	r1, sp, #556
+	add	r1, sp, #492
 .LVL785:
 .LBB2068:
 .LBB2066:
 	.loc 1 50 0
-	ldr	lr, [sp, #540]
+	ldr	lr, [sp, #476]
 	ldr	r3, [sp, #36]
 .LBE2066:
 .LBE2068:
@@ -11826,7 +11826,7 @@ crypto_aead_encrypt:
 .LBB2069:
 .LBB2067:
 	.loc 1 51 0
-	ldr	ip, [sp, #544]
+	ldr	ip, [sp, #480]
 	eor	r3, r3, lr
 	str	r3, [sp, #36]
 	.loc 1 50 0
@@ -11834,26 +11834,26 @@ crypto_aead_encrypt:
 	eor	r10, r10, ip
 	.loc 1 51 0
 	eor	ip, ip, r4
-	str	ip, [sp, #560]
+	str	ip, [sp, #496]
 	.loc 1 50 0
 	eor	lr, lr, r3
 	.loc 1 52 0
 	ldr	r3, [sp, #8]
 	.loc 1 50 0
-	str	lr, [sp, #556]
+	str	lr, [sp, #492]
 	.loc 1 52 0
-	ldr	lr, [sp, #548]
+	ldr	lr, [sp, #484]
 	.loc 1 53 0
-	ldr	ip, [sp, #552]
+	ldr	ip, [sp, #488]
 	eor	r9, r9, lr
 	.loc 1 52 0
 	eor	lr, lr, r3
-	str	lr, [sp, #564]
+	str	lr, [sp, #500]
 	ldr	lr, [sp, #60]
 	eor	lr, lr, ip
 	.loc 1 53 0
 	eor	ip, ip, fp
-	str	ip, [sp, #568]
+	str	ip, [sp, #504]
 	mov	r4, lr
 .LBE2067:
 .LBE2069:
@@ -11863,16 +11863,16 @@ crypto_aead_encrypt:
 .LBB2070:
 .LBB2071:
 	.loc 1 50 0
-	ldr	ip, [sp, #556]
+	ldr	ip, [sp, #492]
 .LBE2071:
 .LBE2070:
 	.loc 1 263 0
-	add	r1, sp, #556
+	add	r1, sp, #492
 .LVL787:
 .LBB2081:
 .LBB2072:
 	.loc 1 51 0
-	ldr	r0, [sp, #560]
+	ldr	r0, [sp, #496]
 .LBE2072:
 .LBE2081:
 	.loc 1 263 0
@@ -11886,13 +11886,13 @@ crypto_aead_encrypt:
 .LBE2082:
 .LBB2083:
 .LBB2084:
-	ldr	ip, [sp, #428]
+	ldr	ip, [sp, #364]
 .LBE2084:
 .LBE2083:
 .LBB2092:
 .LBB2074:
 	.loc 1 53 0
-	ldr	lr, [sp, #568]
+	ldr	lr, [sp, #504]
 	.loc 1 51 0
 	eor	r8, r8, r0
 .LBE2074:
@@ -11905,13 +11905,13 @@ crypto_aead_encrypt:
 .LBE2093:
 .LBB2094:
 .LBB2075:
-	str	r7, [sp, #556]
+	str	r7, [sp, #492]
 .LBE2075:
 .LBE2094:
 .LBB2095:
 .LBB2086:
 	.loc 1 51 0
-	ldr	r7, [sp, #432]
+	ldr	r7, [sp, #368]
 .LBE2086:
 .LBE2095:
 .LBB2096:
@@ -11919,7 +11919,7 @@ crypto_aead_encrypt:
 	.loc 1 53 0
 	eor	r6, r6, lr
 	.loc 1 52 0
-	ldr	r0, [sp, #564]
+	ldr	r0, [sp, #500]
 .LBE2076:
 .LBE2096:
 .LBB2097:
@@ -11940,32 +11940,32 @@ crypto_aead_encrypt:
 	.loc 1 51 0
 	eor	lr, r8, r7
 	.loc 1 50 0
-	str	ip, [sp, #572]
+	str	ip, [sp, #508]
 .LBE2087:
 .LBE2108:
 .LBB2109:
 .LBB2078:
 	.loc 1 51 0
-	str	r8, [sp, #560]
+	str	r8, [sp, #496]
 	.loc 1 52 0
 	eor	r5, r5, r0
 .LBE2078:
 .LBE2109:
 .LBB2110:
 .LBB2088:
-	ldr	r8, [sp, #436]
+	ldr	r8, [sp, #372]
 .LBE2088:
 .LBE2110:
 	.loc 1 263 0
-	add	r0, sp, #572
+	add	r0, sp, #508
 .LBB2111:
 .LBB2089:
 	.loc 1 53 0
-	ldr	ip, [sp, #440]
+	ldr	ip, [sp, #376]
 	.loc 1 52 0
 	eor	r7, r5, r8
 	.loc 1 51 0
-	str	lr, [sp, #576]
+	str	lr, [sp, #512]
 	.loc 1 53 0
 	eor	ip, ip, r6
 .LBE2089:
@@ -11973,24 +11973,24 @@ crypto_aead_encrypt:
 .LBB2112:
 .LBB2079:
 	.loc 1 52 0
-	str	r5, [sp, #564]
+	str	r5, [sp, #500]
 .LBE2079:
 .LBE2112:
 .LBB2113:
 .LBB2090:
-	str	r7, [sp, #580]
+	str	r7, [sp, #516]
 .LBE2090:
 .LBE2113:
 .LBB2114:
 .LBB2080:
 	.loc 1 53 0
-	str	r6, [sp, #568]
+	str	r6, [sp, #504]
 .LVL790:
 .LBE2080:
 .LBE2114:
 .LBB2115:
 .LBB2091:
-	str	ip, [sp, #584]
+	str	ip, [sp, #520]
 .LBE2091:
 .LBE2115:
 	.loc 1 263 0
@@ -12003,7 +12003,7 @@ crypto_aead_encrypt:
 .LBE2099:
 .LBE2116:
 	.loc 1 268 0
-	add	r1, sp, #556
+	add	r1, sp, #492
 .LVL792:
 .LBB2117:
 .LBB2100:
@@ -12033,7 +12033,7 @@ crypto_aead_encrypt:
 .LBB2120:
 .LBB2121:
 	.loc 1 50 0
-	ldr	lr, [sp, #556]
+	ldr	lr, [sp, #492]
 .LBE2121:
 .LBE2120:
 .LBB2125:
@@ -12045,7 +12045,7 @@ crypto_aead_encrypt:
 .LBB2126:
 .LBB2122:
 	.loc 1 51 0
-	ldr	r6, [sp, #560]
+	ldr	r6, [sp, #496]
 .LBE2122:
 .LBE2126:
 .LBB2127:
@@ -12057,17 +12057,17 @@ crypto_aead_encrypt:
 .LBB2128:
 .LBB2123:
 	.loc 1 52 0
-	ldr	r8, [sp, #564]
+	ldr	r8, [sp, #500]
 	.loc 1 50 0
-	ldr	ip, [sp, #508]
+	ldr	ip, [sp, #444]
 	.loc 1 51 0
-	ldr	r5, [sp, #512]
+	ldr	r5, [sp, #448]
 	.loc 1 52 0
-	ldr	r7, [sp, #516]
+	ldr	r7, [sp, #452]
 	.loc 1 50 0
 	eor	ip, ip, lr
 	.loc 1 53 0
-	ldr	r4, [sp, #520]
+	ldr	r4, [sp, #456]
 	.loc 1 51 0
 	eor	r5, r5, r6
 .LBE2123:
@@ -12075,7 +12075,7 @@ crypto_aead_encrypt:
 .LBB2129:
 .LBB2105:
 	.loc 1 50 0
-	str	r3, [sp, #556]
+	str	r3, [sp, #492]
 .LBE2105:
 .LBE2129:
 .LBB2130:
@@ -12083,28 +12083,28 @@ crypto_aead_encrypt:
 	.loc 1 52 0
 	eor	r7, r7, r8
 	.loc 1 53 0
-	ldr	r3, [sp, #568]
+	ldr	r3, [sp, #504]
 	.loc 1 50 0
-	str	ip, [sp, #588]
+	str	ip, [sp, #524]
 	.loc 1 53 0
 	eor	r4, r4, r3
 	.loc 1 51 0
-	str	r5, [sp, #592]
+	str	r5, [sp, #528]
 	.loc 1 52 0
-	str	r7, [sp, #596]
+	str	r7, [sp, #532]
 	.loc 1 53 0
-	str	r4, [sp, #600]
+	str	r4, [sp, #536]
 .LVL794:
 .LBE2124:
 .LBE2130:
 .LBB2131:
 .LBB2106:
 	.loc 1 51 0
-	str	r10, [sp, #560]
+	str	r10, [sp, #496]
 	.loc 1 52 0
-	str	r9, [sp, #564]
+	str	r9, [sp, #500]
 	.loc 1 53 0
-	str	fp, [sp, #568]
+	str	fp, [sp, #504]
 .LBE2106:
 .LBE2131:
 	.loc 1 268 0
@@ -12113,16 +12113,16 @@ crypto_aead_encrypt:
 .LBB2132:
 .LBB2133:
 	.loc 1 50 0
-	ldr	r4, [sp, #556]
+	ldr	r4, [sp, #492]
 .LBE2133:
 .LBE2132:
 	.loc 1 270 0
-	add	r1, sp, #556
+	add	r1, sp, #492
 .LVL796:
 .LBB2137:
 .LBB2134:
 	.loc 1 50 0
-	ldr	ip, [sp, #572]
+	ldr	ip, [sp, #508]
 .LBE2134:
 .LBE2137:
 	.loc 1 270 0
@@ -12131,7 +12131,7 @@ crypto_aead_encrypt:
 .LBB2138:
 .LBB2135:
 	.loc 1 51 0
-	ldr	lr, [sp, #560]
+	ldr	lr, [sp, #496]
 .LBE2135:
 .LBE2138:
 	.loc 1 270 0
@@ -12139,45 +12139,45 @@ crypto_aead_encrypt:
 .LBB2139:
 .LBB2136:
 	.loc 1 51 0
-	ldr	r3, [sp, #576]
+	ldr	r3, [sp, #512]
 	.loc 1 50 0
 	eor	r4, r4, ip
 	.loc 1 52 0
-	ldr	r6, [sp, #564]
+	ldr	r6, [sp, #500]
 	.loc 1 51 0
 	eor	lr, lr, r3
 	.loc 1 53 0
-	ldr	r5, [sp, #568]
+	ldr	r5, [sp, #504]
 	.loc 1 52 0
-	ldr	ip, [sp, #580]
+	ldr	ip, [sp, #516]
 	.loc 1 53 0
-	ldr	r3, [sp, #584]
+	ldr	r3, [sp, #520]
 	.loc 1 52 0
 	eor	ip, ip, r6
 	.loc 1 50 0
-	str	r4, [sp, #556]
+	str	r4, [sp, #492]
 	.loc 1 53 0
 	eor	r3, r3, r5
 	.loc 1 51 0
-	str	lr, [sp, #560]
+	str	lr, [sp, #496]
 	.loc 1 52 0
-	str	ip, [sp, #564]
+	str	ip, [sp, #500]
 	.loc 1 53 0
-	str	r3, [sp, #568]
+	str	r3, [sp, #504]
 .LBE2136:
 .LBE2139:
 	.loc 1 270 0
 	bl	AES_encrypt
 .LVL798:
 	.loc 1 277 0
-	ldr	r3, [sp, #680]
-	add	ip, sp, #588
+	ldr	r3, [sp, #616]
+	add	ip, sp, #524
 .LVL799:
 .LBB2140:
 .LBB2141:
 	.loc 1 50 0
-	ldr	lr, [sp, #556]
-	ldr	r5, [sp, #524]
+	ldr	lr, [sp, #492]
+	ldr	r5, [sp, #460]
 .LBE2141:
 .LBE2140:
 	.loc 1 277 0
@@ -12185,46 +12185,46 @@ crypto_aead_encrypt:
 .LBB2143:
 .LBB2142:
 	.loc 1 52 0
-	ldr	r7, [sp, #532]
+	ldr	r7, [sp, #468]
 	ldmia	ip!, {r0, r1, r2, r3}
 .LVL800:
 	.loc 1 50 0
 	eor	r5, r5, lr
 	.loc 1 52 0
-	ldr	lr, [sp, #564]
+	ldr	lr, [sp, #500]
 	.loc 1 51 0
-	ldr	ip, [sp, #560]
+	ldr	ip, [sp, #496]
 .LVL801:
-	ldr	r4, [sp, #528]
+	ldr	r4, [sp, #464]
 	.loc 1 52 0
 	eor	lr, lr, r7
 	ldr	r7, [sp, #172]
 	.loc 1 51 0
 	eor	r4, r4, ip
 	.loc 1 53 0
-	ldr	r6, [sp, #536]
-	ldr	ip, [sp, #568]
+	ldr	r6, [sp, #472]
+	ldr	ip, [sp, #504]
 	str	r0, [r7]	@ unaligned
 	eor	ip, ip, r6
 	str	r1, [r7, #4]	@ unaligned
 	str	r2, [r7, #8]	@ unaligned
 	str	r3, [r7, #12]	@ unaligned
 	.loc 1 50 0
-	str	r5, [sp, #604]
+	str	r5, [sp, #540]
 	.loc 1 51 0
-	str	r4, [sp, #608]
+	str	r4, [sp, #544]
 	.loc 1 52 0
-	str	lr, [sp, #612]
+	str	lr, [sp, #548]
 	.loc 1 53 0
-	str	ip, [sp, #616]
+	str	ip, [sp, #552]
 .LVL802:
 .LBE2142:
 .LBE2143:
 	.loc 1 277 0
 	beq	.L581
-	ldr	r2, [sp, #680]
+	ldr	r2, [sp, #616]
 	add	r0, r7, #16
-	add	r1, sp, #604
+	add	r1, sp, #540
 .LVL803:
 	bl	memcpy
 .LVL804:
@@ -12246,7 +12246,7 @@ crypto_aead_decrypt:
 .LFB74:
 	.loc 1 542 0
 	.cfi_startproc
-	@ args = 32, pretend = 0, frame = 872
+	@ args = 32, pretend = 0, frame = 744
 	@ frame_needed = 0, uses_anonymous_args = 0
 .LVL807:
 	stmfd	sp!, {r4, r5, r6, r7, r8, r9, r10, fp, lr}
@@ -12260,15 +12260,15 @@ crypto_aead_decrypt:
 	.cfi_offset 10, -12
 	.cfi_offset 11, -8
 	.cfi_offset 14, -4
-	sub	sp, sp, #884
-	.cfi_def_cfa_offset 920
+	sub	sp, sp, #756
+	.cfi_def_cfa_offset 792
 	.loc 1 542 0
 	movw	r2, #:lower16:__stack_chk_guard
 .LVL808:
 	.loc 1 565 0
-	add	r6, sp, #716
+	add	r6, sp, #588
 	.loc 1 542 0
-	ldr	r8, [sp, #948]
+	ldr	r8, [sp, #820]
 	movt	r2, #:upper16:__stack_chk_guard
 	ldr	ip, [r2]
 	.loc 1 552 0
@@ -12276,7 +12276,7 @@ crypto_aead_decrypt:
 .LVL809:
 	.loc 1 542 0
 	str	r3, [sp, #180]
-	add	r3, sp, #936
+	add	r3, sp, #808
 .LVL810:
 	str	r2, [sp, #188]
 	.loc 1 552 0
@@ -12288,16 +12288,16 @@ crypto_aead_decrypt:
 .LVL811:
 	.loc 1 542 0
 	ldrd	r4, [r3]
-	str	ip, [sp, #876]
+	str	ip, [sp, #748]
 .LVL812:
-	ldr	r7, [sp, #944]
-	ldr	r9, [sp, #928]
+	ldr	r7, [sp, #816]
+	ldr	r9, [sp, #800]
 	.loc 1 552 0
 	bl	AES_set_encrypt_key
 .LVL813:
 	.loc 1 556 0
 	mov	r0, r8
-	add	r2, sp, #440
+	add	r2, sp, #376
 .LVL814:
 	mov	r1, #128
 	bl	AES_set_decrypt_key
@@ -12309,15 +12309,15 @@ crypto_aead_decrypt:
 	mov	r0, r6
 	.loc 1 560 0
 	mov	r3, #0
-	str	r3, [sp, #700]
-	str	r3, [sp, #704]
-	str	r3, [sp, #708]
-	str	r3, [sp, #712]
+	str	r3, [sp, #572]
+	str	r3, [sp, #576]
+	str	r3, [sp, #580]
+	str	r3, [sp, #584]
 	.loc 1 563 0
-	str	r3, [sp, #716]
-	str	r3, [sp, #720]
-	str	r3, [sp, #724]
-	str	r3, [sp, #728]
+	str	r3, [sp, #588]
+	str	r3, [sp, #592]
+	str	r3, [sp, #596]
+	str	r3, [sp, #600]
 	.loc 1 565 0
 	bl	AES_encrypt
 .LVL817:
@@ -12382,7 +12382,7 @@ crypto_aead_decrypt:
 .LBE2265:
 	.loc 1 573 0
 	str	r0, [sp, #4]
-	add	r0, sp, #684
+	add	r0, sp, #556
 .LVL825:
 	str	r6, [sp]
 .LBB2266:
@@ -12403,7 +12403,7 @@ crypto_aead_decrypt:
 	bl	free
 .LVL828:
 	.loc 1 575 0
-	add	r3, sp, #920
+	add	r3, sp, #792
 	ldrd	r2, [r3]
 	cmp	r3, #0
 	cmpeq	r2, #15
@@ -12414,50 +12414,50 @@ crypto_aead_decrypt:
 .LBB2269:
 .LBB2270:
 	.loc 1 94 0
-	ldrb	r0, [sp, #717]	@ zero_extendqisi2
-	ldrb	r9, [sp, #718]	@ zero_extendqisi2
+	ldrb	r0, [sp, #589]	@ zero_extendqisi2
+	ldrb	r9, [sp, #590]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r2, [sp, #721]	@ zero_extendqisi2
-	ldrb	r7, [sp, #722]	@ zero_extendqisi2
+	ldrb	r2, [sp, #593]	@ zero_extendqisi2
+	ldrb	r7, [sp, #594]	@ zero_extendqisi2
 .LVL830:
 	.loc 1 94 0
 	mov	r0, r0, asl #16
 	.loc 1 96 0
-	ldrb	r1, [sp, #725]	@ zero_extendqisi2
+	ldrb	r1, [sp, #597]	@ zero_extendqisi2
 	orr	r0, r0, r9, asl #8
-	ldrb	lr, [sp, #726]	@ zero_extendqisi2
+	ldrb	lr, [sp, #598]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r2, r2, asl #16
 	.loc 1 94 0
-	ldrb	r9, [sp, #719]	@ zero_extendqisi2
+	ldrb	r9, [sp, #591]	@ zero_extendqisi2
 	orr	r2, r2, r7, asl #8
 	.loc 1 97 0
-	ldrb	r3, [sp, #729]	@ zero_extendqisi2
+	ldrb	r3, [sp, #601]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r1, r1, asl #16
 	.loc 1 95 0
-	ldrb	r7, [sp, #723]	@ zero_extendqisi2
+	ldrb	r7, [sp, #595]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	r9, r9, r0
 	.loc 1 95 0
-	ldrb	r0, [sp, #720]	@ zero_extendqisi2
+	ldrb	r0, [sp, #592]	@ zero_extendqisi2
 	orr	r1, r1, lr, asl #8
 	.loc 1 97 0
-	ldrb	r5, [sp, #730]	@ zero_extendqisi2
+	ldrb	r5, [sp, #602]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r2, r2, r7
 	.loc 1 96 0
-	ldrb	lr, [sp, #727]	@ zero_extendqisi2
+	ldrb	lr, [sp, #599]	@ zero_extendqisi2
 	.loc 1 97 0
 	mov	r3, r3, asl #16
 	.loc 1 96 0
-	ldrb	r4, [sp, #724]	@ zero_extendqisi2
+	ldrb	r4, [sp, #596]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r7, r2, r0, asl #24
 .LBE2270:
 .LBE2269:
 	.loc 1 138 0
-	ldrb	r8, [sp, #716]	@ zero_extendqisi2
+	ldrb	r8, [sp, #588]	@ zero_extendqisi2
 .LVL831:
 .LBB2287:
 .LBB2271:
@@ -12465,7 +12465,7 @@ crypto_aead_decrypt:
 	eor	r1, r1, lr
 	orr	r3, r3, r5, asl #8
 	.loc 1 97 0
-	ldrb	r5, [sp, #731]	@ zero_extendqisi2
+	ldrb	r5, [sp, #603]	@ zero_extendqisi2
 	.loc 1 96 0
 	orr	lr, r1, r4, asl #24
 	.loc 1 99 0
@@ -12477,7 +12477,7 @@ crypto_aead_decrypt:
 	.loc 1 99 0
 	orr	r4, r4, lr, lsr #31
 	.loc 1 97 0
-	ldrb	r10, [sp, #728]	@ zero_extendqisi2
+	ldrb	r10, [sp, #600]	@ zero_extendqisi2
 .LBE2271:
 .LBE2287:
 .LBE2268:
@@ -12504,7 +12504,7 @@ crypto_aead_decrypt:
 .LBB2348:
 .LBB2349:
 	.loc 1 50 0
-	ldr	lr, [sp, #716]
+	ldr	lr, [sp, #588]
 .LBE2349:
 .LBE2348:
 .LBB2363:
@@ -12516,7 +12516,7 @@ crypto_aead_decrypt:
 .LBB2364:
 .LBB2350:
 	.loc 1 50 0
-	ldr	fp, [sp, #684]
+	ldr	fp, [sp, #556]
 .LBE2350:
 .LBE2364:
 .LBB2365:
@@ -12566,7 +12566,7 @@ crypto_aead_decrypt:
 .LBB2370:
 .LBB2353:
 	.loc 1 51 0
-	ldr	r9, [sp, #720]
+	ldr	r9, [sp, #592]
 .LBE2353:
 .LBE2370:
 .LBB2371:
@@ -12584,9 +12584,9 @@ crypto_aead_decrypt:
 	.loc 1 50 0
 	eor	r6, r6, fp
 	.loc 1 52 0
-	ldr	fp, [sp, #724]
+	ldr	fp, [sp, #596]
 	.loc 1 51 0
-	ldr	r10, [sp, #688]
+	ldr	r10, [sp, #560]
 .LBE2354:
 .LBE2372:
 .LBB2373:
@@ -12642,7 +12642,7 @@ crypto_aead_decrypt:
 .LBB2378:
 .LBB2357:
 	.loc 1 52 0
-	ldr	fp, [sp, #692]
+	ldr	fp, [sp, #564]
 .LBE2357:
 .LBE2378:
 .LBB2379:
@@ -12675,7 +12675,7 @@ crypto_aead_decrypt:
 .LBB2382:
 .LBB2359:
 	.loc 1 53 0
-	ldr	r10, [sp, #728]
+	ldr	r10, [sp, #600]
 .LVL836:
 	.loc 1 52 0
 	eor	r6, r6, fp
@@ -12684,7 +12684,7 @@ crypto_aead_decrypt:
 .LBB2383:
 .LBB2345:
 	.loc 2 51 0
-	add	fp, sp, #812
+	add	fp, sp, #684
 .LBE2345:
 .LBE2383:
 .LBB2384:
@@ -12702,7 +12702,7 @@ crypto_aead_decrypt:
 	uxtb	r6, r4
 .LVL838:
 	.loc 1 102 0
-	strb	r7, [sp, #846]
+	strb	r7, [sp, #718]
 .LBE2282:
 .LBE2298:
 .LBE2332:
@@ -12712,7 +12712,7 @@ crypto_aead_decrypt:
 	.loc 1 53 0
 	mov	r9, r10
 	str	r10, [sp, #56]
-	ldr	r10, [sp, #696]
+	ldr	r10, [sp, #568]
 .LBE2361:
 .LBE2386:
 .LBB2387:
@@ -12748,18 +12748,18 @@ crypto_aead_decrypt:
 	.loc 1 104 0
 	uxtb	r1, r8
 	.loc 1 102 0
-	strb	r3, [sp, #845]
+	strb	r3, [sp, #717]
 	.loc 1 103 0
 	ubfx	r3, r4, #16, #8
 	.loc 1 104 0
 	ubfx	r4, r8, #8, #8
 	.loc 1 103 0
 	str	r3, [sp, #32]
-	strb	r3, [sp, #849]
+	strb	r3, [sp, #721]
 	.loc 1 104 0
 	mov	r3, r8, lsr #24
 	str	r3, [sp, #80]
-	strb	r3, [sp, #852]
+	strb	r3, [sp, #724]
 .LBE2283:
 .LBE2299:
 	.loc 1 141 0
@@ -12767,7 +12767,7 @@ crypto_aead_decrypt:
 .LBB2300:
 .LBB2284:
 	.loc 1 105 0
-	strb	r10, [sp, #859]
+	strb	r10, [sp, #731]
 .LBE2284:
 .LBE2300:
 	.loc 1 141 0
@@ -12777,40 +12777,40 @@ crypto_aead_decrypt:
 	.loc 1 103 0
 	str	r6, [sp, #28]
 	str	r2, [sp, #36]
-	strb	r6, [sp, #851]
+	strb	r6, [sp, #723]
 	.loc 1 104 0
 	mov	r6, r4
 	str	r1, [sp, #40]
 	str	r4, [sp, #76]
 	ubfx	r4, r8, #16, #8
 	.loc 1 103 0
-	strb	r2, [sp, #848]
+	strb	r2, [sp, #720]
 	.loc 1 105 0
 	mov	r2, r5, lsr #24
 	.loc 1 104 0
-	strb	r1, [sp, #855]
+	strb	r1, [sp, #727]
 	.loc 1 105 0
 	ubfx	r1, r5, #8, #8
 	.loc 1 104 0
-	strb	r6, [sp, #854]
-	strb	r4, [sp, #853]
+	strb	r6, [sp, #726]
+	strb	r4, [sp, #725]
 	.loc 1 105 0
-	strb	fp, [sp, #857]
-	strb	r2, [sp, #856]
+	strb	fp, [sp, #729]
+	strb	r2, [sp, #728]
 .LBE2285:
 .LBE2301:
 	.loc 1 141 0
-	strneb	r3, [sp, #859]
+	strneb	r3, [sp, #731]
 .LVL842:
 .LBB2302:
 .LBB2286:
 	.loc 1 102 0
-	strb	lr, [sp, #847]
-	strb	ip, [sp, #844]
+	strb	lr, [sp, #719]
+	strb	ip, [sp, #716]
 	.loc 1 103 0
-	strb	r0, [sp, #850]
+	strb	r0, [sp, #722]
 	.loc 1 105 0
-	strb	r1, [sp, #858]
+	strb	r1, [sp, #730]
 .LBE2286:
 .LBE2302:
 .LBE2333:
@@ -12842,14 +12842,14 @@ crypto_aead_decrypt:
 .LBB2313:
 .LBB2305:
 	.loc 1 50 0
-	ldr	r3, [sp, #844]
+	ldr	r3, [sp, #716]
 	.loc 1 51 0
-	ldr	r5, [sp, #848]
+	ldr	r5, [sp, #720]
 	.loc 1 50 0
 	eor	r6, r6, r3
 	str	r6, [sp, #44]
 	.loc 1 52 0
-	ldr	r3, [sp, #852]
+	ldr	r3, [sp, #724]
 	.loc 1 50 0
 	mov	r8, r6
 	.loc 1 51 0
@@ -12863,7 +12863,7 @@ crypto_aead_decrypt:
 .LBB2392:
 .LBB2393:
 	.loc 1 105 0
-	strb	r10, [sp, #811]
+	strb	r10, [sp, #683]
 .LBE2393:
 .LBE2392:
 	.loc 1 131 0
@@ -12878,7 +12878,7 @@ crypto_aead_decrypt:
 	eor	r6, r6, r5
 	str	r6, [sp, #48]
 	.loc 1 53 0
-	ldr	r5, [sp, #856]
+	ldr	r5, [sp, #728]
 	.loc 1 51 0
 	mov	r9, r6
 	.loc 1 52 0
@@ -12892,7 +12892,7 @@ crypto_aead_decrypt:
 .LBB2401:
 .LBB2394:
 	.loc 1 102 0
-	strb	r7, [sp, #798]
+	strb	r7, [sp, #670]
 .LBE2394:
 .LBE2401:
 .LBE2410:
@@ -12913,7 +12913,7 @@ crypto_aead_decrypt:
 .LBB2402:
 .LBB2395:
 	.loc 1 104 0
-	strb	r4, [sp, #805]
+	strb	r4, [sp, #677]
 .LBE2395:
 .LBE2402:
 .LBE2411:
@@ -12934,9 +12934,9 @@ crypto_aead_decrypt:
 .LBB2396:
 	.loc 1 102 0
 	ldrb	r6, [sp, #24]	@ zero_extendqisi2
-	strb	lr, [sp, #799]
-	strb	ip, [sp, #796]
-	strb	r6, [sp, #797]
+	strb	lr, [sp, #671]
+	strb	ip, [sp, #668]
+	strb	r6, [sp, #669]
 .LBE2396:
 .LBE2403:
 .LBE2412:
@@ -12956,7 +12956,7 @@ crypto_aead_decrypt:
 .LBB2404:
 .LBB2397:
 	.loc 1 103 0
-	strb	r0, [sp, #802]
+	strb	r0, [sp, #674]
 .LBE2397:
 .LBE2404:
 .LBE2413:
@@ -12979,20 +12979,20 @@ crypto_aead_decrypt:
 .LBB2398:
 	.loc 1 103 0
 	ldrb	r6, [sp, #28]	@ zero_extendqisi2
-	strb	r6, [sp, #803]
+	strb	r6, [sp, #675]
 	ldrb	r6, [sp, #32]	@ zero_extendqisi2
-	strb	r6, [sp, #801]
+	strb	r6, [sp, #673]
 	ldrb	r6, [sp, #36]	@ zero_extendqisi2
-	strb	r6, [sp, #800]
+	strb	r6, [sp, #672]
 	.loc 1 104 0
 	ldrb	r6, [sp, #40]	@ zero_extendqisi2
-	strb	r6, [sp, #807]
+	strb	r6, [sp, #679]
 	ldrb	r6, [sp, #76]	@ zero_extendqisi2
-	strb	r6, [sp, #806]
+	strb	r6, [sp, #678]
 	ldrb	r6, [sp, #80]	@ zero_extendqisi2
-	strb	r6, [sp, #804]
+	strb	r6, [sp, #676]
 	.loc 1 105 0
-	strb	r1, [sp, #810]
+	strb	r1, [sp, #682]
 .LBE2398:
 .LBE2405:
 .LBE2414:
@@ -13002,16 +13002,16 @@ crypto_aead_decrypt:
 .LBB2319:
 .LBB2311:
 	.loc 1 53 0
-	str	r5, [sp, #792]
+	str	r5, [sp, #664]
 .LVL843:
 	ldr	r5, [sp, #184]
 	.loc 1 50 0
-	str	r8, [sp, #780]
+	str	r8, [sp, #652]
 	add	r5, r5, #16
 	str	r5, [sp, #16]
-	ldrb	r5, [sp, #782]	@ zero_extendqisi2
+	ldrb	r5, [sp, #654]	@ zero_extendqisi2
 	.loc 1 51 0
-	str	r9, [sp, #784]
+	str	r9, [sp, #656]
 .LBE2311:
 .LBE2319:
 .LBE2341:
@@ -13021,7 +13021,7 @@ crypto_aead_decrypt:
 .LBB2406:
 .LBB2399:
 	.loc 1 105 0
-	strb	r2, [sp, #808]
+	strb	r2, [sp, #680]
 	str	r5, [sp, #60]
 .LBE2399:
 .LBE2406:
@@ -13031,11 +13031,11 @@ crypto_aead_decrypt:
 .LBB2434:
 .LBB2435:
 	.loc 2 51 0
-	add	r5, sp, #920
+	add	r5, sp, #792
 	str	r2, [sp, #136]
 	ldrd	r8, [r5]
-	ldrb	r2, [sp, #784]	@ zero_extendqisi2
-	ldrb	r5, [sp, #781]	@ zero_extendqisi2
+	ldrb	r2, [sp, #656]	@ zero_extendqisi2
+	ldrb	r5, [sp, #653]	@ zero_extendqisi2
 .LBE2435:
 .LBE2434:
 .LBE2433:
@@ -13044,11 +13044,11 @@ crypto_aead_decrypt:
 .LBB2320:
 .LBB2312:
 	.loc 1 52 0
-	str	r3, [sp, #788]
-	ldrb	r3, [sp, #783]	@ zero_extendqisi2
+	str	r3, [sp, #660]
+	ldrb	r3, [sp, #655]	@ zero_extendqisi2
 	str	r5, [sp, #64]
 	str	r2, [sp, #72]
-	ldrb	r5, [sp, #787]	@ zero_extendqisi2
+	ldrb	r5, [sp, #659]	@ zero_extendqisi2
 .LBE2312:
 .LBE2320:
 .LBE2342:
@@ -13061,9 +13061,9 @@ crypto_aead_decrypt:
 	str	r3, [sp, #20]
 	ldr	r3, [sp, #180]
 	strd	r8, [sp, #8]
-	ldrb	r6, [sp, #790]	@ zero_extendqisi2
-	ldrb	r8, [sp, #786]	@ zero_extendqisi2
-	ldrb	r9, [sp, #791]	@ zero_extendqisi2
+	ldrb	r6, [sp, #662]	@ zero_extendqisi2
+	ldrb	r8, [sp, #658]	@ zero_extendqisi2
+	ldrb	r9, [sp, #663]	@ zero_extendqisi2
 .LBE2436:
 .LBE2439:
 .LBE2599:
@@ -13072,17 +13072,17 @@ crypto_aead_decrypt:
 .LBB2407:
 .LBB2400:
 	.loc 1 105 0
-	strb	fp, [sp, #809]
+	strb	fp, [sp, #681]
 .LBE2400:
 .LBE2407:
 	.loc 1 131 0
-	strneb	r10, [sp, #811]
+	strneb	r10, [sp, #683]
 	.loc 1 130 0
 	str	r10, [sp, #160]
 .LVL844:
 	add	r10, r3, #16
 	str	r5, [sp, #68]
-	ldrb	r3, [sp, #780]	@ zero_extendqisi2
+	ldrb	r3, [sp, #652]	@ zero_extendqisi2
 .LVL845:
 .LBE2416:
 .LBE2600:
@@ -13092,19 +13092,19 @@ crypto_aead_decrypt:
 	.loc 2 51 0
 	str	fp, [sp, #132]
 	str	r2, [sp, #124]
-	ldrb	r5, [sp, #785]	@ zero_extendqisi2
+	ldrb	r5, [sp, #657]	@ zero_extendqisi2
 	str	r1, [sp, #128]
 	str	r4, [sp, #120]
 	ldr	r2, [sp, #76]
-	ldrb	fp, [sp, #788]	@ zero_extendqisi2
+	ldrb	fp, [sp, #660]	@ zero_extendqisi2
 	str	r7, [sp, #88]
 	mov	r7, r3
 	str	r2, [sp, #116]
 	ldr	r2, [sp, #40]
 	str	r8, [sp, #140]
-	ldrb	r4, [sp, #789]	@ zero_extendqisi2
+	ldrb	r4, [sp, #661]	@ zero_extendqisi2
 	str	r2, [sp, #112]
-	ldrb	r2, [sp, #794]	@ zero_extendqisi2
+	ldrb	r2, [sp, #666]	@ zero_extendqisi2
 	ldr	r8, [sp, #144]
 	str	r0, [sp, #100]
 	str	r2, [sp, #76]
@@ -13113,7 +13113,7 @@ crypto_aead_decrypt:
 .LVL846:
 	str	lr, [sp, #40]
 	str	r2, [sp, #108]
-	ldrb	r2, [sp, #793]	@ zero_extendqisi2
+	ldrb	r2, [sp, #665]	@ zero_extendqisi2
 	ldr	r9, [sp, #148]
 	str	r6, [sp, #148]
 .LVL847:
@@ -13123,7 +13123,7 @@ crypto_aead_decrypt:
 	str	fp, [sp, #152]
 .LVL848:
 	str	r2, [sp, #104]
-	ldrb	r2, [sp, #792]	@ zero_extendqisi2
+	ldrb	r2, [sp, #664]	@ zero_extendqisi2
 	ldr	fp, [sp, #156]
 	str	ip, [sp, #156]
 .LVL849:
@@ -13190,15 +13190,15 @@ crypto_aead_decrypt:
 	str	r3, [sp, #64]
 	ldr	r3, [sp, #44]
 	str	r3, [sp, #60]
-	ldr	r3, [sp, #780]
+	ldr	r3, [sp, #652]
 	str	r3, [sp, #44]
-	ldr	r3, [sp, #784]
+	ldr	r3, [sp, #656]
 	str	r3, [sp, #48]
-	ldr	r3, [sp, #788]
+	ldr	r3, [sp, #660]
 	str	r3, [sp, #52]
-	ldr	r3, [sp, #792]
+	ldr	r3, [sp, #664]
 	str	r3, [sp, #56]
-	ldrb	r3, [sp, #811]	@ zero_extendqisi2
+	ldrb	r3, [sp, #683]	@ zero_extendqisi2
 	str	r3, [sp, #160]
 .LVL855:
 .L658:
@@ -13211,16 +13211,16 @@ crypto_aead_decrypt:
 .LBE2443:
 .LBE2442:
 	.loc 1 589 0
-	add	r2, sp, #440
+	add	r2, sp, #376
 .LVL856:
 .LBB2449:
 .LBB2444:
 	.loc 1 50 0
-	ldr	r0, [sp, #796]
+	ldr	r0, [sp, #668]
 .LBE2444:
 .LBE2449:
 	.loc 1 589 0
-	add	r1, sp, #844
+	add	r1, sp, #716
 .LVL857:
 .LBB2450:
 .LBB2445:
@@ -13243,13 +13243,13 @@ crypto_aead_decrypt:
 	.loc 1 50 0
 	eor	r0, r0, lr
 	.loc 1 51 0
-	ldr	lr, [sp, #800]
+	ldr	lr, [sp, #672]
 	.loc 1 50 0
-	str	r0, [sp, #764]
+	str	r0, [sp, #636]
 .LBE2446:
 .LBE2496:
 	.loc 1 589 0
-	add	r0, sp, #764
+	add	r0, sp, #636
 .LVL858:
 .LBB2497:
 .LBB2447:
@@ -13258,7 +13258,7 @@ crypto_aead_decrypt:
 	.loc 1 52 0
 	ldr	r3, [r10, #-8]
 	.loc 1 51 0
-	str	lr, [sp, #768]
+	str	lr, [sp, #640]
 .LBE2447:
 .LBE2497:
 .LBB2498:
@@ -13274,16 +13274,16 @@ crypto_aead_decrypt:
 .LBB2499:
 .LBB2448:
 	.loc 1 52 0
-	ldr	lr, [sp, #804]
+	ldr	lr, [sp, #676]
 	eor	lr, lr, r3
 	.loc 1 53 0
 	ldr	r3, [r10, #-4]
 	.loc 1 52 0
-	str	lr, [sp, #772]
+	str	lr, [sp, #644]
 	.loc 1 53 0
-	ldr	lr, [sp, #808]
+	ldr	lr, [sp, #680]
 	eor	lr, lr, r3
-	str	lr, [sp, #776]
+	str	lr, [sp, #648]
 .LBE2448:
 .LBE2499:
 	.loc 1 589 0
@@ -13292,18 +13292,18 @@ crypto_aead_decrypt:
 .LBB2500:
 .LBB2501:
 	.loc 1 50 0
-	ldr	r3, [sp, #844]
+	ldr	r3, [sp, #716]
 	.loc 1 51 0
-	ldr	r1, [sp, #848]
+	ldr	r1, [sp, #720]
 .LBE2501:
 .LBE2500:
 	.loc 1 593 0
-	add	r2, sp, #440
+	add	r2, sp, #376
 .LVL860:
 .LBB2505:
 .LBB2502:
 	.loc 1 52 0
-	ldr	r0, [sp, #852]
+	ldr	r0, [sp, #724]
 	.loc 1 50 0
 	eor	r9, r9, r3
 .LVL861:
@@ -13317,12 +13317,12 @@ crypto_aead_decrypt:
 .LBE2502:
 .LBE2505:
 	.loc 1 593 0
-	add	r1, sp, #764
+	add	r1, sp, #636
 .LVL863:
 .LBB2506:
 .LBB2503:
 	.loc 1 53 0
-	ldr	r3, [sp, #856]
+	ldr	r3, [sp, #728]
 	.loc 1 52 0
 	eor	r6, r6, r0
 .LVL864:
@@ -13337,15 +13337,15 @@ crypto_aead_decrypt:
 	eor	r8, r8, r3
 .LVL865:
 	.loc 1 50 0
-	str	r9, [sp, #764]
+	str	r9, [sp, #636]
 	.loc 1 53 0
 	str	r3, [sp, #36]
 	.loc 1 51 0
-	str	fp, [sp, #768]
+	str	fp, [sp, #640]
 	.loc 1 52 0
-	str	r6, [sp, #772]
+	str	r6, [sp, #644]
 	.loc 1 53 0
-	str	r8, [sp, #776]
+	str	r8, [sp, #648]
 .LVL866:
 .LBE2504:
 .LBE2507:
@@ -13364,7 +13364,7 @@ crypto_aead_decrypt:
 	ldr	r0, [sp, #68]
 	orr	r3, r5, r3, asl #8
 	.loc 1 97 0
-	ldrb	r2, [sp, #795]	@ zero_extendqisi2
+	ldrb	r2, [sp, #667]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r3, r3, r0
 	.loc 1 96 0
@@ -13382,7 +13382,7 @@ crypto_aead_decrypt:
 .LBB2509:
 .LBB2510:
 	.loc 1 50 0
-	ldr	r4, [sp, #764]
+	ldr	r4, [sp, #636]
 .LBE2510:
 .LBE2509:
 .LBB2521:
@@ -13398,17 +13398,17 @@ crypto_aead_decrypt:
 .LBB2522:
 .LBB2511:
 	.loc 1 51 0
-	ldr	r5, [sp, #768]
+	ldr	r5, [sp, #640]
 	orr	r1, r1, r0, asl #8
 	ldr	r0, [sp, #76]
 	.loc 1 52 0
-	ldr	r6, [sp, #772]
+	ldr	r6, [sp, #644]
 .LBE2511:
 .LBE2522:
 .LBB2523:
 .LBB2524:
 	.loc 1 50 0
-	ldr	r8, [sp, #700]
+	ldr	r8, [sp, #572]
 	orr	r2, r2, r0, asl #8
 .LBE2524:
 .LBE2523:
@@ -13425,7 +13425,7 @@ crypto_aead_decrypt:
 .LBB2532:
 .LBB2525:
 	.loc 1 53 0
-	ldr	r9, [sp, #712]
+	ldr	r9, [sp, #584]
 .LBE2525:
 .LBE2532:
 .LBB2533:
@@ -13458,7 +13458,7 @@ crypto_aead_decrypt:
 .LBB2534:
 .LBB2512:
 	.loc 1 53 0
-	ldr	r7, [sp, #776]
+	ldr	r7, [sp, #648]
 .LBE2512:
 .LBE2534:
 .LBB2535:
@@ -13544,7 +13544,7 @@ crypto_aead_decrypt:
 .LBE2542:
 .LBB2543:
 .LBB2526:
-	ldr	r7, [sp, #708]
+	ldr	r7, [sp, #580]
 .LBE2526:
 .LBE2543:
 .LBB2544:
@@ -13554,55 +13554,55 @@ crypto_aead_decrypt:
 	.loc 1 102 0
 	mov	r6, fp
 	ubfx	fp, r1, #8, #8
-	strb	r6, [sp, #783]
+	strb	r6, [sp, #655]
 	str	fp, [sp, #44]
-	strb	fp, [sp, #782]
+	strb	fp, [sp, #654]
 	ubfx	fp, r1, #16, #8
 	mov	r1, r1, lsr #24
 	str	fp, [sp, #48]
 	str	r1, [sp, #52]
-	strb	fp, [sp, #781]
+	strb	fp, [sp, #653]
 	.loc 1 103 0
 	ubfx	fp, r3, #8, #8
 	.loc 1 102 0
-	strb	r1, [sp, #780]
+	strb	r1, [sp, #652]
 	.loc 1 103 0
 	uxtb	r1, r3
 	str	r1, [sp, #56]
 	str	fp, [sp, #60]
-	strb	r1, [sp, #787]
+	strb	r1, [sp, #659]
 	ubfx	r1, r3, #16, #8
 	mov	r3, r3, lsr #24
 	str	r1, [sp, #64]
 	str	r3, [sp, #68]
-	strb	r1, [sp, #785]
+	strb	r1, [sp, #657]
 	.loc 1 104 0
 	ubfx	r1, r0, #8, #8
 	.loc 1 103 0
-	strb	r3, [sp, #784]
+	strb	r3, [sp, #656]
 	.loc 1 104 0
 	uxtb	r3, r0
 	str	r1, [sp, #140]
 	str	r3, [sp, #72]
-	strb	r3, [sp, #791]
+	strb	r3, [sp, #663]
 	ubfx	r3, r0, #16, #8
-	strb	r1, [sp, #790]
+	strb	r1, [sp, #662]
 	mov	r1, r0, lsr #24
 	str	r3, [sp, #144]
 	str	r1, [sp, #148]
-	strb	r3, [sp, #789]
+	strb	r3, [sp, #661]
 	.loc 1 105 0
 	uxtb	r3, r2
 	.loc 1 104 0
-	strb	r1, [sp, #788]
+	strb	r1, [sp, #660]
 	.loc 1 105 0
 	ubfx	r1, r2, #8, #8
 	str	r1, [sp, #76]
-	strb	r1, [sp, #794]
+	strb	r1, [sp, #666]
 	ubfx	r1, r2, #16, #8
 	mov	r2, r2, lsr #24
 	str	r2, [sp, #84]
-	strb	r2, [sp, #792]
+	strb	r2, [sp, #664]
 .LBE2464:
 .LBE2477:
 .LBE2490:
@@ -13618,7 +13618,7 @@ crypto_aead_decrypt:
 .LBB2478:
 .LBB2465:
 	.loc 1 105 0
-	strb	r3, [sp, #795]
+	strb	r3, [sp, #667]
 .LBE2465:
 .LBE2478:
 	.loc 1 131 0
@@ -13628,7 +13628,7 @@ crypto_aead_decrypt:
 .LBB2547:
 .LBB2527:
 	.loc 1 51 0
-	ldr	r0, [sp, #704]
+	ldr	r0, [sp, #576]
 .LBE2527:
 .LBE2547:
 .LBB2548:
@@ -13662,7 +13662,7 @@ crypto_aead_decrypt:
 .LBB2466:
 	.loc 1 105 0
 	str	r1, [sp, #80]
-	strb	r1, [sp, #793]
+	strb	r1, [sp, #665]
 .LBE2466:
 .LBE2479:
 .LBE2493:
@@ -13677,7 +13677,7 @@ crypto_aead_decrypt:
 	eor	ip, r5, r9
 	.loc 1 50 0
 	str	r1, [sp, #168]
-	str	r1, [sp, #700]
+	str	r1, [sp, #572]
 	.loc 1 52 0
 	eor	r1, r4, r7
 	.loc 1 53 0
@@ -13685,9 +13685,9 @@ crypto_aead_decrypt:
 	.loc 1 52 0
 	str	r1, [sp, #172]
 	.loc 1 51 0
-	str	r0, [sp, #704]
+	str	r0, [sp, #576]
 	.loc 1 52 0
-	str	r1, [sp, #708]
+	str	r1, [sp, #580]
 .LBE2529:
 .LBE2553:
 .LBB2554:
@@ -13695,7 +13695,7 @@ crypto_aead_decrypt:
 .LBB2480:
 .LBB2467:
 	.loc 1 103 0
-	strb	fp, [sp, #786]
+	strb	fp, [sp, #658]
 .LBE2467:
 .LBE2480:
 .LBE2494:
@@ -13710,7 +13710,7 @@ crypto_aead_decrypt:
 .LBB2556:
 .LBB2495:
 	.loc 1 131 0
-	strneb	r3, [sp, #795]
+	strneb	r3, [sp, #667]
 .LBE2495:
 .LBE2556:
 .LBB2557:
@@ -13737,7 +13737,7 @@ crypto_aead_decrypt:
 .LBB2579:
 .LBB2530:
 	.loc 1 53 0
-	str	ip, [sp, #712]
+	str	ip, [sp, #584]
 .LVL869:
 .LBE2530:
 .LBE2579:
@@ -13821,9 +13821,9 @@ crypto_aead_decrypt:
 	.loc 1 105 0
 	ubfx	r5, r3, #8, #8
 	.loc 1 102 0
-	strb	ip, [sp, #799]
+	strb	ip, [sp, #671]
 	ubfx	ip, r0, #16, #8
-	strb	lr, [sp, #798]
+	strb	lr, [sp, #670]
 	mov	r0, r0, lsr #24
 .LVL879:
 	str	ip, [sp, #92]
@@ -13834,19 +13834,19 @@ crypto_aead_decrypt:
 	.loc 1 105 0
 	ubfx	r6, r3, #16, #8
 	.loc 1 102 0
-	strb	ip, [sp, #797]
+	strb	ip, [sp, #669]
 	.loc 1 103 0
 	uxtb	ip, r1
 	.loc 1 102 0
-	strb	r0, [sp, #796]
+	strb	r0, [sp, #668]
 	.loc 1 103 0
 	ubfx	r0, r1, #8, #8
 	str	ip, [sp, #96]
 .LVL880:
 	str	r0, [sp, #100]
-	strb	ip, [sp, #803]
+	strb	ip, [sp, #675]
 	ubfx	ip, r1, #16, #8
-	strb	r0, [sp, #802]
+	strb	r0, [sp, #674]
 	mov	r1, r1, lsr #24
 .LVL881:
 	.loc 1 104 0
@@ -13858,15 +13858,15 @@ crypto_aead_decrypt:
 	mov	r2, r2, lsr #24
 .LVL882:
 	.loc 1 103 0
-	strb	ip, [sp, #801]
+	strb	ip, [sp, #673]
 	.loc 1 104 0
 	str	r0, [sp, #112]
 .LVL883:
 	.loc 1 103 0
-	strb	r1, [sp, #800]
+	strb	r1, [sp, #672]
 	.loc 1 105 0
 	uxtb	r1, r3
-	strb	r1, [sp, #811]
+	strb	r1, [sp, #683]
 .LBE2561:
 .LBE2567:
 	.loc 1 131 0
@@ -13886,18 +13886,18 @@ crypto_aead_decrypt:
 .LBE2568:
 	.loc 1 131 0
 	mvnne	r1, r1
-	strneb	r1, [sp, #811]
+	strneb	r1, [sp, #683]
 .LBE2574:
 .LBE2581:
 	.loc 1 599 0
-	add	r1, sp, #920
+	add	r1, sp, #792
 .LBB2582:
 .LBB2575:
 .LBB2569:
 .LBB2563:
 	.loc 1 104 0
-	strb	r0, [sp, #807]
-	strb	lr, [sp, #806]
+	strb	r0, [sp, #679]
+	strb	lr, [sp, #678]
 .LBE2563:
 .LBE2569:
 .LBE2575:
@@ -13909,7 +13909,7 @@ crypto_aead_decrypt:
 .LBB2570:
 .LBB2564:
 	.loc 1 104 0
-	strb	r4, [sp, #805]
+	strb	r4, [sp, #677]
 .LBE2564:
 .LBE2570:
 .LBE2576:
@@ -13921,7 +13921,7 @@ crypto_aead_decrypt:
 .LBB2571:
 .LBB2565:
 	.loc 1 104 0
-	strb	r2, [sp, #804]
+	strb	r2, [sp, #676]
 .LBE2565:
 .LBE2571:
 .LBE2577:
@@ -13933,9 +13933,9 @@ crypto_aead_decrypt:
 .LBB2572:
 .LBB2566:
 	.loc 1 105 0
-	strb	r5, [sp, #810]
-	strb	r6, [sp, #809]
-	strb	r3, [sp, #808]
+	strb	r5, [sp, #682]
+	strb	r6, [sp, #681]
+	strb	r3, [sp, #680]
 .LBE2566:
 .LBE2572:
 .LBE2578:
@@ -13948,50 +13948,50 @@ crypto_aead_decrypt:
 .LBB2588:
 .LBB2589:
 	.loc 1 94 0
-	ldrb	r7, [sp, #813]	@ zero_extendqisi2
+	ldrb	r7, [sp, #685]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r1, [sp, #818]	@ zero_extendqisi2
-	ldrb	r8, [sp, #817]	@ zero_extendqisi2
+	ldrb	r1, [sp, #690]	@ zero_extendqisi2
+	ldrb	r8, [sp, #689]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	ip, [sp, #821]	@ zero_extendqisi2
+	ldrb	ip, [sp, #693]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	r0, r7, asl #16
 	.loc 1 96 0
-	ldrb	r9, [sp, #822]	@ zero_extendqisi2
+	ldrb	r9, [sp, #694]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	fp, r1
-	ldrb	r7, [sp, #819]	@ zero_extendqisi2
+	ldrb	r7, [sp, #691]	@ zero_extendqisi2
 	mov	r8, r8, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #814]	@ zero_extendqisi2
+	ldrb	r1, [sp, #686]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	ip, ip, asl #16
 	orr	r8, r8, fp, asl #8
 	orr	ip, ip, r9, asl #8
 	.loc 1 97 0
-	ldrb	r9, [sp, #825]	@ zero_extendqisi2
+	ldrb	r9, [sp, #697]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	fp, r7
 	orr	r7, r0, r1, asl #8
 	eor	r8, r8, fp
-	ldrb	r0, [sp, #816]	@ zero_extendqisi2
+	ldrb	r0, [sp, #688]	@ zero_extendqisi2
 	.loc 1 97 0
-	ldrb	fp, [sp, #826]	@ zero_extendqisi2
+	ldrb	fp, [sp, #698]	@ zero_extendqisi2
 	mov	r9, r9, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #815]	@ zero_extendqisi2
+	ldrb	r1, [sp, #687]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r8, r8, r0, asl #24
 .LBE2589:
 .LBE2588:
 	.loc 1 128 0
-	ldrb	r0, [sp, #812]	@ zero_extendqisi2
+	ldrb	r0, [sp, #684]	@ zero_extendqisi2
 .LVL886:
 	orr	r9, r9, fp, asl #8
 .LBB2594:
 .LBB2590:
 	.loc 1 96 0
-	ldrb	fp, [sp, #823]	@ zero_extendqisi2
+	ldrb	fp, [sp, #695]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	r1, r1, r7
 .LBE2590:
@@ -14005,16 +14005,16 @@ crypto_aead_decrypt:
 	.loc 1 94 0
 	orr	r1, r1, r0, asl #24
 	.loc 1 97 0
-	ldrb	r0, [sp, #827]	@ zero_extendqisi2
+	ldrb	r0, [sp, #699]	@ zero_extendqisi2
 .LVL887:
 	.loc 1 99 0
 	mov	r7, r8, asl #1
 	.loc 1 96 0
 	mov	fp, ip
-	ldrb	ip, [sp, #820]	@ zero_extendqisi2
+	ldrb	ip, [sp, #692]	@ zero_extendqisi2
 	.loc 1 97 0
 	eor	r0, r0, r9
-	ldrb	r9, [sp, #824]	@ zero_extendqisi2
+	ldrb	r9, [sp, #696]	@ zero_extendqisi2
 	.loc 1 98 0
 	mov	r1, r1, asl #1
 	.loc 1 96 0
@@ -14026,7 +14026,7 @@ crypto_aead_decrypt:
 	orr	r9, r0, r9, asl #24
 .LVL889:
 	.loc 1 102 0
-	strb	r1, [sp, #815]
+	strb	r1, [sp, #687]
 .LVL890:
 	.loc 1 99 0
 	orr	r7, r7, ip, lsr #31
@@ -14042,22 +14042,22 @@ crypto_aead_decrypt:
 	.loc 1 102 0
 	mov	r8, r1, lsr #8
 .LVL895:
-	strb	r8, [sp, #814]
+	strb	r8, [sp, #686]
 	mov	r8, r1, lsr #16
 	mov	r1, r1, lsr #24
 .LVL896:
-	strb	r1, [sp, #812]
+	strb	r1, [sp, #684]
 .LVL897:
 	.loc 1 103 0
 	mov	r1, r7, lsr #16
-	strb	r1, [sp, #817]
+	strb	r1, [sp, #689]
 .LVL898:
 	.loc 1 104 0
 	mov	r1, ip, lsr #8
-	strb	r1, [sp, #822]
+	strb	r1, [sp, #694]
 	.loc 1 105 0
 	uxtb	r1, r9
-	strb	r1, [sp, #827]
+	strb	r1, [sp, #699]
 .LBE2591:
 .LBE2595:
 	.loc 1 131 0
@@ -14067,13 +14067,13 @@ crypto_aead_decrypt:
 	.loc 1 103 0
 	mov	r0, r7, lsr #8
 .LVL899:
-	strb	r7, [sp, #819]
+	strb	r7, [sp, #691]
 	.loc 1 104 0
-	strb	ip, [sp, #823]
+	strb	ip, [sp, #695]
 	.loc 1 103 0
 	mov	r7, r7, lsr #24
 .LVL900:
-	strb	r0, [sp, #818]
+	strb	r0, [sp, #690]
 .LBE2592:
 .LBE2596:
 	.loc 1 131 0
@@ -14083,33 +14083,33 @@ crypto_aead_decrypt:
 	.loc 1 104 0
 	mov	r0, ip, lsr #16
 	.loc 1 102 0
-	strb	r8, [sp, #813]
+	strb	r8, [sp, #685]
 	.loc 1 104 0
 	mov	ip, ip, lsr #24
 .LVL901:
-	strb	r0, [sp, #821]
-	strb	ip, [sp, #820]
+	strb	r0, [sp, #693]
+	strb	ip, [sp, #692]
 .LVL902:
 	.loc 1 105 0
 	mov	r0, r9, lsr #8
 	mov	ip, r9, lsr #16
 	.loc 1 103 0
-	strb	r7, [sp, #816]
+	strb	r7, [sp, #688]
 	.loc 1 105 0
 	mov	r9, r9, lsr #24
 .LVL903:
-	strb	r0, [sp, #826]
-	strb	ip, [sp, #825]
-	strb	r9, [sp, #824]
+	strb	r0, [sp, #698]
+	strb	ip, [sp, #697]
+	strb	r9, [sp, #696]
 .LBE2593:
 .LBE2597:
 	.loc 1 131 0
-	strneb	r1, [sp, #827]
+	strneb	r1, [sp, #699]
 	b	.L655
 .LVL904:
 .L657:
-	add	r3, sp, #920
-	add	r1, sp, #920
+	add	r3, sp, #792
+	add	r1, sp, #792
 	ldrd	r2, [r3]
 	ldrd	r4, [r1]
 	mov	r5, #0
@@ -14134,59 +14134,59 @@ crypto_aead_decrypt:
 .LBB2605:
 .LBB2606:
 	.loc 1 95 0
-	ldrb	ip, [sp, #817]	@ zero_extendqisi2
+	ldrb	ip, [sp, #689]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r3, [sp, #813]	@ zero_extendqisi2
+	ldrb	r3, [sp, #685]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	lr, [sp, #818]	@ zero_extendqisi2
+	ldrb	lr, [sp, #690]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r2, [sp, #814]	@ zero_extendqisi2
+	ldrb	r2, [sp, #686]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	ip, ip, asl #16
 	.loc 1 96 0
-	ldrb	r1, [sp, #821]	@ zero_extendqisi2
+	ldrb	r1, [sp, #693]	@ zero_extendqisi2
 	.loc 1 94 0
 	mov	r3, r3, asl #16
 	.loc 1 96 0
-	ldrb	r4, [sp, #822]	@ zero_extendqisi2
+	ldrb	r4, [sp, #694]	@ zero_extendqisi2
 	orr	ip, ip, lr, asl #8
 	orr	r0, r3, r2, asl #8
 	.loc 1 95 0
-	ldrb	r5, [sp, #819]	@ zero_extendqisi2
-	ldrb	r2, [sp, #816]	@ zero_extendqisi2
+	ldrb	r5, [sp, #691]	@ zero_extendqisi2
+	ldrb	r2, [sp, #688]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r1, r1, asl #16
 	.loc 1 97 0
-	ldrb	lr, [sp, #825]	@ zero_extendqisi2
+	ldrb	lr, [sp, #697]	@ zero_extendqisi2
 	orr	r1, r1, r4, asl #8
-	ldrb	r4, [sp, #826]	@ zero_extendqisi2
+	ldrb	r4, [sp, #698]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	ip, ip, r5
 	orr	ip, ip, r2, asl #24
 .LBE2606:
 .LBE2605:
 	.loc 1 138 0
-	ldrb	r5, [sp, #812]	@ zero_extendqisi2
+	ldrb	r5, [sp, #684]	@ zero_extendqisi2
 .LVL906:
 .LBB2612:
 .LBB2607:
 	.loc 1 97 0
 	mov	r2, lr, asl #16
 	.loc 1 94 0
-	ldrb	r3, [sp, #815]	@ zero_extendqisi2
+	ldrb	r3, [sp, #687]	@ zero_extendqisi2
 	orr	lr, r2, r4, asl #8
 	.loc 1 96 0
-	ldrb	r4, [sp, #823]	@ zero_extendqisi2
+	ldrb	r4, [sp, #695]	@ zero_extendqisi2
 	.loc 1 97 0
-	ldrb	r2, [sp, #827]	@ zero_extendqisi2
+	ldrb	r2, [sp, #699]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	r3, r3, r0
 	.loc 1 96 0
 	eor	r4, r4, r1
-	ldrb	r1, [sp, #820]	@ zero_extendqisi2
+	ldrb	r1, [sp, #692]	@ zero_extendqisi2
 	.loc 1 97 0
 	eor	r2, r2, lr
-	ldrb	lr, [sp, #824]	@ zero_extendqisi2
+	ldrb	lr, [sp, #696]	@ zero_extendqisi2
 	.loc 1 94 0
 	orr	r3, r3, r5, asl #24
 	.loc 1 99 0
@@ -14218,23 +14218,23 @@ crypto_aead_decrypt:
 	mov	lr, lr, asl #1
 .LVL911:
 	.loc 1 102 0
-	strb	r3, [sp, #831]
+	strb	r3, [sp, #703]
 	mov	ip, r3, lsr #8
 .LVL912:
-	strb	ip, [sp, #830]
+	strb	ip, [sp, #702]
 	mov	ip, r3, lsr #16
 	mov	r3, r3, lsr #24
 .LVL913:
-	strb	r3, [sp, #828]
+	strb	r3, [sp, #700]
 	.loc 1 103 0
 	mov	r3, r0, lsr #16
-	strb	r3, [sp, #833]
+	strb	r3, [sp, #705]
 	.loc 1 104 0
 	mov	r3, r1, lsr #8
-	strb	r3, [sp, #838]
+	strb	r3, [sp, #710]
 	.loc 1 105 0
 	uxtb	r3, lr
-	strb	r3, [sp, #843]
+	strb	r3, [sp, #715]
 .LBE2608:
 .LBE2613:
 	.loc 1 141 0
@@ -14245,7 +14245,7 @@ crypto_aead_decrypt:
 	mov	r2, r0, lsr #8
 .LVL914:
 	.loc 1 102 0
-	strb	ip, [sp, #829]
+	strb	ip, [sp, #701]
 .LBE2609:
 .LBE2614:
 	.loc 1 141 0
@@ -14253,54 +14253,54 @@ crypto_aead_decrypt:
 .LBB2615:
 .LBB2610:
 	.loc 1 103 0
-	strb	r0, [sp, #835]
+	strb	r0, [sp, #707]
 .LBE2610:
 .LBE2615:
 	.loc 1 141 0
-	strneb	r3, [sp, #843]
+	strneb	r3, [sp, #715]
 .LBB2616:
 .LBB2611:
 	.loc 1 103 0
 	mov	r0, r0, lsr #24
 .LVL915:
 	.loc 1 104 0
-	strb	r1, [sp, #839]
+	strb	r1, [sp, #711]
 	.loc 1 103 0
-	strb	r2, [sp, #834]
+	strb	r2, [sp, #706]
 	.loc 1 104 0
 	mov	r2, r1, lsr #16
 	.loc 1 103 0
-	strb	r0, [sp, #832]
+	strb	r0, [sp, #704]
 	.loc 1 104 0
 	mov	r1, r1, lsr #24
 .LVL916:
-	strb	r2, [sp, #837]
+	strb	r2, [sp, #709]
 	.loc 1 105 0
 	mov	r2, lr, lsr #8
 	.loc 1 104 0
-	strb	r1, [sp, #836]
+	strb	r1, [sp, #708]
 	.loc 1 105 0
 	mov	r1, lr, lsr #16
-	strb	r2, [sp, #842]
+	strb	r2, [sp, #714]
 	mov	lr, lr, lsr #24
 .LVL917:
-	strb	r1, [sp, #841]
-	strb	lr, [sp, #840]
+	strb	r1, [sp, #713]
+	strb	lr, [sp, #712]
 .LBE2611:
 .LBE2616:
 .LBB2617:
 .LBB2618:
 	.loc 1 50 0
-	ldr	r4, [sp, #812]
+	ldr	r4, [sp, #684]
 .LVL918:
-	ldr	r3, [sp, #828]
+	ldr	r3, [sp, #700]
 	.loc 1 51 0
-	ldr	r1, [sp, #832]
-	ldr	r0, [sp, #816]
+	ldr	r1, [sp, #704]
+	ldr	r0, [sp, #688]
 	.loc 1 50 0
 	eor	r4, r4, r3
 	.loc 1 52 0
-	ldr	r5, [sp, #820]
+	ldr	r5, [sp, #692]
 .LVL919:
 .LBE2618:
 .LBE2617:
@@ -14321,11 +14321,11 @@ crypto_aead_decrypt:
 .LBB2622:
 .LBB2619:
 	.loc 1 52 0
-	ldr	r3, [sp, #836]
+	ldr	r3, [sp, #708]
 	.loc 1 51 0
 	eor	r0, r0, r1
 	.loc 1 53 0
-	ldr	lr, [sp, #824]
+	ldr	lr, [sp, #696]
 .LBE2619:
 .LBE2622:
 .LBE2625:
@@ -14347,7 +14347,7 @@ crypto_aead_decrypt:
 	.loc 1 52 0
 	eor	r5, r5, r3
 	.loc 1 53 0
-	ldr	r3, [sp, #840]
+	ldr	r3, [sp, #712]
 .LBE2620:
 .LBE2623:
 .LBE2626:
@@ -14444,32 +14444,32 @@ crypto_aead_decrypt:
 	mov	r1, r1, asl #1
 .LVL928:
 	.loc 1 102 0
-	strb	r2, [sp, #831]
+	strb	r2, [sp, #703]
 	mov	ip, r2, lsr #8
 .LVL929:
 	mov	r7, r2, lsr #16
 .LVL930:
 	.loc 1 104 0
-	strb	r3, [sp, #839]
+	strb	r3, [sp, #711]
 	.loc 1 102 0
 	mov	r2, r2, lsr #24
 .LVL931:
-	strb	r2, [sp, #828]
+	strb	r2, [sp, #700]
 	.loc 1 103 0
 	mov	r2, r6, lsr #8
-	strb	r2, [sp, #834]
+	strb	r2, [sp, #706]
 	mov	r2, r6, lsr #16
-	strb	r2, [sp, #833]
+	strb	r2, [sp, #705]
 	.loc 1 104 0
 	mov	r2, r3, lsr #8
-	strb	r2, [sp, #838]
+	strb	r2, [sp, #710]
 	mov	r2, r3, lsr #16
 	mov	r3, r3, lsr #24
 .LVL932:
-	strb	r3, [sp, #836]
+	strb	r3, [sp, #708]
 	.loc 1 105 0
 	uxtb	r3, r1
-	strb	r3, [sp, #843]
+	strb	r3, [sp, #715]
 .LBE2636:
 .LBE2646:
 	.loc 1 141 0
@@ -14477,11 +14477,11 @@ crypto_aead_decrypt:
 .LBB2647:
 .LBB2637:
 	.loc 1 103 0
-	strb	r6, [sp, #835]
+	strb	r6, [sp, #707]
 	mov	r6, r6, lsr #24
 .LVL933:
 	.loc 1 102 0
-	strb	ip, [sp, #830]
+	strb	ip, [sp, #702]
 .LBE2637:
 .LBE2647:
 	.loc 1 141 0
@@ -14489,17 +14489,17 @@ crypto_aead_decrypt:
 .LBB2648:
 .LBB2638:
 	.loc 1 102 0
-	strb	r7, [sp, #829]
+	strb	r7, [sp, #701]
 	.loc 1 103 0
-	strb	r6, [sp, #832]
+	strb	r6, [sp, #704]
 .LBE2638:
 .LBE2648:
 	.loc 1 141 0
-	strneb	r3, [sp, #843]
+	strneb	r3, [sp, #715]
 .LBB2649:
 .LBB2639:
 	.loc 1 104 0
-	strb	r2, [sp, #837]
+	strb	r2, [sp, #709]
 	.loc 1 105 0
 	mov	r2, r1, lsr #8
 .LBE2639:
@@ -14507,15 +14507,15 @@ crypto_aead_decrypt:
 .LBB2650:
 .LBB2651:
 	.loc 1 50 0
-	ldr	r3, [sp, #828]
+	ldr	r3, [sp, #700]
 .LBE2651:
 .LBE2650:
 .LBB2659:
 .LBB2640:
 	.loc 1 105 0
-	strb	r2, [sp, #842]
+	strb	r2, [sp, #714]
 	mov	r2, r1, lsr #16
-	strb	r2, [sp, #841]
+	strb	r2, [sp, #713]
 	mov	r1, r1, lsr #24
 .LVL934:
 .LBE2640:
@@ -14523,7 +14523,7 @@ crypto_aead_decrypt:
 .LBB2660:
 .LBB2652:
 	.loc 1 51 0
-	ldr	r2, [sp, #832]
+	ldr	r2, [sp, #704]
 	.loc 1 50 0
 	eor	r4, r4, r3
 .LVL935:
@@ -14532,13 +14532,13 @@ crypto_aead_decrypt:
 .LBB2661:
 .LBB2641:
 	.loc 1 105 0
-	strb	r1, [sp, #840]
+	strb	r1, [sp, #712]
 .LBE2641:
 .LBE2661:
 .LBB2662:
 .LBB2653:
 	.loc 1 52 0
-	ldr	r1, [sp, #836]
+	ldr	r1, [sp, #708]
 	.loc 1 51 0
 	eor	r3, r0, r2
 .LBE2653:
@@ -14560,14 +14560,14 @@ crypto_aead_decrypt:
 	eor	r5, r5, r1
 .LVL936:
 	.loc 1 53 0
-	ldr	r0, [sp, #840]
+	ldr	r0, [sp, #712]
 .LVL937:
 .LBE2654:
 .LBE2663:
 .LBE2671:
 .LBE2687:
 	.loc 1 624 0
-	add	r1, sp, #700
+	add	r1, sp, #572
 .LVL938:
 .LBB2688:
 .LBB2684:
@@ -14576,7 +14576,7 @@ crypto_aead_decrypt:
 	.loc 1 51 0
 	eor	ip, ip, r3
 	.loc 1 50 0
-	str	r2, [sp, #700]
+	str	r2, [sp, #572]
 .LBE2684:
 .LBE2688:
 .LBB2689:
@@ -14587,7 +14587,7 @@ crypto_aead_decrypt:
 	eor	lr, lr, r0
 .LVL939:
 	.loc 1 50 0
-	str	r4, [sp, #716]
+	str	r4, [sp, #588]
 .LBE2655:
 .LBE2664:
 .LBE2672:
@@ -14599,7 +14599,7 @@ crypto_aead_decrypt:
 .LBB2665:
 .LBB2656:
 	.loc 1 51 0
-	str	r3, [sp, #720]
+	str	r3, [sp, #592]
 .LBE2656:
 .LBE2665:
 .LBE2673:
@@ -14610,7 +14610,7 @@ crypto_aead_decrypt:
 .LBB2691:
 .LBB2685:
 	.loc 1 51 0
-	str	ip, [sp, #704]
+	str	ip, [sp, #576]
 	.loc 1 52 0
 	ldr	r3, [sp, #172]
 	.loc 1 53 0
@@ -14623,7 +14623,7 @@ crypto_aead_decrypt:
 .LBB2674:
 .LBB2666:
 .LBB2657:
-	str	r5, [sp, #724]
+	str	r5, [sp, #596]
 .LBE2657:
 .LBE2666:
 .LBE2674:
@@ -14633,16 +14633,16 @@ crypto_aead_decrypt:
 	.loc 1 53 0
 	eor	ip, ip, lr
 	.loc 1 52 0
-	str	r3, [sp, #708]
+	str	r3, [sp, #580]
 	.loc 1 53 0
-	str	ip, [sp, #712]
+	str	ip, [sp, #584]
 .LBE2686:
 .LBE2693:
 .LBB2694:
 .LBB2675:
 .LBB2667:
 .LBB2658:
-	str	lr, [sp, #728]
+	str	lr, [sp, #600]
 .LVL941:
 .LBE2658:
 .LBE2667:
@@ -14654,11 +14654,11 @@ crypto_aead_decrypt:
 .LBB2695:
 .LBB2696:
 	.loc 1 50 0
-	ldr	r4, [sp, #700]
+	ldr	r4, [sp, #572]
 .LBE2696:
 .LBE2695:
 	.loc 1 628 0
-	add	r1, sp, #700
+	add	r1, sp, #572
 .LVL943:
 .LBB2700:
 .LBB2697:
@@ -14672,7 +14672,7 @@ crypto_aead_decrypt:
 .LBB2701:
 .LBB2698:
 	.loc 1 51 0
-	ldr	lr, [sp, #704]
+	ldr	lr, [sp, #576]
 .LBE2698:
 .LBE2701:
 	.loc 1 628 0
@@ -14684,26 +14684,26 @@ crypto_aead_decrypt:
 	.loc 1 51 0
 	ldr	r5, [sp, #28]
 	.loc 1 52 0
-	ldr	ip, [sp, #708]
+	ldr	ip, [sp, #580]
 	.loc 1 51 0
 	eor	lr, lr, r5
-	str	lr, [sp, #704]
+	str	lr, [sp, #576]
 	.loc 1 52 0
 	ldr	lr, [sp, #32]
 	.loc 1 53 0
-	ldr	r3, [sp, #712]
+	ldr	r3, [sp, #584]
 	.loc 1 52 0
 	eor	ip, ip, lr
 	.loc 1 53 0
 	ldr	lr, [sp, #36]
 	.loc 1 50 0
-	str	r4, [sp, #700]
+	str	r4, [sp, #572]
 	.loc 1 53 0
 	eor	r3, r3, lr
 	.loc 1 52 0
-	str	ip, [sp, #708]
+	str	ip, [sp, #580]
 	.loc 1 53 0
-	str	r3, [sp, #712]
+	str	r3, [sp, #584]
 .LBE2699:
 .LBE2702:
 	.loc 1 628 0
@@ -14712,55 +14712,55 @@ crypto_aead_decrypt:
 .LBB2703:
 .LBB2704:
 	.loc 1 158 0
-	ldrb	r3, [sp, #813]	@ zero_extendqisi2
-	ldrb	r6, [sp, #814]	@ zero_extendqisi2
+	ldrb	r3, [sp, #685]	@ zero_extendqisi2
+	ldrb	r6, [sp, #686]	@ zero_extendqisi2
 	.loc 1 160 0
-	ldrb	r1, [sp, #821]	@ zero_extendqisi2
+	ldrb	r1, [sp, #693]	@ zero_extendqisi2
 	.loc 1 161 0
-	ldrb	r2, [sp, #825]	@ zero_extendqisi2
+	ldrb	r2, [sp, #697]	@ zero_extendqisi2
 	.loc 1 158 0
 	mov	r3, r3, asl #16
 	.loc 1 160 0
-	ldrb	r0, [sp, #822]	@ zero_extendqisi2
+	ldrb	r0, [sp, #694]	@ zero_extendqisi2
 	orr	r3, r3, r6, asl #8
 	.loc 1 159 0
-	ldrb	ip, [sp, #817]	@ zero_extendqisi2
+	ldrb	ip, [sp, #689]	@ zero_extendqisi2
 	.loc 1 160 0
 	mov	r1, r1, asl #16
 	.loc 1 161 0
-	ldrb	r5, [sp, #826]	@ zero_extendqisi2
+	ldrb	r5, [sp, #698]	@ zero_extendqisi2
 	mov	r2, r2, asl #16
 	.loc 1 159 0
-	ldrb	lr, [sp, #818]	@ zero_extendqisi2
+	ldrb	lr, [sp, #690]	@ zero_extendqisi2
 	orr	r1, r1, r0, asl #8
 	.loc 1 158 0
-	ldrb	r6, [sp, #815]	@ zero_extendqisi2
+	ldrb	r6, [sp, #687]	@ zero_extendqisi2
 	.loc 1 159 0
 	mov	ip, ip, asl #16
 	.loc 1 157 0
-	ldrb	r10, [sp, #812]	@ zero_extendqisi2
+	ldrb	r10, [sp, #684]	@ zero_extendqisi2
 .LVL946:
 	orr	r5, r2, r5, asl #8
 	.loc 1 159 0
-	ldrb	r9, [sp, #819]	@ zero_extendqisi2
+	ldrb	r9, [sp, #691]	@ zero_extendqisi2
 	.loc 1 158 0
 	eor	r6, r6, r3
 	.loc 1 160 0
-	ldrb	r7, [sp, #823]	@ zero_extendqisi2
+	ldrb	r7, [sp, #695]	@ zero_extendqisi2
 	orr	lr, ip, lr, asl #8
 	.loc 1 161 0
-	ldrb	r2, [sp, #827]	@ zero_extendqisi2
+	ldrb	r2, [sp, #699]	@ zero_extendqisi2
 	.loc 1 158 0
 	orr	r6, r6, r10, asl #24
 .LVL947:
 	.loc 1 161 0
-	ldrb	r3, [sp, #824]	@ zero_extendqisi2
+	ldrb	r3, [sp, #696]	@ zero_extendqisi2
 	.loc 1 159 0
 	eor	lr, lr, r9
-	ldrb	r4, [sp, #816]	@ zero_extendqisi2
+	ldrb	r4, [sp, #688]	@ zero_extendqisi2
 	.loc 1 160 0
 	eor	r1, r1, r7
-	ldrb	r0, [sp, #820]	@ zero_extendqisi2
+	ldrb	r0, [sp, #692]	@ zero_extendqisi2
 	.loc 1 161 0
 	eor	r5, r5, r2
 	orr	r2, r5, r3, asl #24
@@ -14830,49 +14830,49 @@ crypto_aead_decrypt:
 	eor	lr, r4, r10
 .LVL960:
 	.loc 1 183 0
-	strb	ip, [sp, #719]
+	strb	ip, [sp, #591]
 	mov	r2, ip, lsr #8
 	mov	r0, ip, lsr #16
-	strb	r2, [sp, #718]
+	strb	r2, [sp, #590]
 	mov	ip, ip, lsr #24
 .LVL961:
-	strb	r0, [sp, #717]
+	strb	r0, [sp, #589]
 	.loc 1 184 0
 	mov	r4, lr, lsr #8
 	.loc 1 183 0
-	strb	ip, [sp, #716]
+	strb	ip, [sp, #588]
 	.loc 1 184 0
 	mov	r2, lr, lsr #16
 	.loc 1 185 0
 	mov	r0, r1, lsr #8
 	mov	ip, r1, lsr #16
 	.loc 1 184 0
-	strb	lr, [sp, #723]
+	strb	lr, [sp, #595]
 	mov	lr, lr, lsr #24
 .LVL962:
 	.loc 1 185 0
-	strb	r1, [sp, #727]
+	strb	r1, [sp, #599]
 	mov	r1, r1, lsr #24
 .LVL963:
 	.loc 1 186 0
-	strb	r3, [sp, #731]
+	strb	r3, [sp, #603]
 	.loc 1 184 0
-	strb	r4, [sp, #722]
-	strb	r2, [sp, #721]
+	strb	r4, [sp, #594]
+	strb	r2, [sp, #593]
 	.loc 1 186 0
 	mov	r2, r3, lsr #8
 	.loc 1 184 0
-	strb	lr, [sp, #720]
+	strb	lr, [sp, #592]
 	.loc 1 185 0
-	strb	r0, [sp, #726]
+	strb	r0, [sp, #598]
 	.loc 1 186 0
 	mov	r0, r3, lsr #16
 	.loc 1 185 0
-	strb	r1, [sp, #724]
+	strb	r1, [sp, #596]
 	.loc 1 186 0
 	mov	r3, r3, lsr #24
 .LVL964:
-	strb	r2, [sp, #730]
+	strb	r2, [sp, #602]
 .LBE2704:
 .LBE2703:
 	.loc 1 632 0
@@ -14880,7 +14880,7 @@ crypto_aead_decrypt:
 .LBB2708:
 .LBB2705:
 	.loc 1 186 0
-	strb	r0, [sp, #729]
+	strb	r0, [sp, #601]
 .LBE2705:
 .LBE2708:
 	.loc 1 632 0
@@ -14888,57 +14888,57 @@ crypto_aead_decrypt:
 .LBB2709:
 .LBB2706:
 	.loc 1 186 0
-	strb	r3, [sp, #728]
+	strb	r3, [sp, #600]
 .LVL965:
 .LBE2706:
 .LBE2709:
 	.loc 1 632 0
-	add	r0, sp, #828
+	add	r0, sp, #700
 .LVL966:
 .LBB2710:
 .LBB2711:
 	.loc 1 50 0
-	ldr	r4, [sp, #716]
+	ldr	r4, [sp, #588]
 .LBE2711:
 .LBE2710:
 .LBB2713:
 .LBB2707:
 	.loc 1 185 0
-	strb	ip, [sp, #725]
+	strb	ip, [sp, #597]
 .LBE2707:
 .LBE2713:
 .LBB2714:
 .LBB2712:
 	.loc 1 50 0
-	ldr	ip, [sp, #700]
+	ldr	ip, [sp, #572]
 	.loc 1 51 0
-	ldr	r3, [sp, #704]
-	ldr	lr, [sp, #720]
+	ldr	r3, [sp, #576]
+	ldr	lr, [sp, #592]
 	.loc 1 50 0
 	eor	r4, r4, ip
 	.loc 1 52 0
-	ldr	r6, [sp, #724]
+	ldr	r6, [sp, #596]
 .LVL967:
 	.loc 1 51 0
 	eor	lr, lr, r3
 	.loc 1 52 0
-	ldr	ip, [sp, #708]
+	ldr	ip, [sp, #580]
 	.loc 1 53 0
-	ldr	r5, [sp, #728]
+	ldr	r5, [sp, #600]
 .LVL968:
-	ldr	r3, [sp, #712]
+	ldr	r3, [sp, #584]
 	.loc 1 52 0
 	eor	ip, ip, r6
 	.loc 1 50 0
-	str	r4, [sp, #828]
+	str	r4, [sp, #700]
 	.loc 1 53 0
 	eor	r3, r3, r5
 	.loc 1 51 0
-	str	lr, [sp, #832]
+	str	lr, [sp, #704]
 	.loc 1 52 0
-	str	ip, [sp, #836]
+	str	ip, [sp, #708]
 	.loc 1 53 0
-	str	r3, [sp, #840]
+	str	r3, [sp, #712]
 .LBE2712:
 .LBE2714:
 	.loc 1 632 0
@@ -14952,11 +14952,11 @@ crypto_aead_decrypt:
 	.loc 1 637 0
 	ldr	r3, [sp, #188]
 	mov	r0, r4
-	ldr	r2, [sp, #876]
+	ldr	r2, [sp, #748]
 	ldr	r3, [r3]
 	cmp	r2, r3
 	bne	.L712
-	add	sp, sp, #884
+	add	sp, sp, #756
 	.cfi_remember_state
 	.cfi_def_cfa_offset 36
 	@ sp needed
@@ -14971,15 +14971,15 @@ crypto_aead_decrypt:
 	.loc 2 51 0
 	ldmia	r6, {r0, r1, r2, r3}
 .LVL972:
-	add	lr, sp, #732
+	add	lr, sp, #604
 .LVL973:
 	mov	ip, #6
 	stmia	lr, {r0, r1, r2, r3}
 .LVL974:
 	mov	r9, r0
-	ldr	r3, [sp, #736]
-	ldr	fp, [sp, #740]
-	ldr	r10, [sp, #744]
+	ldr	r3, [sp, #608]
+	ldr	fp, [sp, #612]
+	ldr	r10, [sp, #616]
 	mov	r4, r3
 .LVL975:
 .L639:
@@ -14990,48 +14990,48 @@ crypto_aead_decrypt:
 .LBB2721:
 .LBB2722:
 	.loc 1 95 0
-	ldrb	r5, [sp, #737]	@ zero_extendqisi2
-	ldrb	r7, [sp, #738]	@ zero_extendqisi2
+	ldrb	r5, [sp, #609]	@ zero_extendqisi2
+	ldrb	r7, [sp, #610]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	r3, [sp, #741]	@ zero_extendqisi2
+	ldrb	r3, [sp, #613]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r5, r5, asl #16
 	.loc 1 94 0
-	ldrb	r1, [sp, #733]	@ zero_extendqisi2
+	ldrb	r1, [sp, #605]	@ zero_extendqisi2
 	.loc 1 96 0
-	ldrb	r2, [sp, #742]	@ zero_extendqisi2
+	ldrb	r2, [sp, #614]	@ zero_extendqisi2
 	orr	r7, r5, r7, asl #8
 	.loc 1 97 0
-	ldrb	r5, [sp, #745]	@ zero_extendqisi2
+	ldrb	r5, [sp, #617]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r3, r3, asl #16
 	.loc 1 94 0
-	ldrb	lr, [sp, #734]	@ zero_extendqisi2
+	ldrb	lr, [sp, #606]	@ zero_extendqisi2
 	mov	r1, r1, asl #16
 	.loc 1 95 0
-	ldrb	r6, [sp, #739]	@ zero_extendqisi2
+	ldrb	r6, [sp, #611]	@ zero_extendqisi2
 	orr	r2, r3, r2, asl #8
-	ldrb	r0, [sp, #736]	@ zero_extendqisi2
+	ldrb	r0, [sp, #608]	@ zero_extendqisi2
 	.loc 1 97 0
 	mov	r3, r5, asl #16
-	ldrb	r8, [sp, #746]	@ zero_extendqisi2
+	ldrb	r8, [sp, #618]	@ zero_extendqisi2
 	.loc 1 95 0
 	eor	r7, r7, r6
 	orr	r1, r1, lr, asl #8
 	.loc 1 94 0
-	ldrb	lr, [sp, #735]	@ zero_extendqisi2
+	ldrb	lr, [sp, #607]	@ zero_extendqisi2
 	.loc 1 95 0
 	orr	r6, r7, r0, asl #24
 .LBE2722:
 .LBE2721:
 	.loc 1 138 0
-	ldrb	r0, [sp, #732]	@ zero_extendqisi2
+	ldrb	r0, [sp, #604]	@ zero_extendqisi2
 .LVL976:
 	orr	r5, r3, r8, asl #8
 .LBB2729:
 .LBB2723:
 	.loc 1 96 0
-	ldrb	r3, [sp, #743]	@ zero_extendqisi2
+	ldrb	r3, [sp, #615]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	lr, lr, r1
 .LBE2723:
@@ -15043,15 +15043,15 @@ crypto_aead_decrypt:
 	.loc 1 96 0
 	eor	r2, r2, r3
 	.loc 1 97 0
-	ldrb	r3, [sp, #747]	@ zero_extendqisi2
+	ldrb	r3, [sp, #619]	@ zero_extendqisi2
 	.loc 1 94 0
 	orr	r0, lr, r0, asl #24
 .LVL977:
 	.loc 1 96 0
-	ldrb	lr, [sp, #740]	@ zero_extendqisi2
+	ldrb	lr, [sp, #612]	@ zero_extendqisi2
 	.loc 1 97 0
 	eor	r3, r3, r5
-	ldrb	r5, [sp, #744]	@ zero_extendqisi2
+	ldrb	r5, [sp, #616]	@ zero_extendqisi2
 	.loc 1 99 0
 	mov	r1, r6, asl #1
 	.loc 1 98 0
@@ -15065,7 +15065,7 @@ crypto_aead_decrypt:
 	orr	r3, r3, r5, asl #24
 .LVL979:
 	.loc 1 102 0
-	strb	r0, [sp, #847]
+	strb	r0, [sp, #719]
 	.loc 1 99 0
 	orr	r1, r1, r2, lsr #31
 .LVL980:
@@ -15081,26 +15081,26 @@ crypto_aead_decrypt:
 	mov	lr, r0, lsr #8
 .LVL984:
 	.loc 1 103 0
-	strb	r1, [sp, #851]
+	strb	r1, [sp, #723]
 	.loc 1 102 0
-	strb	lr, [sp, #846]
+	strb	lr, [sp, #718]
 	mov	lr, r0, lsr #16
 	mov	r0, r0, lsr #24
 .LVL985:
-	strb	lr, [sp, #845]
-	strb	r0, [sp, #844]
+	strb	lr, [sp, #717]
+	strb	r0, [sp, #716]
 	.loc 1 103 0
 	mov	lr, r1, lsr #8
 	mov	r0, r1, lsr #16
 	mov	r1, r1, lsr #24
 .LVL986:
-	strb	r1, [sp, #848]
+	strb	r1, [sp, #720]
 	.loc 1 104 0
 	mov	r1, r2, lsr #16
-	strb	r1, [sp, #853]
+	strb	r1, [sp, #725]
 	.loc 1 105 0
 	uxtb	r1, r3
-	strb	r1, [sp, #859]
+	strb	r1, [sp, #731]
 .LBE2724:
 .LBE2730:
 	.loc 1 141 0
@@ -15108,9 +15108,9 @@ crypto_aead_decrypt:
 .LBB2731:
 .LBB2725:
 	.loc 1 104 0
-	strb	r2, [sp, #855]
+	strb	r2, [sp, #727]
 	.loc 1 103 0
-	strb	r0, [sp, #849]
+	strb	r0, [sp, #721]
 .LBE2725:
 .LBE2731:
 	.loc 1 141 0
@@ -15122,25 +15122,25 @@ crypto_aead_decrypt:
 .LBE2726:
 .LBE2732:
 	.loc 1 141 0
-	strneb	r1, [sp, #859]
+	strneb	r1, [sp, #731]
 .LBB2733:
 .LBB2727:
 	.loc 1 104 0
-	strb	r0, [sp, #854]
+	strb	r0, [sp, #726]
 	mov	r2, r2, lsr #24
 .LVL987:
 	.loc 1 105 0
 	mov	r0, r3, lsr #8
 	.loc 1 104 0
-	strb	r2, [sp, #852]
+	strb	r2, [sp, #724]
 	.loc 1 103 0
-	strb	lr, [sp, #850]
+	strb	lr, [sp, #722]
 	.loc 1 105 0
 	mov	r2, r3, lsr #16
-	strb	r0, [sp, #858]
+	strb	r0, [sp, #730]
 	mov	r3, r3, lsr #24
 .LVL988:
-	strb	r2, [sp, #857]
+	strb	r2, [sp, #729]
 .LBE2727:
 .LBE2733:
 .LBE2720:
@@ -15152,37 +15152,37 @@ crypto_aead_decrypt:
 .LBB2734:
 .LBB2728:
 	.loc 1 105 0
-	strb	r3, [sp, #856]
+	strb	r3, [sp, #728]
 .LBE2728:
 .LBE2734:
 .LBB2735:
 .LBB2736:
 	.loc 1 50 0
-	ldr	r2, [sp, #844]
+	ldr	r2, [sp, #716]
 	.loc 1 51 0
-	ldr	r3, [sp, #848]
+	ldr	r3, [sp, #720]
 	.loc 1 50 0
 	eor	r9, r9, r2
 	.loc 1 52 0
-	ldr	r2, [sp, #852]
+	ldr	r2, [sp, #724]
 	.loc 1 51 0
 	eor	r4, r4, r3
 	.loc 1 53 0
-	ldr	r3, [sp, #856]
+	ldr	r3, [sp, #728]
 	.loc 1 52 0
 	eor	fp, fp, r2
 	.loc 1 50 0
-	str	r9, [sp, #732]
+	str	r9, [sp, #604]
 .LVL989:
 	.loc 1 53 0
 	eor	r10, r10, r3
 	.loc 1 51 0
-	str	r4, [sp, #736]
+	str	r4, [sp, #608]
 	.loc 1 52 0
-	str	fp, [sp, #740]
+	str	fp, [sp, #612]
 .LVL990:
 	.loc 1 53 0
-	str	r10, [sp, #744]
+	str	r10, [sp, #616]
 .LVL991:
 .LBE2736:
 .LBE2735:
@@ -15196,47 +15196,47 @@ crypto_aead_decrypt:
 .LBB2741:
 .LBB2742:
 	.loc 1 96 0
-	ldrb	r1, [sp, #741]	@ zero_extendqisi2
+	ldrb	r1, [sp, #613]	@ zero_extendqisi2
 	.loc 1 94 0
-	ldrb	r6, [sp, #733]	@ zero_extendqisi2
+	ldrb	r6, [sp, #605]	@ zero_extendqisi2
 .LVL993:
 	.loc 1 96 0
-	ldrb	r0, [sp, #742]	@ zero_extendqisi2
+	ldrb	r0, [sp, #614]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r2, [sp, #737]	@ zero_extendqisi2
+	ldrb	r2, [sp, #609]	@ zero_extendqisi2
 	.loc 1 96 0
 	mov	r1, r1, asl #16
 	.loc 1 94 0
-	ldrb	ip, [sp, #734]	@ zero_extendqisi2
+	ldrb	ip, [sp, #606]	@ zero_extendqisi2
 	mov	r5, r6, asl #16
 	.loc 1 95 0
-	ldrb	lr, [sp, #738]	@ zero_extendqisi2
+	ldrb	lr, [sp, #610]	@ zero_extendqisi2
 	orr	r1, r1, r0, asl #8
 	.loc 1 94 0
-	ldrb	r7, [sp, #735]	@ zero_extendqisi2
+	ldrb	r7, [sp, #607]	@ zero_extendqisi2
 	.loc 1 95 0
 	mov	r2, r2, asl #16
 .LBE2742:
 .LBE2741:
 	.loc 1 138 0
-	ldrb	r0, [sp, #732]	@ zero_extendqisi2
+	ldrb	r0, [sp, #604]	@ zero_extendqisi2
 	orr	r6, r5, ip, asl #8
 	orr	r2, r2, lr, asl #8
 .LBB2750:
 .LBB2743:
 	.loc 1 97 0
-	ldrb	r3, [sp, #745]	@ zero_extendqisi2
+	ldrb	r3, [sp, #617]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	lr, [sp, #739]	@ zero_extendqisi2
+	ldrb	lr, [sp, #611]	@ zero_extendqisi2
 	.loc 1 94 0
 	eor	ip, r6, r7
 	.loc 1 97 0
-	ldrb	r5, [sp, #746]	@ zero_extendqisi2
+	ldrb	r5, [sp, #618]	@ zero_extendqisi2
 	.loc 1 95 0
-	ldrb	r6, [sp, #736]	@ zero_extendqisi2
+	ldrb	r6, [sp, #608]	@ zero_extendqisi2
 	eor	lr, lr, r2
 	.loc 1 96 0
-	ldrb	r7, [sp, #743]	@ zero_extendqisi2
+	ldrb	r7, [sp, #615]	@ zero_extendqisi2
 	.loc 1 94 0
 	orr	r2, ip, r0, asl #24
 	.loc 1 97 0
@@ -15249,13 +15249,13 @@ crypto_aead_decrypt:
 	.loc 1 94 0
 	mov	r8, r2
 	.loc 1 96 0
-	ldrb	r5, [sp, #740]	@ zero_extendqisi2
+	ldrb	r5, [sp, #612]	@ zero_extendqisi2
 	.loc 1 97 0
-	ldrb	r2, [sp, #747]	@ zero_extendqisi2
+	ldrb	r2, [sp, #619]	@ zero_extendqisi2
 	.loc 1 96 0
 	eor	ip, r1, r7
 	.loc 1 97 0
-	ldrb	r1, [sp, #744]	@ zero_extendqisi2
+	ldrb	r1, [sp, #616]	@ zero_extendqisi2
 .LBE2743:
 .LBE2750:
 	.loc 1 138 0
@@ -15319,39 +15319,39 @@ crypto_aead_decrypt:
 	ubfx	ip, r1, #8, #8
 	str	r0, [sp, #52]
 	str	ip, [sp, #56]
-	strb	r0, [sp, #847]
+	strb	r0, [sp, #719]
 	ubfx	r0, r1, #16, #8
-	strb	ip, [sp, #846]
+	strb	ip, [sp, #718]
 	mov	ip, r1, lsr #24
 	str	r0, [sp, #60]
 	str	ip, [sp, #64]
-	strb	r0, [sp, #845]
+	strb	r0, [sp, #717]
 	.loc 1 103 0
 	uxtb	r0, r2
 	.loc 1 102 0
-	strb	ip, [sp, #844]
+	strb	ip, [sp, #716]
 	.loc 1 103 0
 	ubfx	ip, r2, #8, #8
 	str	r0, [sp, #68]
 	str	ip, [sp, #72]
-	strb	r0, [sp, #851]
+	strb	r0, [sp, #723]
 	ubfx	r0, r2, #16, #8
 	str	r0, [sp, #76]
 .LVL1005:
-	strb	r0, [sp, #849]
+	strb	r0, [sp, #721]
 	.loc 1 104 0
 	uxtb	r0, r3
-	strb	r0, [sp, #855]
+	strb	r0, [sp, #727]
 	str	r0, [sp, #84]
 	ubfx	r0, r3, #16, #8
-	strb	r0, [sp, #853]
+	strb	r0, [sp, #725]
 	str	r0, [sp, #92]
 	.loc 1 105 0
 	ubfx	r0, lr, #8, #8
-	strb	r0, [sp, #858]
+	strb	r0, [sp, #730]
 	str	r0, [sp, #100]
 	mov	r0, lr, lsr #24
-	strb	r0, [sp, #856]
+	strb	r0, [sp, #728]
 	str	r0, [sp, #108]
 .LBE2745:
 .LBE2752:
@@ -15360,24 +15360,24 @@ crypto_aead_decrypt:
 .LBB2753:
 .LBB2746:
 	.loc 1 105 0
-	strb	r8, [sp, #859]
+	strb	r8, [sp, #731]
 .LBE2746:
 .LBE2753:
 	.loc 1 141 0
 	mvnne	r0, r0
-	strneb	r0, [sp, #859]
+	strneb	r0, [sp, #731]
 .LBB2754:
 .LBB2755:
 	.loc 1 50 0
-	ldr	r0, [sp, #844]
+	ldr	r0, [sp, #716]
 .LBE2755:
 .LBE2754:
 .LBB2768:
 .LBB2747:
 	.loc 1 103 0
-	strb	ip, [sp, #850]
+	strb	ip, [sp, #722]
 	mov	ip, r2, lsr #24
-	strb	ip, [sp, #848]
+	strb	ip, [sp, #720]
 .LBE2747:
 .LBE2768:
 .LBB2769:
@@ -15392,16 +15392,16 @@ crypto_aead_decrypt:
 	str	ip, [sp, #80]
 	.loc 1 104 0
 	ubfx	ip, r3, #8, #8
-	strb	ip, [sp, #854]
+	strb	ip, [sp, #726]
 	str	ip, [sp, #88]
 	mov	ip, r3, lsr #24
-	strb	ip, [sp, #852]
+	strb	ip, [sp, #724]
 .LBE2748:
 .LBE2770:
 .LBB2771:
 .LBB2757:
 	.loc 1 52 0
-	ldr	r5, [sp, #852]
+	ldr	r5, [sp, #724]
 	.loc 1 51 0
 	ldr	r4, [sp, #28]
 .LVL1006:
@@ -15413,16 +15413,16 @@ crypto_aead_decrypt:
 	str	ip, [sp, #96]
 	.loc 1 105 0
 	ubfx	ip, lr, #16, #8
-	strb	ip, [sp, #857]
+	strb	ip, [sp, #729]
 	str	ip, [sp, #104]
 .LBE2749:
 .LBE2772:
 .LBB2773:
 .LBB2758:
 	.loc 1 51 0
-	ldr	ip, [sp, #848]
+	ldr	ip, [sp, #720]
 	.loc 1 53 0
-	ldr	r7, [sp, #856]
+	ldr	r7, [sp, #728]
 .LVL1007:
 	.loc 1 51 0
 	eor	ip, ip, r4
@@ -15550,7 +15550,7 @@ crypto_aead_decrypt:
 	ldr	r4, [sp, #8]
 	.loc 1 102 0
 	mov	r7, r0, lsr #8
-	strb	r0, [sp, #847]
+	strb	r0, [sp, #719]
 	.loc 1 99 0
 	orr	r6, r6, ip, lsr #31
 	.loc 1 100 0
@@ -15558,7 +15558,7 @@ crypto_aead_decrypt:
 	.loc 1 97 0
 	eor	r5, r5, r4, lsr #24
 	.loc 1 102 0
-	strb	r7, [sp, #846]
+	strb	r7, [sp, #718]
 	.loc 1 97 0
 	eor	r5, r5, r4, asl #24
 .LBE2799:
@@ -15582,7 +15582,7 @@ crypto_aead_decrypt:
 	.loc 1 102 0
 	mov	r7, r0, lsr #16
 	.loc 1 103 0
-	strb	r6, [sp, #851]
+	strb	r6, [sp, #723]
 	.loc 1 100 0
 	orr	ip, ip, r5, lsr #31
 	.loc 1 101 0
@@ -15596,7 +15596,7 @@ crypto_aead_decrypt:
 .LBB2777:
 .LBB2762:
 	.loc 1 50 0
-	str	r4, [sp, #748]
+	str	r4, [sp, #620]
 .LBE2762:
 .LBE2777:
 .LBE2786:
@@ -15626,8 +15626,8 @@ crypto_aead_decrypt:
 .LBB2816:
 .LBB2802:
 	.loc 1 102 0
-	strb	r7, [sp, #845]
-	strb	r0, [sp, #844]
+	strb	r7, [sp, #717]
+	strb	r0, [sp, #716]
 	.loc 1 103 0
 	mov	r0, r6, lsr #8
 .LBE2802:
@@ -15639,7 +15639,7 @@ crypto_aead_decrypt:
 .LBB2779:
 .LBB2764:
 	.loc 1 51 0
-	str	r4, [sp, #752]
+	str	r4, [sp, #624]
 	.loc 1 52 0
 	ldr	r4, [sp, #20]
 .LBE2764:
@@ -15651,7 +15651,7 @@ crypto_aead_decrypt:
 .LBB2817:
 .LBB2803:
 	.loc 1 103 0
-	strb	r0, [sp, #850]
+	strb	r0, [sp, #722]
 	mov	r0, r6, lsr #16
 .LBE2803:
 .LBE2817:
@@ -15682,7 +15682,7 @@ crypto_aead_decrypt:
 .LBB2781:
 .LBB2766:
 	.loc 1 52 0
-	str	r4, [sp, #756]
+	str	r4, [sp, #628]
 .LBE2766:
 .LBE2781:
 .LBE2790:
@@ -15692,7 +15692,7 @@ crypto_aead_decrypt:
 .LBB2819:
 .LBB2805:
 	.loc 1 103 0
-	strb	r6, [sp, #848]
+	strb	r6, [sp, #720]
 	.loc 1 104 0
 	mov	r6, ip, lsr #8
 .LBE2805:
@@ -15714,15 +15714,15 @@ crypto_aead_decrypt:
 .LBB2820:
 .LBB2806:
 	.loc 1 104 0
-	strb	r6, [sp, #854]
+	strb	r6, [sp, #726]
 	.loc 1 105 0
 	uxtb	r6, r5
 	.loc 1 103 0
-	strb	r0, [sp, #849]
+	strb	r0, [sp, #721]
 	.loc 1 104 0
 	mov	r0, ip, lsr #16
 	.loc 1 105 0
-	strb	r6, [sp, #859]
+	strb	r6, [sp, #731]
 .LBE2806:
 .LBE2820:
 	.loc 1 141 0
@@ -15730,10 +15730,10 @@ crypto_aead_decrypt:
 .LBB2821:
 .LBB2807:
 	.loc 1 104 0
-	strb	r0, [sp, #853]
+	strb	r0, [sp, #725]
 	.loc 1 105 0
 	mov	r0, r5, lsr #8
-	strb	r0, [sp, #858]
+	strb	r0, [sp, #730]
 .LBE2807:
 .LBE2821:
 	.loc 1 141 0
@@ -15749,7 +15749,7 @@ crypto_aead_decrypt:
 .LBB2915:
 .LBB2849:
 	.loc 1 141 0
-	strneb	r6, [sp, #859]
+	strneb	r6, [sp, #731]
 .LBE2849:
 .LBE2915:
 .LBB2916:
@@ -15769,7 +15769,7 @@ crypto_aead_decrypt:
 .LBB2782:
 .LBB2767:
 	.loc 1 53 0
-	str	r7, [sp, #760]
+	str	r7, [sp, #632]
 .LVL1008:
 .LBE2767:
 .LBE2782:
@@ -15780,7 +15780,7 @@ crypto_aead_decrypt:
 .LBB2822:
 .LBB2808:
 	.loc 1 104 0
-	strb	ip, [sp, #855]
+	strb	ip, [sp, #727]
 	mov	ip, ip, lsr #24
 .LVL1009:
 .LBE2808:
@@ -15788,7 +15788,7 @@ crypto_aead_decrypt:
 .LBB2823:
 .LBB2824:
 	.loc 1 50 0
-	ldr	r0, [sp, #844]
+	ldr	r0, [sp, #716]
 .LBE2824:
 .LBE2823:
 .LBE2850:
@@ -15805,13 +15805,13 @@ crypto_aead_decrypt:
 .LBB2832:
 .LBB2809:
 	.loc 1 104 0
-	strb	ip, [sp, #852]
+	strb	ip, [sp, #724]
 	.loc 1 105 0
 	mov	ip, r5, lsr #16
 	mov	r5, r5, lsr #24
 .LVL1011:
-	strb	ip, [sp, #857]
-	strb	r5, [sp, #856]
+	strb	ip, [sp, #729]
+	strb	r5, [sp, #728]
 .LBE2809:
 .LBE2832:
 .LBE2851:
@@ -15827,7 +15827,7 @@ crypto_aead_decrypt:
 .LBB2833:
 .LBB2825:
 	.loc 1 51 0
-	ldr	ip, [sp, #848]
+	ldr	ip, [sp, #720]
 .LBE2825:
 .LBE2833:
 .LBE2852:
@@ -15835,7 +15835,7 @@ crypto_aead_decrypt:
 .LBB2949:
 .LBB2950:
 	.loc 2 51 0
-	add	r7, sp, #796
+	add	r7, sp, #668
 .LVL1012:
 .LBE2950:
 .LBE2949:
@@ -15844,7 +15844,7 @@ crypto_aead_decrypt:
 .LBB2889:
 .LBB2879:
 	.loc 1 102 0
-	strb	r4, [sp, #767]
+	strb	r4, [sp, #639]
 .LBE2879:
 .LBE2889:
 .LBE2901:
@@ -15864,7 +15864,7 @@ crypto_aead_decrypt:
 .LBB2890:
 .LBB2880:
 	.loc 1 105 0
-	strb	r8, [sp, #779]
+	strb	r8, [sp, #651]
 .LBE2880:
 .LBE2890:
 	.loc 1 131 0
@@ -15898,7 +15898,7 @@ crypto_aead_decrypt:
 	.loc 1 51 0
 	eor	ip, r4, ip
 	.loc 1 52 0
-	ldr	r0, [sp, #852]
+	ldr	r0, [sp, #724]
 	ldr	r4, [sp, #20]
 	.loc 1 51 0
 	str	ip, [sp, #52]
@@ -15934,7 +15934,7 @@ crypto_aead_decrypt:
 .LBB2882:
 	.loc 1 102 0
 	ldrb	r0, [sp, #60]	@ zero_extendqisi2
-	strb	ip, [sp, #766]
+	strb	ip, [sp, #638]
 .LBE2882:
 .LBE2892:
 .LBE2905:
@@ -15944,7 +15944,7 @@ crypto_aead_decrypt:
 .LBB2838:
 .LBB2830:
 	.loc 1 53 0
-	ldr	ip, [sp, #856]
+	ldr	ip, [sp, #728]
 .LBE2830:
 .LBE2838:
 .LBE2857:
@@ -15954,9 +15954,9 @@ crypto_aead_decrypt:
 .LBB2893:
 .LBB2883:
 	.loc 1 102 0
-	strb	r0, [sp, #765]
+	strb	r0, [sp, #637]
 	ldrb	r0, [sp, #64]	@ zero_extendqisi2
-	strb	r0, [sp, #764]
+	strb	r0, [sp, #636]
 .LBE2883:
 .LBE2893:
 .LBE2906:
@@ -15995,22 +15995,22 @@ crypto_aead_decrypt:
 .LBB2895:
 .LBB2885:
 	.loc 1 103 0
-	strb	r0, [sp, #771]
+	strb	r0, [sp, #643]
 	ldrb	r0, [sp, #72]	@ zero_extendqisi2
-	strb	r0, [sp, #770]
+	strb	r0, [sp, #642]
 	ldrb	r0, [sp, #76]	@ zero_extendqisi2
-	strb	r0, [sp, #769]
+	strb	r0, [sp, #641]
 	ldrb	r0, [sp, #80]	@ zero_extendqisi2
-	strb	r0, [sp, #768]
+	strb	r0, [sp, #640]
 	.loc 1 104 0
 	ldrb	r0, [sp, #84]	@ zero_extendqisi2
-	strb	r0, [sp, #775]
+	strb	r0, [sp, #647]
 	ldrb	r0, [sp, #88]	@ zero_extendqisi2
-	strb	r0, [sp, #774]
+	strb	r0, [sp, #646]
 	ldrb	r0, [sp, #92]	@ zero_extendqisi2
-	strb	r0, [sp, #773]
+	strb	r0, [sp, #645]
 	ldrb	r0, [sp, #96]	@ zero_extendqisi2
-	strb	r0, [sp, #772]
+	strb	r0, [sp, #644]
 	.loc 1 105 0
 	ldrb	r0, [sp, #100]	@ zero_extendqisi2
 .LBE2885:
@@ -16026,7 +16026,7 @@ crypto_aead_decrypt:
 .LBB2971:
 .LBB2909:
 	.loc 1 131 0
-	strneb	r8, [sp, #779]
+	strneb	r8, [sp, #651]
 .LVL1014:
 .LBE2909:
 .LBE2971:
@@ -16041,7 +16041,7 @@ crypto_aead_decrypt:
 .LBB2896:
 .LBB2886:
 	.loc 1 105 0
-	strb	r0, [sp, #778]
+	strb	r0, [sp, #650]
 .LBE2886:
 .LBE2896:
 .LBE2910:
@@ -16073,9 +16073,9 @@ crypto_aead_decrypt:
 .LBB2898:
 .LBB2888:
 	.loc 1 105 0
-	strb	r0, [sp, #777]
+	strb	r0, [sp, #649]
 	ldrb	r0, [sp, #108]	@ zero_extendqisi2
-	strb	r0, [sp, #776]
+	strb	r0, [sp, #648]
 .LBE2888:
 .LBE2898:
 .LBE2912:
@@ -16156,7 +16156,7 @@ crypto_aead_decrypt:
 	.loc 1 50 0
 	mov	r1, r0
 	.loc 1 51 0
-	ldr	r2, [sp, #768]
+	ldr	r2, [sp, #640]
 .LBE2986:
 .LBE2985:
 .LBB2998:
@@ -16171,7 +16171,7 @@ crypto_aead_decrypt:
 .LBB2999:
 .LBB2987:
 	.loc 1 50 0
-	ldr	r0, [sp, #764]
+	ldr	r0, [sp, #636]
 .LBE2987:
 .LBE2999:
 .LBB3000:
@@ -16186,7 +16186,7 @@ crypto_aead_decrypt:
 .LBB3001:
 .LBB2988:
 	.loc 1 51 0
-	ldr	r3, [sp, #800]
+	ldr	r3, [sp, #672]
 .LBE2988:
 .LBE3001:
 .LBB3002:
@@ -16215,35 +16215,35 @@ crypto_aead_decrypt:
 .LBB3005:
 .LBB2990:
 	.loc 1 50 0
-	str	r1, [sp, #796]
+	str	r1, [sp, #668]
 .LBE2990:
 .LBE3005:
 .LBB3006:
 .LBB2932:
 	.loc 1 184 0
 	mov	r1, r6, lsr #8
-	strb	r6, [sp, #787]
+	strb	r6, [sp, #659]
 .LBE2932:
 .LBE3006:
 .LBB3007:
 .LBB2991:
 	.loc 1 52 0
-	ldr	r2, [sp, #804]
+	ldr	r2, [sp, #676]
 .LBE2991:
 .LBE3007:
 .LBB3008:
 .LBB2933:
 	.loc 1 183 0
-	strb	ip, [sp, #783]
+	strb	ip, [sp, #655]
 .LBE2933:
 .LBE3008:
 .LBB3009:
 .LBB2992:
 	.loc 1 52 0
-	ldr	ip, [sp, #772]
+	ldr	ip, [sp, #644]
 .LVL1029:
 	.loc 1 51 0
-	str	r3, [sp, #800]
+	str	r3, [sp, #672]
 .LBE2992:
 .LBE3009:
 .LBB3010:
@@ -16261,28 +16261,28 @@ crypto_aead_decrypt:
 .LBB3012:
 .LBB2935:
 	.loc 1 185 0
-	strb	r3, [sp, #789]
+	strb	r3, [sp, #661]
 	mov	ip, r5, lsr #8
 .LBE2935:
 .LBE3012:
 .LBB3013:
 .LBB2994:
 	.loc 1 53 0
-	ldr	r3, [sp, #776]
+	ldr	r3, [sp, #648]
 .LBE2994:
 .LBE3013:
 .LBB3014:
 .LBB2936:
 	.loc 1 185 0
-	strb	ip, [sp, #790]
+	strb	ip, [sp, #662]
 .LBE2936:
 .LBE3014:
 .LBB3015:
 .LBB2995:
 	.loc 1 53 0
-	ldr	ip, [sp, #808]
+	ldr	ip, [sp, #680]
 	.loc 1 52 0
-	str	r2, [sp, #804]
+	str	r2, [sp, #676]
 .LBE2995:
 .LBE3015:
 .LBB3016:
@@ -16290,27 +16290,27 @@ crypto_aead_decrypt:
 	.loc 1 184 0
 	mov	r2, r6, lsr #16
 	.loc 1 183 0
-	strb	r0, [sp, #780]
+	strb	r0, [sp, #652]
 .LBE2937:
 .LBE3016:
 	.loc 1 302 0
-	add	r0, sp, #796
+	add	r0, sp, #668
 .LBB3017:
 .LBB2938:
 	.loc 1 184 0
-	strb	r1, [sp, #786]
+	strb	r1, [sp, #658]
 .LBE2938:
 .LBE3017:
 	.loc 1 302 0
-	add	r1, sp, #812
+	add	r1, sp, #684
 .LBB3018:
 .LBB2939:
 	.loc 1 184 0
-	strb	r2, [sp, #785]
+	strb	r2, [sp, #657]
 .LBE2939:
 .LBE3018:
 	.loc 1 302 0
-	add	r2, sp, #440
+	add	r2, sp, #376
 .LVL1030:
 .LBB3019:
 .LBB2996:
@@ -16321,9 +16321,9 @@ crypto_aead_decrypt:
 .LBB3020:
 .LBB2940:
 	.loc 1 185 0
-	strb	r5, [sp, #791]
+	strb	r5, [sp, #663]
 	.loc 1 186 0
-	strb	lr, [sp, #795]
+	strb	lr, [sp, #667]
 	.loc 1 184 0
 	mov	r6, r6, lsr #24
 .LVL1031:
@@ -16331,57 +16331,57 @@ crypto_aead_decrypt:
 	mov	r5, r5, lsr #24
 .LVL1032:
 	.loc 1 183 0
-	strb	r8, [sp, #782]
-	strb	r7, [sp, #781]
+	strb	r8, [sp, #654]
+	strb	r7, [sp, #653]
 	.loc 1 186 0
 	mov	r8, lr, lsr #8
 	mov	r7, lr, lsr #16
 	.loc 1 184 0
-	strb	r6, [sp, #784]
+	strb	r6, [sp, #656]
 	.loc 1 186 0
 	mov	lr, lr, lsr #24
 .LVL1033:
 	.loc 1 185 0
-	strb	r5, [sp, #788]
+	strb	r5, [sp, #660]
 	.loc 1 186 0
-	strb	r7, [sp, #793]
-	strb	lr, [sp, #792]
+	strb	r7, [sp, #665]
+	strb	lr, [sp, #664]
 .LVL1034:
 .LBE2940:
 .LBE3020:
 .LBB3021:
 .LBB2997:
 	.loc 1 53 0
-	str	r3, [sp, #808]
+	str	r3, [sp, #680]
 .LBE2997:
 .LBE3021:
 .LBB3022:
 .LBB2941:
 	.loc 1 186 0
-	strb	r8, [sp, #794]
+	strb	r8, [sp, #666]
 .LBE2941:
 .LBE3022:
 	.loc 1 302 0
 	bl	AES_decrypt
 .LVL1035:
-	ldr	lr, [sp, #692]
+	ldr	lr, [sp, #564]
 	.loc 1 306 0
-	add	r1, sp, #796
+	add	r1, sp, #668
 .LVL1036:
-	ldr	ip, [sp, #820]
-	add	r2, sp, #440
+	ldr	ip, [sp, #692]
+	add	r2, sp, #376
 .LVL1037:
-	ldr	r0, [sp, #816]
-	ldr	r3, [sp, #688]
+	ldr	r0, [sp, #688]
+	ldr	r3, [sp, #560]
 	eor	ip, ip, lr
-	ldr	r5, [sp, #824]
+	ldr	r5, [sp, #696]
 .LBB3023:
 .LBB3024:
 	.loc 1 52 0
 	eor	ip, ip, fp
-	ldr	r6, [sp, #696]
+	ldr	r6, [sp, #568]
 	eor	r3, r3, r0
-	ldr	lr, [sp, #812]
+	ldr	lr, [sp, #684]
 .LBE3024:
 .LBE3023:
 	.loc 1 306 0
@@ -16390,7 +16390,7 @@ crypto_aead_decrypt:
 .LBB3025:
 	.loc 1 51 0
 	ldr	r4, [sp, #28]
-	ldr	r7, [sp, #684]
+	ldr	r7, [sp, #556]
 	eor	r4, r4, r3
 	eor	r3, r5, r6
 .LVL1038:
@@ -16400,13 +16400,13 @@ crypto_aead_decrypt:
 	.loc 1 50 0
 	eor	lr, lr, r9
 	.loc 1 51 0
-	str	r4, [sp, #800]
+	str	r4, [sp, #672]
 	.loc 1 52 0
-	str	ip, [sp, #804]
+	str	ip, [sp, #676]
 	.loc 1 53 0
-	str	r3, [sp, #808]
+	str	r3, [sp, #680]
 	.loc 1 50 0
-	str	lr, [sp, #796]
+	str	lr, [sp, #668]
 .LBE3025:
 .LBE3026:
 	.loc 1 306 0
@@ -16415,18 +16415,18 @@ crypto_aead_decrypt:
 .LBB3027:
 .LBB3028:
 	.loc 1 50 0
-	ldr	ip, [sp, #796]
+	ldr	ip, [sp, #668]
 .LBE3028:
 .LBE3027:
 	.loc 1 311 0
-	add	r1, sp, #796
+	add	r1, sp, #668
 .LVL1040:
 .LBB3037:
 .LBB3029:
 	.loc 1 50 0
 	ldr	r2, [sp, #24]
 	.loc 1 53 0
-	ldr	r4, [sp, #808]
+	ldr	r4, [sp, #680]
 .LBE3029:
 .LBE3037:
 	.loc 1 311 0
@@ -16438,7 +16438,7 @@ crypto_aead_decrypt:
 	.loc 1 53 0
 	ldr	r5, [sp, #8]
 	.loc 1 51 0
-	ldr	r3, [sp, #800]
+	ldr	r3, [sp, #672]
 	.loc 1 50 0
 	mov	ip, r2
 	.loc 1 51 0
@@ -16446,11 +16446,11 @@ crypto_aead_decrypt:
 	.loc 1 53 0
 	eor	r5, r5, r4
 	.loc 1 52 0
-	ldr	lr, [sp, #804]
+	ldr	lr, [sp, #676]
 	.loc 1 51 0
 	eor	r2, r2, r3
 	.loc 1 50 0
-	str	ip, [sp, #828]
+	str	ip, [sp, #700]
 	.loc 1 53 0
 	mov	r4, r5
 .LBE3030:
@@ -16486,13 +16486,13 @@ crypto_aead_decrypt:
 .LBB3050:
 .LBB3042:
 	.loc 1 50 0
-	str	r5, [sp, #796]
+	str	r5, [sp, #668]
 	.loc 1 51 0
 	eor	ip, ip, r3
 	.loc 1 52 0
 	ldr	r5, [sp, #56]
 	.loc 1 51 0
-	str	ip, [sp, #800]
+	str	ip, [sp, #672]
 .LBE3042:
 .LBE3050:
 .LBB3051:
@@ -16519,7 +16519,7 @@ crypto_aead_decrypt:
 .LBB3054:
 .LBB3034:
 	.loc 1 51 0
-	str	r3, [sp, #832]
+	str	r3, [sp, #704]
 .LBE3034:
 .LBE3054:
 .LBB3055:
@@ -16527,23 +16527,23 @@ crypto_aead_decrypt:
 	.loc 1 53 0
 	eor	ip, ip, r4
 	.loc 1 52 0
-	str	r5, [sp, #804]
+	str	r5, [sp, #676]
 .LBE3045:
 .LBE3055:
 .LBB3056:
 .LBB3035:
-	str	lr, [sp, #836]
+	str	lr, [sp, #708]
 .LBE3035:
 .LBE3056:
 .LBB3057:
 .LBB3046:
 	.loc 1 53 0
-	str	ip, [sp, #808]
+	str	ip, [sp, #680]
 .LBE3046:
 .LBE3057:
 .LBB3058:
 .LBB3036:
-	str	r4, [sp, #840]
+	str	r4, [sp, #712]
 .LVL1042:
 .LBE3036:
 .LBE3058:
@@ -16553,16 +16553,16 @@ crypto_aead_decrypt:
 .LBB3059:
 .LBB3060:
 	.loc 1 50 0
-	ldr	r4, [sp, #796]
+	ldr	r4, [sp, #668]
 .LBE3060:
 .LBE3059:
 	.loc 1 313 0
-	add	r1, sp, #796
+	add	r1, sp, #668
 .LVL1044:
 .LBB3064:
 .LBB3061:
 	.loc 1 50 0
-	ldr	ip, [sp, #812]
+	ldr	ip, [sp, #684]
 .LBE3061:
 .LBE3064:
 	.loc 1 313 0
@@ -16571,7 +16571,7 @@ crypto_aead_decrypt:
 .LBB3065:
 .LBB3062:
 	.loc 1 51 0
-	ldr	lr, [sp, #800]
+	ldr	lr, [sp, #672]
 .LBE3062:
 .LBE3065:
 	.loc 1 313 0
@@ -16579,31 +16579,31 @@ crypto_aead_decrypt:
 .LBB3066:
 .LBB3063:
 	.loc 1 51 0
-	ldr	r3, [sp, #816]
+	ldr	r3, [sp, #688]
 	.loc 1 50 0
 	eor	r4, r4, ip
 	.loc 1 52 0
-	ldr	r6, [sp, #804]
+	ldr	r6, [sp, #676]
 	.loc 1 51 0
 	eor	lr, lr, r3
 	.loc 1 53 0
-	ldr	r5, [sp, #808]
+	ldr	r5, [sp, #680]
 	.loc 1 52 0
-	ldr	ip, [sp, #820]
+	ldr	ip, [sp, #692]
 	.loc 1 53 0
-	ldr	r3, [sp, #824]
+	ldr	r3, [sp, #696]
 	.loc 1 52 0
 	eor	ip, ip, r6
 	.loc 1 50 0
-	str	r4, [sp, #796]
+	str	r4, [sp, #668]
 	.loc 1 53 0
 	eor	r3, r3, r5
 	.loc 1 51 0
-	str	lr, [sp, #800]
+	str	lr, [sp, #672]
 	.loc 1 52 0
-	str	ip, [sp, #804]
+	str	ip, [sp, #676]
 	.loc 1 53 0
-	str	r3, [sp, #808]
+	str	r3, [sp, #680]
 .LBE3063:
 .LBE3066:
 	.loc 1 313 0
@@ -16612,22 +16612,22 @@ crypto_aead_decrypt:
 .LBB3067:
 .LBB3068:
 	.loc 1 51 0
-	ldr	r3, [sp, #800]
-	ldr	r0, [sp, #784]
+	ldr	r3, [sp, #672]
+	ldr	r0, [sp, #656]
 	.loc 1 50 0
-	ldr	r1, [sp, #796]
+	ldr	r1, [sp, #668]
 .LBE3068:
 .LBE3067:
 	.loc 1 316 0
-	ldrb	r2, [sp, #843]	@ zero_extendqisi2
+	ldrb	r2, [sp, #715]	@ zero_extendqisi2
 .LBB3073:
 .LBB3069:
 	.loc 1 51 0
 	eor	r0, r0, r3
 	.loc 1 50 0
-	ldr	ip, [sp, #780]
+	ldr	ip, [sp, #652]
 	.loc 1 53 0
-	ldr	lr, [sp, #792]
+	ldr	lr, [sp, #664]
 .LBE3069:
 .LBE3073:
 	.loc 1 316 0
@@ -16635,27 +16635,27 @@ crypto_aead_decrypt:
 .LBB3074:
 .LBB3070:
 	.loc 1 53 0
-	ldr	r3, [sp, #808]
+	ldr	r3, [sp, #680]
 	.loc 1 50 0
 	eor	ip, ip, r1
 	.loc 1 52 0
-	ldr	r4, [sp, #788]
-	ldr	r1, [sp, #804]
+	ldr	r4, [sp, #660]
+	ldr	r1, [sp, #676]
 	.loc 1 53 0
 	eor	r3, r3, lr
-	str	r3, [sp, #856]
+	str	r3, [sp, #728]
 .LBE3070:
 .LBE3074:
 	.loc 1 316 0
-	add	r3, sp, #840
+	add	r3, sp, #712
 .LBB3075:
 .LBB3071:
 	.loc 1 52 0
 	eor	r1, r1, r4
 	.loc 1 50 0
-	str	ip, [sp, #844]
+	str	ip, [sp, #716]
 	.loc 1 51 0
-	str	r0, [sp, #848]
+	str	r0, [sp, #720]
 .LBE3071:
 .LBE3075:
 	.loc 1 316 0
@@ -16663,7 +16663,7 @@ crypto_aead_decrypt:
 .LBB3076:
 .LBB3072:
 	.loc 1 52 0
-	str	r1, [sp, #852]
+	str	r1, [sp, #724]
 .LBE3072:
 .LBE3076:
 	.loc 1 316 0
@@ -16679,15 +16679,15 @@ crypto_aead_decrypt:
 	.loc 1 318 0
 	cmp	r2, #128
 	bne	.L668
-	add	r5, sp, #828
+	add	r5, sp, #700
 .LVL1050:
-	ldr	r2, [sp, #920]
+	ldr	r2, [sp, #792]
 	rsb	r3, r5, r3
 	cmp	r2, r3
 	bne	.L668
 	.loc 1 322 0
 	ldr	r3, [sp, #180]
-	add	r1, sp, #844
+	add	r1, sp, #716
 .LVL1051:
 	add	r0, r3, #16
 	bl	memcmp
@@ -16696,7 +16696,7 @@ crypto_aead_decrypt:
 	bne	.L668
 .LVL1053:
 	.loc 1 323 0
-	ldr	r3, [sp, #920]
+	ldr	r3, [sp, #792]
 	cmp	r3, #0
 	ble	.L649
 	mov	r2, r3
@@ -16716,19 +16716,19 @@ crypto_aead_decrypt:
 	mov	r3, #32
 	add	r2, r4, #16
 .LVL1056:
-	add	r0, sp, #844
+	add	r0, sp, #716
 .LVL1057:
 	bl	__memcpy_chk
 .LVL1058:
 .LBE3079:
 .LBE3078:
 	.loc 1 614 0
-	add	r3, sp, #440
+	add	r3, sp, #376
 .LVL1059:
-	add	r2, sp, #812
+	add	r2, sp, #684
 .LVL1060:
 	mov	r1, r4
-	add	r0, sp, #844
+	add	r0, sp, #716
 .LVL1061:
 	bl	xlsinv
 .LVL1062:
@@ -16736,26 +16736,26 @@ crypto_aead_decrypt:
 .LBB3081:
 	.loc 2 51 0
 	mov	r2, r4
-	add	r1, sp, #844
+	add	r1, sp, #716
 .LVL1063:
 	mov	r0, r6
 	bl	memcpy
 .LVL1064:
-	ldr	r3, [sp, #700]
+	ldr	r3, [sp, #572]
 	str	r3, [sp, #168]
-	ldr	r3, [sp, #704]
+	ldr	r3, [sp, #576]
 	str	r3, [sp, #164]
 .LBE3081:
 .LBE3080:
 	.loc 1 617 0
-	add	r3, sp, #844
+	add	r3, sp, #716
 .LVL1065:
 	add	r8, r3, r4
 .LVL1066:
-	ldr	r3, [sp, #708]
+	ldr	r3, [sp, #580]
 .LVL1067:
 	str	r3, [sp, #172]
-	ldr	r3, [sp, #712]
+	ldr	r3, [sp, #584]
 	str	r3, [sp, #176]
 	b	.L659
 .LVL1068:
@@ -17124,7 +17124,7 @@ crypto_aead_decrypt:
 	.4byte	0x33
 	.uleb128 0x7
 	.4byte	.LASF51
-	.byte	0xf4
+	.byte	0xb4
 	.byte	0x7
 	.byte	0xb
 	.4byte	0x2de
@@ -17139,14 +17139,14 @@ crypto_aead_decrypt:
 	.byte	0x7
 	.byte	0xd
 	.4byte	0x33
-	.byte	0xf0
+	.byte	0xb0
 	.byte	0
 	.uleb128 0xb
 	.4byte	0x65
 	.4byte	0x2ee
 	.uleb128 0xc
 	.4byte	0xad
-	.byte	0x3b
+	.byte	0x2b
 	.byte	0
 	.uleb128 0x4
 	.4byte	.LASF54
@@ -20098,7 +20098,7 @@ crypto_aead_decrypt:
 	.4byte	0x2ee
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -496
+	.sleb128 -432
 	.uleb128 0x39
 	.4byte	.LASF69
 	.byte	0x1
@@ -21118,7 +21118,7 @@ crypto_aead_decrypt:
 	.byte	0x51
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.uleb128 0x25
 	.uleb128 0x1
@@ -21216,7 +21216,7 @@ crypto_aead_decrypt:
 	.byte	0x53
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.byte	0
 	.uleb128 0x3d
@@ -21963,7 +21963,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL791
@@ -21986,7 +21986,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL795
@@ -22009,7 +22009,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x3b
 	.4byte	.LVL798
@@ -22031,7 +22031,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.byte	0
 	.byte	0
@@ -22057,7 +22057,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL544
@@ -22080,7 +22080,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL547
@@ -22142,7 +22142,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL591
@@ -22165,7 +22165,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL671
@@ -22188,7 +22188,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL674
@@ -22211,7 +22211,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL781
@@ -22228,7 +22228,7 @@ crypto_aead_decrypt:
 	.byte	0x51
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -512
+	.sleb128 -448
 	.byte	0x6
 	.uleb128 0x25
 	.uleb128 0x1
@@ -22491,7 +22491,7 @@ crypto_aead_decrypt:
 	.4byte	0x2ee
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -724
+	.sleb128 -596
 	.uleb128 0x39
 	.4byte	.LASF69
 	.byte	0x1
@@ -22505,7 +22505,7 @@ crypto_aead_decrypt:
 	.4byte	0x2ee
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -480
+	.sleb128 -416
 	.uleb128 0x39
 	.4byte	.LASF84
 	.byte	0x1
@@ -23164,7 +23164,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.uleb128 0x3b
 	.4byte	.LVL867
@@ -23186,7 +23186,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.byte	0
 	.uleb128 0x2d
@@ -24245,7 +24245,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL1039
@@ -24268,7 +24268,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL1043
@@ -24291,7 +24291,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL1046
@@ -24314,7 +24314,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x3b
 	.4byte	.LVL1052
@@ -24324,7 +24324,7 @@ crypto_aead_decrypt:
 	.byte	0x50
 	.uleb128 0x6
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.byte	0x6
 	.byte	0x23
 	.uleb128 0x10
@@ -24449,7 +24449,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL815
@@ -24472,7 +24472,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL817
@@ -24495,7 +24495,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL818
@@ -24557,7 +24557,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL945
@@ -24580,7 +24580,7 @@ crypto_aead_decrypt:
 	.byte	0x52
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0
 	.uleb128 0x24
 	.4byte	.LVL969
@@ -24613,7 +24613,7 @@ crypto_aead_decrypt:
 	.byte	0x50
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.byte	0x6
 	.uleb128 0x25
 	.uleb128 0x1
@@ -24656,7 +24656,7 @@ crypto_aead_decrypt:
 	.byte	0x53
 	.uleb128 0x3
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0
 	.uleb128 0x26
 	.4byte	.LVL1070
@@ -115997,7 +115997,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE73-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -516
+	.sleb128 -452
 	.4byte	0
 	.4byte	0
 .LLST305:
@@ -116027,7 +116027,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE73-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -512
+	.sleb128 -448
 	.4byte	0
 	.4byte	0
 .LLST307:
@@ -116057,7 +116057,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL543-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL543-.Ltext0
 	.4byte	.LVL544-1-.Ltext0
@@ -116067,7 +116067,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL552-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL552-.Ltext0
 	.4byte	.LVL554-.Ltext0
@@ -116077,12 +116077,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL555-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -684
+	.sleb128 -620
 	.4byte	.LVL555-.Ltext0
 	.4byte	.LVL581-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL581-.Ltext0
 	.4byte	.LVL583-1-.Ltext0
@@ -116092,7 +116092,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL585-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL585-.Ltext0
 	.4byte	.LVL591-1-.Ltext0
@@ -116102,7 +116102,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL669-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL669-.Ltext0
 	.4byte	.LVL671-1-.Ltext0
@@ -116112,7 +116112,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL673-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL673-.Ltext0
 	.4byte	.LVL674-1-.Ltext0
@@ -116122,7 +116122,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL716-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL716-.Ltext0
 	.4byte	.LVL717-1-.Ltext0
@@ -116132,7 +116132,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL783-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL783-.Ltext0
 	.4byte	.LVL786-1-.Ltext0
@@ -116142,7 +116142,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL788-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL788-.Ltext0
 	.4byte	.LVL791-1-.Ltext0
@@ -116152,7 +116152,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL793-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL793-.Ltext0
 	.4byte	.LVL795-1-.Ltext0
@@ -116162,7 +116162,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL797-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL797-.Ltext0
 	.4byte	.LVL798-1-.Ltext0
@@ -116172,7 +116172,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE73-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -116196,12 +116196,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL574-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -512
+	.sleb128 -448
 	.4byte	.LVL574-.Ltext0
 	.4byte	.LVL576-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.4byte	.LVL576-.Ltext0
 	.4byte	.LVL579-.Ltext0
 	.2byte	0x3
@@ -116212,7 +116212,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL629-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -116227,7 +116227,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL632-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -116236,7 +116236,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -512
+	.sleb128 -448
 	.4byte	0
 	.4byte	0
 .LLST311:
@@ -116244,12 +116244,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL574-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -516
+	.sleb128 -452
 	.4byte	.LVL722-.Ltext0
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -516
+	.sleb128 -452
 	.4byte	0
 	.4byte	0
 .LLST312:
@@ -116286,7 +116286,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL575-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.4byte	.LVL575-.Ltext0
 	.4byte	.LVL577-.Ltext0
 	.2byte	0x6
@@ -116300,7 +116300,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL629-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.4byte	.LVL629-.Ltext0
 	.4byte	.LVL631-.Ltext0
 	.2byte	0x6
@@ -116314,7 +116314,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL644-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.4byte	.LVL722-.Ltext0
 	.4byte	.LVL723-.Ltext0
 	.2byte	0x2
@@ -116340,7 +116340,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL564-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -116349,7 +116349,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL565-.Ltext0
 	.2byte	0xa
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x5a
@@ -116361,11 +116361,11 @@ crypto_aead_decrypt:
 	.4byte	.LVL566-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -116374,11 +116374,11 @@ crypto_aead_decrypt:
 	.4byte	.LVL567-.Ltext0
 	.2byte	0xf
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x5b
@@ -116390,15 +116390,15 @@ crypto_aead_decrypt:
 	.4byte	.LVL568-.Ltext0
 	.2byte	0x11
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -116407,15 +116407,15 @@ crypto_aead_decrypt:
 	.4byte	.LVL569-.Ltext0
 	.2byte	0x12
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x53
@@ -116425,19 +116425,19 @@ crypto_aead_decrypt:
 	.4byte	.LVL586-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL586-.Ltext0
@@ -116446,15 +116446,15 @@ crypto_aead_decrypt:
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL587-.Ltext0
@@ -116463,11 +116463,11 @@ crypto_aead_decrypt:
 	.byte	0x93
 	.uleb128 0x8
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL588-.Ltext0
@@ -116476,18 +116476,18 @@ crypto_aead_decrypt:
 	.byte	0x93
 	.uleb128 0xc
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL590-.Ltext0
 	.4byte	.LVL591-1-.Ltext0
 	.2byte	0x10
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x5a
@@ -116500,56 +116500,56 @@ crypto_aead_decrypt:
 	.4byte	.LVL592-.Ltext0
 	.2byte	0x12
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x5a
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL592-.Ltext0
 	.4byte	.LVL720-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL721-.Ltext0
 	.4byte	.LVL722-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	0
@@ -117535,7 +117535,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL576-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -117544,7 +117544,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL629-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -117653,7 +117653,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL576-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -117662,7 +117662,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL629-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x40
 	.byte	0x1c
@@ -117824,7 +117824,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL604-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -604
+	.sleb128 -540
 	.byte	0x94
 	.byte	0x1
 	.byte	0x9
@@ -117841,7 +117841,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL602-.Ltext0
 	.2byte	0x2a
 	.byte	0x91
-	.sleb128 -600
+	.sleb128 -536
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -117850,7 +117850,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -596
+	.sleb128 -532
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -117860,7 +117860,7 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -604
+	.sleb128 -540
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -117870,7 +117870,7 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -632
+	.sleb128 -568
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -117889,22 +117889,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL607-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -588
+	.sleb128 -524
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -584
+	.sleb128 -520
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -592
+	.sleb128 -528
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -580
+	.sleb128 -516
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -117917,22 +117917,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL578-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -572
+	.sleb128 -508
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -568
+	.sleb128 -504
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -576
+	.sleb128 -512
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -564
+	.sleb128 -500
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -117946,22 +117946,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL720-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -572
+	.sleb128 -508
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -568
+	.sleb128 -504
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -576
+	.sleb128 -512
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -564
+	.sleb128 -500
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -117971,22 +117971,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL722-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -572
+	.sleb128 -508
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -568
+	.sleb128 -504
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -576
+	.sleb128 -512
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -564
+	.sleb128 -500
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -118003,22 +118003,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL605-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -560
+	.sleb128 -496
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -556
+	.sleb128 -492
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -548
+	.sleb128 -484
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -552
+	.sleb128 -488
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -118042,22 +118042,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL607-.Ltext0
 	.2byte	0x38
 	.byte	0x91
-	.sleb128 -572
+	.sleb128 -508
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -568
+	.sleb128 -504
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -576
+	.sleb128 -512
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -564
+	.sleb128 -500
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -118065,22 +118065,22 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -588
+	.sleb128 -524
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -584
+	.sleb128 -520
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -592
+	.sleb128 -528
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -580
+	.sleb128 -516
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -125699,7 +125699,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL720-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.4byte	0
 	.4byte	0
 .LLST482:
@@ -125707,7 +125707,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL720-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.4byte	0
 	.4byte	0
 .LLST483:
@@ -125884,7 +125884,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL783-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL783-.Ltext0
 	.4byte	.LVL786-1-.Ltext0
@@ -125894,7 +125894,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL788-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL788-.Ltext0
 	.4byte	.LVL791-1-.Ltext0
@@ -125904,7 +125904,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL793-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL793-.Ltext0
 	.4byte	.LVL795-1-.Ltext0
@@ -125914,7 +125914,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL797-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	.LVL797-.Ltext0
 	.4byte	.LVL798-1-.Ltext0
@@ -125924,7 +125924,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -504
+	.sleb128 -440
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -125968,7 +125968,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -512
+	.sleb128 -448
 	.4byte	0
 	.4byte	0
 .LLST498:
@@ -125976,7 +125976,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -516
+	.sleb128 -452
 	.4byte	0
 	.4byte	0
 .LLST499:
@@ -126630,7 +126630,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.4byte	0
 	.4byte	0
 .LLST528:
@@ -126646,7 +126646,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.4byte	0
 	.4byte	0
 .LLST529:
@@ -126662,7 +126662,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.4byte	0
 	.4byte	0
 .LLST530:
@@ -126674,7 +126674,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL763-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
@@ -126688,12 +126688,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -126710,12 +126710,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -126732,12 +126732,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -126754,7 +126754,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -126840,7 +126840,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x28
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -126851,7 +126851,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -126863,13 +126863,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -126917,7 +126917,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x28
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -126928,7 +126928,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -126940,13 +126940,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -127036,7 +127036,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x58
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -127047,7 +127047,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -127059,13 +127059,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -127073,7 +127073,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -660
+	.sleb128 -596
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -127084,7 +127084,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -660
+	.sleb128 -596
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -127096,13 +127096,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -660
+	.sleb128 -596
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -660
+	.sleb128 -596
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -127155,7 +127155,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -127166,7 +127166,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -127178,13 +127178,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -127197,7 +127197,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x54
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -127208,7 +127208,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -127220,13 +127220,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -680
+	.sleb128 -616
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -127234,7 +127234,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -127245,7 +127245,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -127257,13 +127257,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -672
+	.sleb128 -608
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -127403,7 +127403,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.4byte	0
 	.4byte	0
 .LLST562:
@@ -127411,7 +127411,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.4byte	0
 	.4byte	0
 .LLST563:
@@ -127419,7 +127419,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.4byte	0
 	.4byte	0
 .LLST564:
@@ -127427,7 +127427,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.4byte	0
 	.4byte	0
 .LLST565:
@@ -127439,7 +127439,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL763-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
@@ -127453,12 +127453,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127475,12 +127475,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127497,12 +127497,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127537,7 +127537,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.4byte	0
 	.4byte	0
 .LLST571:
@@ -127545,7 +127545,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.4byte	0
 	.4byte	0
 .LLST572:
@@ -127553,7 +127553,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.4byte	0
 	.4byte	0
 .LLST573:
@@ -127561,7 +127561,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.4byte	0
 	.4byte	0
 .LLST574:
@@ -127573,7 +127573,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL763-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
@@ -127587,12 +127587,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127609,12 +127609,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127631,12 +127631,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127653,7 +127653,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x22
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127661,7 +127661,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127693,12 +127693,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x20
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127706,12 +127706,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127731,12 +127731,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x20
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127744,12 +127744,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127769,7 +127769,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x34
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127777,7 +127777,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127800,12 +127800,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127825,7 +127825,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x5e
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127833,7 +127833,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127859,7 +127859,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127867,7 +127867,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127890,12 +127890,12 @@ crypto_aead_decrypt:
 	.byte	0x31
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127918,23 +127918,23 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x33
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127942,12 +127942,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127957,7 +127957,7 @@ crypto_aead_decrypt:
 	.byte	0x21
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -127972,23 +127972,23 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x33
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -127996,12 +127996,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128011,7 +128011,7 @@ crypto_aead_decrypt:
 	.byte	0x21
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -128026,18 +128026,18 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x47
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128045,7 +128045,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128068,12 +128068,12 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128083,7 +128083,7 @@ crypto_aead_decrypt:
 	.byte	0x21
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -640
+	.sleb128 -576
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -128098,7 +128098,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL782-.Ltext0
 	.2byte	0x2a
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128106,7 +128106,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128127,7 +128127,7 @@ crypto_aead_decrypt:
 	.byte	0x16
 	.byte	0x13
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x27
 	.byte	0x79
@@ -128138,7 +128138,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x85
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128146,7 +128146,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128167,7 +128167,7 @@ crypto_aead_decrypt:
 	.byte	0x16
 	.byte	0x13
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128175,41 +128175,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x91
-	.sleb128 -212
-	.byte	0x94
-	.byte	0x1
-	.byte	0x8
-	.byte	0xff
-	.byte	0x1a
-	.byte	0x9
-	.byte	0x80
-	.byte	0x1a
-	.byte	0x30
-	.byte	0x2e
-	.byte	0x28
-	.2byte	0x1
-	.byte	0x16
-	.byte	0x13
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -636
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128231,13 +128197,47 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x31
 	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -572
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
+	.byte	0x91
+	.sleb128 -572
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -212
+	.byte	0x94
+	.byte	0x1
+	.byte	0x8
+	.byte	0xff
+	.byte	0x1a
+	.byte	0x9
+	.byte	0x80
+	.byte	0x1a
+	.byte	0x30
+	.byte	0x2e
+	.byte	0x28
+	.2byte	0x1
+	.byte	0x16
+	.byte	0x13
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128250,7 +128250,7 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -636
+	.sleb128 -572
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -128272,7 +128272,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL763-.Ltext0
 	.2byte	0x11
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
@@ -128291,12 +128291,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL805-.Ltext0
 	.2byte	0x13
 	.byte	0x91
-	.sleb128 -644
+	.sleb128 -580
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -648
+	.sleb128 -584
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -128657,7 +128657,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE74-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	0
 	.4byte	0
 .LLST630:
@@ -128697,7 +128697,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE74-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	0
 	.4byte	0
 .LLST633:
@@ -128738,7 +128738,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL844-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	.LVL844-.Ltext0
 	.4byte	.LVL845-.Ltext0
 	.2byte	0x1
@@ -128747,7 +128747,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL850-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	.LVL850-.Ltext0
 	.4byte	.LVL851-.Ltext0
 	.2byte	0x1
@@ -128762,7 +128762,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	.LVL1055-.Ltext0
 	.4byte	.LVL1058-.Ltext0
 	.2byte	0x3
@@ -128796,7 +128796,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	0
 	.4byte	0
 .LLST636:
@@ -128804,17 +128804,17 @@ crypto_aead_decrypt:
 	.4byte	.LVL850-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	.LVL971-.Ltext0
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	0
 	.4byte	0
 .LLST637:
@@ -128827,7 +128827,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL852-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.4byte	.LVL852-.Ltext0
 	.4byte	.LVL855-.Ltext0
 	.2byte	0x6
@@ -128841,7 +128841,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL904-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.4byte	.LVL904-.Ltext0
 	.4byte	.LVL905-.Ltext0
 	.2byte	0x6
@@ -128855,7 +128855,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL970-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.4byte	.LVL1055-.Ltext0
 	.4byte	.LVL1057-.Ltext0
 	.2byte	0x6
@@ -128869,7 +128869,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1068-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.4byte	0
 	.4byte	0
 .LLST638:
@@ -128896,7 +128896,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL816-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL816-.Ltext0
 	.4byte	.LVL817-1-.Ltext0
@@ -128906,7 +128906,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL823-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL823-.Ltext0
 	.4byte	.LVL825-.Ltext0
@@ -128916,12 +128916,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL826-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -924
+	.sleb128 -796
 	.4byte	.LVL826-.Ltext0
 	.4byte	.LVL940-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL940-.Ltext0
 	.4byte	.LVL942-1-.Ltext0
@@ -128931,7 +128931,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL944-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL944-.Ltext0
 	.4byte	.LVL945-1-.Ltext0
@@ -128941,7 +128941,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1041-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL1041-.Ltext0
 	.4byte	.LVL1043-1-.Ltext0
@@ -128951,7 +128951,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1045-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL1045-.Ltext0
 	.4byte	.LVL1046-1-.Ltext0
@@ -128961,7 +128961,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE74-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -128970,7 +128970,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL814-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL814-.Ltext0
 	.4byte	.LVL815-1-.Ltext0
@@ -128980,7 +128980,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL856-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL856-.Ltext0
 	.4byte	.LVL859-1-.Ltext0
@@ -128990,7 +128990,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL860-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL860-.Ltext0
 	.4byte	.LVL867-1-.Ltext0
@@ -129000,7 +129000,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1030-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1030-.Ltext0
 	.4byte	.LVL1035-1-.Ltext0
@@ -129010,7 +129010,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1037-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1037-.Ltext0
 	.4byte	.LVL1039-1-.Ltext0
@@ -129020,7 +129020,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1059-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1059-.Ltext0
 	.4byte	.LVL1062-1-.Ltext0
@@ -129030,7 +129030,7 @@ crypto_aead_decrypt:
 	.4byte	.LFE74-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -129047,7 +129047,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL835-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -129056,7 +129056,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL836-.Ltext0
 	.2byte	0xa
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x5a
@@ -129068,11 +129068,11 @@ crypto_aead_decrypt:
 	.4byte	.LVL837-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -129081,11 +129081,11 @@ crypto_aead_decrypt:
 	.4byte	.LVL838-.Ltext0
 	.2byte	0xf
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x56
@@ -129097,15 +129097,15 @@ crypto_aead_decrypt:
 	.4byte	.LVL839-.Ltext0
 	.2byte	0x11
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -776
+	.sleb128 -648
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x93
@@ -129114,15 +129114,15 @@ crypto_aead_decrypt:
 	.4byte	.LVL840-.Ltext0
 	.2byte	0x12
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -776
+	.sleb128 -648
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x53
@@ -129132,34 +129132,34 @@ crypto_aead_decrypt:
 	.4byte	.LVL846-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -776
+	.sleb128 -648
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -784
+	.sleb128 -656
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL846-.Ltext0
 	.4byte	.LVL847-.Ltext0
 	.2byte	0x12
 	.byte	0x91
-	.sleb128 -780
+	.sleb128 -652
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -776
+	.sleb128 -648
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x58
@@ -129172,11 +129172,11 @@ crypto_aead_decrypt:
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -776
+	.sleb128 -648
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x58
@@ -129189,7 +129189,7 @@ crypto_aead_decrypt:
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x56
@@ -129217,19 +129217,19 @@ crypto_aead_decrypt:
 	.4byte	.LVL855-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -900
+	.sleb128 -772
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -896
+	.sleb128 -768
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL855-.Ltext0
@@ -129284,15 +129284,15 @@ crypto_aead_decrypt:
 	.4byte	.LVL867-1-.Ltext0
 	.2byte	0x12
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -900
+	.sleb128 -772
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -896
+	.sleb128 -768
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x53
@@ -129302,38 +129302,38 @@ crypto_aead_decrypt:
 	.4byte	.LVL970-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -900
+	.sleb128 -772
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -896
+	.sleb128 -768
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	.LVL1055-.Ltext0
 	.4byte	.LVL1068-.Ltext0
 	.2byte	0x14
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -900
+	.sleb128 -772
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -896
+	.sleb128 -768
 	.byte	0x93
 	.uleb128 0x4
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x93
 	.uleb128 0x4
 	.4byte	0
@@ -130770,7 +130770,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL854-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x94
 	.byte	0x1
 	.byte	0x9
@@ -130784,7 +130784,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL970-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x94
 	.byte	0x1
 	.byte	0x9
@@ -130798,7 +130798,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1068-.Ltext0
 	.2byte	0xc
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x94
 	.byte	0x1
 	.byte	0x9
@@ -130815,7 +130815,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL878-.Ltext0
 	.2byte	0x2a
 	.byte	0x91
-	.sleb128 -840
+	.sleb128 -712
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -130824,7 +130824,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -836
+	.sleb128 -708
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -130834,7 +130834,7 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -772
+	.sleb128 -644
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -130844,7 +130844,7 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -130863,22 +130863,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL880-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -828
+	.sleb128 -700
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -824
+	.sleb128 -696
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -832
+	.sleb128 -704
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -820
+	.sleb128 -692
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -130895,22 +130895,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL883-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -812
+	.sleb128 -684
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -808
+	.sleb128 -680
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -816
+	.sleb128 -688
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -804
+	.sleb128 -676
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -130923,22 +130923,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL853-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -130952,22 +130952,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL970-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -130977,22 +130977,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1068-.Ltext0
 	.2byte	0x1a
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -131023,22 +131023,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL883-.Ltext0
 	.2byte	0x38
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -131046,22 +131046,22 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -812
+	.sleb128 -684
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -808
+	.sleb128 -680
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -816
+	.sleb128 -688
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -804
+	.sleb128 -676
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -131077,22 +131077,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL853-.Ltext0
 	.2byte	0x1c
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -131108,22 +131108,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL970-.Ltext0
 	.2byte	0x1c
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -131135,22 +131135,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1068-.Ltext0
 	.2byte	0x1c
 	.byte	0x91
-	.sleb128 -800
+	.sleb128 -672
 	.byte	0x6
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -796
+	.sleb128 -668
 	.byte	0x6
 	.byte	0x40
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -768
+	.sleb128 -640
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -792
+	.sleb128 -664
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -134753,7 +134753,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1030-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1030-.Ltext0
 	.4byte	.LVL1035-1-.Ltext0
@@ -134763,7 +134763,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1037-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1037-.Ltext0
 	.4byte	.LVL1039-1-.Ltext0
@@ -134773,13 +134773,13 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -488
+	.sleb128 -424
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -134788,7 +134788,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1041-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL1041-.Ltext0
 	.4byte	.LVL1043-1-.Ltext0
@@ -134798,7 +134798,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1045-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL1045-.Ltext0
 	.4byte	.LVL1046-1-.Ltext0
@@ -134808,13 +134808,13 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x4
 	.byte	0x91
-	.sleb128 -732
+	.sleb128 -604
 	.byte	0x9f
 	.4byte	0
 	.4byte	0
@@ -134857,12 +134857,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	0
 	.4byte	0
 .LLST814:
@@ -134888,12 +134888,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -744
+	.sleb128 -616
 	.4byte	0
 	.4byte	0
 .LLST816:
@@ -135651,12 +135651,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	0
 	.4byte	0
 .LLST846:
@@ -135668,12 +135668,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	0
 	.4byte	0
 .LLST847:
@@ -135689,12 +135689,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	0
 	.4byte	0
 .LLST848:
@@ -135710,12 +135710,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	0
 	.4byte	0
 .LLST849:
@@ -135727,12 +135727,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135742,12 +135742,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135764,12 +135764,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135779,12 +135779,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135801,12 +135801,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135816,12 +135816,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135838,7 +135838,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -135847,7 +135847,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x7
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136004,7 +136004,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x28
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136015,7 +136015,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136027,13 +136027,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136043,7 +136043,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x28
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136054,7 +136054,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136066,13 +136066,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136085,7 +136085,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x58
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136096,7 +136096,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136108,13 +136108,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136122,7 +136122,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136133,7 +136133,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136145,13 +136145,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -136168,7 +136168,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x58
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136179,7 +136179,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136191,13 +136191,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136205,7 +136205,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136216,7 +136216,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136228,13 +136228,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -904
+	.sleb128 -776
 	.byte	0x94
 	.byte	0x1
 	.byte	0x8
@@ -136254,7 +136254,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x54
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136265,7 +136265,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136277,13 +136277,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136291,7 +136291,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136302,7 +136302,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136314,13 +136314,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136333,7 +136333,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x54
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136344,7 +136344,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136356,13 +136356,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136370,7 +136370,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136381,7 +136381,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136393,13 +136393,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -912
+	.sleb128 -784
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136452,7 +136452,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136463,7 +136463,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136475,13 +136475,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136494,7 +136494,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x54
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136505,7 +136505,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136517,13 +136517,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136531,7 +136531,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136542,7 +136542,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136554,13 +136554,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136573,7 +136573,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x54
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136584,7 +136584,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136596,13 +136596,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136610,7 +136610,7 @@ crypto_aead_decrypt:
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136621,7 +136621,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136633,13 +136633,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -908
+	.sleb128 -780
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136696,7 +136696,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x2a
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136707,7 +136707,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136719,13 +136719,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136737,7 +136737,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x2a
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xec
@@ -136748,7 +136748,7 @@ crypto_aead_decrypt:
 	.byte	0x38
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x9
 	.byte	0xf4
@@ -136760,13 +136760,13 @@ crypto_aead_decrypt:
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x25
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -920
+	.sleb128 -792
 	.byte	0x6
 	.byte	0x48
 	.byte	0x24
@@ -136842,12 +136842,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	0
 	.4byte	0
 .LLST880:
@@ -136855,12 +136855,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	0
 	.4byte	0
 .LLST881:
@@ -136868,12 +136868,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	0
 	.4byte	0
 .LLST882:
@@ -136881,12 +136881,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	0
 	.4byte	0
 .LLST883:
@@ -136898,12 +136898,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136913,12 +136913,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136935,12 +136935,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136950,12 +136950,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136972,12 +136972,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -136987,12 +136987,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137035,12 +137035,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.4byte	0
 	.4byte	0
 .LLST889:
@@ -137048,12 +137048,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.4byte	0
 	.4byte	0
 .LLST890:
@@ -137061,12 +137061,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.4byte	0
 	.4byte	0
 .LLST891:
@@ -137074,12 +137074,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.4byte	0
 	.4byte	0
 .LLST892:
@@ -137091,12 +137091,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137106,12 +137106,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137128,12 +137128,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137143,12 +137143,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137165,12 +137165,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137180,12 +137180,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0xe
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137202,7 +137202,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x22
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137210,7 +137210,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137235,7 +137235,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x22
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137243,7 +137243,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137275,12 +137275,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -864
+	.sleb128 -736
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -864
+	.sleb128 -736
 	.4byte	0
 	.4byte	0
 .LLST897:
@@ -137292,12 +137292,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -860
+	.sleb128 -732
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -860
+	.sleb128 -732
 	.4byte	0
 	.4byte	0
 .LLST898:
@@ -137309,12 +137309,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -856
+	.sleb128 -728
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -856
+	.sleb128 -728
 	.4byte	0
 	.4byte	0
 .LLST899:
@@ -137326,7 +137326,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x5e
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137334,7 +137334,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137360,7 +137360,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137368,7 +137368,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137391,12 +137391,12 @@ crypto_aead_decrypt:
 	.byte	0x31
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137412,7 +137412,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x5e
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137420,7 +137420,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137446,7 +137446,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137454,7 +137454,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137477,12 +137477,12 @@ crypto_aead_decrypt:
 	.byte	0x31
 	.byte	0x24
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137505,22 +137505,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -864
+	.sleb128 -736
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137528,22 +137528,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -864
+	.sleb128 -736
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137558,22 +137558,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -860
+	.sleb128 -732
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137581,22 +137581,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -860
+	.sleb128 -732
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137611,22 +137611,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -856
+	.sleb128 -728
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137634,22 +137634,22 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x18
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
 	.byte	0x21
 	.byte	0x91
-	.sleb128 -884
+	.sleb128 -756
 	.byte	0x6
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -856
+	.sleb128 -728
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137664,7 +137664,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x85
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137672,7 +137672,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137693,7 +137693,7 @@ crypto_aead_decrypt:
 	.byte	0x16
 	.byte	0x13
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137701,41 +137701,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x91
-	.sleb128 -196
-	.byte	0x94
-	.byte	0x1
-	.byte	0x8
-	.byte	0xff
-	.byte	0x1a
-	.byte	0x9
-	.byte	0x80
-	.byte	0x1a
-	.byte	0x30
-	.byte	0x2e
-	.byte	0x28
-	.2byte	0x1
-	.byte	0x16
-	.byte	0x13
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -880
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137757,13 +137723,47 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x31
 	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -752
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
+	.byte	0x91
+	.sleb128 -752
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -196
+	.byte	0x94
+	.byte	0x1
+	.byte	0x8
+	.byte	0xff
+	.byte	0x1a
+	.byte	0x9
+	.byte	0x80
+	.byte	0x1a
+	.byte	0x30
+	.byte	0x2e
+	.byte	0x28
+	.2byte	0x1
+	.byte	0x16
+	.byte	0x13
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137776,7 +137776,7 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137784,7 +137784,7 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x85
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137792,7 +137792,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137813,7 +137813,7 @@ crypto_aead_decrypt:
 	.byte	0x16
 	.byte	0x13
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137821,41 +137821,7 @@ crypto_aead_decrypt:
 	.byte	0x87
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x91
-	.sleb128 -196
-	.byte	0x94
-	.byte	0x1
-	.byte	0x8
-	.byte	0xff
-	.byte	0x1a
-	.byte	0x9
-	.byte	0x80
-	.byte	0x1a
-	.byte	0x30
-	.byte	0x2e
-	.byte	0x28
-	.2byte	0x1
-	.byte	0x16
-	.byte	0x13
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -880
-	.byte	0x6
-	.byte	0x31
-	.byte	0x24
-	.byte	0x8
-	.byte	0x87
-	.byte	0x27
-	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137877,13 +137843,47 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x31
 	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -752
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x8
+	.byte	0x87
+	.byte	0x27
+	.byte	0x91
+	.sleb128 -752
+	.byte	0x6
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -196
+	.byte	0x94
+	.byte	0x1
+	.byte	0x8
+	.byte	0xff
+	.byte	0x1a
+	.byte	0x9
+	.byte	0x80
+	.byte	0x1a
+	.byte	0x30
+	.byte	0x2e
+	.byte	0x28
+	.2byte	0x1
+	.byte	0x16
+	.byte	0x13
+	.byte	0x31
+	.byte	0x24
+	.byte	0x91
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137896,7 +137896,7 @@ crypto_aead_decrypt:
 	.byte	0x13
 	.byte	0x27
 	.byte	0x91
-	.sleb128 -880
+	.sleb128 -752
 	.byte	0x6
 	.byte	0x27
 	.byte	0x9f
@@ -137918,12 +137918,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x13
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137938,12 +137938,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x13
 	.byte	0x91
-	.sleb128 -888
+	.sleb128 -760
 	.byte	0x6
 	.byte	0x4f
 	.byte	0x25
 	.byte	0x91
-	.sleb128 -892
+	.sleb128 -764
 	.byte	0x6
 	.byte	0x31
 	.byte	0x24
@@ -137974,12 +137974,12 @@ crypto_aead_decrypt:
 	.4byte	.LVL1055-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	.LVL1068-.Ltext0
 	.4byte	.LVL1069-.Ltext0
 	.2byte	0x3
 	.byte	0x91
-	.sleb128 -748
+	.sleb128 -620
 	.4byte	0
 	.4byte	0
 .LLST907:
