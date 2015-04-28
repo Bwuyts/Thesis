@@ -158,14 +158,18 @@ static inline void gf128_mul7(block_t res, const block_t x)
 }
 int main() {
 
- unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
-unsigned char out[16];
+ unsigned char in[4096];
+unsigned char out[4096];
 
 //asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
   int i, j, k, l=100;
 
 //  srand(time(NULL));
-  
+    for (i=0; i<16*BLOCKS*l; i++)
+    in[i] = (unsigned char)rand();
+    
+ unsigned char* inp = in;
+ unsigned char* outp = out;
    uint32_t overhead = rdtsc32();
    overhead = rdtsc32() - overhead; 
   
@@ -179,37 +183,39 @@ unsigned char out[16];
     tMin = 0xFFFFFFFF;
 
      for (j=0;j<1000;j++) {
-            gf128_mul2(out, key);
+            gf128_mul2(out, in);
      }
      
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
-                      
-
-                for(i=0;i<1000000000;i++)
-                    gf128_mul2(out, key);
-                
-                t1 = rdtsc32();
-                printf("t0: %u\n", t0);
-                      printf("t1: %u\n", t1);
-
-        if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
-  }
+                for(i=0;i<256;i++){
+                    gf128_mul2(out, in);
+                    outp = outp + 16;
+                }
+                    t1 = rdtsc32();
+                    inp = in;
+                    outp = out;
+                    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+    }
     
       printf("GF2: %d\n", tMin);
       printf("Cycles per byte: %f\n", tMin/(16));
           tMin = 0xFFFFFFFF;
 
      for (j=0;j<1000;j++) {
-            gf128_mul3(out, key);
+            gf128_mul3(out, in);
      }
      
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
-            gf128_mul3(out, key);
-
+                for(i=0;i<256;i++){
+                                gf128_mul3(out, in);
+                    outp = outp + 16;
+                }
                     t1 = rdtsc32();
-                if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+                    inp = in;
+                    outp = out;
+                            if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
     
       printf("GF3: %d\n", tMin);
@@ -217,14 +223,18 @@ unsigned char out[16];
           tMin = 0xFFFFFFFF;
 
      for (j=0;j<1000;j++) {
-            gf128_mul7(out, key);
+            gf128_mul7(out, in);
      }
      
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
-            gf128_mul7(out, key);
-
-                    t1 = rdtsc32();
+                for(i=0;i<256;i++){
+                                gf128_mul7(out, in);
+                    outp = outp + 16;
+                }
+                t1 = rdtsc32();
+                inp = in;
+                outp = out;
                 if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
     
