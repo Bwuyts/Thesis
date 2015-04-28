@@ -11,6 +11,86 @@
 #define BLOCKS 1
 typedef uint8_t block_t[16];
  #define TIMER_SAMPLE_CNT (10000)
+static inline void xor_block(block_t dest, const block_t a, const block_t b)
+{
+	uint32_t* destp = (uint32_t*) dest;
+	uint32_t* ap = (uint32_t*) a;
+	uint32_t* bp = (uint32_t*) b;
+		destp[0] = ap[0] ^ bp[0];
+		destp[1] = ap[1] ^ bp[1];
+		destp[2] = ap[2] ^ bp[2];
+		destp[3] = ap[3] ^ bp[3];
+// 		dest[4] = a[4] ^ b[4];
+// 		dest[5] = a[5] ^ b[5];
+// 		dest[6] = a[6] ^ b[6];
+// 		dest[7] = a[7] ^ b[7];
+// 		dest[8] = a[8] ^ b[8];
+// 		dest[9] = a[9] ^ b[9];
+// 		dest[10] = a[10] ^ b[10];
+// 		dest[11] = a[11] ^ b[11];
+// 		dest[12] = a[12] ^ b[12];
+// 		dest[13] = a[13] ^ b[13];
+// 		dest[14] = a[14] ^ b[14];
+// 		dest[15] = a[15] ^ b[15];
+}
+
+// static inline void copy_block(block_t dest, const block_t src)
+// {
+// 		uint32_t* destp = (uint32_t*) dest;
+// 		uint32_t* srcp = (uint32_t*) src;
+// 		destp[0] = srcp[0];
+// 		destp[1] = srcp[1];
+// 		destp[2] = srcp[2];
+// 		destp[3] = srcp[3];
+// // 		dest[4] = src[4];
+// // 		dest[5] = src[5];
+// // 		dest[6] = src[6];
+// // 		dest[7] = src[7];
+// // 		dest[8] = src[8];
+// // 		dest[9] = src[9];
+// // 		dest[10] = src[10];
+// // 		dest[11] = src[11];
+// // 		dest[12] = src[12];
+// // 		dest[13] = src[13];
+// // 		dest[14] = src[14];
+// // 		dest[15] = src[15];
+// 		
+// }
+
+static inline void shl_block(block_t res, const block_t x)
+{
+  uint32_t x0, x1,x2,x3,res0,res1,res2,res3;//31 sh + 12 xor + 3 or
+	x0 = GETU32(x);
+	x1 = GETU32(x+4);
+	x2 = GETU32(x+8);
+	x3 = GETU32(x+12);
+	res0 = (x0<<1) | (x1>>31);
+	res1 = (x1<<1) | (x2>>31);
+	res2 = (x2<<1) | (x3>>31);
+	res3 = (x3<<1) ;
+	PUTU32(res, res0);
+	PUTU32(res+4, res1);
+	PUTU32(res+8, res2);
+	PUTU32(res+12, res3);
+/*
+	res[0] = (x[0] << 1) | (x[1] >> 7);
+	res[1] = (x[1] << 1) | (x[2] >> 7);
+	res[2] = (x[2] << 1) | (x[3] >> 7);
+	res[3] = (x[3] << 1) | (x[4] >> 7);
+	res[4] = (x[4] << 1) | (x[5] >> 7);
+	res[5] = (x[5] << 1) | (x[6] >> 7);
+	res[6] = (x[6] << 1) | (x[7] >> 7);
+	res[7] = (x[7] << 1) | (x[8] >> 7);
+	res[8] = (x[8] << 1) | (x[9] >> 7);
+	res[9] = (x[9] << 1) | (x[10] >> 7);
+	res[10] = (x[10] << 1) | (x[11] >> 7);
+	res[11] = (x[11] << 1) | (x[12] >> 7);
+	res[12] = (x[12] << 1) | (x[13] >> 7);
+	res[13] = (x[13] << 1) | (x[14] >> 7);
+	res[14] = (x[14] << 1) | (x[15] >> 7);
+
+	res[15] = x[15] << 1;*/
+}
 static inline void gf128_mul2(block_t res, const block_t x)
 {
 	int msb = x[0] & 0x80;
