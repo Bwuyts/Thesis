@@ -191,7 +191,7 @@ unsigned char out[16];
                 
                 t1 = rdtsc32();
                 printf("t0: %d\n", t0);
-                      printf("t1: %d\n", t1);
+                      printf("t1: %ud\n", t1);
 
         if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
