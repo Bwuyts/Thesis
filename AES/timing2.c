@@ -189,7 +189,7 @@ unsigned char out[4096];
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
                 for(i=0;i<256;i++){
-                    gf128_mul2(out, in);
+                    gf128_mul2(outp, inp);
                     outp = outp + 16;
                 }
                     t1 = rdtsc32();
@@ -209,7 +209,7 @@ unsigned char out[4096];
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
                 for(i=0;i<256;i++){
-                    gf128_mul3(out, in);
+                    gf128_mul3(outp, inp);
                     outp = outp + 16;
                     inp = inp+16;
                 }
@@ -230,7 +230,7 @@ unsigned char out[4096];
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
                 for(i=0;i<256;i++){
-                                gf128_mul7(out, in);
+                                gf128_mul7(outp, inp);
                     outp = outp + 16;
                     inp = inp+16;
                 }
