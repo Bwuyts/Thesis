@@ -914,9 +914,9 @@ inline void AES_encrypt(const unsigned char *in, unsigned char *out,
 	const u32 *rk;
 	u32 s0, s1, s2, s3, t0, t1, t2, t3;
 
-        if(!(in && out && key)){
-		return;
-	}
+//         if(!(in && out && key)){
+// 		return;
+// 	}
 	rk = (u32*) key->rd_key;
 
 	/*
