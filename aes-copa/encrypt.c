@@ -241,10 +241,12 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 	block_t padmsg = { 0 }, block, S, C, T;
 	int i;
 
-	copy_block(delta36, LL);
-	for (i = 0; i < 6; i++) {
-		gf128_mul3(delta36, delta36);
-	}
+        gf128_mul3(delta36, LL);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
 	gf128_mul3(delta37, delta36);
 	gf128_mul3(delta38, delta37);
 	gf128_mul2(delta236, delta36);
@@ -288,10 +290,12 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
 	const unsigned char *p = &M[15];
 	int i;
 
-	copy_block(delta36, LL);
-	for (i = 0; i < 6; i++) {
-		gf128_mul3(delta36, delta36);
-	}
+        gf128_mul3(delta36, LL);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
+        gf128_mul3(delta36, delta36);
 	gf128_mul3(delta37, delta36);
 	gf128_mul3(delta38, delta37);
 	gf128_mul2(delta236, delta36);
@@ -482,7 +486,7 @@ int crypto_aead_encrypt(
 	gf128_mul3(Lup, LL); /* Lup = 3*LL delta0*/ 
 	gf128_mul2(Ldown, LL); /* Ldown = 2*LL  delta1*/
 	
-	while (remaining >= 16) { 
+	while (remaining >= 32) { 
 		xor_block(checksum, checksum, in);//calc sigma
 		
 		xor_block(block, in, Lup);//mi xor delta0
@@ -494,14 +498,27 @@ int crypto_aead_encrypt(
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
 		gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
-		if (remaining < mlen) {
-			gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
-		}
+                gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
 		
 		in += 16;
 		out += 16;
 		remaining -= 16;
 	}
+                xor_block(checksum, checksum, in);//calc sigma
+		
+		xor_block(block, in, Lup);//mi xor delta0
+		//AES_ENCRYPT(block, block, expkey);//E_k(mi xor delta0)
+		AES_encrypt(block, block, expkey);
+		xor_block(block, block, lastblock);//E_k(mi xor delta0) XOR V[i-1]
+		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
+		AES_encrypt(block, block, expkey);//E_k(v[i]
+		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
+		gf128_mul2(Lup, Lup);//delta0*2
+		gf128_mul2(Ldown, Ldown);//delta1*2
+		
+		in += 16;
+		out += 16;
+		remaining -= 16;
 	/* compute tag */
 	gf128_mul3(LL, twod1);//2^(d-1)3L
 	gf128_mul3(LL, LL);//2^(d-1)3^2L
