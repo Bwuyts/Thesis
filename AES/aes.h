@@ -14,7 +14,7 @@ struct aes_key_struct {
 
 typedef struct aes_key_struct AES_KEY;
 
-int AES_set_encrypt_key(const unsigned char *userKey
+int AES_set_encrypt_key(const unsigned char *userKey,
 				            AES_KEY *key);
 
 int AES_set_decrypt_key(const unsigned char *userKey,
