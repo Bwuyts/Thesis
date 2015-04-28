@@ -458,7 +458,7 @@ int crypto_aead_encrypt(
 	//unsigned char expkey[11*16];
         AES_set_encrypt_key(k,128,expkey);
 	//aesc_keyexp(k, expkey);
-	block_t V;
+	block_t V={ 0 };
 	block_t lastblock;
 	block_t block, Lup, Ldown, twod1;
 	block_t checksum = { 0 };
@@ -471,10 +471,10 @@ int crypto_aead_encrypt(
 	*clen = mlen + 16;
 
 	/* mac AD + nonce */
-	macdata = malloc(adlen + 16);
-	memcpy(macdata, ad, adlen);
-	memcpy(macdata+adlen, npub, 16);
-	mac(V, macdata, adlen+16, LL, expkey);
+// 	macdata = malloc(adlen + 16);
+// 	memcpy(macdata, ad, adlen);
+// 	memcpy(macdata+adlen, npub, 16);
+// 	mac(V, macdata, adlen+16, LL, expkey);
 	free(macdata);
 	if (mlen < 16) {
 		encrypt_tag_splitting(c, m, mlen, V, LL, expkey);
