@@ -505,7 +505,6 @@ int crypto_aead_encrypt(
 		remaining -= 16;
 	}
                 xor_block(checksum, checksum, in);//calc sigma
-		
 		xor_block(block, in, Lup);//mi xor delta0
 		//AES_ENCRYPT(block, block, expkey);//E_k(mi xor delta0)
 		AES_encrypt(block, block, expkey);
@@ -515,8 +514,6 @@ int crypto_aead_encrypt(
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
 		gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
-		
-		in += 16;
 		out += 16;
 		remaining -= 16;
 	/* compute tag */
@@ -524,9 +521,7 @@ int crypto_aead_encrypt(
 	gf128_mul3(LL, LL);//2^(d-1)3^2L
 	xor_block(checksum, checksum, LL);//sigma XOR 2^(d-1)3^2L
 	AES_encrypt(checksum, checksum, expkey);//E_K(sigma XOR 2^(d-1)3^2L)
-
 	xor_block(checksum, checksum, lastblock);//E_K(sigma XOR 2^(d-1)3^2L) XOR S
-
 	AES_encrypt(checksum, checksum, expkey);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S)
 	gf128_mul7(LL, twod1);//2^(d-1)7L
 	xor_block(T, checksum, LL);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S) XOR 2^(d-1)7L
@@ -535,7 +530,7 @@ int crypto_aead_encrypt(
 
 	} else { /* last partial block remaining, use XLS */
 		unsigned char buf[32]; /* at most 15 + 16 bytes */
-
+		in += 16;
 		memcpy(buf, in, remaining);
 		memcpy(buf+remaining, T, 16);
 		xls(buf, remaining, twod1, expkey);
@@ -599,7 +594,7 @@ int crypto_aead_decrypt(
 	gf128_mul3(Lup, LL); /* Lup = 3*LL */
 	gf128_mul2(Ldown, LL); /* Ldown = 2*LL */
 	remaining = clen;
-	while (remaining >= 16) {
+	while (remaining >= 32) {
 		block_t newlastblock;
 		xor_block(block, in, Ldown);
 
@@ -612,15 +607,30 @@ int crypto_aead_decrypt(
 		xor_block(checksum, checksum, out);
 
 		gf128_mul2(Lup, Lup);
-		gf128_mul2(Ldown, Ldown);
-		if (remaining < clen) {
+
 			gf128_mul2(twod1, twod1);
-		}
 
 		in += 16;
 		out += 16;
 		remaining -= 16;
 	}
+			block_t newlastblock;
+		xor_block(block, in, Ldown);
+
+		AES_decrypt( block,newlastblock, expkeyd);
+		xor_block(block, newlastblock, lastblock);
+		copy_block(lastblock, newlastblock);
+
+		AES_decrypt(block, block, expkeyd);
+		xor_block(out, block, Lup);
+		xor_block(checksum, checksum, out);
+
+		gf128_mul2(Lup, Lup);
+		gf128_mul2(Ldown, Ldown);
+
+		in += 16;
+
+		remaining -= 16;
 	
 	if (remaining == 0) { /* last block full, take tag from input */
 		T = in;
@@ -629,7 +639,7 @@ int crypto_aead_decrypt(
 		memcpy(buf, in, remaining+16);
 		in += remaining;
 		xlsinv(buf, remaining, twod1, expkeyd);
-
+		out += 16;
 		memcpy(out, buf, remaining); /* last partial plaintext */
 		T = buf + remaining;
 	}
