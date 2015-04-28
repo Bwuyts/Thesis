@@ -76,9 +76,10 @@ unsigned char in[4096], out[4096], outd[4096];
   printf("Cycles for AES encryption: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
   
-    for (j=0;j<1000;j++) 
+    for (j=0;j<1000;j++) {
         AES_encrypt(in, out,expkey);
-        AES_decrypt( out,decrypted,expkeyd);
+        AES_decrypt( out,outd,expkeyd);
+    }
   
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
