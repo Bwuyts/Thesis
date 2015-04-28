@@ -190,8 +190,8 @@ unsigned char out[16];
                     gf128_mul2(out, key);
                 
                 t1 = rdtsc32();
-                printf("t0: %d\n", t0);
-                      printf("t1: %ud\n", t1);
+                printf("t0: %u\n", t0);
+                      printf("t1: %u\n", t1);
 
         if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
