@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "aes.h"
+#include "print.h"
 // #define lengthA 10
 // #define lengthN 16
 // #define lengthT 16
@@ -53,7 +54,7 @@ int main(){
         AES_set_encrypt_key(k,128,expkey);
         AES_KEY expkeydp;
         AES_KEY* expkeyd = &expkeydp;
-        AES_set_decrypt_key(k,128,expkeyd);
+        AES_set_decrypt_key(key,128,expkeyd);
         printchar((unsigned char*)key,16,"key");
         printchar(plain,lengthM,"plain");
         AES_encrypt(plain, cipher,expkey);
