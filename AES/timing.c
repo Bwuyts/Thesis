@@ -39,8 +39,7 @@ unsigned char in[4096], out[4096], outd[4096];
         AES_KEY* expkey = &expkeyp;
         AES_KEY expkeydp;
         AES_KEY* expkeyd = &expkeydp;
-    for (k=0;k < 1000;k++) {
-        
+    for (k=0;k < 1000;k++)        
         AES_set_encrypt_key(key,128,expkey);
         
     for (k=0;k < TIMER_SAMPLE_CNT;k++) {
@@ -51,10 +50,11 @@ unsigned char in[4096], out[4096], outd[4096];
   }
   
     printf("Cycles for AESencryption key expansion: %d\n", tMin);
-
+    for (k=0;k < 1000;k++)        
+        AES_set_decrypt_key(key,128,expkeyd);
        for (k=0;k < TIMER_SAMPLE_CNT;k++) {
             t0 = rdtsc32();
-            AES_set_decrypt_key(key,128,expkey);
+            AES_set_decrypt_key(key,128,expkeyd);
             t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }     
