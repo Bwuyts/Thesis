@@ -11,6 +11,9 @@
 #define BLOCKS 1
 typedef uint8_t block_t[16];
  #define TIMER_SAMPLE_CNT (10000)
+#define copy_block(d, s) memcpy(d, s, 16)
+#define GETU32(p) (((uint32_t)(p)[3]) ^ ((uint32_t)(p)[2] << 8) ^ ((uint32_t)(p)[1] << 16) ^ ((uint32_t)(p)[0] << 24))//3 sh + 3 xor
+#define PUTU32(c, s) { (c)[3] = (uint8_t)(s); (c)[2] = (uint8_t)((s)>>8); (c)[1] = (uint8_t)((s)>>16); (c)[0] = (uint8_t)((s)>>24); }
 static inline void xor_block(block_t dest, const block_t a, const block_t b)
 {
 	uint32_t* destp = (uint32_t*) dest;
