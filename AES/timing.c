@@ -50,7 +50,7 @@ unsigned char in[4096], out[4096], outd[4096];
   }
   
     printf("Cycles for AES encryption key expansion: %d\n", tMin);
-      tMin = 0xFFFFFFFF
+      tMin = 0xFFFFFFFF;
 
     for (k=0;k < 1000;k++)        
         AES_set_decrypt_key(key,128,expkeyd);
@@ -61,7 +61,7 @@ unsigned char in[4096], out[4096], outd[4096];
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }     
   printf("Cycles for AES decryption key expansion: %d\n", tMin);
-    tMin = 0xFFFFFFFF
+    tMin = 0xFFFFFFFF;
 
     for (j=0;j<1000;j++) {
         AES_encrypt(in, out,expkey);
@@ -83,7 +83,7 @@ unsigned char in[4096], out[4096], outd[4096];
   outp = out;
   printf("Cycles for AES encryption: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
-    tMin = 0xFFFFFFFF
+    tMin = 0xFFFFFFFF;
 
      for (j=0;j<1000;j++) {
             AES_decrypt( out,outd,expkeyd);
