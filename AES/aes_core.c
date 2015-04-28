@@ -740,12 +740,12 @@ inline int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 	rk[1] = GETU32(userKey +  4);
 	rk[2] = GETU32(userKey +  8);
 	rk[3] = GETU32(userKey + 12);
-			temp  = rk[3];
+			//temp  = rk[3];
 			rk[4] = rk[0] ^
-				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
-				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
-				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
-				(Te4[(temp >> 24)       ] & 0x000000ff) ^
+				(Te4[(rk[3] >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(rk[3] >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(rk[3]      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(rk[3] >> 24)       ] & 0x000000ff) ^
 				rcon[0];
 			rk[5] = rk[1] ^ rk[4];
 			rk[6] = rk[2] ^ rk[5];
