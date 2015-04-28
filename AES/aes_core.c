@@ -722,30 +722,30 @@ static const u32 rcon[] = {
 /**
  * Expand the cipher key into the encryption key schedule.
  */
-inline int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
+inline int AES_set_encrypt_key(const unsigned char *userKey,
 			AES_KEY *key) {
 
 	u32 *rk;
 	u32 temp;
 
-	if (!userKey || !key)
-		return -1;
-	if (bits != 128)
-		return -2;
+// 	if (!userKey || !key)
+// 		return -1;
+// 	if (bits != 128)
+// 		return -2;
 
 	rk = (u32*)key->rd_key;
 
-        key->rounds = 10;
+       // key->rounds = 10;
 	rk[0] = GETU32(userKey     );
 	rk[1] = GETU32(userKey +  4);
 	rk[2] = GETU32(userKey +  8);
 	rk[3] = GETU32(userKey + 12);
-			//temp  = rk[3];
+			temp  = rk[3];
 			rk[4] = rk[0] ^
-				(Te4[(rk[3] >> 16) & 0xff] & 0xff000000) ^
-				(Te4[(rk[3] >>  8) & 0xff] & 0x00ff0000) ^
-				(Te4[(rk[3]      ) & 0xff] & 0x0000ff00) ^
-				(Te4[(rk[3] >> 24)       ] & 0x000000ff) ^
+				(Te4[(temp >> 16) & 0xff] & 0xff000000) ^
+				(Te4[(temp >>  8) & 0xff] & 0x00ff0000) ^
+				(Te4[(temp      ) & 0xff] & 0x0000ff00) ^
+				(Te4[(temp >> 24)       ] & 0x000000ff) ^
 				rcon[0];
 			rk[5] = rk[1] ^ rk[4];
 			rk[6] = rk[2] ^ rk[5];
@@ -857,7 +857,7 @@ inline int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
 /**
  * Expand the cipher key into the decryption key schedule.
  */
-inline int AES_set_decrypt_key(const unsigned char *userKey, const int bits,
+inline int AES_set_decrypt_key(const unsigned char *userKey,
 			 AES_KEY *key) {
 
         u32 *rk;
@@ -865,21 +865,21 @@ inline int AES_set_decrypt_key(const unsigned char *userKey, const int bits,
 	u32 temp;
 
 	/* first, start with an encryption schedule */
-	status = AES_set_encrypt_key(userKey, bits, key);
+	status = AES_set_encrypt_key(userKey, key);
 	if (status < 0)
 		return status;
 
 	rk = (u32*) key->rd_key;
 
 	/* invert the order of the round keys: */
-	for (i = 0, j = 4*(key->rounds); i < j; i += 4, j -= 4) {
+	for (i = 0, j = 40; i < j; i += 4, j -= 4) {
 		temp = rk[i    ]; rk[i    ] = rk[j    ]; rk[j    ] = temp;
 		temp = rk[i + 1]; rk[i + 1] = rk[j + 1]; rk[j + 1] = temp;
 		temp = rk[i + 2]; rk[i + 2] = rk[j + 2]; rk[j + 2] = temp;
 		temp = rk[i + 3]; rk[i + 3] = rk[j + 3]; rk[j + 3] = temp;
 	}
 	/* apply the inverse MixColumn transform to all round keys but the first and the last: */
-	for (i = 1; i < (key->rounds); i++) {
+	for (i = 1; i < 10; i++) {
 		rk += 4;
 		rk[0] =
 			Td0[Te4[(rk[0] >> 24)       ] & 0xff] ^
@@ -1076,7 +1076,6 @@ inline void AES_decrypt(const unsigned char *in, unsigned char *out,
     t1 = Td0[s1 >> 24] ^ Td1[(s0 >> 16) & 0xff] ^ Td2[(s3 >>  8) & 0xff] ^ Td3[s2 & 0xff] ^ rk[37];
     t2 = Td0[s2 >> 24] ^ Td1[(s1 >> 16) & 0xff] ^ Td2[(s0 >>  8) & 0xff] ^ Td3[s3 & 0xff] ^ rk[38];
     t3 = Td0[s3 >> 24] ^ Td1[(s2 >> 16) & 0xff] ^ Td2[(s1 >>  8) & 0xff] ^ Td3[s0 & 0xff] ^ rk[39];
-	rk += key->rounds << 2;
  /* ?FULL_UNROLL */
     /*
 	 * apply last round and

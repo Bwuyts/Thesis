@@ -50,10 +50,10 @@
 int main(){
         AES_KEY expkeyp;
         AES_KEY* expkey = &expkeyp;
-        AES_set_encrypt_key(key,128,expkey);
+        AES_set_encrypt_key(key,expkey);
         AES_KEY expkeydp;
         AES_KEY* expkeyd = &expkeydp;
-        AES_set_decrypt_key(key,128,expkeyd);
+        AES_set_decrypt_key(key,expkeyd);
         printchar((unsigned char*)key,16,"key");
         printchar(plain,lengthM,"plain");
         AES_encrypt(plain, cipher,expkey);

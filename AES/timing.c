@@ -40,11 +40,11 @@ unsigned char in[4096], out[4096], outd[4096];
         AES_KEY expkeydp;
         AES_KEY* expkeyd = &expkeydp;
     for (k=0;k < 1000;k++)        
-        AES_set_encrypt_key(key,128,expkey);
+        AES_set_encrypt_key(key,expkey);
         
     for (k=0;k < TIMER_SAMPLE_CNT;k++) {
             t0 = rdtsc32();
-            AES_set_encrypt_key(key,128,expkey);
+            AES_set_encrypt_key(key,expkey);
             t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
@@ -53,10 +53,10 @@ unsigned char in[4096], out[4096], outd[4096];
       tMin = 0xFFFFFFFF;
 
     for (k=0;k < 1000;k++)        
-        AES_set_decrypt_key(key,128,expkeyd);
+        AES_set_decrypt_key(key,expkeyd);
        for (k=0;k < TIMER_SAMPLE_CNT;k++) {
             t0 = rdtsc32();
-            AES_set_decrypt_key(key,128,expkeyd);
+            AES_set_decrypt_key(key,expkeyd);
             t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }     

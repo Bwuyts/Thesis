@@ -10,15 +10,14 @@
 
 struct aes_key_struct {
 	unsigned int rd_key[44];
-	int rounds;
 };
 
 typedef struct aes_key_struct AES_KEY;
 
-int AES_set_encrypt_key(const unsigned char *userKey, const int bits,
+int AES_set_encrypt_key(const unsigned char *userKey
 				            AES_KEY *key);
 
-int AES_set_decrypt_key(const unsigned char *userKey, const int bits,
+int AES_set_decrypt_key(const unsigned char *userKey,
 				             AES_KEY *key);
 
 void AES_decrypt(const unsigned char *in, unsigned char *out,
