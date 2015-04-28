@@ -496,9 +496,9 @@ int crypto_aead_encrypt(
 		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
 		AES_encrypt(block, block, expkey);//E_k(v[i]
 		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
-		//gf128_mul2(Lup, Lup);//delta0*2
+/*		gf128_mul2(Lup, Lup);//delta0*2
 		gf128_mul2(Ldown, Ldown);//delta1*2
-                gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
+                gf128_mul2(twod1, twod1);*///calc  2^(d-1)*L
 		
 		in += 16;
 		out += 16;
