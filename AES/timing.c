@@ -63,19 +63,21 @@ unsigned char in[4096], out[4096], outd[4096];
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-    for(i=0;i<128;i= i + 16){
+    for(i=0;i<256;i= i + 16){
         AES_encrypt(inp, outp,expkey);
         inp = inp+16;
         outp = outp + 16;
     }
-    t1 = rdtsc32();
+        t1 = rdtsc32();
+        inp = in;
+        outp = out;
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
   inp = in;
   outp = out;
   printf("Cycles for AES encryption: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
-/*  
+ 
     for (j=0;j<1000;j++) {
         AES_encrypt(in, out,expkey);
         AES_decrypt( out,outd,expkeyd);
@@ -87,13 +89,15 @@ unsigned char in[4096], out[4096], outd[4096];
         AES_decrypt(inp, outp,expkeyd);
         inp = inp+16;
         outp = outp + 16;
-    }
-    t1 = rdtsc32();
+        }
+        t1 = rdtsc32();
+        inp = in;
+        outp = out;
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
     
       printf("Cycles for AES decryption: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));*/
+  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
   return 0;
 }
 
