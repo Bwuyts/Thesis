@@ -451,7 +451,7 @@ int crypto_aead_encrypt(
             AES_KEY expkeyp;
           AES_KEY* expkey = &expkeyp;
 
-	unsigned char* macdata;
+	//unsigned char* macdata;
 	const unsigned char* in = m;
 	unsigned char* out = c;
 	unsigned long long remaining = mlen;
@@ -475,7 +475,7 @@ int crypto_aead_encrypt(
 // 	memcpy(macdata, ad, adlen);
 // 	memcpy(macdata+adlen, npub, 16);
 // 	mac(V, macdata, adlen+16, LL, expkey);
-	free(macdata);
+	//free(macdata);
 	if (mlen < 16) {
 		encrypt_tag_splitting(c, m, mlen, V, LL, expkey);
 		return 0;
