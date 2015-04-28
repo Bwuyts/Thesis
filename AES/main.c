@@ -57,7 +57,7 @@ int main(){
         printchar((unsigned char*)key,16,"key");
         printchar(plain,lengthM,"plain");
         AES_encrypt(plain, cipher,expkey);
-        AES_decrypt( cipher,plain,expkeyd);
+        AES_decrypt( cipher,decrypted,expkeyd);
         printchar(cipher,lengthM,"cipher");  
         printchar(decrypted,lengthM,"decrypt");
   return 0;
