@@ -69,7 +69,7 @@ unsigned char in[4096], out[4096], outd[4096];
     }
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-    for(i=0;i<256;i= i + 16){
+    for(i=0;i<256;i++){
         AES_encrypt(inp, outp,expkey);
         inp = inp+16;
         outp = outp + 16;
@@ -98,7 +98,7 @@ unsigned char in[4096], out[4096], outd[4096];
      
       for (k=0;k < TIMER_SAMPLE_CNT;k++) {
                 t0 = rdtsc32();
-                for(i=0;i<256;i= i + 16){
+                for(i=0;i<256;i++){
                     AES_decrypt(inp, outp,expkeyd);
                     inp = inp+16;
                     outp = outp + 16;
