@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include <string.h>
 #include "aes.h"
-#include "encrypt.h"
 // #define lengthA 10
 // #define lengthN 16
 // #define lengthT 16
