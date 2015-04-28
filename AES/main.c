@@ -58,7 +58,7 @@ int main(){
         printchar((unsigned char*)key,16,"key");
         printchar(plain,lengthM,"plain");
         AES_encrypt(plain, cipher,expkey);
-        AES_decrypt( cipher,plain,expkeyd);
+        succes = AES_decrypt( cipher,plain,expkeyd);
         printchar(cipher,lengthM,"cipher");  
         printf("succes = %i\n",succes);
         printchar(decrypted,lengthM,"decrypt");
