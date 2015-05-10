@@ -120,7 +120,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
       //void YAES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
      YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
 
-  printf("without adata");
+  printf("Without adata:\n\n");
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = HiResTime();
 #endif
@@ -264,6 +264,161 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
 #endif
 
      YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(4096)));
+#endif
+    printf("With adata, same size:\n\n");
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 64, 64, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(64)));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 128, 128, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(128)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 256, 256, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 512, 512, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 1024, 1024, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 2048, 2048, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 4096, 4096, 16);
 
 #ifdef HIRES
     t1 = HiResTime();
