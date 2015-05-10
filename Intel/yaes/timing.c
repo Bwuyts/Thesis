@@ -118,7 +118,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
 
   for (j=0;j<1000;j++) 
       //void YAES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 16*BLOCKS*l, 0, 16);
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
 
   printf("without adata");
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
@@ -263,7 +263,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 16*BLOCKS*l, 0, 16);
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
 
 #ifdef HIRES
     t1 = HiResTime();
