@@ -211,7 +211,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     
   tMin = 0xFFFFFFFF;         /* big number to start */
   
-
+  #ifdef HIRES
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = HiResTime();
