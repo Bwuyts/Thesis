@@ -7,7 +7,7 @@
 #include <x86intrin.h>
 #include "yaes.h"
 
-#define BLOCKS 7
+#define BLOCKS 8
 #define HIRES
 
 #ifdef HIRES
@@ -89,13 +89,15 @@ int main() {
 
 const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
 unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
-unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
+unsigned char in[4096], out[4096], adata[4096] tag[16];
 
   int i, j, k, l=100;
 
   srand(time(NULL));
-  for (i=0; i<16*BLOCKS*l; i++)
+  for (i=0; i<4096; i++){
     in[i] = (unsigned char)rand();
+    adata[i]=(unsigned char)rand();}
+    
 #if 0
   for (i=0; i!=128*l; i++) {
     printf("%02x ",in[i]);
@@ -115,7 +117,146 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
   printf("Cycles for calibrate: %d\n", dtMin);
 
   for (j=0;j<1000;j++) 
+      //void YAES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
      YAES128_ENC(key,nonce, 0, in, out, tag, 16, 16*BLOCKS*l, 0, 16);
+
+  printf("without adata");
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 64, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(1*BLOCKS));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 128, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(2*BLOCKS));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 256, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(4*BLOCKS));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 512, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(8*BLOCKS));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 1024, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(32*BLOCKS));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 2048, 0, 16);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for YAES 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(64*BLOCKS));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
 
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
@@ -131,9 +272,10 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for YAES: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
+  printf("Cycles for YAES 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(128*BLOCKS));
 #endif
+  
   
 #if 0
   for (i=0; i!=128; i++) {
