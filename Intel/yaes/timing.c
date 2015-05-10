@@ -135,7 +135,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 64: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(1*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(1*BLOCKS)));
 #endif
   
 #ifdef HIRES
@@ -158,7 +158,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 128: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(2*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(2*BLOCKS)));
 #endif
   
   #ifdef HIRES
@@ -181,7 +181,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 256: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(4*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(4*BLOCKS)));
 #endif
   
   #ifdef HIRES
@@ -204,7 +204,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 512: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(8*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(8*BLOCKS)));
 #endif
   
   #ifdef HIRES
@@ -227,7 +227,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 1024: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(32*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(32*BLOCKS)));
 #endif
   
   #ifdef HIRES
@@ -250,7 +250,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 2048: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(64*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(64*BLOCKS)));
 #endif
   
   #ifdef HIRES
@@ -273,7 +273,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   
 #ifdef HIRES
   printf("Cycles for YAES 4096: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(128*BLOCKS));
+  printf("Cycles per byte: %f\n", tMin/((double)(128*BLOCKS)));
 #endif
   
   
