@@ -1,0 +1,48 @@
+#include <string.h>
+#include "print.h"
+#include <stdio.h>
+#include "wmmintrin.h" 
+#include "smmintrin.h"
+
+const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
+unsigned char plain[16] = {0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+__m128i roundkeys[11];
+
+
+int main(){
+  __m128i Cipher, Plain, Decrypt;
+  roundkeys[0] = _mm_load_si128((__m128i*) key);
+  Plain = _mm_load_si128((__m128i*) plain);
+  AES_128_Key_Expansion(roundkeys);
+  Cipher= AES_ECB_encrypt(Plain, roundkeys);
+  Decrypt= AES_ECB_decrypt(Cipher, roundkeys);
+  printvector(Plain,"plain");
+  printvector(Cipher,"Cipher");
+  printvector(Decrypt,"decrypt");
+  return 0; 
+}
+#include <string.h>
+#include "aes.h"
+#include "print.h"
+#include <stdio.h>
+#include "wmmintrin.h" 
+#include "smmintrin.h"
+
+const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
+unsigned char plain[16] = {0x01,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00};
+__m128i roundkeys[11];
+
+
+int main(){
+  __m128i K, Cipher, Plain, Decrypt;
+  roundkeys[0] = _mm_load_si128((__m128i*) key);
+  Plain = _mm_load_si128((__m128i*) plain);
+  AES_128_Key_Expansion(roundkeys);
+  Cipher= AES_ECB_encrypt(Plain, roundkeys);
+  Decrypt= AES_ECB_encrypt(Cipher, roundkeys);
+  printvector(Plain,"plain");
+  printvector(Cipher,"Cipher");
+  printvector(Decrypt,"decrypt");
+  return 0; 
+}
+
