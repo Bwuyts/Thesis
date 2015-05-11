@@ -5,7 +5,7 @@
 #include <time.h>
 
 #include <x86intrin.h>
-#include "aegis.h"
+#include "silc.h"
 
 #define BLOCKS 8
 #define HIRES
