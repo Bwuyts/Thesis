@@ -2,7 +2,7 @@
 #include "smmintrin.h"
 #include <stdio.h>
 #include <stdint.h>
-#include "print.h"
+//#include "print.h"
 #include <string.h>
 
 
@@ -80,7 +80,7 @@ void AES_COPA_encrypt(unsigned char* M,int mlen,unsigned char* A, int Alen, unsi
 	temp3 = _mm_shuffle_epi8(L, mask);
 
 	__m128i V = pmac((__m128i*) A, Alen+Nlen,  temp3,  roundkeys);
-	printvector(V,"V");
+// 	printvector(V,"V");
 
 	if(mlen<16){
 	  temp = _mm_load_si128((__m128i*) M);
@@ -117,9 +117,9 @@ void AES_COPA_encrypt(unsigned char* M,int mlen,unsigned char* A, int Alen, unsi
 	}
 	temp2 = _mm_shuffle_epi8(temp2, mask);
 	temp = _mm_shuffle_epi8(temp, mask);
-	printvector(temp,"temp");
-	printvector(temp2,"temp2");
-	printvector(sigma,"sigma");
+// 	printvector(temp,"temp");
+// 	printvector(temp2,"temp2");
+// 	printvector(sigma,"sigma");
 	temp2 = _mm_xor_si128(sigma,temp2);
 	temp2 = AES_ECB_encrypt(temp2,roundkeys);
 	temp2 = _mm_xor_si128(temp2, S);
@@ -146,7 +146,7 @@ int AES_COPA_decrypt( unsigned char* C,int clen, unsigned char * A, int Alen, un
 		temp3 = _mm_shuffle_epi8(L, mask);
 
 	__m128i V = pmac((__m128i*)A, Alen +Nlen,temp3, roundkeys);
-	printvector(V,"V");
+// 	printvector(V,"V");
 
 
 	if(clen<16){
@@ -184,16 +184,16 @@ int AES_COPA_decrypt( unsigned char* C,int clen, unsigned char * A, int Alen, un
 	}
 	temp2 = _mm_shuffle_epi8(temp2, mask);
 	temp = _mm_shuffle_epi8(temp, mask);
-	printvector(temp,"temp");
-	printvector(temp2,"temp2");
-	printvector(sigma,"sigma");
+// 	printvector(temp,"temp");
+// 	printvector(temp2,"temp2");
+// 	printvector(sigma,"sigma");
 
 	temp2 = _mm_xor_si128(sigma,temp2);
 	temp2 = AES_ECB_encrypt(temp2,roundkeys);
 	temp2 = _mm_xor_si128(temp2, S);
 	temp2 = AES_ECB_encrypt(temp2,roundkeys);
 	temp = _mm_xor_si128(temp2,temp);
-	printvector(temp,"tagdec");
+// 	printvector(temp,"tagdec");
 	if(_mm_test_all_ones(_mm_cmpeq_epi8(temp,Torg))){ //1 if same, -1 if different
 	  return 1;}
 	return -1;
