@@ -430,6 +430,8 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
   printf("Cycles for YAES 4096: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
+  #ifdef HIRES
+
       printf("\n\n\n\nDecryption:\n\n");
 
     printf("Without adata:\n\n");
