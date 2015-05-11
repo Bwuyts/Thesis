@@ -5,9 +5,9 @@
 #include <time.h>
 
 #include <x86intrin.h>
-#include "silc.h"
+#include "aegis.h"
 
-#define BLOCKS 7
+#define BLOCKS 8
 #define HIRES
 
 #ifdef HIRES
@@ -89,13 +89,15 @@ int main() {
 
 const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
 unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
-unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
+unsigned char in[4096], out[4096], adata[4096], tag[16];
 
-  int i, j, k, l=100;
+  int i, j, k;
 
   srand(time(NULL));
-  for (i=0; i<16*BLOCKS*l; i++)
+  for (i=0; i<4096; i++){
     in[i] = (unsigned char)rand();
+    adata[i]=(unsigned char)rand();}
+    
 #if 0
   for (i=0; i!=128*l; i++) {
     printf("%02x ",in[i]);
@@ -115,15 +117,15 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
   printf("Cycles for calibrate: %d\n", dtMin);
 
   for (j=0;j<1000;j++) 
-     SILC_AES128_ENC(key,in,16*BLOCKS*l,out,nonce, 8,0, 0, tag);
+      //void AEGIS128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
+     SILC_AES128_ENC(key,in,4096,out,nonce, 8,0, 0, tag);
 
-
-
+  printf("Without adata:\n\n");
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = HiResTime();
 #endif
 
-     SILC_AES128_ENC(key,in,16*BLOCKS*l,out,nonce, 8,0, 0, tag);
+     SILC_AES128_ENC(key,in,64,out,nonce, 8,0, 0, tag);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -132,8 +134,615 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for SILC AES: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*l));
+  printf("Cycles for AEGIS 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(64)));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,128,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(128)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,256,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,512,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  #ifdef HIRES
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,1024,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,2048,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,4096,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(4096)));
+#endif
+    printf("With adata, same size:\n\n");
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,64,out,nonce, 8,adata, 64, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(64)));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,128,out,nonce, 8,adata, 128, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(128)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,256,out,nonce, 8,adata, 256, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,512,out,nonce, 8,adata, 512, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,1024,out,nonce, 8,adata, 1024, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,2048,out,nonce, 8,adata, 2048, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,4096,out,nonce, 8,adata, 4096, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(4096)));
+#endif
+  #ifdef HIRES
+
+      printf("\n\n\n\nDecryption:\n\n");
+
+  printf("Without adata:\n\n");
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,64,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(64)));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,128,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(128)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,256,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,512,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  #ifdef HIRES
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,1024,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,2048,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,4096,out,nonce, 8,0, 0, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(4096)));
+#endif
+    printf("With adata, same size:\n\n");
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_ENC(key,in,64,out,nonce, 8,adata, 64, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 64: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(64)));
+#endif
+  
+#ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,128,out,nonce, 8,adata, 128, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 128: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(128)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,256,out,nonce, 8,adata, 256, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 256: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,512,out,nonce, 8,adata, 512, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 512: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,1024,out,nonce, 8,adata, 1024, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,2048,out,nonce, 8,adata, 2048, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048)));
+#endif
+  
+  #ifdef HIRES
+    
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+
+
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = HiResTime();
+#endif
+
+     SILC_AES128_DEC(key,in,4096,out,nonce, 8,adata, 4096, tag);
+
+#ifdef HIRES
+    t1 = HiResTime();
+    if (tMin > t1-t0 - dtMin) tMin = t1-t0 - dtMin;
+  }
+#endif
+  
+#ifdef HIRES
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
   
 #if 0
@@ -144,5 +753,4 @@ unsigned char in[16*BLOCKS*100], out[16*BLOCKS*100], tag[16];
 #endif
   return 0;
 }
-
 
