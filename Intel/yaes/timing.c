@@ -118,14 +118,14 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
 
   for (j=0;j<1000;j++) 
       //void YAES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
   printf("Without adata:\n\n");
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 64, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -148,7 +148,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 128, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -171,7 +171,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 256, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -194,7 +194,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 512, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -217,7 +217,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 1024, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -240,7 +240,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 2048, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -263,7 +263,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, 0, in, out, tag, 16, 4096, 0, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -280,7 +280,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 64, 64, 16);
+     encrypt(key,nonce,0, in,out, tag, 0,4096);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -303,7 +303,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 128, 128, 16);
+     encrypt(key,IV,0, in,out, tag, 0,16*BLOCKS*l);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -326,7 +326,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 256, 256, 16);
+     encrypt(key,IV,0, in,out, tag, 0,16*BLOCKS*l);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -349,7 +349,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 512, 512, 16);
+     encrypt(key,IV,0, in,out, tag, 0,16*BLOCKS*l);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -372,7 +372,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 1024, 1024, 16);
+     encrypt(key,IV,0, in,out, tag, 0,16*BLOCKS*l);
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -395,7 +395,7 @@ unsigned char in[4096], out[4096], adata[4096], tag[16];
     t0 = HiResTime();
 #endif
 
-     YAES128_ENC(key,nonce, adata, in, out, tag, 16, 2048, 2048, 16);
+     encrypt(key,IV,0, in,out, tag, 0,16*BLOCKS*l);
 
 #ifdef HIRES
     t1 = HiResTime();
