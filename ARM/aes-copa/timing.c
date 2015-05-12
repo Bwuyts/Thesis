@@ -42,13 +42,90 @@ unsigned long long tag[16];
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,64,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(((double)(64)));
+  
+  
+  tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,128,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/(((double)(128)));
+  
+    tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,256,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(256));
+  
+    tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,512,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(512));
+  
+    tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,1024,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(1024));
+  
+    tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
+      crypto_aead_encrypt(out,tag,in,2048,0,0,0,nonce,key);
+
+    t1 = rdtsc32();
+    if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
+  }
+  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles per byte: %f\n", tMin/((double)(2048));
+  
+    tMin = 0xFFFFFFFF;         /* big number to start */
+  
+  for (k=0;k < TIMER_SAMPLE_CNT;k++) {
+    t0 = rdtsc32();
       crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
   printf("Cycles for AES-copa: %d\n", tMin);
-  printf("Cycles per byte: %f\n", tMin/(16.0*BLOCKS*256));
+  printf("Cycles per byte: %f\n", tMin/(4096));
+  
+    
+  
+  
   return 0;
 }
 
