@@ -226,7 +226,7 @@ unsigned long long tag[16];
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,64,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,64,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -239,7 +239,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,128,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,128,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -251,7 +251,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,256,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,256,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -263,7 +263,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,512,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,512,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -275,7 +275,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,1024,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,1024,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -287,7 +287,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,2048,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,2048,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -299,7 +299,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,4096,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,4096,0,0,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -309,17 +309,16 @@ unsigned long long tag[16];
   
     tMin = 0xFFFFFFFF;         /* big number to start */
   
-  printf("Cycles for calibrate: %d\n", overhead);
 
   for (j=0;j<1000;j++) 
-      crypto_aead_decrypt(out,tag,in,4096,0,0,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,4096,0,0,nonce,key);
 
   printf("\nDecryption: \nWith Adata\n");
   
 
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,64,adata,64,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,64,adata,64,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -332,7 +331,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,128,adata,128,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,128,adata,128,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -344,7 +343,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,256,adata,256,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,256,adata,256,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -356,7 +355,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,512,adata,512,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,512,adata,512,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -368,7 +367,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,1024,adata,1024,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,1024,adata,1024,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -380,7 +379,7 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,2048,adata,2048,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,2048,adata,2048,nonce,key);
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
@@ -392,7 +391,9 @@ unsigned long long tag[16];
   
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
-      crypto_aead_decrypt(out,tag,in,4096,adata,4096,0,nonce,key);
+      crypto_aead_decrypt(out,tag,0,in,4096,adata,4096,nonce,key);
+{
+
 
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
