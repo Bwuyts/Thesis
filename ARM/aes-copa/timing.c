@@ -392,7 +392,7 @@ unsigned long long tag[16];
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
     t0 = rdtsc32();
       crypto_aead_decrypt(out,tag,0,in,4096,adata,4096,nonce,key);
-{
+
 
 
     t1 = rdtsc32();
