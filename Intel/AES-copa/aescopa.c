@@ -178,7 +178,7 @@ int AES_COPA_decrypt( unsigned char* C,int clen, unsigned char * A, int Alen, un
 	temp2 = gf128Mul3(temp3);
 	temp2 = gf128Mul3(temp2);
 	for(i = 1;i < ((clen+15)>>4);i++){
-		//sigma = _mm_xor_si128(sigma,Mpointer[i]);
+		sigma = _mm_xor_si128(sigma,Mpointer[i]);
 		temp = gf128Mul2(temp); 
 		temp2 = gf128Mul2(temp2);
 	}
