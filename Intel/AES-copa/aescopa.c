@@ -99,6 +99,7 @@ void AES_COPA_encrypt(unsigned char* M,int mlen,unsigned char* A, int Alen, unsi
 		for(i=0;i<max;i++){
 			temp2 = _mm_shuffle_epi8(delta0, mask);
 			temp1 = _mm_xor_si128(Mpointer[i],temp2);
+                        sigma = _mm_xor_si128(sigma,temp1);
 			temp2 = AES_ECB_encrypt(temp1,roundkeys);
 			S = _mm_xor_si128(S,temp2);
 			temp2 = AES_ECB_encrypt(S,roundkeys);
@@ -106,7 +107,6 @@ void AES_COPA_encrypt(unsigned char* M,int mlen,unsigned char* A, int Alen, unsi
 			Cpointer[i] = _mm_xor_si128(temp2,temp1);
 			delta0 = gf128Mul2(delta0);
 			delta1 = gf128Mul2(delta1);  
-			sigma = _mm_xor_si128(sigma,Mpointer[i]);
 	}
 	temp = gf128Mul7(temp3);
 	temp2 = gf128Mul3(temp3);
