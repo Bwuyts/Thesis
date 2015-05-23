@@ -36,7 +36,13 @@ static void printblock(const char* caption, const block_t buf)
  * Auxiliary routines: operations on 128-bit blocks, multiplications, AES
  */
 
- 
+static void xor_block(block_t dest, const block_t a, const block_t b)
+{
+	int i;
+	for (i = 0; i < 16; i++) {
+		dest[i] = a[i] ^ b[i];
+	}
+}
 
 static void copy_block(block_t dest, const block_t src)
 {
