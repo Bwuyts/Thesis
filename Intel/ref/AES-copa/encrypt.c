@@ -10,9 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-// #include "aes-core.h"
-#include "aes.h"
-//#include "print.h"
+#include "aes-core.h"
 
 
 typedef uint8_t block_t[16];
@@ -23,107 +21,41 @@ typedef uint8_t block_t[16];
 #define PRINT(b)	printblock(#b, b)
 #define PRINT1(b)	if (i == 3*16) printblock(#b, b)
 #define PRINTI(i)	printf("%s: %d\n", #i, i)
-// static void printblock(const char* caption, const block_t buf)
-// {
-// 	int i;
-// 
-// 	printf("%-17s: ", caption);
-// 	for (i = 0; i < 16; i++) {
-// 		printf("%02x", buf[i]);
-// 	}
-// 	putchar('\n');
-// }
+static void printblock(const char* caption, const block_t buf)
+{
+	int i;
+
+	printf("%-17s: ", caption);
+	for (i = 0; i < 16; i++) {
+		printf("%02x", buf[i]);
+	}
+	putchar('\n');
+}
 
 /* 
  * Auxiliary routines: operations on 128-bit blocks, multiplications, AES
  */
-#define copy_block(d, s) memcpy(d, s, 16)
-#define GETU32(p) (((uint32_t)(p)[3]) ^ ((uint32_t)(p)[2] << 8) ^ ((uint32_t)(p)[1] << 16) ^ ((uint32_t)(p)[0] << 24))//3 sh + 3 xor
-#define PUTU32(c, s) { (c)[3] = (uint8_t)(s); (c)[2] = (uint8_t)((s)>>8); (c)[1] = (uint8_t)((s)>>16); (c)[0] = (uint8_t)((s)>>24); } //3 sh
 
+ 
 
-static inline void xor_block(block_t dest, const block_t a, const block_t b)
+static void copy_block(block_t dest, const block_t src)
 {
-	uint32_t* destp = (uint32_t*) dest;
-	uint32_t* ap = (uint32_t*) a;
-	uint32_t* bp = (uint32_t*) b;
-		destp[0] = ap[0] ^ bp[0];
-		destp[1] = ap[1] ^ bp[1];
-		destp[2] = ap[2] ^ bp[2];
-		destp[3] = ap[3] ^ bp[3];
-// 		dest[4] = a[4] ^ b[4];
-// 		dest[5] = a[5] ^ b[5];
-// 		dest[6] = a[6] ^ b[6];
-// 		dest[7] = a[7] ^ b[7];
-// 		dest[8] = a[8] ^ b[8];
-// 		dest[9] = a[9] ^ b[9];
-// 		dest[10] = a[10] ^ b[10];
-// 		dest[11] = a[11] ^ b[11];
-// 		dest[12] = a[12] ^ b[12];
-// 		dest[13] = a[13] ^ b[13];
-// 		dest[14] = a[14] ^ b[14];
-// 		dest[15] = a[15] ^ b[15];
+	int i;
+	for (i = 0; i < 16; i++) {
+		dest[i] = src[i];
+	}
 }
 
-// static inline void copy_block(block_t dest, const block_t src)
-// {
-// 		uint32_t* destp = (uint32_t*) dest;
-// 		uint32_t* srcp = (uint32_t*) src;
-// 		destp[0] = srcp[0];
-// 		destp[1] = srcp[1];
-// 		destp[2] = srcp[2];
-// 		destp[3] = srcp[3];
-// // 		dest[4] = src[4];
-// // 		dest[5] = src[5];
-// // 		dest[6] = src[6];
-// // 		dest[7] = src[7];
-// // 		dest[8] = src[8];
-// // 		dest[9] = src[9];
-// // 		dest[10] = src[10];
-// // 		dest[11] = src[11];
-// // 		dest[12] = src[12];
-// // 		dest[13] = src[13];
-// // 		dest[14] = src[14];
-// // 		dest[15] = src[15];
-// 		
-// }
-
-static inline void shl_block(block_t res, const block_t x)
+static void shl_block(block_t res, const block_t x)
 {
-  uint32_t x0, x1,x2,x3,res0,res1,res2,res3;//31 sh + 12 xor + 3 or
-	x0 = GETU32(x);
-	x1 = GETU32(x+4);
-	x2 = GETU32(x+8);
-	x3 = GETU32(x+12);
-	res0 = (x0<<1) | (x1>>31);
-	res1 = (x1<<1) | (x2>>31);
-	res2 = (x2<<1) | (x3>>31);
-	res3 = (x3<<1) ;
-	PUTU32(res, res0);
-	PUTU32(res+4, res1);
-	PUTU32(res+8, res2);
-	PUTU32(res+12, res3);
-/*
-	res[0] = (x[0] << 1) | (x[1] >> 7);
-	res[1] = (x[1] << 1) | (x[2] >> 7);
-	res[2] = (x[2] << 1) | (x[3] >> 7);
-	res[3] = (x[3] << 1) | (x[4] >> 7);
-	res[4] = (x[4] << 1) | (x[5] >> 7);
-	res[5] = (x[5] << 1) | (x[6] >> 7);
-	res[6] = (x[6] << 1) | (x[7] >> 7);
-	res[7] = (x[7] << 1) | (x[8] >> 7);
-	res[8] = (x[8] << 1) | (x[9] >> 7);
-	res[9] = (x[9] << 1) | (x[10] >> 7);
-	res[10] = (x[10] << 1) | (x[11] >> 7);
-	res[11] = (x[11] << 1) | (x[12] >> 7);
-	res[12] = (x[12] << 1) | (x[13] >> 7);
-	res[13] = (x[13] << 1) | (x[14] >> 7);
-	res[14] = (x[14] << 1) | (x[15] >> 7);
-
-	res[15] = x[15] << 1;*/
+	int i;
+	for (i = 0; i < 15; i++) {
+		res[i] = (x[i] << 1) | (x[i+1] >> 7);
+	}
+	res[15] = x[15] << 1;
 }
 
-static inline void gf128_mul2(block_t res, const block_t x)
+static void gf128_mul2(block_t res, const block_t x)
 {
 	int msb = x[0] & 0x80;
 	shl_block(res, x);
@@ -132,68 +64,52 @@ static inline void gf128_mul2(block_t res, const block_t x)
 	}
 }
 
-static inline void gf128_mul3(block_t res, const block_t x)
+static void gf128_mul3(block_t res, const block_t x)
 {
 	block_t x2;
-	int msb = x[0] & 0x80;
-	shl_block(x2, x);
-	if (msb) {
-		x2[15] ^= 0x87;
-	}
+
+	gf128_mul2(x2, x);
 	xor_block(res, x2, x);
 }
 
-static inline void gf128_mul7(block_t res, const block_t x)
+static void gf128_mul7(block_t res, const block_t x)
 {
-//	block_t x2, x4;
-	uint32_t X0, X1,X2,X3;
-	uint32_t X0_2, X1_2,X2_2,X3_2;
-	uint32_t X0_4, X1_4,X2_4,X3_4;
-	uint32_t res0,res1,res2,res3;
-// 	uint32_t* xp =(uint32_t*) x;
-// 	uint32_t* x2p =(uint32_t*) x2;
-// 	uint32_t* x4p =(uint32_t*) x4;
-// 	uint32_t* resp =(uint32_t*) res;
-	int msb = x[0] & 0x80;
-	X0 = GETU32(x);
-	X1 = GETU32(x+4);
-	X2 = GETU32(x+8);
-	X3 = GETU32(x+12);
-	X0_2 = (X0<<1) | (X1>>31);
-	X1_2 = (X1<<1) | (X2>>31);
-	X2_2 = (X2<<1) | (X3>>31);
-	X3_2 = (X3<<1) ;
-	if (msb) {
-		X3_2 ^= 0x87;
-	}
-	
-	msb = X0_2 & 0x80000000;
-//	shl_block(x4, x2);
-	X0_4 = (X0_2<<1) | (X1_2>>31);
-	X1_4 = (X1_2<<1) | (X2_2>>31);
-	X2_4 = (X2_2<<1) | (X3_2>>31);
-	X3_4 = (X3_2<<1) ;
-	if (msb) {
-		X3_4^= 0x87;
-	}
-	res0 = X0_4^X0_2^X0;
-	res1 = X1_4^X1_2^X1;
-	res2 = X2_4^X2_2^X2;
-	res3 = X3_4^X3_2^X3;
-	PUTU32(res, res0);
-	PUTU32(res+4, res1);
-	PUTU32(res+8, res2);
-	PUTU32(res+12, res3);
+	block_t x2, x4;
+
+	gf128_mul2(x2, x);
+	gf128_mul2(x4, x2);
+	xor_block(x4, x4, x2);
+	xor_block(res, x4, x);
+}
+
+void AES_ENCRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+{
+	unsigned char buf[16];
+	unsigned char expkey[11*16];
+
+	aesc_keyexp(key, expkey);
+	aesc_encrypt(in, buf, expkey);
+	copy_block(out, buf);
+}
+
+void AES_DECRYPT(unsigned char* out, const unsigned char* in, const unsigned char* key)
+{
+	unsigned char buf[16];
+	unsigned char expkey[11*16];
+
+	aesc_keyexp(key, expkey);
+	aesc_decrypt(in, buf, expkey);
+	copy_block(out, buf);
 }
 
 /*
  * COPA's AD processing PMAC1'
  */
 
-void inline mac(unsigned char* out, 
+void mac(unsigned char* out, 
 		const unsigned char* in, unsigned long long len, 
 		const unsigned char* LL,
-		 AES_KEY* expkey)
+		const unsigned char* k)
 {
 	block_t v = { 0 }, delta, block;
 	unsigned int i;
@@ -201,21 +117,24 @@ void inline mac(unsigned char* out,
 	gf128_mul3(delta, LL);
 	gf128_mul3(delta, delta);
 	gf128_mul3(delta, delta); /* delta = 3^3*L */
+
 	/* mac full blocks except last */
 	while (len > 16) {
 		xor_block(block, in, delta);
-		AES_encrypt(block, block, expkey);
+		AES_ENCRYPT(block, block, k);
 		xor_block(v, v, block);
+
 		gf128_mul2(delta, delta);
 
 		in += 16;
 		len -= 16;
 	}
+
 	if (len == 16) { /* last block full */
 		gf128_mul3(delta, delta);
 		xor_block(v, v, delta);
 		xor_block(v, v, in);
-		AES_encrypt( v,out, expkey);
+		AES_ENCRYPT(out, v, k);
 	} else { /* last block partial */
 		gf128_mul3(delta, delta);
 		gf128_mul3(delta, delta);
@@ -224,7 +143,7 @@ void inline mac(unsigned char* out,
 			v[i] ^= in[i];
 		}
 		v[len] ^= 0x80; /* padding */
-		AES_encrypt(v,out, expkey);
+		AES_ENCRYPT(out, v, k);
 	}
 }
 
@@ -233,9 +152,9 @@ void inline mac(unsigned char* out,
  * block).
  */
 
-static inline void encrypt_tag_splitting(unsigned char* c, 
+static void encrypt_tag_splitting(unsigned char* c, 
 		const unsigned char* m, int mlen, 
-		const block_t V, const block_t LL,  AES_KEY* expkey)
+		const block_t V, const block_t LL, const unsigned char* k)
 {
 	block_t delta36, delta37, delta38, delta236, delta367;
 	block_t padmsg = { 0 }, block, S, C, T;
@@ -249,6 +168,7 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 	gf128_mul3(delta38, delta37);
 	gf128_mul2(delta236, delta36);
 	gf128_mul7(delta367, delta36);
+
 	for (i = 0; i < mlen; i++) {
 		padmsg[i] = m[i];
 	}
@@ -256,18 +176,18 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 
 	/* encrypt */
 	xor_block(block, padmsg, delta37);
-	AES_encrypt(block, block, expkey);
+	AES_ENCRYPT(block, block, k);
 	xor_block(block, block, delta36);
 	xor_block(S, block, V);
 
-	AES_encrypt(S,block, expkey);
+	AES_ENCRYPT(block, S, k);
 	xor_block(C, block, delta236);
 
 	/* tag */
 	xor_block(block, padmsg, delta38);
-	AES_encrypt(block, block, expkey);
+	AES_ENCRYPT(block, block, k);
 	xor_block(block, block, S);
-	AES_encrypt(block, block, expkey);
+	AES_ENCRYPT(block, block, k);
 	xor_block(T, block, delta367);
 
 	/* fill c[0..mlen-1+16] with bytes from C and T */
@@ -279,9 +199,9 @@ static inline void encrypt_tag_splitting(unsigned char* c,
 	}
 }
 
-static inline int decrypt_tag_splitting(unsigned char* m, int mlen, 
+static int decrypt_tag_splitting(unsigned char* m, int mlen, 
 		const unsigned char* c, 
-		const block_t V, const block_t LL, AES_KEY* expkey,AES_KEY* expkeyd)
+		const block_t V, const block_t LL, const unsigned char* k)
 {
 	block_t delta36, delta37, delta38, delta236, delta367;
 	block_t block, S, M, T;
@@ -299,18 +219,18 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
 
 	copy_block(block, c); /* copies from partial ciphertext + partial tag */
 	xor_block(block, block, delta236);
-	AES_decrypt( block, S, expkeyd);
+	AES_DECRYPT(S, block, k);
 
 	xor_block(block, V, S);
 	xor_block(block, block, delta36);
-	AES_decrypt(block, block, expkeyd);
-
+	AES_DECRYPT(block, block, k);
 	xor_block(M, block, delta37); /* block = M10*   */
+	
 	/* compute tag */
 	xor_block(block, M, delta38);
-	AES_encrypt(block, block, expkey);
+	AES_ENCRYPT(block, block, k);
 	xor_block(block, block, S);
-	AES_encrypt(block, block, expkey);
+	AES_ENCRYPT(block, block, k);
 	xor_block(T, block, delta367);
 
 	while (*p == 0)
@@ -333,7 +253,7 @@ static inline int decrypt_tag_splitting(unsigned char* m, int mlen,
  * XLS + auxiliary routines for handling fractional last blocks
  */
 
-void inline rol(unsigned char* out, const unsigned char* in, unsigned int s)
+void rol(unsigned char* out, const unsigned char* in, unsigned int s)
 {
 	unsigned char firstbit = in[0] >> 7;
 	while (--s > 0) {
@@ -345,13 +265,13 @@ void inline rol(unsigned char* out, const unsigned char* in, unsigned int s)
 	*out = (*in << 1) | firstbit;
 }
 
-void inline mix(unsigned char* buf, unsigned int s)
+void mix(unsigned char* buf, unsigned int s)
 {
-	unsigned char ab[16] = {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	unsigned char ab[16];
 	unsigned int i;
 
 	for (i = 0; i < s; i++) {
-		ab[i] = buf[i] ^ buf[s+i]; //A xor B
+		ab[i] = buf[i] ^ buf[s+i];
 	}
 	rol(ab, ab, s);
 
@@ -361,7 +281,13 @@ void inline mix(unsigned char* buf, unsigned int s)
 	}
 }
 
-void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  AES_KEY* expkey)
+void invmix(unsigned char* buf, unsigned int s)
+{
+	mix(buf, s); /* mix is an involution */
+}
+
+
+void xls(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
 {
 	/*
 	 * Input is s+16 bytes buf[0]..buf[s+15] with 1 < s < 16
@@ -374,7 +300,7 @@ void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  AES_KE
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_encrypt(buf, buf, expkey);
+	AES_ENCRYPT(buf, buf, k);
 	xor_block(buf, buf, LL3);
 
 	/* mix on last 2s bytes */
@@ -384,7 +310,7 @@ void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  AES_KE
 
 	/* Ed,1 on first 16 bytes */
 	xor_block(buf, buf, LL);
-	AES_encrypt(buf, buf, expkey);
+	AES_ENCRYPT(buf, buf, k);
 	xor_block(buf, buf, LL);
 
 	/* flip */
@@ -394,11 +320,11 @@ void inline xls(unsigned char* buf, unsigned int s, const block_t twod1,  AES_KE
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_encrypt(buf, buf, expkey);
+	AES_ENCRYPT(buf, buf, k);
 	xor_block(buf, buf, LL3);
 }
 
-void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  AES_KEY* expkeyd)
+void xlsinv(unsigned char* buf, unsigned int s, const block_t twod1, const unsigned char* k)
 {
 	block_t LL, LL3;
 	gf128_mul7(LL, twod1); 
@@ -407,27 +333,27 @@ void inline xlsinv(unsigned char* buf, unsigned int s, const block_t twod1,  AES
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_decrypt(buf, buf, expkeyd);
+	AES_DECRYPT(buf, buf, k);
 	xor_block(buf, buf, LL3);
 
 	/* mix on last 2s bytes */
-	mix(buf+16-s, s);
+	invmix(buf+16-s, s);
 	/* flip  */
 	buf[16-s] ^= 0x80;
 
 	/* Ed,1 on first 16 bytes */
 	xor_block(buf, buf, LL);
-	AES_decrypt(buf, buf, expkeyd);
+	AES_DECRYPT(buf, buf, k);
 	xor_block(buf, buf, LL);
 
 	/* flip */
 	buf[16-s] ^= 0x80;
 	/* mix on last 2s bytes */
-	mix(buf+16-s, s);
+	invmix(buf+16-s, s);
 
 	/* Ed,2 on first 16 bytes */
 	xor_block(buf, buf, LL3);
-	AES_decrypt(buf, buf, expkeyd);
+	AES_DECRYPT(buf, buf, k);
 	xor_block(buf, buf, LL3);
 }
 
@@ -444,16 +370,11 @@ int crypto_aead_encrypt(
        const unsigned char *k
      )
 {
-            AES_KEY expkeyp;
-          AES_KEY* expkey = &expkeyp;
-
 	unsigned char* macdata;
 	const unsigned char* in = m;
 	unsigned char* out = c;
 	unsigned long long remaining = mlen;
-	//unsigned char expkey[11*16];
-        AES_set_encrypt_key(k,128,expkey);
-	//aesc_keyexp(k, expkey);
+
 	block_t V;
 	block_t lastblock;
 	block_t block, Lup, Ldown, twod1;
@@ -461,71 +382,74 @@ int crypto_aead_encrypt(
 	block_t T;
 	block_t LL = { 0 };
 
-	//AES_ENCRYPT(LL, LL, expkey); /* LL = AES(LL) */
-	AES_encrypt(LL, LL, expkey);
-    
+	AES_ENCRYPT(LL, LL, k); /* LL = AES(LL) */
+
 	*clen = mlen + 16;
 
 	/* mac AD + nonce */
 	macdata = malloc(adlen + 16);
 	memcpy(macdata, ad, adlen);
 	memcpy(macdata+adlen, npub, 16);
-	mac(V, macdata, adlen+16, LL, expkey);
+	mac(V, macdata, adlen+16, LL, k);
 	free(macdata);
+
 	if (mlen < 16) {
-		encrypt_tag_splitting(c, m, mlen, V, LL, expkey);
+		encrypt_tag_splitting(c, m, mlen, V, LL, k);
 		return 0;
 	}
 
-	xor_block(lastblock, LL, V); /* lastblock = LL xor V */
+	xor_block(lastblock, LL, V); /* lastblock = LL ^ V */
+
 	copy_block(twod1, LL); /* 2^(d-1)*L where d is # of blocks. */
-	gf128_mul3(Lup, LL); /* Lup = 3*LL delta0*/ 
-	gf128_mul2(Ldown, LL); /* Ldown = 2*LL  delta1*/
-	
+	gf128_mul3(Lup, LL); /* Lup = 3*LL */
+	gf128_mul2(Ldown, LL); /* Ldown = 2*LL */
+
 	while (remaining >= 16) { 
-		xor_block(checksum, checksum, in);//calc sigma
-		
-		xor_block(block, in, Lup);//mi xor delta0
-		//AES_ENCRYPT(block, block, expkey);//E_k(mi xor delta0)
-		AES_encrypt(block, block, expkey);
-		xor_block(block, block, lastblock);//E_k(mi xor delta0) XOR V[i-1]
-		copy_block(lastblock, block);//V[i] = E_k(mi xor delta0) XOR V[i-1]
-		AES_encrypt(block, block, expkey);//E_k(v[i]
-		xor_block(out, block, Ldown);//E_k(v[i]) xor delta1
-		gf128_mul2(Lup, Lup);//delta0*2
-		gf128_mul2(Ldown, Ldown);//delta1*2
+		xor_block(checksum, checksum, in);
+		xor_block(block, in, Lup);
+		AES_ENCRYPT(block, block, k);
+
+		xor_block(block, block, lastblock);
+		copy_block(lastblock, block);
+
+		AES_ENCRYPT(block, block, k);
+		xor_block(out, block, Ldown);
+
+		gf128_mul2(Lup, Lup);
+		gf128_mul2(Ldown, Ldown);
 		if (remaining < mlen) {
-			gf128_mul2(twod1, twod1);//calc  2^(d-1)*L
+			gf128_mul2(twod1, twod1);
 		}
-		
+
 		in += 16;
 		out += 16;
 		remaining -= 16;
 	}
+
 	/* compute tag */
-	gf128_mul3(LL, twod1);//2^(d-1)3L
-	gf128_mul3(LL, LL);//2^(d-1)3^2L
-	xor_block(checksum, checksum, LL);//sigma XOR 2^(d-1)3^2L
-	AES_encrypt(checksum, checksum, expkey);//E_K(sigma XOR 2^(d-1)3^2L)
+	gf128_mul3(LL, twod1);
+	gf128_mul3(LL, LL);
+	xor_block(checksum, checksum, LL);
+	AES_ENCRYPT(checksum, checksum, k);
 
-	xor_block(checksum, checksum, lastblock);//E_K(sigma XOR 2^(d-1)3^2L) XOR S
+	xor_block(checksum, checksum, lastblock);
 
-	AES_encrypt(checksum, checksum, expkey);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S)
-	gf128_mul7(LL, twod1);//2^(d-1)7L
-	xor_block(T, checksum, LL);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S) XOR 2^(d-1)7L
+	AES_ENCRYPT(checksum, checksum, k);
+	gf128_mul7(LL, twod1);
+	xor_block(T, checksum, LL);
+
 	if (remaining == 0) { /* last block full, we are done */
 		copy_block(out, T);
-
 	} else { /* last partial block remaining, use XLS */
 		unsigned char buf[32]; /* at most 15 + 16 bytes */
 
 		memcpy(buf, in, remaining);
 		memcpy(buf+remaining, T, 16);
-		xls(buf, remaining, twod1, expkey);
+		xls(buf, remaining, twod1, k);
 
 		memcpy(out, buf, remaining+16); /* last partial ciphertext + tag */
 	}
-      
+
 	return 0;
 }
 
@@ -544,17 +468,9 @@ int crypto_aead_decrypt(
 	const unsigned char* in = c;
 	unsigned char* out = m;
 	unsigned long long remaining;
+
 	const unsigned char* T;
 	unsigned char buf[32]; /* for XLS: at most 15 + 16 bytes */
-		//unsigned char expkey[11*16];
-        AES_KEY expkeyp;
-        AES_KEY* expkey = &expkeyp;
-        AES_set_encrypt_key(k,128,expkey);
-
-        AES_KEY expkeydp;
-        AES_KEY* expkeyd = &expkeydp;
-        AES_set_decrypt_key(k,128,expkeyd);
-	//aesc_keyexp(k, expkey);
 	block_t V;
 	block_t lastblock;
 	block_t checksum = { 0 };
@@ -562,18 +478,19 @@ int crypto_aead_decrypt(
 	block_t block, Lup, Ldown, twod1;
 	block_t LL = { 0 };
 
-	AES_encrypt(LL, LL, expkey); /* LL = AES(LL) */
+	AES_ENCRYPT(LL, LL, k); /* LL = AES(LL) */
 
-	//*mlen = clen;copy_block
+	*mlen = clen - 16;
 
 	/* mac AD + nonce */
 	macdata = malloc(adlen + 16);
 	memcpy(macdata, ad, adlen);
 	memcpy(macdata+adlen, npub, 16);
-	mac(V, macdata, adlen+16, LL, expkey);
+	mac(V, macdata, adlen+16, LL, k);
 	free(macdata);
-	if (clen < 16) {
-		return decrypt_tag_splitting(m, clen, c, V, LL, expkey, expkeyd);
+
+	if (*mlen < 16) {
+		return decrypt_tag_splitting(m, *mlen, c, V, LL, k);
 	}
 
 	xor_block(lastblock, LL, V); /* lastblock = LL ^ V; */
@@ -581,22 +498,23 @@ int crypto_aead_decrypt(
 	copy_block(twod1, LL); /* 2^(d-1)*L where d is # of blocks. */
 	gf128_mul3(Lup, LL); /* Lup = 3*LL */
 	gf128_mul2(Ldown, LL); /* Ldown = 2*LL */
-	remaining = clen;
+
+	remaining = *mlen;
 	while (remaining >= 16) {
 		block_t newlastblock;
 		xor_block(block, in, Ldown);
+		AES_DECRYPT(newlastblock, block, k);
 
-		AES_decrypt( block,newlastblock, expkeyd);
 		xor_block(block, newlastblock, lastblock);
 		copy_block(lastblock, newlastblock);
 
-		AES_decrypt(block, block, expkeyd);
+		AES_DECRYPT(block, block, k);
 		xor_block(out, block, Lup);
 		xor_block(checksum, checksum, out);
 
 		gf128_mul2(Lup, Lup);
 		gf128_mul2(Ldown, Ldown);
-		if (remaining < clen) {
+		if (remaining < *mlen) {
 			gf128_mul2(twod1, twod1);
 		}
 
@@ -604,14 +522,13 @@ int crypto_aead_decrypt(
 		out += 16;
 		remaining -= 16;
 	}
-	
+
 	if (remaining == 0) { /* last block full, take tag from input */
 		T = in;
 	} else { /* last partial block remaining, use XLS^-1 */
-;
 		memcpy(buf, in, remaining+16);
 		in += remaining;
-		xlsinv(buf, remaining, twod1, expkeyd);
+		xlsinv(buf, remaining, twod1, k);
 
 		memcpy(out, buf, remaining); /* last partial plaintext */
 		T = buf + remaining;
@@ -619,15 +536,15 @@ int crypto_aead_decrypt(
 
 	/* compute tag */
 	gf128_mul3(LL, twod1);
-	gf128_mul3(LL, LL);//2^(d-1)3^2L
-	xor_block(checksum, checksum, LL);//sigma XOR 2^(d-1)3^2L
-	AES_encrypt(checksum, checksum, expkey);//E_K(sigma XOR 2^(d-1)3^2L)
+	gf128_mul3(LL, LL);
+	xor_block(checksum, checksum, LL);
+	AES_ENCRYPT(checksum, checksum, k);
 
-	xor_block(checksum, checksum, lastblock);//E_K(sigma XOR 2^(d-1)3^2L) XOR S
+	xor_block(checksum, checksum, lastblock);
 
-	AES_encrypt(checksum, checksum, expkey);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S)
-	gf128_mul7(LL, twod1);//2^(d-1)7L
-	xor_block(tag, checksum, LL);//E_K(E_K(sigma XOR 2^(d-1)3^2L) XOR S) XOR 2^(d-1)7L
+	AES_ENCRYPT(checksum, checksum, k);
+	gf128_mul7(LL, twod1);
+	xor_block(tag, checksum, LL);
 
 	if (memcmp(tag, T, 16) == 0) {
 		return 0;
