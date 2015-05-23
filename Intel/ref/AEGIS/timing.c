@@ -87,16 +87,26 @@ uint32_t calibrate()
 
 int main() {
 
-const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
-unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
-unsigned char in[4096], out[4096],adata[4096];
-unsigned long long tag[16];
-
-//asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
-  int i, j, k, l=100;
-
-//  srand(time(NULL));
-  for (i=0; i<4096; i++){
+const unsigned char key[16] = {0x7f,0x7e,0x7d,0x7c,0x7b,0x7a,0x79,0x78,0x77,0x76,0x75,0x74,0x73,0x72,0x71,0x70};
+
+unsigned char nonce[16] = {0x09,0xf9,0x11,0x02,0x9d,0x74,0xe3,0x5b,0xd8,0x41,0x56,0xc5,0x63,0x56,0x88,0xc0};
+
+unsigned char in[4096], out[4096],adata[4096];
+
+unsigned long long tag[16];
+
+
+
+//asm volatile ("mcr p15,  0, %0, c15,  c9, 0\n" : : "r" (1));
+
+  int i, j, k, l=100;
+
+
+
+//  srand(time(NULL));
+
+  for (i=0; i<4096; i++)
+{
     in[i] = (unsigned char)rand();
     adata[i]=(unsigned char)rand();}
     
@@ -119,7 +129,7 @@ unsigned long long tag[16];
   printf("Cycles for calibrate: %d\n", dtMin);
 
   for (j=0;j<1000;j++) 
-      //void silc-AES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
+      //void AEGIS128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
       crypto_aead_encrypt(out,tag,in,4096,0,0,0,nonce,key);
   printf("Without adata:\n\n");
   for (k=0;k < TIMER_SAMPLE_CNT;k++) {
@@ -134,7 +144,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 64: %d\n", tMin);
+  printf("Cycles for AEGIS 64: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(64)));
 #endif
   
@@ -156,7 +166,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 128: %d\n", tMin);
+  printf("Cycles for AEGIS 128: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(128)));
 #endif
   
@@ -170,7 +180,8 @@ unsigned long long tag[16];
     t0 = HiResTime();
 #endif
 
-      crypto_aead_encrypt(out,tag,in,256,0,0,0,nonce,key);
+      crypto_aead_encrypt(out,tag,in,256,0,0,0,nonce,key);
+
 
 #ifdef HIRES
     t1 = HiResTime();
@@ -179,7 +190,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 256: %d\n", tMin);
+  printf("Cycles for AEGIS 256: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
 #endif
   
@@ -201,7 +212,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 512: %d\n", tMin);
+  printf("Cycles for AEGIS 512: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
 #endif
   
@@ -223,7 +234,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 1024: %d\n", tMin);
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
 #endif
   
@@ -245,7 +256,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 2048: %d\n", tMin);
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
 #endif
   
@@ -267,7 +278,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 4096: %d\n", tMin);
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
     printf("With adata, same size:\n\n");
@@ -283,7 +294,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 64: %d\n", tMin);
+  printf("Cycles for AEGIS 64: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(64)));
 #endif
   
@@ -305,7 +316,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 128: %d\n", tMin);
+  printf("Cycles for AEGIS 128: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(128)));
 #endif
   
@@ -327,7 +338,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 256: %d\n", tMin);
+  printf("Cycles for AEGIS 256: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
 #endif
   
@@ -349,7 +360,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 512: %d\n", tMin);
+  printf("Cycles for AEGIS 512: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
 #endif
   
@@ -371,7 +382,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 1024: %d\n", tMin);
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
 #endif
   
@@ -393,7 +404,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 2048: %d\n", tMin);
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
 #endif
   
@@ -415,7 +426,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 4096: %d\n", tMin);
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
   #ifdef HIRES
@@ -435,7 +446,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 64: %d\n", tMin);
+  printf("Cycles for AEGIS 64: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(64)));
 #endif
   
@@ -457,7 +468,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 128: %d\n", tMin);
+  printf("Cycles for AEGIS 128: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(128)));
 #endif
   
@@ -479,7 +490,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 256: %d\n", tMin);
+  printf("Cycles for AEGIS 256: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
 #endif
   
@@ -501,7 +512,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 512: %d\n", tMin);
+  printf("Cycles for AEGIS 512: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
 #endif
   
@@ -523,7 +534,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 1024: %d\n", tMin);
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
 #endif
   
@@ -545,7 +556,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 2048: %d\n", tMin);
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
 #endif
   
@@ -567,7 +578,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 4096: %d\n", tMin);
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
     printf("With adata, same size:\n\n");
@@ -583,7 +594,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 64: %d\n", tMin);
+  printf("Cycles for AEGIS 64: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(64)));
 #endif
   
@@ -605,7 +616,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 128: %d\n", tMin);
+  printf("Cycles for AEGIS 128: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(128)));
 #endif
   
@@ -627,7 +638,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 256: %d\n", tMin);
+  printf("Cycles for AEGIS 256: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
 #endif
   
@@ -649,7 +660,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 512: %d\n", tMin);
+  printf("Cycles for AEGIS 512: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
 #endif
   
@@ -671,7 +682,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 1024: %d\n", tMin);
+  printf("Cycles for AEGIS 1024: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
 #endif
   
@@ -693,7 +704,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 2048: %d\n", tMin);
+  printf("Cycles for AEGIS 2048: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
 #endif
   
@@ -715,7 +726,7 @@ unsigned long long tag[16];
 #endif
   
 #ifdef HIRES
-  printf("Cycles for silc-AES 4096: %d\n", tMin);
+  printf("Cycles for AEGIS 4096: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
 #endif
   
