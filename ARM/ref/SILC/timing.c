@@ -49,7 +49,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(64))));
   
   
@@ -62,7 +62,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(128))));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -74,7 +74,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -86,7 +86,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -98,7 +98,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -110,7 +110,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -122,7 +122,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -142,7 +142,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(64))));
   
   
@@ -155,7 +155,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(128))));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -167,7 +167,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -179,7 +179,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -191,7 +191,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -203,7 +203,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -215,7 +215,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
   tMin = 0xFFFFFFFF;         /* big number to start */
   
@@ -231,7 +231,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(64))));
   
   
@@ -244,7 +244,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(128))));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -256,7 +256,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -268,7 +268,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -280,7 +280,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -292,7 +292,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -304,7 +304,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -323,7 +323,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(64))));
   
   
@@ -336,7 +336,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/(((double)(128))));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -348,7 +348,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(256)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -360,7 +360,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(512)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -372,7 +372,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(1024)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -384,7 +384,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(2048)));
   
     tMin = 0xFFFFFFFF;         /* big number to start */
@@ -398,7 +398,7 @@ unsigned long long tag[16];
     t1 = rdtsc32();
     if (tMin > t1-t0 - overhead) tMin = t1-t0 - overhead;
   }
-  printf("Cycles for AES-copa: %d\n", tMin);
+  printf("Cycles for silc-AES: %d\n", tMin);
   printf("Cycles per byte: %f\n", tMin/((double)(4096)));
   
   
