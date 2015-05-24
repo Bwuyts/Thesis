@@ -1,0 +1,1 @@
+cmd_/home/linaro/Documents/Thesis/enable_arm_pmu/ko/enable_arm_pmu.ko := ld -EL -r  -T ./scripts/module-common.lds --build-id  -o /home/linaro/Documents/Thesis/enable_arm_pmu/ko/enable_arm_pmu.ko /home/linaro/Documents/Thesis/enable_arm_pmu/ko/enable_arm_pmu.o /home/linaro/Documents/Thesis/enable_arm_pmu/ko/enable_arm_pmu.mod.o
