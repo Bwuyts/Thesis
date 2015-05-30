@@ -60,12 +60,15 @@ unsigned char tag[lengthT];//={0x83,0x94 ,0x67,0x36 ,0x08,0x64 ,0x61,0xfd ,0x3c,
 
 int main(){
   int succes;
-  printchar((unsigned char*) key,16,"key");
+  unsigned char roundkeys[16*11];
+
+  initialise(roundkeys, key);
+  printchar((unsigned char*) roundkeys,16,"key");
   printchar((unsigned char*) adata,lengthA,"adata");
   printchar((unsigned char*) nonce,lengthN,"nonce");
   printchar(plain,lengthM,"plain");
   printchar(cipher,lengthM,"cipher");
-  YAES128_ENC(key,nonce,adata,plain,cipher,tag,lengthT, lengthM, lengthA, lengthN);
+  YAES128_ENC(roundkeys,nonce,adata,plain,cipher,tag,lengthT, lengthM, lengthA, lengthN);
   printf("Encrypting Done\n");
   printchar(cipher,lengthM,"cipher");
   printchar(tag,lengthT,"tag");

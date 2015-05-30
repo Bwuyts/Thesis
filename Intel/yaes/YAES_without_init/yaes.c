@@ -3,7 +3,7 @@
 //#include "aes.h"
 #include <stdio.h>
 //#include "print.h"
-void YAES128_ENC(const unsigned char* K,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
+void YAES128_ENC(unsigned char* roundkey,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
 int YAES128_DEC(const unsigned char* K,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
 inline __m128i Ad128(__m128i *A,int lengthA, __m128i* roundkeys);
 inline __m128i EF128(__m128i *N,__m128i *M, int lengthM, __m128i * C, __m128i* roundkeys);
@@ -12,13 +12,16 @@ inline __m128i padd(__m128i P, int length);
 inline __m128i x_mult(__m128i A);
 inline __m128i AES_ECB_encrypt(const __m128i in,const __m128i *key);
 void AES_128_Key_Expansion (__m128i* Key_Schedule);
-
+void initialise(unsigned char* roundkeys , const unsigned char* K){
+    
+    __m128i* RK = (__m128i*) roundkeys;
+    RK[0] = _mm_load_si128((__m128i*) K);
+    AES_128_Key_Expansion(RK);
+}
 //encryption via Yaes
-void YAES128_ENC(const unsigned char* K,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN){
+void YAES128_ENC(unsigned char* roundkey,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN){
   __m128i TA, TE;
-  __m128i roundkeys[11];
-  roundkeys[0] = _mm_load_si128((__m128i*) K);
-  AES_128_Key_Expansion(roundkeys);
+  __m128i* roundkeys = (__m128i*) roundkey;
   
   //compute TA using TA if adata is given, else 0 
   if(lengthA>0){
