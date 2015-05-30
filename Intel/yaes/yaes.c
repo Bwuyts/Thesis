@@ -3,7 +3,7 @@
 //#include "aes.h"
 #include <stdio.h>
 //#include "print.h"
-void YAES128_ENC(unsigned char* roundkeys,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
+void YAES128_ENC(unsigned char* roundkey,const unsigned char *N, const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
 int YAES128_DEC(const unsigned char* K,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN);
 inline __m128i Ad128(__m128i *A,int lengthA, __m128i* roundkeys);
 inline __m128i EF128(__m128i *N,__m128i *M, int lengthM, __m128i * C, __m128i* roundkeys);
@@ -19,9 +19,9 @@ void initialise(unsigned char* roundkeys , const unsigned char* K){
     AES_128_Key_Expansion(RK);
 }
 //encryption via Yaes
-void YAES128_ENC(unsigned char* roundkeys,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN){
+void YAES128_ENC(unsigned char* roundkey,const unsigned char *N,const unsigned char *A, unsigned char *M, unsigned char *C, unsigned char *T, int Tau, int lengthM, int lengthA, int lengthN){
   __m128i TA, TE;
-
+  __m128i* roundkeys = (__m128i*) roundkey;
   
   //compute TA using TA if adata is given, else 0 
   if(lengthA>0){
