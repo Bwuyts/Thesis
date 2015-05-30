@@ -110,7 +110,7 @@ unsigned char roundkeys[16*11];
  
 #ifdef HIRES
   uint32_t t0,t1;
-  initialise(roundkeys, K);
+  initialise(roundkeys, key);
   uint32_t tMin = 0xFFFFFFFF;         /* big number to start */
   
   uint32_t dtMin = calibrate();
