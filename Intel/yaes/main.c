@@ -63,7 +63,7 @@ int main(){
   unsigned char roundkeys[16*11];
 
   initialise(roundkeys, key);
-  printchar((unsigned char*) roundkeys[0],16,"key");
+  printchar((unsigned char*) roundkeys,16,"key");
   printchar((unsigned char*) adata,lengthA,"adata");
   printchar((unsigned char*) nonce,lengthN,"nonce");
   printchar(plain,lengthM,"plain");
